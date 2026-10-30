@@ -149,32 +149,32 @@ export default function PlatformPage() {
         </div>
       </section>
 
-      {/* SECTION 3 – AI-POWERED ONBOARDING */}
+      {/* SECTION 3 – AI-POWERED BUSINESS ONBOARDING */}
       <section id="ai-onboarding" className="py-20 lg:py-28 border-b border-kyp-teal/15 kyp-grid-pattern">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-12">
           <div className="max-w-3xl">
             <span className="text-xs font-mono text-kyp-lime uppercase tracking-widest font-semibold">
-              Section 01 &bull; Onboarding Ingestion
+              Section 01 &bull; AI-Powered Business Onboarding
             </span>
             <h2 className="text-3xl sm:text-5xl font-bold text-white mt-2 tracking-tight">
-              Onboard 10× Faster.
+              Check Documents. Reduce Manual Work. Onboard Faster.
             </h2>
             <p className="text-lg text-kyp-mint font-medium mt-2">
-              Resolve document issues before submission.
+              Onboarding built around your requirements.
             </p>
             <p className="text-sm text-gray-300 mt-3 leading-relaxed">
-              KYP uses AI to check documents as business partners complete their onboarding questionnaires, helping them resolve issues before submission and reducing the back-and-forth your team needs to manage.
+              KYP uses AI to check documents and populate questionnaires, bringing document collection, AML screening and due diligence reporting into one Know Your Business (KYB) process. Your partners upload the required documents, receive instant feedback and complete only the missing information. Clear onboarding reporting helps identify issues, reduce drop-off and accelerate approvals.
             </p>
           </div>
 
-          {/* Workflow Badges: Collect -> Check -> Resolve -> Submit */}
+          {/* Workflow Badges: Upload -> Validate -> Screen -> Report -> Audit */}
           <div className="flex flex-wrap items-center gap-3 font-mono text-xs">
-            {["Collect", "Check", "Resolve", "Submit"].map((step, idx) => (
+            {["Upload", "Validate", "Screen", "Report", "Audit"].map((step, idx) => (
               <div key={idx} className="flex items-center gap-3">
                 <span className="px-3.5 py-1.5 rounded-lg bg-kyp-navy-surface border border-kyp-teal/25 text-white font-semibold">
                   {idx + 1}. {step}
                 </span>
-                {idx < 3 && <ArrowRight className="w-3.5 h-3.5 text-kyp-lime" />}
+                {idx < 4 && <ArrowRight className="w-3.5 h-3.5 text-kyp-lime" />}
               </div>
             ))}
           </div>
@@ -241,24 +241,33 @@ export default function PlatformPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-12">
           <div className="max-w-3xl">
             <span className="text-xs font-mono text-kyp-lime uppercase tracking-widest font-semibold">
-              Section 04 &bull; Always-On Surveillance
+              Section 04 &bull; KYP Continuous Monitoring
             </span>
             <h2 className="text-3xl sm:text-5xl font-bold text-white mt-2 tracking-tight">
-              Stay Ahead of Changing Risks. Know When to Act.
+              Know When Risk Changes: Not at the Next Review.
             </h2>
-            <p className="text-sm text-gray-300 mt-3 leading-relaxed">
-              Monitor changes in your business partners&apos; risk profiles, websites, and transaction activity according to your risk management policies. Prioritise investigations with contextual intelligence.
+            <p className="text-lg text-kyp-mint font-medium mt-2">
+              Continuous compliance. Audit ready.
             </p>
+            <p className="text-sm text-gray-300 mt-3 leading-relaxed">
+              KYP continuously monitors your customers, merchants, partners and third parties for changes in risk, helping compliance teams move away from point-in-time reviews and towards always-on monitoring. Instead of waiting for an annual or periodic review, KYP automatically identifies changes across your portfolio and brings the important ones to your attention: What changed. Why it matters. Who requires review. What action was taken. The evidence behind every decision.
+            </p>
+            <div className="mt-4 flex flex-wrap gap-2 text-xs font-mono text-kyp-teal">
+              <span className="px-2.5 py-1 rounded bg-black/60 border border-kyp-teal/20">Customer level</span>
+              <span className="px-2.5 py-1 rounded bg-black/60 border border-kyp-teal/20">Merchant level</span>
+              <span className="px-2.5 py-1 rounded bg-black/60 border border-kyp-teal/20">Transaction level</span>
+              <span className="px-2.5 py-1 rounded bg-black/60 border border-kyp-teal/20">Portfolio level</span>
+            </div>
           </div>
 
-          {/* Workflow: Monitor -> Alert -> Investigate -> Act */}
+          {/* Workflow: Detect -> Assess -> Prioritise -> Investigate -> Audit */}
           <div className="flex flex-wrap items-center gap-3 font-mono text-xs">
-            {["Monitor", "Alert", "Investigate", "Act"].map((step, idx) => (
+            {["Detect", "Assess", "Prioritise", "Investigate", "Audit"].map((step, idx) => (
               <div key={idx} className="flex items-center gap-3">
                 <span className="px-3.5 py-1.5 rounded-lg bg-kyp-navy-surface border border-kyp-teal/25 text-white font-semibold">
                   {idx + 1}. {step}
                 </span>
-                {idx < 3 && <ArrowRight className="w-3.5 h-3.5 text-kyp-lime" />}
+                {idx < 4 && <ArrowRight className="w-3.5 h-3.5 text-kyp-lime" />}
               </div>
             ))}
           </div>
