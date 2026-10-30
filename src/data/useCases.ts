@@ -691,42 +691,356 @@ export const useCasesData: UseCaseDetail[] = [
 
   {
     slug: "website-compliance",
-    title: "Website Compliance",
+    title: "Website Compliance Screening & Monitoring",
     headline: "Website Compliance Screening & Monitoring",
-    subheading: "Find Disclosure Gaps. Flag Risky Content. Track Website Changes.",
-    supportingText: "KYP automates merchant website screening and ongoing monitoring to support Mastercard BRAM and Visa VIRP compliance reviews, helping your team reduce fines.",
+    subheading: "Find disclosure gaps. Flag risky content. Track website changes.",
+    supportingText: "KYP automates merchant website screening and ongoing monitoring to support Mastercard BRAM and Visa VIRP compliance reviews, helping your team identify potential issues and reduce manual website checks.",
     href: routes.websiteCompliance,
     isImplemented: false,
     category: "compliance",
     icon: "Globe",
-    shortDescription: "WebCompli crawler detects prohibited products, missing T&Cs, regulatory warnings, and undisclosed merchant content changes.",
-    problem: { title: "", description: "", points: [] },
-    solution: { title: "", description: "", points: [] },
-    workflow: [],
-    features: [],
-    benefits: [],
-    cta: { headline: "Protect Against Scheme Fines", buttonText: "Book a Demo" },
-    interfaceMockup: { type: "monitoring", title: "WebCompli Scanner", subtitle: "BRAM & VIRP automated analysis" },
+    shortDescription: "Assess merchant websites for legal entity details, missing disclosures, prohibited content, and track changes over time.",
+    problem: {
+      title: "Manual Website Checks & Hidden Merchant Content Risk",
+      description: "Checking merchant websites by hand is time-consuming, prone to human error, and fails to catch unauthorized content mutations after onboarding.",
+      points: [
+        {
+          title: "Labor-Intensive Manual Audits",
+          desc: "Compliance analysts spend countless hours manually browsing merchant web pages to check terms, policies, and contact information.",
+        },
+        {
+          title: "Undisclosed Content Mutations",
+          desc: "Merchants frequently alter product offerings or add prohibited items post-approval, breaching card scheme rules.",
+        },
+        {
+          title: "Card Scheme Fines (BRAM & VIRP)",
+          desc: "Failure to spot prohibited brand abuse or illegal goods leads to severe fines from Mastercard BRAM and Visa VIRP.",
+        },
+        {
+          title: "Missing Mandatory Disclosures",
+          desc: "Unlisted refund policies, incomplete registered addresses, or absent customer service details violate consumer regulations.",
+        },
+      ],
+    },
+    solution: {
+      title: "Understand Each Website's Compliance Risks",
+      description: "KYP automates merchant website screening and ongoing monitoring to support Mastercard BRAM and Visa VIRP compliance reviews, helping your team identify potential issues and reduce manual website checks.",
+      points: [
+        {
+          title: "Legal Entity & Contact Extraction",
+          desc: "Legal entity details, addresses, and customer service contacts extracted automatically from accessible pages.",
+        },
+        {
+          title: "Missing Disclosure & Policy Checks",
+          desc: "Automated checks for missing or incomplete terms, refund policies, and key regulatory disclosures.",
+        },
+        {
+          title: "Risk Indicators & Prohibited Content",
+          desc: "Detect risk indicators across website content, products, services, and transaction laundering flags.",
+        },
+        {
+          title: "Structured Assessments & Evidence",
+          desc: "Structured assessments with findings, risk ratings, and supporting evidence to request corrective action.",
+        },
+      ],
+    },
+    workflow: [
+      {
+        step: "01",
+        title: "Screen",
+        description: "Add merchant websites and automatically crawl accessible pages for corporate and commercial disclosures.",
+        highlight: "Automated crawling",
+        uiDetail: {
+          label: "Merchant Domain",
+          value: "checkout-merchant-gateway.com crawled",
+          status: "info",
+        },
+      },
+      {
+        step: "02",
+        title: "Identify",
+        description: "Extract entity details, registered addresses, contact points, and identify missing or incomplete key policies.",
+        highlight: "Disclosure extraction",
+        uiDetail: {
+          label: "Policy Audit",
+          value: "Terms of Service & Refund Policy Verified",
+          status: "success",
+        },
+      },
+      {
+        step: "03",
+        title: "Assess",
+        description: "Evaluate website content, products, and services against card scheme rules and prohibited catalogs.",
+        highlight: "Scheme risk rating",
+        uiDetail: {
+          label: "Scheme Compliance",
+          value: "0 Prohibited Goods Detected (BRAM/VIRP Clear)",
+          status: "success",
+        },
+      },
+      {
+        step: "04",
+        title: "Monitor",
+        description: "Track website changes over time with configurable monitoring frequencies matched directly to your risk policy.",
+        highlight: "Change detection",
+        uiDetail: {
+          label: "Change Sentinel",
+          value: "No Unauthorized Content Mutations",
+          status: "success",
+        },
+      },
+      {
+        step: "05",
+        title: "Audit",
+        description: "Generate structured assessments with findings and timestamped evidence to support compliance decisions.",
+        highlight: "Defensible evidence trail",
+        uiDetail: {
+          label: "Audit Dossier",
+          value: "Structured Assessment Ready for Export",
+          status: "success",
+        },
+      },
+    ],
+    features: [
+      {
+        title: "Legal Entity & Contact Extraction",
+        description: "Extract legal entity details, addresses, and customer service contacts automatically from accessible pages.",
+        icon: "Building2",
+      },
+      {
+        title: "Mandatory Disclosure Checks",
+        description: "Identify missing or incomplete terms, refund policies, and regulatory disclosures.",
+        icon: "FileText",
+      },
+      {
+        title: "Mastercard BRAM & Visa VIRP Checks",
+        description: "Identify brand abuse, illegal goods, and potential card scheme rule violations before penalties hit.",
+        icon: "ShieldAlert",
+      },
+      {
+        title: "Website Content Mutation Tracking",
+        description: "Track merchant content and product changes over time according to your internal policy cadence.",
+        icon: "RefreshCw",
+      },
+      {
+        title: "Structured Findings & Risk Ratings",
+        description: "Receive prioritized assessments with granular risk scoring to focus manual reviews where needed.",
+        icon: "SlidersHorizontal",
+      },
+      {
+        title: "Supporting Evidence for Remediation",
+        description: "Capture timestamped page evidence to investigate issues and request corrective merchant action.",
+        icon: "FileCheck",
+      },
+    ],
+    benefits: [
+      {
+        title: "Find Disclosure Gaps",
+        description: "Automate verification of mandatory disclosures, policies, and registered contact information.",
+        metric: "Automated Checks",
+      },
+      {
+        title: "Prioritise Reviews",
+        description: "Focus manual reviews on merchant websites and findings that require immediate attention.",
+        metric: "-80% Manual Reviews",
+      },
+      {
+        title: "Support Decisions with Evidence",
+        description: "Back every remediation request, warning, or merchant offboarding with clear supporting evidence.",
+        metric: "100% Defensible",
+      },
+      {
+        title: "Prevent Card Scheme Fines",
+        description: "Stay ahead of Mastercard BRAM and Visa VIRP compliance requirements across your entire portfolio.",
+        metric: "Zero Scheme Penalties",
+      },
+    ],
+    cta: {
+      headline: "Find disclosure gaps. Prioritise reviews. Support compliance decisions with evidence.",
+      buttonText: "Schedule a Website Compliance Demo",
+    },
+    interfaceMockup: {
+      type: "monitoring",
+      title: "KYP WebCompli™ Website Compliance Sentinel",
+      subtitle: "BRAM & VIRP automated scanning with change tracking",
+    },
   },
 
   {
     slug: "transaction-monitoring",
     title: "Transaction Monitoring",
-    headline: "Transaction Monitoring & Anomaly Detection",
-    subheading: "Spot Suspicious Activity. Investigate Faster. Report with Confidence.",
-    supportingText: "KYP brings your customer and transaction data together in one platform, helping payment providers identify anomalies as they happen.",
+    headline: "Transaction Monitoring",
+    subheading: "Spot suspicious activity. Investigate faster. Report with confidence.",
+    supportingText: "KYP brings your customer and transaction data together in one platform, helping payment providers, banks, fintechs and FX businesses identify suspicious activity as it happens and manage fraud and AML risk with full context.",
     href: routes.transactionMonitoring,
     isImplemented: false,
     category: "monitoring",
     icon: "Activity",
-    shortDescription: "Integrated transaction pattern anomaly detection, velocity spikes, and payment behaviour tracking where transaction feeds connect.",
-    problem: { title: "", description: "", points: [] },
-    solution: { title: "", description: "", points: [] },
-    workflow: [],
-    features: [],
-    benefits: [],
-    cta: { headline: "Detect Suspicious Patterns in Real Time", buttonText: "Book a Demo" },
-    interfaceMockup: { type: "monitoring", title: "Transaction Feed Surveillance", subtitle: "Real-time payment stream analysis" },
+    shortDescription: "Real-time detection across SEPA, SWIFT, cards and wallets with built-in case management and SAR/STR reporting.",
+    problem: {
+      title: "Fragmented Transaction Surveillance & Siloed AML Risk",
+      description: "When transaction surveillance operates separately from customer due diligence, teams suffer from blind spots, high false alarms, and slow investigations.",
+      points: [
+        {
+          title: "Disconnected Telemetry",
+          desc: "Transaction logs lack customer due diligence context, ownership shifts, and sanctions status, obscuring real risk.",
+        },
+        {
+          title: "Slow, Disjointed Investigations",
+          desc: "Compliance analysts waste hours pulling customer files and transaction histories across separate tools before making decisions.",
+        },
+        {
+          title: "High False Positives",
+          desc: "Rigid legacy transaction rules trigger excessive false alarms that waste team time and miss subtle laundering typologies.",
+        },
+        {
+          title: "Cumbersome Regulatory Reporting",
+          desc: "Compiling suspicious activity reports (SARs/STRs) by hand creates backlogs and exposes institutions to regulatory enforcement.",
+        },
+      ],
+    },
+    solution: {
+      title: "Monitoring Built Around Your Risks",
+      description: "KYP brings your customer and transaction data together in one platform, helping payment providers, banks, fintechs and FX businesses identify suspicious activity as it happens and manage fraud and AML risk with full context.",
+      points: [
+        {
+          title: "Multi-Rail Real-Time Monitoring",
+          desc: "Real-time monitoring across SEPA, SWIFT, cards and electronic wallets.",
+        },
+        {
+          title: "Configurable Rules & Machine Learning",
+          desc: "Identify suspicious patterns with rule building, testing and simulation without developer support.",
+        },
+        {
+          title: "Dynamic Customer Risk Assessments",
+          desc: "Customer risk assessments that update throughout the customer lifecycle combined with sanctions screening.",
+        },
+        {
+          title: "AI-Powered Data Review & Correction",
+          desc: "AI-powered data review and machine learning models for transaction data correction and anomaly triage.",
+        },
+      ],
+    },
+    workflow: [
+      {
+        step: "01",
+        title: "Connect",
+        description: "Connect customer and transaction feeds in real time across SEPA, SWIFT, card payments, and wallets.",
+        highlight: "Multi-rail real-time ingestion",
+        uiDetail: {
+          label: "Transaction Rails",
+          value: "SEPA, SWIFT, Cards & Wallets Connected",
+          status: "success",
+        },
+      },
+      {
+        step: "02",
+        title: "Monitor",
+        description: "Transactions are checked in real time with configurable rules, ML models, and sanctions screening.",
+        highlight: "Real-time detection",
+        uiDetail: {
+          label: "Live Surveillance",
+          value: "<100ms Stream Processing Active",
+          status: "success",
+        },
+      },
+      {
+        step: "03",
+        title: "Investigate",
+        description: "Alerts flow into built-in case management where teams review full customer and transaction context.",
+        highlight: "Unified case management",
+        uiDetail: {
+          label: "Investigation Workspace",
+          value: "Customer Profile + Txn History Linked",
+          status: "info",
+        },
+      },
+      {
+        step: "04",
+        title: "Report",
+        description: "Generate suspicious activity reports (SARs/STRs) and regulatory filings in seconds with full evidence.",
+        highlight: "One-click SAR/STR reporting",
+        uiDetail: {
+          label: "Regulatory Filing",
+          value: "SAR Dossier Export Ready",
+          status: "warning",
+        },
+      },
+      {
+        step: "05",
+        title: "Audit",
+        description: "Maintain a complete audit trail of checks, alerts, and decisions to support regulatory reporting and reviews.",
+        highlight: "Immutable evidence trail",
+        uiDetail: {
+          label: "Audit Ledger",
+          value: "Defensible Case Record Sealed",
+          status: "success",
+        },
+      },
+    ],
+    features: [
+      {
+        title: "Real-Time Multi-Rail Monitoring",
+        description: "Real-time monitoring across SEPA, SWIFT, cards and digital wallets.",
+        icon: "Zap",
+      },
+      {
+        title: "No-Code Rule Building & Simulation",
+        description: "Rule building, testing and simulation without requiring developer or engineering support.",
+        icon: "SlidersHorizontal",
+      },
+      {
+        title: "Machine Learning Pattern Detection",
+        description: "Identify complex laundering typologies, velocity spikes, and structured transaction patterns.",
+        icon: "Cpu",
+      },
+      {
+        title: "Lifecycle Customer Risk Assessments",
+        description: "Customer risk assessments that update automatically throughout the customer lifecycle.",
+        icon: "Activity",
+      },
+      {
+        title: "Sanctions & Watchlist Screening",
+        description: "Integrated real-time screening against global PEP, sanctions, and adverse media watchlists.",
+        icon: "ShieldCheck",
+      },
+      {
+        title: "Built-In SAR / STR Case Management",
+        description: "Generate suspicious activity reports (SARs/STRs) with full evidence and audit trails.",
+        icon: "FileText",
+      },
+    ],
+    benefits: [
+      {
+        title: "Real-Time Detection",
+        description: "Spot suspicious activity as it happens across multiple payment rails before settlement.",
+        metric: "<100ms Detection",
+      },
+      {
+        title: "Faster Investigations",
+        description: "Review customer due diligence and transaction history in one view to expedite decisions.",
+        metric: "4× Faster Triage",
+      },
+      {
+        title: "One View of Fraud & AML Risk",
+        description: "Unite fraud telemetry with AML compliance controls into a single operating platform.",
+        metric: "Unified Risk View",
+      },
+      {
+        title: "Defensible Audit Trails",
+        description: "Maintain a complete audit trail to support regulatory reporting, internal governance, and audits.",
+        metric: "100% Audit-Ready",
+      },
+    ],
+    cta: {
+      headline: "Real-time detection. Faster investigations. One view of fraud and AML risk.",
+      buttonText: "Schedule a Transaction Monitoring Demo",
+    },
+    interfaceMockup: {
+      type: "aml",
+      title: "KYP Real-Time Transaction Surveillance & Case Manager",
+      subtitle: "Multi-rail payment feed with automated SAR/STR dossier generation",
+    },
   },
 
   {
