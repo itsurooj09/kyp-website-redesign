@@ -9,6 +9,7 @@ import OnboardingInterface from "@/components/product/OnboardingInterface";
 import DashboardMockup from "@/components/product/DashboardMockup";
 import GraphIntelligence from "@/components/product/GraphIntelligence";
 import AuditInterface from "@/components/product/AuditInterface";
+import KYPLottie from "@/components/lottie/KYPLottie";
 
 // Helper for dynamic icons
 const renderFeatureIcon = (name: string) => {
@@ -42,7 +43,9 @@ export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail })
         
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 text-center">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-kyp-lime/10 border border-kyp-lime/30 text-xs font-mono text-kyp-lime mb-6 font-semibold">
-            <Sparkles className="w-3.5 h-3.5" />
+            <span className="w-4 h-4 inline-flex items-center justify-center">
+              <KYPLottie type="heroRadar" className="w-4 h-4" />
+            </span>
             USE CASE • {useCase.category.toUpperCase()}
           </div>
 
@@ -295,6 +298,9 @@ export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail })
       {/* SECTION 8 – FINAL CTA */}
       <section className="py-20 lg:py-24 bg-gradient-to-b from-kyp-navy-surface to-black text-center relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 relative z-10 space-y-6">
+          <div className="w-14 h-14 mx-auto">
+            <KYPLottie type="auditSeal" className="w-full h-full" />
+          </div>
           <h2 className="text-3xl sm:text-5xl font-bold text-white tracking-tight">
             {useCase.cta.headline}
           </h2>

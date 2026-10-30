@@ -10,6 +10,7 @@ import PlatformFlow from "@/components/product/PlatformFlow";
 import DashboardMockup from "@/components/product/DashboardMockup";
 import OnboardingInterface from "@/components/product/OnboardingInterface";
 import AuditInterface from "@/components/product/AuditInterface";
+import KYPLottie from "@/components/lottie/KYPLottie";
 
 export const metadata: Metadata = {
   title: "The KYP Platform | From Onboarding to Audit",
@@ -145,9 +146,14 @@ export default function PlatformPage() {
       <section id="ai-onboarding" className="py-20 lg:py-28 border-b border-kyp-teal/15 kyp-grid-pattern">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-12">
           <div className="max-w-3xl">
-            <span className="text-xs font-mono text-kyp-lime uppercase tracking-widest font-semibold">
-              Section 01 &bull; AI-Powered Onboarding
-            </span>
+            <div className="flex items-center gap-3">
+              <span className="text-xs font-mono text-kyp-lime uppercase tracking-widest font-semibold">
+                Section 01 &bull; AI-Powered Onboarding
+              </span>
+              <div className="w-6 h-6">
+                <KYPLottie type="docScanner" className="w-full h-full" />
+              </div>
+            </div>
             <h2 className="text-3xl sm:text-5xl font-bold text-white mt-2 tracking-tight">
               Onboard 10× Faster. Resolve Document Issues Before Submission.
             </h2>
@@ -289,9 +295,14 @@ export default function PlatformPage() {
       <section id="monitoring-alerts" className="py-20 lg:py-28 bg-kyp-charcoal/40 border-b border-kyp-teal/15">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-12">
           <div className="max-w-3xl">
-            <span className="text-xs font-mono text-kyp-lime uppercase tracking-widest font-semibold">
-              Section 04 &bull; Continuous Monitoring &amp; Alerts
-            </span>
+            <div className="flex items-center gap-3">
+              <span className="text-xs font-mono text-kyp-lime uppercase tracking-widest font-semibold">
+                Section 04 &bull; Continuous Monitoring &amp; Alerts
+              </span>
+              <div className="w-6 h-6">
+                <KYPLottie type="continuousPulse" className="w-full h-full" />
+              </div>
+            </div>
             <h2 className="text-3xl sm:text-5xl font-bold text-white mt-2 tracking-tight">
               Stay Ahead of Changing Risks. Know When to Act.
             </h2>
@@ -346,9 +357,14 @@ export default function PlatformPage() {
       <section id="evidence-decisions" className="py-20 lg:py-28 border-b border-kyp-teal/15 kyp-grid-pattern">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-12">
           <div className="max-w-3xl">
-            <span className="text-xs font-mono text-kyp-teal uppercase tracking-widest font-semibold">
-              Section 05 &bull; Investigations &amp; Audit Reporting
-            </span>
+            <div className="flex items-center gap-3">
+              <span className="text-xs font-mono text-kyp-teal uppercase tracking-widest font-semibold">
+                Section 05 &bull; Investigations &amp; Audit Reporting
+              </span>
+              <div className="w-6 h-6">
+                <KYPLottie type="auditSeal" className="w-full h-full" />
+              </div>
+            </div>
             <h2 className="text-3xl sm:text-5xl font-bold text-white mt-2 tracking-tight">
               See the Evidence. Trace Your Decisions. Be Audit-Ready.
             </h2>

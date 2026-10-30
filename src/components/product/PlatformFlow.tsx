@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import {
   UserCheck,
   ShieldCheck,
@@ -12,7 +12,6 @@ import {
   Zap,
   Globe,
   SlidersHorizontal,
-  Layers,
   Play,
   Pause,
   RotateCcw,
@@ -20,7 +19,8 @@ import {
   TrendingUp,
   AlertTriangle,
   Building2,
-  FileSearch,
+  Database,
+  Check,
 } from "lucide-react";
 
 interface FlowStage {
@@ -33,6 +33,11 @@ interface FlowStage {
   tagline: string;
   icon: React.ReactNode;
   dataPoints: string[];
+  telemetry: {
+    latency: string;
+    throughput: string;
+    accuracy: string;
+  };
 }
 
 const FLOW_STAGES: FlowStage[] = [
@@ -42,10 +47,11 @@ const FLOW_STAGES: FlowStage[] = [
     title: "Onboard",
     action: "AI Intake & Document Extraction",
     clientHeading: "Reduce Manual Due Diligence",
-    clientDescription: "Questionnaires tailored to policy with instant AI validation before submission. Discrepancies flagged between documents, questionnaires, and registry records.",
+    clientDescription: "Questionnaires tailored to policy with instant AI validation before submission. Discrepancies flagged between documents, questionnaires, and registry records in real time.",
     tagline: "Help partners get it right before submission. Reduce follow-ups. Accelerate onboarding.",
     icon: <UserCheck className="w-4 h-4 text-kyp-lime" />,
     dataPoints: ["Smart Questionnaires", "OCR Certificate Extraction", "Discrepancy Resolver", "Pre-Screening"],
+    telemetry: { latency: "<120ms", throughput: "1,200 docs/hr", accuracy: "99.4%" },
   },
   {
     id: "verify",
@@ -57,6 +63,7 @@ const FLOW_STAGES: FlowStage[] = [
     tagline: "Understand relationships. Uncover hidden exposure. Verify corporate entities in sub-seconds.",
     icon: <ShieldCheck className="w-4 h-4 text-kyp-teal" />,
     dataPoints: ["180+ Company Registries", "Global Sanctions & PEP", "UBO Graph Resolution", "Adverse Media Scanning"],
+    telemetry: { latency: "<250ms", throughput: "180 Registries", accuracy: "100% Traceable" },
   },
   {
     id: "monitor",
@@ -68,6 +75,7 @@ const FLOW_STAGES: FlowStage[] = [
     tagline: "Move from point-in-time reviews to 24/7 always-on monitoring. Know when risk changes.",
     icon: <Activity className="w-4 h-4 text-kyp-mint" />,
     dataPoints: ["Volumetric Monitoring", "Webcompli™ Crawler", "Merchant Behavioural Shifts", "Regulatory Blacklist Radar"],
+    telemetry: { latency: "Real-time", throughput: "24/7/365 Stream", accuracy: "Zero BRAM Fines" },
   },
   {
     id: "investigate",
@@ -79,6 +87,7 @@ const FLOW_STAGES: FlowStage[] = [
     tagline: "What changed. Why it matters. Who requires review. Full contextual intelligence in one view.",
     icon: <Search className="w-4 h-4 text-kyp-lime" />,
     dataPoints: ["Visual Risk Contagion", "Case Management Workspace", "Policy Rule Engine", "Decision Notes"],
+    telemetry: { latency: "<15 Mins", throughput: "Unified Workspace", accuracy: "100% Context" },
   },
   {
     id: "report",
@@ -90,295 +99,90 @@ const FLOW_STAGES: FlowStage[] = [
     tagline: "Turn weeks of audit preparation into seconds. 100% defensible evidence trails.",
     icon: <FileCheck2 className="w-4 h-4 text-kyp-teal" />,
     dataPoints: ["One-Click Audit Dossiers", "SAR / STR Reporting", "Cryptographic Signatures", "Sponsor Bank Exports"],
+    telemetry: { latency: "60 Seconds", throughput: "PDF + JSON Packages", accuracy: "FCA Defensible" },
   },
 ];
 
-// Graph Nodes for the Animated Canvas
-interface Particle {
-  stageIdx: number;
-  t: number; // 0 to 1 along the path
-  speed: number;
-  color: string;
-  size: number;
-}
-
-interface CanvasNode {
+interface FlowNode {
   id: string;
-  label: string;
+  name: string;
   sub: string;
-  category: "input" | "core" | "output";
   stage: number;
-  baseX: number;
-  baseY: number;
   x: number;
   y: number;
-  radius: number;
+  r: number;
   color: string;
-  risk: "compliant" | "review" | "alert" | "info";
-  clientHeading?: string;
+  clientHeading: string;
 }
 
+const FLOW_NODES: FlowNode[] = [
+  // Stage 0: Onboarding Intake
+  { id: "fn-1", name: "Intake Questionnaires", sub: "Policy-tailored forms", stage: 0, x: 100, y: 150, r: 24, color: "#66cc00", clientHeading: "Reduce Manual Due Diligence" },
+  { id: "fn-2", name: "AI Document Validation", sub: "OCR & registry cross-check", stage: 0, x: 100, y: 360, r: 24, color: "#66cc00", clientHeading: "Reduce Manual Due Diligence" },
+
+  // Stage 1: Verification & Structuring
+  { id: "fn-3", name: "180+ Global Registries", sub: "Corporate filings & status", stage: 1, x: 300, y: 130, r: 26, color: "#6fd3c4", clientHeading: "Corporate Structure Changes" },
+  { id: "fn-4", name: "Beneficial Ownership", sub: "UBO unbundling graph", stage: 1, x: 300, y: 380, r: 26, color: "#c6f5ef", clientHeading: "Corporate Structure Changes" },
+
+  // Stage 2: Central Surveillance Core (Client's Key Headings)
+  { id: "fn-5", name: "Volumetric Monitoring", sub: "Velocity spikes & anomaly", stage: 2, x: 500, y: 120, r: 32, color: "#66cc00", clientHeading: "Volumetric Monitoring" },
+  { id: "fn-6", name: "Webcompli™ Scanner", sub: "Mastercard BRAM & Visa VIRP", stage: 2, x: 500, y: 260, r: 34, color: "#6fd3c4", clientHeading: "Webcompli" },
+  { id: "fn-7", name: "Merchant Behavioural Shifts", sub: "Product mutations & drift", stage: 2, x: 500, y: 400, r: 30, color: "#c6f5ef", clientHeading: "Merchant Behavioural Shifts" },
+
+  // Stage 3: Investigation Workspace
+  { id: "fn-8", name: "Graph Intelligence", sub: "Entity contagion analysis", stage: 3, x: 700, y: 170, r: 28, color: "#6fd3c4", clientHeading: "Customisable & Scalable" },
+  { id: "fn-9", name: "Case Management", sub: "Evidence aggregation", stage: 3, x: 700, y: 350, r: 26, color: "#66cc00", clientHeading: "Customisable & Scalable" },
+
+  // Stage 4: Reporting & Audit
+  { id: "fn-10", name: "Audit-Ready in 60s", sub: "Regulator dossier export", stage: 4, x: 900, y: 200, r: 30, color: "#66cc00", clientHeading: "Regulatory Compliance Made Easy" },
+  { id: "fn-11", name: "SAR / STR Reporting", sub: "Regulatory disclosures", stage: 4, x: 900, y: 360, r: 24, color: "#6fd3c4", clientHeading: "Regulatory Compliance Made Easy" },
+];
+
+const FLOW_LINKS = [
+  { s: "fn-1", t: "fn-3" },
+  { s: "fn-2", t: "fn-4" },
+  { s: "fn-3", t: "fn-5" },
+  { s: "fn-3", t: "fn-6" },
+  { s: "fn-4", t: "fn-6" },
+  { s: "fn-4", t: "fn-7" },
+  { s: "fn-5", t: "fn-8" },
+  { s: "fn-6", t: "fn-8" },
+  { s: "fn-6", t: "fn-9" },
+  { s: "fn-7", t: "fn-9" },
+  { s: "fn-8", t: "fn-10" },
+  { s: "fn-9", t: "fn-10" },
+  { s: "fn-9", t: "fn-11" },
+];
+
 export default function PlatformFlow() {
-  const [activeStage, setActiveStage] = useState<number>(2); // Default to Monitor (Volumetric/Webcompli)
-  const [isPlaying, setIsPlaying] = useState<boolean>(true);
-  const [selectedNode, setSelectedNode] = useState<string | null>("node-webcompli");
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const animationFrameId = useRef<number | null>(null);
+  const [activeStage, setActiveStage] = useState<number>(2); // Default to Stage 03 Monitor (Volumetric/Webcompli)
+  const [isAutoPlaying, setIsAutoPlaying] = useState<boolean>(true);
+  const [selectedNode, setSelectedNode] = useState<FlowNode>(FLOW_NODES[5]); // Default Webcompli
 
-  // Define graph nodes corresponding to the client's headings & Itemize architecture
-  const nodesRef = useRef<CanvasNode[]>([
-    // Stage 0: Ingest
-    { id: "node-questionnaires", label: "Onboarding Intake", sub: "Policy-tailored forms", category: "input", stage: 0, baseX: 0.12, baseY: 0.28, x: 0, y: 0, radius: 24, color: "#66cc00", risk: "compliant", clientHeading: "Reduce Manual Due Diligence" },
-    { id: "node-ocr", label: "AI Document Validation", sub: "OCR & registry cross-check", category: "input", stage: 0, baseX: 0.12, baseY: 0.68, x: 0, y: 0, radius: 24, color: "#66cc00", risk: "compliant", clientHeading: "Reduce Manual Due Diligence" },
-
-    // Stage 1: Verify & Structure
-    { id: "node-registries", label: "Corporate Structure", sub: "180+ global registries", category: "core", stage: 1, baseX: 0.32, baseY: 0.22, x: 0, y: 0, radius: 28, color: "#6fd3c4", risk: "review", clientHeading: "Corporate Structure Changes" },
-    { id: "node-ubo", label: "Beneficial Ownership", sub: "UBO unbundling graph", category: "core", stage: 1, baseX: 0.32, baseY: 0.72, x: 0, y: 0, radius: 26, color: "#c6f5ef", risk: "alert", clientHeading: "Corporate Structure Changes" },
-
-    // Stage 2: Central Moving Core (Client Key Headings)
-    { id: "node-volumetric", label: "Volumetric Monitoring", sub: "Payment velocity & spikes", category: "core", stage: 2, baseX: 0.52, baseY: 0.24, x: 0, y: 0, radius: 32, color: "#66cc00", risk: "alert", clientHeading: "Volumetric Monitoring" },
-    { id: "node-webcompli", label: "Webcompli™ Scanner", sub: "Mastercard BRAM & Visa VIRP", category: "core", stage: 2, baseX: 0.52, baseY: 0.50, x: 0, y: 0, radius: 34, color: "#6fd3c4", risk: "alert", clientHeading: "Webcompli" },
-    { id: "node-behavioural", label: "Merchant Shifts", sub: "Product mutations & drift", category: "core", stage: 2, baseX: 0.52, baseY: 0.76, x: 0, y: 0, radius: 30, color: "#c6f5ef", risk: "review", clientHeading: "Merchant Behavioural Shifts" },
-
-    // Stage 3: Investigate
-    { id: "node-contagion", label: "Graph Intelligence", sub: "Cross-entity risk contagion", category: "core", stage: 3, baseX: 0.72, baseY: 0.32, x: 0, y: 0, radius: 30, color: "#6fd3c4", risk: "review", clientHeading: "Customisable & Scalable" },
-    { id: "node-triage", label: "Case Investigation", sub: "Unified evidence workspace", category: "core", stage: 3, baseX: 0.72, baseY: 0.68, x: 0, y: 0, radius: 26, color: "#66cc00", risk: "compliant", clientHeading: "Customisable & Scalable" },
-
-    // Stage 4: Report / Audit
-    { id: "node-audit", label: "Audit-Ready in 1 Min", sub: "Regulator dossier export", category: "output", stage: 4, baseX: 0.88, baseY: 0.35, x: 0, y: 0, radius: 28, color: "#66cc00", risk: "compliant", clientHeading: "Regulatory Compliance Made Easy" },
-    { id: "node-sar", label: "SAR / STR Reporting", sub: "Automated regulatory filing", category: "output", stage: 4, baseX: 0.88, baseY: 0.65, x: 0, y: 0, radius: 24, color: "#6fd3c4", risk: "compliant", clientHeading: "Regulatory Compliance Made Easy" },
-  ]);
-
-  // Edges connecting nodes
-  const edges = [
-    { from: "node-questionnaires", to: "node-registries" },
-    { from: "node-ocr", to: "node-ubo" },
-    { from: "node-registries", to: "node-volumetric" },
-    { from: "node-registries", to: "node-webcompli" },
-    { from: "node-ubo", to: "node-webcompli" },
-    { from: "node-ubo", to: "node-behavioural" },
-    { from: "node-volumetric", to: "node-contagion" },
-    { from: "node-webcompli", to: "node-contagion" },
-    { from: "node-webcompli", to: "node-triage" },
-    { from: "node-behavioural", to: "node-triage" },
-    { from: "node-contagion", to: "node-audit" },
-    { from: "node-triage", to: "node-audit" },
-    { from: "node-triage", to: "node-sar" },
-  ];
-
-  // Particles moving along edges
-  const particlesRef = useRef<Particle[]>(
-    edges.map((e, idx) => ({
-      stageIdx: idx % 5,
-      t: (idx * 0.17) % 1,
-      speed: 0.004 + (idx % 3) * 0.002,
-      color: idx % 2 === 0 ? "#66cc00" : "#6fd3c4",
-      size: 3 + (idx % 3),
-    }))
-  );
-
-  // Auto-play through stages if enabled
+  // Automatic cycle through stages
   useEffect(() => {
-    if (!isPlaying) return;
-    const interval = setInterval(() => {
-      setActiveStage((prev) => (prev + 1) % FLOW_STAGES.length);
+    if (!isAutoPlaying) return;
+    const timer = setInterval(() => {
+      setActiveStage((prev) => {
+        const next = (prev + 1) % FLOW_STAGES.length;
+        const matchingNode = FLOW_NODES.find((n) => n.stage === next);
+        if (matchingNode) setSelectedNode(matchingNode);
+        return next;
+      });
     }, 4500);
-    return () => clearInterval(interval);
-  }, [isPlaying]);
-
-  // Canvas render animation loop (moving graph)
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    let width = (canvas.width = canvas.parentElement?.clientWidth || 900);
-    let height = (canvas.height = Math.max(480, Math.min(560, width * 0.52)));
-
-    const handleResize = () => {
-      if (!canvas || !canvas.parentElement) return;
-      width = canvas.width = canvas.parentElement.clientWidth;
-      height = canvas.height = Math.max(480, Math.min(560, width * 0.52));
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    let time = 0;
-
-    const render = () => {
-      time += 0.02;
-
-      ctx.clearRect(0, 0, width, height);
-
-      // Background subtle grid
-      ctx.strokeStyle = "rgba(111, 211, 196, 0.04)";
-      ctx.lineWidth = 1;
-      const gridSize = 40;
-      for (let x = 0; x < width; x += gridSize) {
-        ctx.beginPath();
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x, height);
-        ctx.stroke();
-      }
-      for (let y = 0; y < height; y += gridSize) {
-        ctx.beginPath();
-        ctx.moveTo(0, y);
-        ctx.lineTo(width, y);
-        ctx.stroke();
-      }
-
-      // Update positions with subtle floating harmonic motion (Itemize style)
-      const nodes = nodesRef.current;
-      nodes.forEach((node, i) => {
-        const floatOffset = Math.sin(time + i * 1.3) * 6;
-        const floatOffsetX = Math.cos(time * 0.8 + i * 0.9) * 4;
-        node.x = node.baseX * width + floatOffsetX;
-        node.y = node.baseY * height + floatOffset;
-      });
-
-      // Draw Edges with curved Bezier connections
-      edges.forEach((edge) => {
-        const source = nodes.find((n) => n.id === edge.from);
-        const target = nodes.find((n) => n.id === edge.to);
-        if (!source || !target) return;
-
-        const isStageActive =
-          source.stage === activeStage || target.stage === activeStage;
-
-        ctx.beginPath();
-        ctx.moveTo(source.x, source.y);
-
-        const midX = (source.x + target.x) / 2;
-        const cpY = (source.y + target.y) / 2 + Math.sin(time + source.stage) * 12;
-        ctx.quadraticCurveTo(midX, cpY, target.x, target.y);
-
-        ctx.strokeStyle = isStageActive
-          ? "rgba(102, 204, 0, 0.55)"
-          : "rgba(111, 211, 196, 0.18)";
-        ctx.lineWidth = isStageActive ? 2 : 1.2;
-        ctx.stroke();
-      });
-
-      // Draw Flowing Particles along edges
-      const particles = particlesRef.current;
-      particles.forEach((p, idx) => {
-        const edge = edges[idx % edges.length];
-        const source = nodes.find((n) => n.id === edge.from);
-        const target = nodes.find((n) => n.id === edge.to);
-        if (!source || !target) return;
-
-        p.t += p.speed;
-        if (p.t > 1) p.t = 0;
-
-        const midX = (source.x + target.x) / 2;
-        const cpY = (source.y + target.y) / 2 + Math.sin(time + source.stage) * 12;
-
-        // Quadratic Bezier interpolation: B(t) = (1-t)^2*P0 + 2(1-t)t*P1 + t^2*P2
-        const t = p.t;
-        const px =
-          (1 - t) * (1 - t) * source.x + 2 * (1 - t) * t * midX + t * t * target.x;
-        const py =
-          (1 - t) * (1 - t) * source.y + 2 * (1 - t) * t * cpY + t * t * target.y;
-
-        // Particle Glow
-        ctx.save();
-        ctx.shadowColor = p.color;
-        ctx.shadowBlur = 8;
-        ctx.fillStyle = p.color;
-        ctx.beginPath();
-        ctx.arc(px, py, p.size, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.restore();
-      });
-
-      // Draw Nodes
-      nodes.forEach((node) => {
-        const isCurrentStage = node.stage === activeStage;
-        const isSelected = selectedNode === node.id;
-
-        // Ambient Outer Glow for active/selected node
-        if (isCurrentStage || isSelected) {
-          ctx.save();
-          ctx.beginPath();
-          ctx.arc(node.x, node.y, node.radius + 10, 0, Math.PI * 2);
-          ctx.fillStyle = isSelected
-            ? "rgba(102, 204, 0, 0.22)"
-            : "rgba(111, 211, 196, 0.15)";
-          ctx.fill();
-          ctx.restore();
-        }
-
-        // Main Node Body (Dark Navy / Black)
-        ctx.save();
-        ctx.beginPath();
-        ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
-        ctx.fillStyle = "#033653";
-        ctx.fill();
-
-        // Node Border
-        ctx.strokeStyle = isSelected
-          ? "#66cc00"
-          : isCurrentStage
-          ? "#6fd3c4"
-          : "rgba(111, 211, 196, 0.35)";
-        ctx.lineWidth = isSelected || isCurrentStage ? 2.5 : 1.5;
-        ctx.stroke();
-        ctx.restore();
-
-        // Center Pulsing Core
-        ctx.beginPath();
-        ctx.arc(node.x, node.y, 4, 0, Math.PI * 2);
-        ctx.fillStyle = node.color;
-        ctx.fill();
-
-        // Labels
-        ctx.font = "bold 11px Inter, sans-serif";
-        ctx.fillStyle = isCurrentStage || isSelected ? "#ffffff" : "#c6f5ef";
-        ctx.textAlign = "center";
-        ctx.fillText(node.label, node.x, node.y + node.radius + 15);
-
-        ctx.font = "9px Inter, monospace";
-        ctx.fillStyle = isCurrentStage ? "#66cc00" : "#94a3b8";
-        ctx.fillText(node.sub, node.x, node.y + node.radius + 27);
-      });
-
-      animationFrameId.current = requestAnimationFrame(render);
-    };
-
-    render();
-
-    return () => {
-      if (animationFrameId.current) cancelAnimationFrame(animationFrameId.current);
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [activeStage, selectedNode]);
-
-  // Click on canvas to select node
-  const handleCanvasClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const rect = canvas.getBoundingClientRect();
-    const clickX = e.clientX - rect.left;
-    const clickY = e.clientY - rect.top;
-
-    const clicked = nodesRef.current.find((n) => {
-      const dx = n.x - clickX;
-      const dy = n.y - clickY;
-      return Math.sqrt(dx * dx + dy * dy) <= n.radius + 8;
-    });
-
-    if (clicked) {
-      setSelectedNode(clicked.id);
-      setActiveStage(clicked.stage);
-    }
-  };
+    return () => clearInterval(timer);
+  }, [isAutoPlaying]);
 
   const currentStage = FLOW_STAGES[activeStage];
-  const activeNodeInfo = nodesRef.current.find((n) => n.id === selectedNode) || nodesRef.current[5];
+
+  const handleStageSelect = (idx: number) => {
+    setActiveStage(idx);
+    const nodeInStage = FLOW_NODES.find((n) => n.stage === idx);
+    if (nodeInStage) setSelectedNode(nodeInStage);
+  };
 
   return (
-    <div className="w-full bg-black border border-kyp-teal/20 rounded-2xl p-6 lg:p-10 relative overflow-hidden kyp-grid-pattern">
+    <div className="w-full bg-black border border-kyp-teal/30 rounded-2xl p-6 lg:p-10 relative overflow-hidden kyp-grid-pattern shadow-2xl">
       {/* Ambient background glow */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-kyp-navy/40 rounded-full blur-3xl pointer-events-none" />
 
@@ -386,7 +190,7 @@ export default function PlatformFlow() {
       <div className="max-w-4xl mb-8 relative z-10 space-y-3">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-kyp-lime/10 border border-kyp-lime/30 text-xs font-mono text-kyp-lime font-semibold">
           <Sparkles className="w-3.5 h-3.5" />
-          ANIMATED PLATFORM FLOW • ITEMIZE-INSPIRED GRAPH ENGINE
+          ANIMATED PLATFORM FLOW • ITEMIZE-INSPIRED MOVING GRAPH
         </div>
 
         <h3 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
@@ -402,34 +206,30 @@ export default function PlatformFlow() {
         </p>
       </div>
 
-      {/* 5-Step Interactive Pipeline Selector */}
+      {/* 5-Step Interactive Pipeline Selector with Vibrant Active States */}
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 mb-8 relative z-10">
         {FLOW_STAGES.map((st, idx) => {
           const isActive = activeStage === idx;
           return (
             <button
+              type="button"
               key={st.id}
-              onClick={() => {
-                setActiveStage(idx);
-                // Select a relevant node in this stage
-                const stageNode = nodesRef.current.find((n) => n.stage === idx);
-                if (stageNode) setSelectedNode(stageNode.id);
-              }}
-              className={`p-3.5 rounded-xl border text-left transition-all duration-300 relative group ${
+              onClick={() => handleStageSelect(idx)}
+              className={`p-3.5 rounded-xl border text-left transition-all duration-300 relative group cursor-pointer ${
                 isActive
-                  ? "bg-kyp-navy/90 border-kyp-lime shadow-lime-glow"
+                  ? "bg-kyp-navy/95 border-kyp-lime shadow-lime-glow ring-1 ring-kyp-lime"
                   : "bg-kyp-black/80 border-kyp-teal/20 hover:border-kyp-teal/50 hover:bg-kyp-navy/30"
               }`}
             >
               <div className="flex items-center justify-between mb-1.5">
-                <span className="text-[10px] font-mono text-kyp-teal tracking-widest uppercase">
+                <span className={`text-[10px] font-mono tracking-widest uppercase font-bold ${isActive ? "text-kyp-lime" : "text-kyp-teal"}`}>
                   STEP {st.step}
                 </span>
-                <div className="p-1 rounded bg-black/60 border border-kyp-teal/20">
+                <div className={`p-1 rounded ${isActive ? "bg-kyp-lime text-black" : "bg-black/60 border border-kyp-teal/20"}`}>
                   {st.icon}
                 </div>
               </div>
-              <div className={`text-sm font-bold ${isActive ? "text-white" : "text-gray-300"}`}>
+              <div className={`text-sm font-bold ${isActive ? "text-white" : "text-gray-300 group-hover:text-white"}`}>
                 {st.title}
               </div>
               <div className="text-[11px] text-gray-400 line-clamp-1 mt-0.5 font-mono">
@@ -440,60 +240,255 @@ export default function PlatformFlow() {
         })}
       </div>
 
-      {/* ANIMATED MOVING GRAPH CANVAS CONTAINER */}
+      {/* GUARANTEED SVG-BASED MOVING GRAPH ENGINE */}
       <div className="relative w-full rounded-2xl bg-gradient-to-b from-kyp-navy-surface/90 to-black/95 border border-kyp-teal/30 overflow-hidden mb-8 shadow-2xl">
         {/* Floating Controls HUD */}
         <div className="absolute top-4 left-4 z-20 flex items-center gap-2 bg-black/80 backdrop-blur-md px-3 py-1.5 rounded-xl border border-kyp-teal/20 text-xs font-mono">
-          <span className="w-2 h-2 rounded-full bg-kyp-lime animate-ping" />
+          <span className="w-2.5 h-2.5 rounded-full bg-kyp-lime animate-ping" />
           <span className="text-white font-semibold">FLOWING GRAPH SENTINEL</span>
-          <span className="text-kyp-teal border-l border-kyp-teal/25 pl-2 ml-1">STAGE: {currentStage.title.toUpperCase()}</span>
+          <span className="text-kyp-teal border-l border-kyp-teal/25 pl-2 ml-1">
+            ACTIVE STAGE: {currentStage.title.toUpperCase()}
+          </span>
         </div>
 
         <div className="absolute top-4 right-4 z-20 flex items-center gap-2">
           <button
-            onClick={() => setIsPlaying(!isPlaying)}
-            className="flex items-center gap-1.5 bg-black/80 backdrop-blur-md px-3 py-1.5 rounded-xl border border-kyp-teal/25 text-xs font-mono text-kyp-mint hover:border-kyp-lime transition-all"
-            title={isPlaying ? "Pause automatic stage cycling" : "Resume automatic stage cycling"}
+            type="button"
+            onClick={() => setIsAutoPlaying(!isAutoPlaying)}
+            className="flex items-center gap-1.5 bg-black/80 backdrop-blur-md px-3 py-1.5 rounded-xl border border-kyp-teal/25 text-xs font-mono text-kyp-mint hover:border-kyp-lime transition-all cursor-pointer"
           >
-            {isPlaying ? (
+            {isAutoPlaying ? (
               <>
                 <Pause className="w-3.5 h-3.5 text-kyp-lime" />
-                <span>Auto-Cycling</span>
+                <span>Auto-Cycling Active</span>
               </>
             ) : (
               <>
                 <Play className="w-3.5 h-3.5 text-kyp-mint" />
-                <span>Paused</span>
+                <span>Paused (Click to Resume)</span>
               </>
             )}
           </button>
         </div>
 
-        {/* HTML5 Canvas for Moving Graph */}
-        <canvas
-          ref={canvasRef}
-          onClick={handleCanvasClick}
-          className="w-full h-[480px] lg:h-[540px] cursor-pointer block"
-        />
+        {/* Scalable Vector Graphics Network */}
+        <svg
+          viewBox="0 0 1000 520"
+          className="w-full h-auto min-h-[460px] max-h-[540px] block select-none"
+        >
+          <defs>
+            {/* Grid Pattern */}
+            <pattern id="graph-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(111, 211, 196, 0.05)" strokeWidth="1" />
+            </pattern>
+            <filter id="neon-glow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="6" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
+          </defs>
+
+          {/* Background Grid */}
+          <rect width="1000" height="520" fill="url(#graph-grid)" />
+
+          {/* Radar Ambient Rings */}
+          <g className="radar-circles" opacity="0.12">
+            <circle cx="500" cy="260" r="220" stroke="#6fd3c4" strokeWidth="1" fill="none" />
+            <circle cx="500" cy="260" r="140" stroke="#66cc00" strokeWidth="1" fill="none" />
+            <circle cx="500" cy="260" r="70" stroke="#c6f5ef" strokeWidth="1" fill="none" />
+          </g>
+
+          {/* Connecting Curved Lines */}
+          <g className="edges">
+            {FLOW_LINKS.map((link, idx) => {
+              const sNode = FLOW_NODES.find((n) => n.id === link.s);
+              const tNode = FLOW_NODES.find((n) => n.id === link.t);
+              if (!sNode || !tNode) return null;
+
+              const isStageActive = sNode.stage === activeStage || tNode.stage === activeStage;
+              const isSelectedPath = selectedNode.id === sNode.id || selectedNode.id === tNode.id;
+
+              const midX = (sNode.x + tNode.x) / 2;
+              const pathD = `M ${sNode.x} ${sNode.y} C ${midX} ${sNode.y}, ${midX} ${tNode.y}, ${tNode.x} ${tNode.y}`;
+
+              return (
+                <g key={idx}>
+                  <path
+                    d={pathD}
+                    fill="none"
+                    stroke={isSelectedPath ? "#c6f5ef" : isStageActive ? "#66cc00" : "#6fd3c4"}
+                    strokeWidth={isSelectedPath ? 3 : isStageActive ? 2.2 : 1.2}
+                    strokeOpacity={isStageActive || isSelectedPath ? 0.9 : 0.25}
+                    strokeDasharray={isStageActive ? "none" : "4 4"}
+                  />
+                  {/* Flowing Animated Photons along path */}
+                  <circle r={isStageActive ? 3.5 : 2.5} fill={isStageActive ? "#66cc00" : "#6fd3c4"}>
+                    <animateMotion
+                      path={pathD}
+                      dur={`${2.2 + (idx % 3) * 0.4}s`}
+                      repeatCount="indefinite"
+                    />
+                  </circle>
+                </g>
+              );
+            })}
+          </g>
+
+          {/* Graph Nodes */}
+          <g className="nodes">
+            {FLOW_NODES.map((node) => {
+              const isCurrentStage = node.stage === activeStage;
+              const isSelected = selectedNode.id === node.id;
+
+              return (
+                <g
+                  key={node.id}
+                  onClick={() => {
+                    setSelectedNode(node);
+                    setActiveStage(node.stage);
+                  }}
+                  className="cursor-pointer transition-all duration-200"
+                >
+                  {/* Glowing Outer Ripple */}
+                  {(isCurrentStage || isSelected) && (
+                    <circle
+                      cx={node.x}
+                      cy={node.y}
+                      r={node.r + 14}
+                      fill={isSelected ? "#c6f5ef" : "#66cc00"}
+                      fillOpacity={isSelected ? 0.25 : 0.15}
+                      className="animate-pulse"
+                    />
+                  )}
+
+                  {/* Outer Status Ring */}
+                  <circle
+                    cx={node.x}
+                    cy={node.y}
+                    r={node.r + 4}
+                    fill="none"
+                    stroke={isSelected ? "#c6f5ef" : isCurrentStage ? "#66cc00" : "#6fd3c4"}
+                    strokeWidth={isSelected || isCurrentStage ? 2.5 : 1.2}
+                    strokeDasharray={node.stage === 2 ? "3 3" : "none"}
+                  />
+
+                  {/* Node Background */}
+                  <circle
+                    cx={node.x}
+                    cy={node.y}
+                    r={node.r}
+                    fill="#033653"
+                    stroke={isSelected ? "#ffffff" : isCurrentStage ? "#66cc00" : "#033653"}
+                    strokeWidth={isSelected ? 2 : 1}
+                  />
+
+                  {/* Center Pulsing Core */}
+                  <circle
+                    cx={node.x}
+                    cy={node.y}
+                    r={node.r * 0.35}
+                    fill={node.color}
+                  />
+
+                  {/* Node Label */}
+                  <text
+                    x={node.x}
+                    y={node.y + node.r + 15}
+                    textAnchor="middle"
+                    fill={isSelected ? "#ffffff" : isCurrentStage ? "#c6f5ef" : "#94a3b8"}
+                    fontSize={isSelected || isCurrentStage ? "12" : "11"}
+                    fontWeight={isSelected || isCurrentStage ? "700" : "500"}
+                    fontFamily="Inter, sans-serif"
+                  >
+                    {node.name}
+                  </text>
+
+                  {/* Sub-label */}
+                  <text
+                    x={node.x}
+                    y={node.y + node.r + 27}
+                    textAnchor="middle"
+                    fill={isCurrentStage ? "#66cc00" : "#64748b"}
+                    fontSize="9"
+                    fontWeight="600"
+                    fontFamily="monospace"
+                  >
+                    {node.sub}
+                  </text>
+                </g>
+              );
+            })}
+          </g>
+        </svg>
 
         {/* Interactive Bottom Overlay Pill */}
-        <div className="absolute bottom-3 left-4 right-4 z-20 flex flex-wrap items-center justify-between gap-3 bg-black/85 backdrop-blur-md p-3 rounded-xl border border-kyp-teal/20 text-xs font-mono">
+        <div className="p-3 bg-black/90 border-t border-kyp-teal/20 flex flex-wrap items-center justify-between gap-3 text-xs font-mono px-4 sm:px-6">
           <div className="flex items-center gap-2">
             <span className="text-kyp-teal">Selected Node:</span>
-            <span className="text-white font-bold">{activeNodeInfo.label}</span>
-            <span className="text-gray-400">({activeNodeInfo.sub})</span>
+            <span className="text-white font-bold">{selectedNode.name}</span>
+            <span className="text-gray-400">({selectedNode.sub})</span>
           </div>
           <div className="flex items-center gap-3">
             <span className="text-[11px] text-kyp-lime font-semibold">
-              Client Focus: {activeNodeInfo.clientHeading || "Continuous Monitoring"}
+              Client Focus: {selectedNode.clientHeading}
             </span>
             <span className="hidden sm:inline text-gray-500">Click any node to focus</span>
           </div>
         </div>
       </div>
 
+      {/* Detailed Active Stage Breakdown Card */}
+      <div className="p-6 rounded-2xl bg-kyp-navy-surface/80 border border-kyp-teal/25 mb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="lg:col-span-8 space-y-3">
+            <div className="flex items-center gap-3">
+              <span className="px-3 py-1 rounded bg-kyp-lime text-black font-mono font-bold text-xs">
+                Stage {currentStage.step} &bull; {currentStage.title}
+              </span>
+              <span className="text-xs font-mono text-kyp-mint">
+                {currentStage.action}
+              </span>
+            </div>
+
+            <h4 className="text-xl sm:text-2xl font-bold text-white">
+              {currentStage.clientHeading}: {currentStage.tagline}
+            </h4>
+
+            <p className="text-sm text-gray-300 leading-relaxed">
+              {currentStage.clientDescription}
+            </p>
+
+            <div className="flex flex-wrap gap-2 pt-2">
+              {currentStage.dataPoints.map((dp, i) => (
+                <span
+                  key={i}
+                  className="px-2.5 py-1 rounded-lg bg-black/60 border border-kyp-teal/20 text-xs font-mono text-kyp-mint flex items-center gap-1.5"
+                >
+                  <Check className="w-3 h-3 text-kyp-lime" />
+                  {dp}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="lg:col-span-4 bg-black/80 p-5 rounded-xl border border-kyp-teal/20 space-y-3 font-mono text-xs">
+            <div className="flex items-center justify-between border-b border-kyp-teal/20 pb-2">
+              <span className="text-gray-400">Stage Latency:</span>
+              <span className="text-kyp-lime font-bold">{currentStage.telemetry.latency}</span>
+            </div>
+            <div className="flex items-center justify-between border-b border-kyp-teal/20 pb-2">
+              <span className="text-gray-400">Coverage Capacity:</span>
+              <span className="text-white font-bold">{currentStage.telemetry.throughput}</span>
+            </div>
+            <div className="flex items-center justify-between">
+              <span className="text-gray-400">Audit Status:</span>
+              <span className="text-kyp-mint font-bold">{currentStage.telemetry.accuracy}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* 4 Official Client Key Feature Cards (Volumetric, Webcompli, Corporate Structure, Behavioural Shifts) */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <div className="p-4 rounded-xl bg-black/70 border border-kyp-teal/20 hover:border-kyp-lime/40 transition-all space-y-2">
           <div className="flex items-center justify-between">
             <span className="text-[10px] font-mono text-kyp-teal uppercase">CLIENT FEATURE 01</span>

@@ -1,0 +1,1291 @@
+<USER_REQUEST>
+PROJECT: KYP – PREMIUM ENTERPRISE RISK & COMPLIANCE WEBSITE REDESIGN
+1. ROLE & PROJECT OBJECTIVE
+Act as a senior UI/UX designer, creative director, branding specialist, SaaS product designer and expert full-stack developer.
+Your task is to redesign and develop a complete, premium-quality, production-ready, responsive website for KYP (Know Your Portfolio / Know Your Partner), an AI-powered risk intelligence, compliance monitoring and third-party risk management platform.
+The website must communicate KYP's technology, platform capabilities, industry coverage, use cases and company information to regulated businesses and enterprise compliance teams.
+The website must look like an advanced financial intelligence and enterprise SaaS platform, not a generic corporate website.
+The main objective is to:
+Establish KYP as a premium enterprise risk intelligence platform.
+Explain the platform and its capabilities clearly.
+Demonstrate the actual platform interface throughout the website.
+Showcase the Graph Intelligence capability with sophisticated animated visualizations.
+Explain industry-specific applications and use cases.
+Establish credibility with regulated firms and compliance professionals.
+Generate qualified leads through prominent Book a Demo CTAs.
+Provide a scalable architecture for adding additional pages later.
+The final website must be visually exceptional, technically sound, fully responsive, accessible, SEO-friendly and ready for deployment on Vercel.
+IMPORTANT: Do not create a basic template, a collection of generic landing pages or a static website mockup. Build a complete, functioning multi-page website.
+2. OFFICIAL PROJECT REFERENCES
+Use the following websites as references. Each reference has a specific purpose.
+A. Existing KYP website – CONTENT AND BRAND REFERENCE
+https://kyp.io/
+Use this website to understand:
+Existing KYP messaging.
+Company positioning.
+Existing product descriptions.
+Platform capabilities.
+Company information.
+Testimonials and partnerships.
+Contact information.
+Existing news and articles.
+FAQ content.
+Existing calls to action.
+Preserve accurate existing information and improve its presentation.
+Do not copy the old website's design.
+B. Main design inspiration – ITEMIZE
+https://itemize2026.com/
+Study the visual design and interaction style carefully.
+Use its design direction for:
+Dark premium SaaS aesthetics.
+Large editorial typography.
+Dramatic hero sections.
+Flowing data visualizations.
+Layered interface compositions.
+Animated charts and graphs.
+Smooth section transitions.
+Sophisticated spacing.
+Advanced visual storytelling.
+Product-focused website layouts.
+The final design must have its own KYP identity. Do not copy Itemize branding, logos, text or exact layouts.
+C. Graph Intelligence inspiration
+https://itemize2026.com/financial-intelligence-graph.html
+This reference is particularly important.
+Study:
+Connected graph nodes.
+Animated relationship lines.
+Flowing data connections.
+Network visualizations.
+Interactive elements.
+Graph movement and depth.
+Data-driven storytelling.
+Use this inspiration to create a distinctive KYP Graph Intelligence section.
+D. Mega menu inspiration – SEON
+https://seon.io/
+Study its navigation experience.
+Create a sophisticated enterprise-style mega menu with:
+Multiple navigation columns.
+Clear category headings.
+Descriptive menu items.
+Hover interactions.
+Smooth open/close transitions.
+Responsive mobile navigation.
+Do not copy its branding or visual identity.
+3. OFFICIAL KYP BRAND IDENTITY
+Use ONLY the following official brand colours.
+Colour
+Hex
+Usage
+Black
+#000000
+Main background
+Lime Green
+#66cc00
+Primary CTAs, active states and highlights
+Light Mint
+#c6f5ef
+Graph nodes, soft highlights and selected text
+Teal
+#6fd3c4
+Data connections, visualizations and secondary accents
+Deep Navy
+#033653
+Dashboard surfaces, panels and secondary backgrounds
+Colour implementation
+Main background: #000000.
+Main text: white or an accessible neutral derived from the existing palette.
+Primary CTA: #66cc00 with black text.
+Secondary CTA: transparent with a subtle brand-colour border.
+Graph connections: #6fd3c4.
+Selected graph nodes: #c6f5ef.
+Dashboard panels: #033653.
+Active navigation: #66cc00.
+Important visual highlights: mint and teal.
+White and accessible neutral text may be used for readability. Do not introduce unrelated brand colours.
+Use CSS variables:
+--kyp-black: #000000;
+--kyp-lime: #66cc00;
+--kyp-mint: #c6f5ef;
+--kyp-teal: #6fd3c4;
+--kyp-navy: #033653;
+The entire website must use a consistent colour system.
+Typography
+Use a premium modern sans-serif font system.
+Recommended:
+Headings: Space Grotesk or a similar modern geometric font.
+Body: Inter.
+Numbers and dashboard data: Inter or a clean monospaced font.
+Typography must have:
+Large, confident hero headlines.
+Clear section hierarchy.
+Excellent readability.
+Consistent font weights.
+Controlled line lengths.
+Premium editorial spacing.
+Avoid excessively small text or oversized text that damages responsive layouts.
+4. EXACT WEBSITE SCOPE – 10 PAGES
+Build exactly these ten pages in this assignment:
+Home
+Platform
+Use Case – Onboarding
+Use Case – Anti Money Laundering
+About KYP
+Careers
+FAQ
+News
+Whitepapers
+Contact
+All ten pages must be fully implemented.
+Do not build additional industry or use-case detail pages in this assignment.
+However, their menu entries and homepage cards must still be visible.
+Required routes
+/
+/platform
+/use-cases/onboarding
+/use-cases/anti-money-laundering
+/about
+/careers
+/faq
+/news
+/whitepapers
+/contact
+Use these routes consistently throughout the website.
+5. HEADER AND MEGA MENU – SHARED ON ALL PAGES
+Create one reusable global header and use it on all ten pages.
+The header should be:
+Premium.
+Dark.
+Responsive.
+Sticky on scroll.
+Minimal but sophisticated.
+Consistent across all pages.
+Header layout
+Left:
+KYP logo.
+Center/right:
+Platform
+Industries
+Use Cases
+Resources
+Company
+Far right:
+Book a Demo button.
+The KYP logo should use the actual supplied logo asset. Do not invent or redesign the logo.
+Mega menu: INDUSTRIES
+Display all six items.
+iGaming & Gambling
+Payments & PSPs
+Acquirers / Agents / Intermediaries
+Banking & Financial Services
+Fintech
+Marketplaces & Platforms
+All six links must point to:
+href="#"
+These pages are not included in the current assignment.
+Mega menu: USE CASES
+Display all ten items.
+Onboarding
+Anti Money Laundering
+Portfolio Issuing Monitoring
+Automated Policy Continuous Monitoring Rules
+Website Compliance
+Transaction Monitoring
+Illegal Website Traffic Detection
+ESG AI Alerting
+Enhanced Compliance
+Instant Audit Ready Reporting
+Routing:
+Onboarding:
+/use-cases/onboarding
+Anti Money Laundering:
+/use-cases/anti-money-laundering
+All other eight items:
+Mega menu: PLATFORM
+Display:
+Platform Overview
+Data & Integrations
+AI-Powered Onboarding
+Continuous Monitoring & Alerts
+Investigations & Audit Reporting
+Graph Intelligence
+The main Platform link and all its feature links should lead to:
+/platform
+Use anchors to scroll to the corresponding section where possible.
+Mega menu: RESOURCES
+Display:
+FAQ → /faq
+News → /news
+Whitepapers → /whitepapers
+Mega menu: COMPANY
+Display:
+About KYP → /about
+Careers → /careers
+Contact → /contact
+BOOK A DEMO
+Primary lime-green button.
+Destination:
+/contact
+Mega menu interactions
+Desktop:
+Open on hover and click.
+Smooth fade/slide transition.
+Clear column alignment.
+Active menu indicator.
+Close when clicking outside or pressing Escape.
+Avoid menus disappearing while the pointer moves between navigation and menu content.
+Mobile:
+Replace desktop mega menu with a responsive mobile drawer or expandable accordion.
+Every menu item must remain accessible.
+Keep the Book a Demo CTA visible.
+Prevent horizontal overflow.
+IMPORTANT: Centralize all navigation links in a single navigation configuration file. Do not hardcode links independently in multiple components.
+All future page links must be easy to activate by changing the central route configuration.
+6. HOMEPAGE – COMPLETE DESIGN AND CONTENT
+Route: /
+The homepage is the most important page.
+It must establish the complete visual identity of the redesigned KYP website.
+Follow the Itemize-inspired dark enterprise design direction.
+SECTION 1 – HERO
+Create a visually striking hero section.
+Headline:
+"Know Your Portfolio.
+Uncover Hidden Risks."
+Supporting text:
+"Empowering regulated firms to proactively detect financial, regulatory and reputational risks across their entire network."
+Use the official KYP positioning and messaging.
+Primary CTA:
+Book a Demo → /contact
+Secondary CTA:
+Explore the Platform → /platform
+Hero visual
+This section must be exceptional.
+Create a layered composition containing:
+Animated Graph Intelligence visualization.
+Connected business and merchant nodes.
+Flowing network lines.
+Risk indicators.
+A realistic KYP dashboard interface.
+Floating data panels.
+Subtle animated background elements.
+The dashboard should feel like a real enterprise compliance product.
+Do not use a generic stock photograph.
+Use the actual platform screenshots from the supplied project assets wherever available.
+If genuine screenshots are not supplied, build illustrative interface mockups using real KYP terminology and label any fictional sample records as illustrative.
+SECTION 2 – TRUST AND CREDIBILITY
+Create a sophisticated trust strip.
+Use verified existing KYP client, partner and testimonial logos where available.
+Potential existing references include:
+NeoGames.
+RiskRecon.
+Itemize.
+Integrated Finance.
+Tell.Money.
+Use actual supplied logo assets or official website assets.
+Do not fabricate customer logos, testimonials, certifications or performance claims.
+SECTION 3 – THE PROBLEM
+Heading:
+"Can You See Risk Emerging Before It Becomes a Financial Issue?"
+Explain how periodic manual checks and fragmented monitoring systems can leave compliance teams without a complete view of emerging risk.
+Explain the importance of:
+Continuous monitoring.
+Merchant intelligence.
+Corporate structure changes.
+Behavioural risk.
+AML signals.
+Website compliance.
+Financial and regulatory risk.
+Use the supplied KYP messaging.
+SECTION 4 – INDUSTRIES
+Heading:
+"Built for Complex Risk Environments."
+Create six premium industry cards.
+iGaming & Gambling
+Payments & PSPs
+Acquirers / Agents / Intermediaries
+Banking & Financial Services
+Fintech
+Marketplaces & Platforms
+Each card should contain:
+A custom icon or abstract technical visual.
+Industry name.
+Short description.
+Explore link.
+All six cards must link to "#".
+Cards should have subtle hover animations and premium visual treatment.
+Do not use generic photographs of people.
+SECTION 5 – PLATFORM HIGHLIGHTS
+Heading:
+"One Platform. Complete Risk Intelligence."
+Introduce the platform capabilities using large alternating image/text layouts.
+Feature 1: AI-Powered Onboarding
+Description:
+"Check documents, validate information and resolve issues before submission."
+Feature 2: Data & Integrations
+Description:
+"Bring together business information, external intelligence and internal systems to build a consolidated risk assessment."
+Feature 3: Continuous Monitoring & Alerts
+Description:
+"Identify changes in risk profiles, websites, company information and transaction activity."
+Feature 4: Investigations & Audit Reporting
+Description:
+"Bring checks, evidence, decisions and monitoring history together in one auditable record."
+Feature 5: Graph Intelligence
+Description:
+"Understand relationships between businesses, individuals, ownership structures and connected risks."
+Each feature must link to:
+/platform
+Use real KYP interface screenshots or carefully constructed illustrative dashboard components.
+SECTION 6 – USE CASES
+Heading:
+"From Onboarding to Continuous Risk Intelligence."
+Create a premium grid containing all ten use cases.
+Onboarding
+Anti Money Laundering
+Portfolio Issuing Monitoring
+Automated Policy Continuous Monitoring Rules
+Website Compliance
+Transaction Monitoring
+Illegal Website Traffic Detection
+ESG AI Alerting
+Enhanced Compliance
+Instant Audit Ready Reporting
+Routing:
+Onboarding → /use-cases/onboarding
+Anti Money Laundering → /use-cases/anti-money-laundering
+Remaining eight → #
+Use the corresponding supplied documents for the relevant descriptions.
+Use consistent cards with:
+Icon or technical visual.
+Title.
+Short explanation.
+Learn More link.
+Hover interaction.
+SECTION 7 – ANIMATED PLATFORM FLOW
+This is another major visual highlight.
+Create a large full-width animated graph section.
+Use the headings and workflow terminology from the supplied platform and use-case documents.
+Main flow:
+Onboard → Verify → Monitor → Investigate → Report
+The graph should visually show:
+Multiple incoming data sources.
+Connected company nodes.
+Individuals and ownership relationships.
+Risk indicators.
+Monitoring alerts.
+Investigations.
+Audit reporting.
+Animate the process as data travels through the platform.
+Use SVG, Canvas or an appropriate graph-rendering solution.
+The animation should be fluid and technically sophisticated.
+Do not create a simple row of five static icons.
+SECTION 8 – PLATFORM BENEFITS
+Heading:
+"Move from Periodic Reviews to Continuous Risk Intelligence."
+Highlight:
+Full audit reports in seconds.
+Continuous monitoring across partner ecosystems.
+Monitoring aligned with internal policies.
+Alerts on corporate, behavioural and website changes.
+Early identification of emerging compliance risks.
+Reduced manual due diligence.
+Use accurate source-backed messaging.
+SECTION 9 – TESTIMONIALS
+Use existing verified testimonials from the current KYP website.
+Present them as premium cards or a carousel.
+Do not invent quotes or customer names.
+SECTION 10 – LATEST NEWS
+Display three recent news cards from the actual KYP news section.
+Each card should contain:
+Featured image.
+Article title.
+Publication date.
+Short excerpt.
+Read More link.
+Link to the actual article when available.
+Include View All News → /news.
+SECTION 11 – FINAL CTA
+Heading:
+"See the KYP Platform in Action."
+Supporting text:
+"Discover how KYP can help you monitor risks, simplify compliance and reduce manual due diligence."
+Button:
+Book a Demo → /contact
+Use a strong dark background, animated network graphics and lime-green CTA.
+SECTION 12 – FOOTER
+Build a premium multi-column footer.
+Include:
+Company:
+About KYP
+Careers
+Contact
+Platform:
+Platform Overview
+Graph Intelligence
+Data & Integrations
+Industries:
+All six industries.
+Use Cases:
+All ten use cases.
+Resources:
+FAQ
+News
+Whitepapers
+Contact:
+Use verified existing KYP details.
+Address:
+33 Queen St, London, EC4R 1AP, United Kingdom.
+Email:
+[hello@kyp.io](mailto:hello@kyp.io)
+Privacy & Cookies:
+Include official social links only when verified.
+Display KYP logo and copyright information.
+7. PLATFORM PAGE
+Route: /platform
+This page should communicate the entire KYP technology ecosystem.
+Use the supplied documents:
+Platform overview.docx
+AI-PoweredOnboarding.docx
+Data & Integrations.docx
+Monitoring & Alerts.docx
+Evidence & Decisions.docx
+Third Party Continuous Monitoring.docx
+Monitoring That Matches Your Policies.docx
+Audit-Ready.docx
+SECTION 1 – PLATFORM HERO
+Headline:
+"From Onboarding to Audit."
+Subheading:
+"Multiple data sources. One platform."
+Explain that KYP connects merchant onboarding, due diligence, financial intelligence, continuous monitoring and audit reporting into one platform.
+CTA:
+Book a Demo → /contact
+Secondary:
+Explore Graph Intelligence → #graph-intelligence
+Visual:
+Large dashboard mockup with connected data and risk indicators.
+SECTION 2 – PLATFORM OVERVIEW
+Heading:
+"One Connected View of Merchant Risk Management."
+Explain:
+AI-powered onboarding.
+Document collection and validation.
+Corporate intelligence.
+Beneficial ownership.
+Sanctions and PEP screening.
+Adverse media.
+Website compliance.
+Regulatory blacklist monitoring.
+Transaction monitoring where integrated.
+Configurable monitoring rules.
+Automated alerts.
+Structured investigations.
+Exportable audit reports.
+Use a large platform interface visual.
+SECTION 3 – AI-POWERED ONBOARDING
+ID:
+#ai-onboarding
+Heading:
+"Onboard 10× Faster."
+Supporting text:
+"Resolve document issues before submission."
+Explain:
+Questionnaires tailored to internal policies.
+AI document validation.
+Document requirement checks.
+Instant feedback on incorrect or incomplete documents.
+Automatic questionnaire population.
+Discrepancy detection across documents, answers and business registry records.
+Review and approval control retained by the team.
+Workflow:
+Collect → Check → Resolve → Submit
+Create an onboarding interface visual showing:
+Document upload.
+Validation status.
+Missing document warnings.
+Questionnaire completion.
+Review status.
+SECTION 4 – DATA & INTEGRATIONS
+ID:
+#data-integrations
+Heading:
+"Bring Your Data Together. Build a 360° View of Risk."
+Explain:
+Business information.
+Onboarding questionnaires.
+Supporting documents.
+Company registry information.
+Sanctions, PEP and adverse media providers.
+Internal business systems.
+Website compliance findings.
+Regulatory restrictions.
+Merchant transaction trends.
+Real-time transaction monitoring.
+Cyber-risk and dark-web intelligence from connected providers.
+Workflow:
+Connect → Cross-reference → Assess → Monitor
+Create an interactive data visualization showing multiple sources flowing into a central KYP intelligence hub.
+SECTION 5 – GRAPH INTELLIGENCE
+ID:
+#graph-intelligence
+This must be one of the most visually impressive sections of the website.
+Heading:
+"See the Connections Behind the Risks."
+Subheading:
+"Understand relationships. Uncover hidden exposure. Make better-informed decisions."
+Design a large interactive graph visualization inspired by the Itemize Graph Intelligence reference.
+Include:
+Company nodes.
+Director nodes.
+Beneficial owner nodes.
+Parent company nodes.
+Subsidiary nodes.
+Connected merchant nodes.
+Risk indicators.
+Relationship lines.
+Hover information panels.
+Zoom and pan controls.
+Animated data connections.
+On hover, display contextual information for a node.
+Example illustrative node details:
+Company: Example Merchant Ltd
+Relationship: Subsidiary
+Risk indicator: Requires Review
+Connection: Parent Company
+Clearly label fictional sample data as illustrative.
+The graph should use only KYP brand colours.
+Use smooth SVG or Canvas rendering.
+The graph should be responsive and work on mobile.
+Do not use a static screenshot as the entire graph experience.
+SECTION 6 – CONTINUOUS MONITORING & ALERTS
+ID:
+#monitoring-alerts
+Heading:
+"Stay Ahead of Changing Risks. Know When to Act."
+Explain monitoring of:
+Company information.
+Sanctions and PEP status.
+Regulatory enforcement actions.
+Adverse media.
+Director and ownership changes.
+Website content and ownership changes.
+Regulatory restrictions.
+Transaction patterns and risk signals.
+Explain configurable monitoring frequencies and alert conditions.
+Workflow:
+Monitor → Alert → Investigate → Act
+Create a dashboard visual with realistic illustrative alerts and monitoring status.
+SECTION 7 – EVIDENCE & DECISIONS
+ID:
+#evidence-decisions
+Heading:
+"Every Check. Every Decision. One Audit Trail."
+Explain:
+Onboarding answers.
+Uploaded documents.
+Verification findings.
+External screening results.
+Supporting evidence.
+Monitoring alerts.
+Reviews and approvals.
+Rejections and reasons.
+Entity history.
+Audit-ready reports.
+Workflow:
+Investigate → Decide → Record → Report
+Create an audit dashboard visual with activity history, timestamps and evidence records.
+SECTION 8 – FINAL CTA
+Heading:
+"One Platform. Complete Visibility from Onboarding to Audit."
+Button:
+Book a Demo → /contact
+8. REUSABLE USE-CASE PAGE TEMPLATE
+Create one fully reusable use-case page template.
+Routes currently required:
+/use-cases/onboarding
+/use-cases/anti-money-laundering
+The remaining eight use cases will be developed later.
+IMPORTANT:
+Do not create two unrelated page designs.
+Both pages must use the same reusable template and layout components.
+Create a data-driven structure so future use-case pages can be added by inserting content into a configuration file.
+REUSABLE TEMPLATE STRUCTURE
+SECTION 1 – HERO
+Use-case title.
+Strong benefit-driven headline.
+Short description.
+Book a Demo button.
+Relevant platform interface visual.
+SECTION 2 – THE PROBLEM
+Explain the business challenge.
+Use relevant information from the supplied source document.
+SECTION 3 – THE KYP SOLUTION
+Explain how KYP addresses the challenge.
+Use source-supported features only.
+SECTION 4 – HOW IT WORKS
+Create a visual step-by-step workflow.
+Use animated workflow cards or connected stages.
+SECTION 5 – KEY FEATURES
+Display features in premium cards with icons.
+SECTION 6 – PLATFORM INTERFACE
+Show a relevant dashboard, document workflow, monitoring interface or risk visualization.
+SECTION 7 – BUSINESS BENEFITS
+Explain operational and compliance benefits without inventing numerical performance claims.
+SECTION 8 – FINAL CTA
+"See How KYP Can Support Your Compliance Team."
+Book a Demo → /contact
+9. USE CASE PAGE: ONBOARDING
+Route:
+/use-cases/onboarding
+SOURCE:
+Onboarding AI.docx and AI-PoweredOnboarding.docx.
+HERO
+Headline:
+"AI-Powered Business Onboarding."
+Subheading:
+"Onboard 10× Faster. Resolve Document Issues Before Submission."
+Supporting text:
+"KYP uses AI to check documents as business partners complete their onboarding questionnaires, helping them resolve issues before submission and reducing the back-and-forth your team needs to manage."
+CTA:
+Book a Demo.
+THE PROBLEM
+Explain:
+Manual document collection.
+Repeated follow-ups.
+Incorrect or outdated documentation.
+Incomplete questionnaires.
+Inconsistencies between supplied information and company records.
+Delays in onboarding reviews.
+THE SOLUTION
+Explain how KYP:
+Tailors questionnaires and document requirements to company policies.
+Checks documents against configured requirements.
+Provides feedback on document issues.
+Automatically populates questionnaires.
+Flags discrepancies.
+Brings answers, documents and verification findings together.
+HOW IT WORKS
+Create a four-stage visual:
+Collect
+Check
+Resolve
+Submit
+Each stage must have a short explanation and a corresponding UI visualization.
+KEY FEATURES
+AI document validation.
+Configurable onboarding rules.
+Automated questionnaires.
+Missing document detection.
+Document discrepancy checks.
+Business registry cross-checks.
+Due diligence reporting.
+Audit trails.
+BENEFITS
+Reduce follow-ups.
+Improve submission quality.
+Accelerate onboarding.
+Reduce manual workloads.
+Maintain documented due diligence.
+Retain control of approval decisions.
+Use the exact source messaging and do not promise automatic approvals.
+FINAL CTA
+"Help Partners Get It Right Before Submission."
+Book a Demo.
+10. USE CASE PAGE: ANTI MONEY LAUNDERING
+Route:
+/use-cases/anti-money-laundering
+SOURCE:
+Anti-Money Laundering (AML) Monitoring.docx.
+HERO
+Headline:
+"Anti-Money Laundering Monitoring."
+Subheading:
+"Detect Suspicious Activity. Prevent Financial Crime. Stay Compliant."
+Supporting text:
+"KYP helps iGaming operators and payment companies identify, investigate and reduce money laundering risks through AI-powered onboarding, continuous monitoring and transaction intelligence within one platform."
+CTA:
+Book a Demo.
+THE PROBLEM
+Explain:
+Fragmented AML screening.
+Changes in sanctions and PEP status.
+Adverse media risks.
+Beneficial ownership changes.
+Suspicious transaction activity.
+Unusual transaction volumes.
+Manual investigation processes.
+Incomplete audit records.
+THE KYP SOLUTION
+Explain the following capabilities:
+AI-powered onboarding.
+Continuous AML screening.
+Transaction monitoring where transaction data is integrated.
+Merchant and website monitoring.
+Configurable AML rules.
+Audit-ready reporting.
+Do not claim that KYP independently guarantees AML compliance or prevents every instance of financial crime.
+HOW IT WORKS
+Animated workflow:
+Onboard → Screen → Monitor → Investigate → Audit
+Show each step with a corresponding interface visual.
+KEY FEATURES
+Business and individual verification.
+Ownership structure checks.
+Sanctions screening.
+PEP screening.
+Adverse media monitoring.
+Director and beneficial ownership changes.
+Transaction pattern detection where integrated.
+Configurable monitoring thresholds.
+Automated alerts.
+Audit trails.
+BENEFITS
+Identify suspicious behaviour earlier.
+Improve investigation efficiency.
+Reduce manual compliance costs.
+Adapt monitoring rules to changing AML policies.
+Strengthen portfolio oversight.
+Maintain documented evidence.
+FINAL CTA
+"Strengthen AML Controls Across Your Portfolio."
+Book a Demo.
+11. ABOUT KYP PAGE
+Route:
+/about
+Use the current official KYP About page as the source of truth.
+Do not invent company history, employee numbers, founders, offices, awards or certifications.
+Suggested structure
+Hero: "Intelligence That Helps Businesses Understand Risk."
+Company introduction.
+What KYP does.
+Company mission.
+Approach to continuous risk intelligence.
+Technology and innovation.
+Industries served.
+Partnerships and verified credentials.
+CTA: Book a Demo.
+Visual direction:
+Use sophisticated abstract data visualizations, actual platform visuals and authentic company assets.
+Avoid generic photographs of people.
+12. CAREERS PAGE
+Route:
+/careers
+Use the existing KYP Careers page.
+HERO
+Headline:
+"Build the Future of Risk Intelligence."
+Supporting text:
+Use the actual company culture and recruitment messaging.
+CONTENT
+Include:
+Introduction to working at KYP.
+Company culture.
+Existing company values.
+Lead from the front.
+Communicate challenges.
+Own your work and targets.
+Be world class.
+Bring energy.
+OPEN POSITIONS
+Use verified job listings.
+If no verified open positions are available, show:
+"No current vacancies. We're always interested in hearing from talented people."
+Provide a contact or LinkedIn jobs link only if verified.
+CTA:
+Get in Touch → /contact
+Do not invent job openings.
+13. FAQ PAGE
+Route:
+/faq
+Use the current official KYP FAQ content and relevant verified questions from the existing website.
+Create a premium accordion interface.
+Group questions into categories:
+General KYP Questions.
+Continuous Monitoring.
+Merchant & Third-Party Risk.
+Onboarding & KYB.
+AML & Financial Crime.
+Website Compliance.
+Payments & Fintech.
+Features:
+Expand/collapse accordion.
+Smooth animation.
+Accessible keyboard interaction.
+Clear category headings.
+Responsive layout.
+Optional search field if practical.
+Do not invent product capabilities in answers.
+Include a final Book a Demo CTA.
+14. NEWS PAGE
+Route:
+/news
+Use actual KYP news content.
+Create a premium editorial listing page.
+HERO
+Headline:
+"KYP News & Insights."
+Supporting text:
+"Updates, partnerships and perspectives on risk intelligence and compliance monitoring."
+NEWS LISTING
+Display:
+Featured news section.
+News card grid.
+Article image.
+Title.
+Publication date.
+Short excerpt.
+Read More link.
+Include pagination or a Load More mechanism if there are enough articles.
+Use real article URLs and actual publication dates.
+Do not invent articles or article content.
+Where possible, retrieve images from the actual news articles.
+News cards should have subtle hover effects.
+If article detail pages are outside this assignment, link to their original official KYP URLs instead of inventing additional local routes.
+15. WHITEPAPERS PAGE
+Route:
+/whitepapers
+Use actual KYP whitepapers and resources.
+HERO
+Headline:
+"Research. Insights. Better Risk Decisions."
+Supporting text:
+"Explore KYP resources designed to help compliance teams understand emerging risks and strengthen portfolio oversight."
+LISTING
+Create premium whitepaper cards containing:
+Actual cover image.
+Whitepaper title.
+Category.
+Publication date, when available.
+Short description.
+Read More or Download button.
+Only use actual available resources.
+Do not fabricate whitepaper titles, authors, reports or downloadable documents.
+If no downloadable file is available, link to the verified original resource or provide a contact CTA.
+16. CONTACT PAGE
+Route:
+/contact
+This is the main conversion page.
+HERO
+Headline:
+"See the KYP Platform in Action."
+Supporting text:
+"Speak with our team to discover how KYP can help you monitor risk, simplify compliance and reduce manual due diligence."
+CONTACT FORM
+Create a polished and fully functional form.
+Fields:
+Name (required).
+Organisation (required).
+Company Email (required).
+Phone (optional).
+What challenge are you trying to overcome? (message field).
+Add:
+Form validation.
+Email validation.
+Loading state.
+Success state.
+Error handling.
+Accessible labels.
+Do not create a fake form that only displays a success message.
+Connect it to a real form submission endpoint, server action or configured email integration.
+If no backend or email credentials are available, implement the frontend and clearly document what configuration is needed before production.
+CONTACT INFORMATION
+Address:
+33 Queen St,
+London,
+EC4R 1AP,
+United Kingdom.
+Email:
+[hello@kyp.io](mailto:hello@kyp.io)
+Use verified existing office hours if displayed.
+Include social links only when verified.
+BOOK A DEMO
+If an existing scheduling system is available, integrate the actual official booking link.
+Otherwise, direct the visitor to the contact form.
+17. VISUAL DESIGN SYSTEM
+Create a consistent design system across all ten pages.
+Backgrounds
+Use alternating combinations of:
+Pure black.
+Deep navy.
+Subtle dark surfaces.
+Create depth using gradients derived only from the approved KYP colours.
+Cards
+Use:
+Subtle borders.
+Rounded corners.
+Controlled shadows.
+Consistent internal padding.
+Strong hover states.
+Clear text hierarchy.
+Avoid excessive rounded-pill design.
+Layout
+Use:
+Large section spacing.
+Full-width visual sections.
+Balanced two-column layouts.
+Asymmetric compositions where appropriate.
+Consistent content width.
+Responsive grids.
+The website should look like a premium enterprise product.
+Product interface visuals
+The platform interface must be a recurring visual element.
+Use actual screenshots supplied in the project assets.
+Show the product in:
+Hero.
+Platform overview.
+AI onboarding.
+Data integrations.
+Graph intelligence.
+Monitoring alerts.
+Evidence and decisions.
+Onboarding use case.
+AML use case.
+Never use generic unrelated SaaS dashboard screenshots.
+If genuine screenshots are unavailable, create original illustrative KYP dashboard mockups based on the supplied product documentation.
+Clearly distinguish illustrative mock data from actual platform results.
+18. ANIMATION AND INTERACTION REQUIREMENTS
+Animations must be smooth, professional and purposeful.
+Use GSAP and/or Framer Motion where appropriate.
+A. Hero graph animation
+Connected nodes gradually appear.
+Lines draw between nodes.
+Data flows across connections.
+Nodes pulse subtly.
+Risk indicators appear.
+Dashboard panels animate into position.
+B. Graph Intelligence animation
+Animated network connections.
+Interactive graph nodes.
+Hover details.
+Smooth zoom and pan.
+Relationship highlighting.
+Dynamic graph movement.
+C. Dashboard animations
+Animated counters.
+Chart drawing.
+Progress indicators.
+Notification transitions.
+Risk status changes.
+D. Scroll animations
+Fade and reveal.
+Subtle upward movement.
+Staggered card entrances.
+Smooth section transitions.
+Controlled parallax where appropriate.
+E. Hover animations
+CTA hover transitions.
+Card border highlights.
+Icon movement.
+Subtle image scaling.
+Menu transitions.
+IMPORTANT PERFORMANCE REQUIREMENTS
+Avoid unnecessary continuous animation.
+Use requestAnimationFrame or animation libraries efficiently.
+Use Intersection Observer for scroll-triggered effects.
+Respect prefers-reduced-motion.
+Do not compromise mobile performance.
+Avoid excessive blur and GPU-heavy effects.
+Ensure animations do not cause layout shifts.
+19. RESPONSIVE DESIGN
+The website must work perfectly across:
+Large desktop screens.
+Standard desktop screens.
+Tablets.
+Mobile phones.
+Desktop
+Use full mega menus, large graph visualizations and layered product mockups.
+Tablet
+Adapt columns and reduce graph complexity without losing clarity.
+Mobile
+Use an expandable mobile navigation.
+Stack content vertically.
+Keep CTAs accessible.
+Scale dashboard mockups appropriately.
+Prevent horizontal scrolling.
+Simplify graph interactions.
+Maintain readable typography.
+Ensure cards have consistent spacing.
+Test at common widths, including 375px, 390px, 768px, 1024px and 1440px.
+No broken layouts or clipped text.
+20. DEVELOPMENT TECHNOLOGY
+Use a modern production-ready stack.
+Preferred:
+Next.js with App Router.
+React.
+TypeScript.
+Tailwind CSS.
+Framer Motion.
+GSAP.
+SVG or Canvas for custom graph visualizations.
+Lucide icons where needed.
+Vercel for deployment.
+Use the current stable compatible package versions.
+Architecture
+Organize the project using reusable components.
+Suggested structure:
+app/
+page.tsx
+platform/
+page.tsx
+use-cases/
+onboarding/
+page.tsx
+anti-money-laundering/
+page.tsx
+about/
+page.tsx
+careers/
+page.tsx
+faq/
+page.tsx
+news/
+page.tsx
+whitepapers/
+page.tsx
+contact/
+page.tsx
+components/
+layout/
+Header.tsx
+MegaMenu.tsx
+MobileMenu.tsx
+Footer.tsx
+sections/
+Hero.tsx
+CTASection.tsx
+IndustriesSection.tsx
+UseCasesSection.tsx
+PlatformHighlights.tsx
+GraphIntelligence.tsx
+PlatformFlow.tsx
+product/
+DashboardMockup.tsx
+RiskAlerts.tsx
+OnboardingInterface.tsx
+AuditInterface.tsx
+DataVisualization.tsx
+cards/
+IndustryCard.tsx
+UseCaseCard.tsx
+FeatureCard.tsx
+NewsCard.tsx
+WhitepaperCard.tsx
+forms/
+ContactForm.tsx
+faq/
+FAQAccordion.tsx
+data/
+navigation.ts
+industries.ts
+useCases.ts
+platformFeatures.ts
+faq.ts
+news.ts
+whitepapers.ts
+lib/
+routes.ts
+utils.ts
+public/
+images/
+screenshots/
+logos/
+icons/
+This is a suggested architecture. Improve it if needed while preserving modularity.
+21. CENTRALIZED ROUTING RULES
+This is extremely important.
+Create a central configuration for all navigation links.
+Example:
+const routes = {
+home: "/",
+platform: "/platform",
+onboarding: "/use-cases/onboarding",
+aml: "/use-cases/anti-money-laundering",
+about: "/about",
+careers: "/careers",
+faq: "/faq",
+news: "/news",
+whitepapers: "/whitepapers",
+contact: "/contact",
+};
+For pages not built yet, use:
+"#"
+Never create broken links.
+Do not point future use cases or industries to fake pages.
+Ensure all cards, menu links, buttons and footer links follow the same centralized routing rules.
+22. CONTENT AND ASSET RULES
+The supplied Word documents are the primary source of truth for platform and use-case content.
+Read and use all supplied documents.
+Relevant content sources include:
+PLATFORM:
+Platform overview.docx
+AI-PoweredOnboarding.docx
+Data & Integrations.docx
+Monitoring & Alerts.docx
+Evidence & Decisions.docx
+Third Party Continuous Monitoring.docx
+Monitoring That Matches Your Policies.docx
+Audit-Ready.docx
+USE CASES:
+Onboarding AI.docx
+Anti-Money Laundering (AML) Monitoring.docx
+Complete visibility for issuing programmes.docx
+Monitoring That Matches Your Policies.docx
+Website Compliance Screening & Monitoring.docx
+Transaction monitoring Product Spec for marketing.docx
+Regulatory Blacklist & Illegal Traffic Monitoring.docx
+ESG Monitoring with Agentic AI.docx
+Enhanced Due Diligence Made Simple.docx
+Audit-Ready.docx
+Acquirer, Agent & Intermediary Monitoring.docx
+INDUSTRIES:
+iGaming & Online Gambling.docx
+Payments & PSPs.docx
+Banking & Financial Institutions.docx
+Fintech & Payment Providers.docx
+Online Marketplaces & Platforms.docx
+Acquirer, Agent & Intermediary Monitoring.docx
+FRAMEWORK:
+Website Framework.docx
+CONTENT ACCURACY
+Preserve the original meaning of supplied content.
+Improve grammar and readability where needed.
+Do not invent functionality.
+Do not fabricate statistics.
+Do not fabricate client testimonials.
+Do not invent integrations or certifications.
+Do not imply that transaction monitoring is available without required data integration.
+Preserve the distinction between automated detection and human approval.
+Use accurate product terminology.
+Do not turn illustrative concepts into claims about live functionality.
+Where content is missing, retrieve it from the official KYP website.
+Do not use invented company information.
+23. SEO AND ACCESSIBILITY
+Implement:
+Unique page titles.
+Meta descriptions.
+Open Graph metadata.
+Semantic HTML.
+Proper heading hierarchy.
+Descriptive image alt text.
+Accessible navigation.
+Keyboard-accessible menus.
+Accessible accordions.
+Form labels and error messages.
+Descriptive internal links.
+Canonical URLs where appropriate.
+XML sitemap.
+Robots.txt.
+Use descriptive page metadata based on each page's actual content.
+Optimize image formats and loading.
+Use lazy loading below the fold.
+Avoid oversized assets.
+24. PERFORMANCE AND CODE QUALITY
+Requirements:
+No TypeScript errors.
+No broken imports.
+No console errors.
+No missing assets.
+No broken routes.
+No placeholder lorem ipsum.
+No unnecessary dependencies.
+No duplicate page components.
+No inconsistent styling.
+No horizontal overflow.
+No non-functional buttons.
+Use reusable components and clean TypeScript.
+Optimize animations and image delivery.
+Keep the code maintainable so future use cases and industries can be added easily.
+25. VERCEL DEPLOYMENT
+Prepare the project for Vercel.
+Requirements:
+Production build must pass.
+All ten routes must work.
+Images must load correctly.
+All internal links must work.
+Contact form configuration must be documented.
+Environment variables must be handled securely.
+No API keys or secrets in frontend code.
+No local-only asset paths.
+No dependency on the development server.
+Provide:
+README.md.
+Installation instructions.
+Development commands.
+Production build commands.
+Environment variable documentation.
+Vercel deployment instructions.
+Do not claim deployment is complete unless an actual deployment has been performed and verified.
+26. FINAL QUALITY ASSURANCE
+Before declaring the project complete, perform a full review.
+DESIGN CHECK
+Does the website look like a premium enterprise fintech platform?
+Are the exact KYP brand colours used consistently?
+Is the hero visually impressive?
+Is the Graph Intelligence section genuinely interactive?
+Are actual KYP product visuals used?
+Are all pages visually consistent?
+Are the animations smooth and purposeful?
+PAGE CHECK
+Verify all ten routes individually.
+NAVIGATION CHECK
+Verify:
+Every industry item links to #.
+Onboarding links to its page.
+AML links to its page.
+The remaining eight use cases link to #.
+Platform links work.
+FAQ, News and Whitepapers work.
+Company links work.
+Book a Demo always leads to /contact.
+Footer links follow the same rules.
+RESPONSIVE CHECK
+Test mobile, tablet and desktop.
+FUNCTIONAL CHECK
+Test:
+Mega menu.
+Mobile menu.
+All CTAs.
+Accordions.
+Contact form.
+Internal navigation.
+Graph interactions.
+Hover states.
+FINAL OUTPUT
+Deliver a complete working website, not just a design preview.
+Provide:
+All ten implemented pages.
+Reusable use-case page template.
+Shared responsive mega menu.
+Shared footer.
+Interactive Graph Intelligence section.
+Responsive dashboard visuals.
+Functional navigation.
+Contact form implementation.
+Clean source code.
+Vercel deployment readiness.
+FINAL CREATIVE DIRECTION
+The final KYP website should feel like a combination of:
+Itemize's sophisticated financial intelligence visual storytelling.
+SEON's organized enterprise navigation.
+A premium fintech risk intelligence product.
+A modern, data-driven compliance technology platform.
+However, the final result must have its own distinct KYP identity.
+The most important visual priorities are:
+An exceptional animated hero.
+Realistic KYP platform interface visuals.
+A sophisticated interactive Graph Intelligence experience.
+Premium mega menu.
+Beautiful platform and use-case layouts.
+Consistent brand implementation.
+Smooth responsive interactions.
+Strong Book a Demo conversion experience.
+Do not rush through the pages.
+Build the design system first, complete the homepage to a high standard, and then extend the same design language across the remaining pages.
+Prioritize quality, accuracy, consistency, usability and performance over unnecessary visual effects.
+The final result must look like a premium enterprise SaaS website that KYP could confidently present to regulated financial institutions, payment providers, fintech businesses and iGaming operators.
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-10-30T11:09:08+05:00.
+</ADDITIONAL_METADATA>
+<USER_SETTINGS_CHANGE>
+The user changed setting `Model Selection` from None to Gemini 3.8 Flash (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.
+</USER_SETTINGS_CHANGE>

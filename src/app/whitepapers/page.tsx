@@ -5,6 +5,7 @@ import { ArrowRight, Sparkles, BookOpen, Download } from "lucide-react";
 import { routes } from "@/lib/routes";
 import { whitepapersData } from "@/data/whitepapers";
 import WhitepaperCard from "@/components/cards/WhitepaperCard";
+import KYPLottie from "@/components/lottie/KYPLottie";
 
 export const metadata: Metadata = {
   title: "Whitepapers & Research | KYP",
@@ -22,7 +23,9 @@ export default function WhitepapersPage() {
 
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 text-center">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-kyp-lime/10 border border-kyp-lime/30 text-xs font-mono text-kyp-lime mb-6 font-semibold">
-            <Sparkles className="w-3.5 h-3.5" />
+            <span className="w-4 h-4 inline-flex items-center justify-center">
+              <KYPLottie type="docScanner" className="w-4 h-4" />
+            </span>
             COMPLIANCE PAPERS &bull; REGULATORY RESEARCH
           </div>
 

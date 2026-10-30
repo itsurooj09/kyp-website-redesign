@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, ShieldCheck, CheckCircle2, AlertTriangle, Sparkles, Network, Activity, FileCheck, ExternalLink, Quote } from "lucide-react";
+import { ArrowRight, ShieldCheck, CheckCircle2, AlertTriangle, Sparkles, Network, Activity, FileCheck, ExternalLink, Quote, Database, Cpu, Lock } from "lucide-react";
 import { routes } from "@/lib/routes";
 import { industriesData } from "@/data/industries";
 import { useCasesData } from "@/data/useCases";
@@ -16,6 +16,8 @@ import UseCaseCard from "@/components/cards/UseCaseCard";
 import NewsCard from "@/components/cards/NewsCard";
 import DashboardMockup from "@/components/product/DashboardMockup";
 import GraphIntelligence from "@/components/product/GraphIntelligence";
+import { PartnerLogo, CredentialBadge } from "@/components/home/PartnerLogos";
+import KYPLottie from "@/components/lottie/KYPLottie";
 
 export default function HomePage() {
   const latestThreeNews = newsArticlesData.slice(0, 3);
@@ -31,8 +33,10 @@ export default function HomePage() {
 
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 text-center">
           {/* Eyebrow Pill */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-kyp-lime/10 border border-kyp-lime/30 text-xs font-mono text-kyp-lime mb-6 font-semibold animate-pulse-slow">
-            <Sparkles className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-kyp-lime/10 border border-kyp-lime/30 text-xs font-mono text-kyp-lime mb-6 font-semibold">
+            <span className="w-4 h-4 inline-flex items-center justify-center">
+              <KYPLottie type="heroRadar" className="w-4 h-4" />
+            </span>
             <span>AI-POWERED ENTERPRISE RISK &amp; COMPLIANCE PLATFORM</span>
           </div>
 
@@ -69,44 +73,44 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SECTION 2 – TRUST AND CREDIBILITY STRIP */}
+      {/* SECTION 2 – TRUST AND CREDIBILITY STRIP (Fixed crisp SVGs with Lottie Security Indicator) */}
       <section className="py-12 bg-kyp-charcoal/70 border-b border-kyp-teal/15">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-8">
+          <div className="text-center mb-8 flex items-center justify-center gap-2">
+            <span className="w-5 h-5 inline-block">
+              <KYPLottie type="securityShield" className="w-5 h-5" />
+            </span>
             <span className="text-[11px] font-mono tracking-widest text-kyp-teal uppercase font-semibold">
               Trusted by Regulated Leaders &bull; Industry Verified Credibility
             </span>
           </div>
 
-          {/* Partner & Client Logo Strip */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-6 items-center justify-center">
-            {trustedPartners.map((partner, idx) => (
+          {/* High-Contrast Crisp Partner Logo Cards */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-4 items-center justify-center">
+            {[
+              { id: "neogames", name: "NeoGames" },
+              { id: "riskrecon", name: "RiskRecon (Mastercard)" },
+              { id: "itemize", name: "Itemize" },
+              { id: "tellmoney", name: "tell.money" },
+              { id: "integrated-finance", name: "Integrated Finance" },
+              { id: "btobet", name: "BtoBet" },
+              { id: "pariplay", name: "Pariplay" },
+            ].map((p) => (
               <div
-                key={idx}
-                className="h-14 p-2 rounded-xl bg-kyp-navy-surface/40 border border-kyp-teal/10 hover:border-kyp-teal/30 flex items-center justify-center transition-all group"
+                key={p.id}
+                className="h-16 px-4 rounded-xl bg-kyp-navy-surface/60 border border-kyp-teal/20 hover:border-kyp-lime/60 hover:bg-kyp-navy/80 hover:shadow-lime-glow flex items-center justify-center transition-all group"
               >
-                <div className="relative w-28 h-8 opacity-70 group-hover:opacity-100 transition-opacity">
-                  <Image
-                    src={partner.logo}
-                    alt={partner.name}
-                    fill
-                    className="object-contain"
-                  />
-                </div>
+                <PartnerLogo id={p.id} className="h-6 w-auto opacity-90 group-hover:opacity-100 transition-opacity" />
               </div>
             ))}
           </div>
 
-          {/* Accreditations & Certifications */}
-          <div className="mt-8 pt-8 border-t border-kyp-teal/10 flex flex-wrap items-center justify-center gap-6 text-xs text-gray-400 font-mono">
-            {credentials.map((cred, idx) => (
-              <div key={idx} className="flex items-center gap-2">
-                <div className="relative w-5 h-5">
-                  <Image src={cred.logo} alt={cred.name} fill className="object-contain" />
-                </div>
-                <span>{cred.desc}</span>
-              </div>
-            ))}
+          {/* Accreditations & Certifications with High Contrast Badges */}
+          <div className="mt-8 pt-8 border-t border-kyp-teal/15 flex flex-wrap items-center justify-center gap-4 text-xs font-mono">
+            <CredentialBadge id="iso" name="ISO 27001" desc="ISO 27001 Information Security Certified" />
+            <CredentialBadge id="ey" name="EY" desc="EY Growth FinTech Programme Alumni" />
+            <CredentialBadge id="bloom" name="Bloom" desc="Bloom Accredited Supplier" />
+            <CredentialBadge id="london" name="London" desc="Mayor's International Programme Selected" />
           </div>
         </div>
       </section>
@@ -211,10 +215,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SECTION 5 – PLATFORM HIGHLIGHTS */}
+      {/* SECTION 5 – PLATFORM HIGHLIGHTS (Fixed expansive layout & dedicated data visual) */}
       <section className="py-20 lg:py-28 border-b border-kyp-teal/15 kyp-grid-pattern">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="max-w-3xl mb-16">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-16">
+          <div className="max-w-3xl">
             <span className="text-xs font-mono text-kyp-lime uppercase tracking-widest font-semibold">
               Platform Architecture
             </span>
@@ -226,87 +230,142 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* Feature 1: AI-Powered Onboarding */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center py-12 border-b border-kyp-teal/10">
-            <div className="lg:col-span-5 space-y-4">
-              <span className="text-xs font-mono text-kyp-lime uppercase tracking-wider font-semibold">
-                Feature 01 &bull; Onboarding Acceleration
-              </span>
-              <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-                AI-Powered Onboarding
-              </h3>
-              <p className="text-sm text-gray-300 leading-relaxed">
-                Check documents, validate information, and resolve issues before submission. Help partners correct blurry or outdated documentation in real time rather than discovering issues after submission.
-              </p>
-              <ul className="space-y-2 text-xs text-gray-400 pt-2 font-mono">
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-kyp-lime" />
-                  Auto-populated questionnaires from registry filings
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-kyp-lime" />
-                  Discrepancy detection across documents &amp; registries
-                </li>
-              </ul>
-              <div className="pt-2">
+          {/* Feature 1: AI-Powered Onboarding & Live Command Dashboard */}
+          <div className="space-y-6 pt-4 border-b border-kyp-teal/15 pb-16">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              <div className="lg:col-span-8 space-y-3">
+                <span className="text-xs font-mono text-kyp-lime uppercase tracking-wider font-semibold">
+                  Feature 01 &bull; Onboarding Acceleration &amp; Live Command
+                </span>
+                <h3 className="text-2xl sm:text-4xl font-bold text-white tracking-tight">
+                  AI-Powered Onboarding &amp; Portfolio Risk Command
+                </h3>
+                <p className="text-sm text-gray-300 leading-relaxed max-w-3xl">
+                  Check documents, validate information, and resolve issues before submission. Help partners correct blurry or outdated documentation in real time rather than discovering issues after submission. Filter records, investigate high-risk flags, and export 60-second compliance dossiers.
+                </p>
+              </div>
+              <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 justify-end items-start lg:items-end font-mono text-xs">
+                <div className="flex items-center gap-2 text-kyp-mint">
+                  <CheckCircle2 className="w-4 h-4 text-kyp-lime" />
+                  <span>Auto-populated questionnaires</span>
+                </div>
+                <div className="flex items-center gap-2 text-kyp-mint">
+                  <CheckCircle2 className="w-4 h-4 text-kyp-lime" />
+                  <span>Discrepancy detection engine</span>
+                </div>
                 <Link
                   href={routes.platformAiOnboarding}
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-kyp-lime hover:text-white transition-colors"
+                  className="kyp-btn-primary px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 mt-2"
                 >
                   <span>Explore AI Onboarding</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
             </div>
-            <div className="lg:col-span-7">
+
+            {/* Expansive Full-Width Dashboard Mockup */}
+            <div className="w-full pt-2">
               <DashboardMockup />
             </div>
           </div>
 
-          {/* Feature 2: Data & Integrations */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center py-12 border-b border-kyp-teal/10">
-            <div className="lg:col-span-7 order-2 lg:order-1">
-              <PlatformFlow />
-            </div>
-            <div className="lg:col-span-5 space-y-4 order-1 lg:order-2">
+          {/* Feature 2: Data & Integrations (Dedicated Hub with Lottie Synapse) */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center py-6 border-b border-kyp-teal/15 pb-16">
+            <div className="lg:col-span-6 space-y-5">
               <span className="text-xs font-mono text-kyp-teal uppercase tracking-wider font-semibold">
                 Feature 02 &bull; Unified Aggregation
               </span>
-              <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+              <h3 className="text-2xl sm:text-4xl font-bold text-white tracking-tight">
                 Data &amp; Integrations
               </h3>
               <p className="text-sm text-gray-300 leading-relaxed">
-                Bring together business information, external intelligence, and internal systems to build a consolidated risk assessment. Cross-reference onboarding answers against 180+ commercial registries and watchlists.
+                Bring together business information, external intelligence, and internal systems to build a consolidated risk assessment. Cross-reference onboarding answers against 180+ commercial registries, PEP/sanctions lists, transaction telemetry, and cyber-risk feeds without switching between tools.
               </p>
-              <ul className="space-y-2 text-xs text-gray-400 pt-2 font-mono">
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-kyp-teal" />
-                  Global registry feeds &amp; PEP/Sanction databases
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-kyp-teal" />
-                  Connected cyber-risk feeds from partners like RiskRecon
-                </li>
-              </ul>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono pt-2">
+                <div className="p-3 rounded-xl bg-kyp-navy-surface border border-kyp-teal/20 space-y-1">
+                  <div className="text-white font-bold flex items-center gap-1.5">
+                    <Database className="w-3.5 h-3.5 text-kyp-teal" />
+                    180+ Registries
+                  </div>
+                  <p className="text-gray-400 text-[11px]">Real-time API access to official Companies Houses globally.</p>
+                </div>
+
+                <div className="p-3 rounded-xl bg-kyp-navy-surface border border-kyp-teal/20 space-y-1">
+                  <div className="text-white font-bold flex items-center gap-1.5">
+                    <ShieldCheck className="w-3.5 h-3.5 text-kyp-lime" />
+                    Watchlist Sentinel
+                  </div>
+                  <p className="text-gray-400 text-[11px]">OFAC, EU, UN, UK HMT &amp; global PEP databases synced 24/7.</p>
+                </div>
+
+                <div className="p-3 rounded-xl bg-kyp-navy-surface border border-kyp-teal/20 space-y-1">
+                  <div className="text-white font-bold flex items-center gap-1.5">
+                    <Activity className="w-3.5 h-3.5 text-kyp-mint" />
+                    WebCompli™ Crawler
+                  </div>
+                  <p className="text-gray-400 text-[11px]">Continuous merchant website &amp; card scheme rule checks.</p>
+                </div>
+
+                <div className="p-3 rounded-xl bg-kyp-navy-surface border border-kyp-teal/20 space-y-1">
+                  <div className="text-white font-bold flex items-center gap-1.5">
+                    <Lock className="w-3.5 h-3.5 text-kyp-teal" />
+                    RiskRecon Cyber
+                  </div>
+                  <p className="text-gray-400 text-[11px]">Third-party dark-web exposure &amp; infrastructure posture.</p>
+                </div>
+              </div>
+
               <div className="pt-2">
                 <Link
                   href={routes.platformDataIntegrations}
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-kyp-teal hover:text-white transition-colors"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-kyp-teal hover:text-white transition-colors font-mono"
                 >
-                  <span>Explore Data Integrations</span>
+                  <span>Explore Data Integrations Specification</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
+              </div>
+            </div>
+
+            {/* Visual Integration Hub with Lottie Synapse Stream */}
+            <div className="lg:col-span-6 bg-gradient-to-b from-kyp-navy-surface to-black p-6 rounded-2xl border border-kyp-teal/30 shadow-2xl relative overflow-hidden">
+              <div className="flex items-center justify-between border-b border-kyp-teal/15 pb-4 mb-6">
+                <div className="flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-kyp-teal animate-ping" />
+                  <span className="text-xs font-mono text-white font-bold uppercase">Active Synapse Stream</span>
+                </div>
+                <span className="text-[10px] font-mono text-kyp-lime">100% HEALTHY</span>
+              </div>
+
+              {/* Lottie Synapse in Center */}
+              <div className="w-48 h-48 mx-auto my-2">
+                <KYPLottie type="dataSynapse" className="w-full h-full" />
+              </div>
+
+              <div className="grid grid-cols-3 gap-2 text-center text-xs font-mono pt-4 border-t border-kyp-teal/15">
+                <div className="p-2 rounded bg-black/60 border border-kyp-teal/15">
+                  <div className="text-[10px] text-gray-400">Throughput</div>
+                  <div className="text-sm font-bold text-white mt-0.5">4.8k req/s</div>
+                </div>
+                <div className="p-2 rounded bg-black/60 border border-kyp-teal/15">
+                  <div className="text-[10px] text-gray-400">Cross-Match</div>
+                  <div className="text-sm font-bold text-kyp-lime mt-0.5">&lt;85ms</div>
+                </div>
+                <div className="p-2 rounded bg-black/60 border border-kyp-teal/15">
+                  <div className="text-[10px] text-gray-400">Integrations</div>
+                  <div className="text-sm font-bold text-kyp-teal mt-0.5">24 Connected</div>
+                </div>
               </div>
             </div>
           </div>
 
           {/* Feature 3: Graph Intelligence */}
-          <div className="py-12">
-            <div className="max-w-3xl mb-8">
+          <div className="space-y-6 pt-2">
+            <div className="max-w-3xl">
               <span className="text-xs font-mono text-kyp-mint uppercase tracking-wider font-semibold">
                 Feature 03 &bull; Visual Contagion Analysis
               </span>
-              <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+              <h3 className="text-2xl sm:text-4xl font-bold text-white tracking-tight mt-1">
                 Graph Intelligence
               </h3>
               <p className="text-sm text-gray-300 leading-relaxed mt-2">
@@ -494,6 +553,10 @@ export default function HomePage() {
         <div className="absolute inset-0 kyp-radial-glow pointer-events-none" />
 
         <div className="max-w-4xl mx-auto px-6 lg:px-8 relative z-10 space-y-6">
+          <div className="w-16 h-16 mx-auto">
+            <KYPLottie type="auditSeal" className="w-full h-full" />
+          </div>
+
           <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-kyp-lime/10 border border-kyp-lime/30 text-xs font-mono text-kyp-lime font-semibold">
             <Sparkles className="w-3.5 h-3.5" />
             READY TO TRANSFORM YOUR COMPLIANCE OPERATIONS?

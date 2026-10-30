@@ -6,6 +6,7 @@ import { ArrowRight, ShieldCheck, Sparkles, Building, CheckCircle2, Award, Globe
 import { routes } from "@/lib/routes";
 import { trustedPartners, credentials } from "@/data/testimonials";
 import DashboardMockup from "@/components/product/DashboardMockup";
+import KYPLottie from "@/components/lottie/KYPLottie";
 
 export const metadata: Metadata = {
   title: "About KYP | Intelligence That Helps Businesses Understand Risk",
@@ -23,7 +24,9 @@ export default function AboutPage() {
 
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 text-center">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-kyp-lime/10 border border-kyp-lime/30 text-xs font-mono text-kyp-lime mb-6 font-semibold">
-            <Sparkles className="w-3.5 h-3.5" />
+            <span className="w-4 h-4 inline-flex items-center justify-center">
+              <KYPLottie type="heroRadar" className="w-4 h-4" />
+            </span>
             ABOUT KNOW YOUR PARTNER (KYP)
           </div>
 
