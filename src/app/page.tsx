@@ -18,6 +18,8 @@ import DashboardMockup from "@/components/product/DashboardMockup";
 import GraphIntelligence from "@/components/product/GraphIntelligence";
 import { PartnerLogo, CredentialBadge } from "@/components/home/PartnerLogos";
 import KYPLottie from "@/components/lottie/KYPLottie";
+import PurposeBuiltSolutions from "@/components/home/PurposeBuiltSolutions";
+import WorkflowSLADemo from "@/components/home/WorkflowSLADemo";
 
 export default function HomePage() {
   const latestThreeNews = newsArticlesData.slice(0, 3);
@@ -215,6 +217,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* PURPOSE-BUILT OPERATING SOLUTIONS CARDS (Horizontal Suite) */}
+      <PurposeBuiltSolutions />
+
       {/* SECTION 5 – PLATFORM HIGHLIGHTS (Fixed expansive layout & dedicated data visual) */}
       <section className="py-20 lg:py-28 border-b border-kyp-teal/15 kyp-grid-pattern">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-16">
@@ -399,6 +404,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* PROCESSING SPEED SLAS & LIVE WORKFLOW DEMO */}
+      <WorkflowSLADemo />
 
       {/* SECTION 7 – ANIMATED PLATFORM FLOW (Detailed Pipeline Section) */}
       <section className="py-20 lg:py-28 border-b border-kyp-teal/15 kyp-grid-pattern">
