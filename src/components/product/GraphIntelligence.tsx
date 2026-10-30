@@ -18,6 +18,9 @@ import {
   User,
   Sliders,
   FileCheck2,
+  Edit3,
+  Save,
+  Plus,
 } from "lucide-react";
 
 export interface GraphNode {
@@ -179,29 +182,64 @@ const INITIAL_LINKS: GraphLink[] = [
 ];
 
 export default function GraphIntelligence() {
+  const [nodes, setNodes] = useState<GraphNode[]>(INITIAL_NODES);
   const [selectedNode, setSelectedNode] = useState<GraphNode>(INITIAL_NODES[0]);
   const [activeFilter, setActiveFilter] = useState<"all" | "ubo" | "subsidiary" | "merchant">("all");
   const [zoomLevel, setZoomLevel] = useState<number>(1);
   const [isHoveredNode, setIsHoveredNode] = useState<string | null>(null);
 
+  // Edit entity state
+  const [isEditing, setIsEditing] = useState(false);
+  const [editForm, setEditForm] = useState<Partial<GraphNode>>({});
+  const [toast, setToast] = useState<string | null>(null);
+
+  const showToast = (msg: string) => {
+    setToast(msg);
+    setTimeout(() => setToast(null), 3000);
+  };
+
   const handleFilterClick = (type: "all" | "ubo" | "subsidiary" | "merchant") => {
     setActiveFilter(type);
     if (type === "all") {
-      setSelectedNode(INITIAL_NODES[0]);
+      setSelectedNode(nodes[0]);
     } else {
-      const match = INITIAL_NODES.find((n) => n.type === type);
+      const match = nodes.find((n) => n.type === type);
       if (match) setSelectedNode(match);
     }
   };
 
   const handleZoom = (delta: number) => {
-    setZoomLevel((prev) => Math.min(Math.max(0.7, prev + delta), 1.5));
+    setZoomLevel((prev) => Math.min(Math.max(0.65, Number((prev + delta).toFixed(2))), 1.6));
   };
 
   const handleReset = () => {
     setZoomLevel(1);
+    setNodes(INITIAL_NODES);
     setSelectedNode(INITIAL_NODES[0]);
     setActiveFilter("all");
+    setIsEditing(false);
+    showToast("✓ Reset graph view and topology");
+  };
+
+  const handleNodeSelect = (n: GraphNode) => {
+    setSelectedNode(n);
+    setEditForm({ ...n });
+    setIsEditing(false);
+  };
+
+  const handleStartEdit = () => {
+    setEditForm({ ...selectedNode });
+    setIsEditing(true);
+  };
+
+  const handleSaveEdit = () => {
+    const updated = nodes.map((n) =>
+      n.id === selectedNode.id ? ({ ...n, ...editForm } as GraphNode) : n
+    );
+    setNodes(updated);
+    setSelectedNode({ ...selectedNode, ...editForm } as GraphNode);
+    setIsEditing(false);
+    showToast(`✓ Updated node: ${editForm.name || selectedNode.name}`);
   };
 
   const getNodeColor = (status: GraphNode["status"], isSelected: boolean) => {
@@ -218,8 +256,20 @@ export default function GraphIntelligence() {
     }
   };
 
+  const currentUboCount = nodes.filter((n) => n.type === "ubo").length;
+  const currentSubsidiaryCount = nodes.filter((n) => n.type === "subsidiary").length;
+  const currentMerchantCount = nodes.filter((n) => n.type === "merchant").length;
+
   return (
     <div className="w-full bg-black/90 rounded-2xl border border-kyp-teal/30 overflow-hidden shadow-2xl relative kyp-grid-pattern">
+      {/* Toast */}
+      {toast && (
+        <div className="absolute top-4 right-4 z-50 bg-kyp-lime text-black px-4 py-2 rounded-xl font-mono text-xs font-bold shadow-lime-glow flex items-center gap-2">
+          <CheckCircle2 className="w-4 h-4 text-black" />
+          <span>{toast}</span>
+        </div>
+      )}
+
       {/* Graph Toolbar */}
       <div className="p-4 md:p-6 border-b border-kyp-teal/15 bg-kyp-navy-surface/90 flex flex-wrap items-center justify-between gap-4">
         <div className="flex items-center gap-3">
@@ -232,11 +282,11 @@ export default function GraphIntelligence() {
                 KYP Graph Intelligence™ Engine
               </h3>
               <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-kyp-lime/10 text-kyp-lime border border-kyp-lime/30 font-semibold">
-                Interactive Multi-Tier Resolution
+                Interactive • Editable Nodes
               </span>
             </div>
             <p className="text-xs text-gray-400 mt-0.5">
-              Click any node to explore entity relationships, contagion risk, and UBO disclosures.
+              Click any node in the SVG to inspect entity connections, contagion risk, or edit node risk status.
             </p>
           </div>
         </div>
@@ -248,46 +298,46 @@ export default function GraphIntelligence() {
             <button
               type="button"
               onClick={() => handleFilterClick("all")}
-              className={`px-3 py-1.5 rounded-lg transition-all duration-200 font-semibold ${
+              className={`px-3 py-1.5 rounded-lg transition-all duration-200 font-semibold cursor-pointer ${
                 activeFilter === "all"
-                  ? "bg-kyp-lime text-black shadow-lime-glow"
+                  ? "bg-kyp-lime text-black shadow-lime-glow font-bold"
                   : "text-gray-300 hover:text-white hover:bg-white/5"
               }`}
             >
-              All Nodes ({INITIAL_NODES.length})
+              All Nodes ({nodes.length})
             </button>
             <button
               type="button"
               onClick={() => handleFilterClick("ubo")}
-              className={`px-3 py-1.5 rounded-lg transition-all duration-200 font-semibold ${
+              className={`px-3 py-1.5 rounded-lg transition-all duration-200 font-semibold cursor-pointer ${
                 activeFilter === "ubo"
-                  ? "bg-kyp-mint text-black shadow-md"
+                  ? "bg-kyp-mint text-black shadow-md font-bold"
                   : "text-gray-300 hover:text-white hover:bg-white/5"
               }`}
             >
-              UBOs (2)
+              UBOs ({currentUboCount})
             </button>
             <button
               type="button"
               onClick={() => handleFilterClick("subsidiary")}
-              className={`px-3 py-1.5 rounded-lg transition-all duration-200 font-semibold ${
+              className={`px-3 py-1.5 rounded-lg transition-all duration-200 font-semibold cursor-pointer ${
                 activeFilter === "subsidiary"
-                  ? "bg-kyp-teal text-black shadow-md"
+                  ? "bg-kyp-teal text-black shadow-md font-bold"
                   : "text-gray-300 hover:text-white hover:bg-white/5"
               }`}
             >
-              Subsidiaries (2)
+              Subsidiaries ({currentSubsidiaryCount})
             </button>
             <button
               type="button"
               onClick={() => handleFilterClick("merchant")}
-              className={`px-3 py-1.5 rounded-lg transition-all duration-200 font-semibold ${
+              className={`px-3 py-1.5 rounded-lg transition-all duration-200 font-semibold cursor-pointer ${
                 activeFilter === "merchant"
-                  ? "bg-kyp-lime text-black shadow-lime-glow"
+                  ? "bg-kyp-lime text-black shadow-lime-glow font-bold"
                   : "text-gray-300 hover:text-white hover:bg-white/5"
               }`}
             >
-              Merchants (3)
+              Merchants ({currentMerchantCount})
             </button>
           </div>
 
@@ -296,16 +346,16 @@ export default function GraphIntelligence() {
             <button
               type="button"
               onClick={() => handleZoom(0.15)}
-              className="p-1.5 hover:text-kyp-lime hover:bg-white/5 rounded-lg"
+              className="p-1.5 hover:text-kyp-lime hover:bg-white/5 rounded-lg cursor-pointer"
               title="Zoom In"
             >
               <ZoomIn className="w-4 h-4" />
             </button>
-            <span className="px-1 text-[11px] text-kyp-teal">{Math.round(zoomLevel * 100)}%</span>
+            <span className="px-1 text-[11px] text-kyp-teal font-bold">{Math.round(zoomLevel * 100)}%</span>
             <button
               type="button"
               onClick={() => handleZoom(-0.15)}
-              className="p-1.5 hover:text-kyp-lime hover:bg-white/5 rounded-lg"
+              className="p-1.5 hover:text-kyp-lime hover:bg-white/5 rounded-lg cursor-pointer"
               title="Zoom Out"
             >
               <ZoomOut className="w-4 h-4" />
@@ -313,7 +363,7 @@ export default function GraphIntelligence() {
             <button
               type="button"
               onClick={handleReset}
-              className="p-1.5 hover:text-kyp-lime hover:bg-white/5 rounded-lg border-l border-kyp-teal/20 ml-1 pl-2"
+              className="p-1.5 hover:text-kyp-lime hover:bg-white/5 rounded-lg border-l border-kyp-teal/20 ml-1 pl-2 cursor-pointer"
               title="Reset View"
             >
               <RotateCcw className="w-4 h-4" />
@@ -335,7 +385,7 @@ export default function GraphIntelligence() {
 
           <svg
             viewBox="0 0 1000 600"
-            className="w-full h-auto max-h-[560px] transition-transform duration-300 ease-out"
+            className="w-full h-auto max-h-[560px] transition-transform duration-300 ease-out cursor-grab active:cursor-grabbing"
             style={{ transform: `scale(${zoomLevel})` }}
           >
             <defs>
@@ -348,8 +398,8 @@ export default function GraphIntelligence() {
             {/* Links / Edges */}
             <g className="links">
               {INITIAL_LINKS.map((link, idx) => {
-                const sNode = INITIAL_NODES.find((n) => n.id === link.source);
-                const tNode = INITIAL_NODES.find((n) => n.id === link.target);
+                const sNode = nodes.find((n) => n.id === link.source);
+                const tNode = nodes.find((n) => n.id === link.target);
                 if (!sNode || !tNode) return null;
 
                 const isConnectedToSelected =
@@ -363,7 +413,7 @@ export default function GraphIntelligence() {
                   tNode.type !== activeFilter;
 
                 return (
-                  <g key={idx} className="cursor-pointer">
+                  <g key={idx}>
                     <line
                       x1={sNode.x}
                       y1={sNode.y}
@@ -391,7 +441,7 @@ export default function GraphIntelligence() {
 
             {/* Nodes */}
             <g className="nodes">
-              {INITIAL_NODES.map((node) => {
+              {nodes.map((node) => {
                 const isSelected = selectedNode.id === node.id;
                 const isHovered = isHoveredNode === node.id;
                 const matchesFilter = activeFilter === "all" || node.type === activeFilter;
@@ -402,7 +452,7 @@ export default function GraphIntelligence() {
                     key={node.id}
                     className="cursor-pointer transition-all duration-300"
                     style={{ opacity: matchesFilter ? 1 : 0.25 }}
-                    onClick={() => setSelectedNode(node)}
+                    onClick={() => handleNodeSelect(node)}
                     onMouseEnter={() => setIsHoveredNode(node.id)}
                     onMouseLeave={() => setIsHoveredNode(null)}
                   >
@@ -413,7 +463,7 @@ export default function GraphIntelligence() {
                         cy={node.y}
                         r={node.size + 14}
                         fill={isSelected ? "#c6f5ef" : "#66cc00"}
-                        fillOpacity={isSelected ? 0.25 : 0.15}
+                        fillOpacity={isSelected ? 0.35 : 0.2}
                         className="animate-pulse"
                       />
                     )}
@@ -425,7 +475,7 @@ export default function GraphIntelligence() {
                       r={node.size + 4}
                       fill="none"
                       stroke={nodeFill}
-                      strokeWidth={isSelected ? 3 : 1.5}
+                      strokeWidth={isSelected ? 3.5 : 1.8}
                       strokeDasharray={node.status === "alert" ? "3 3" : "none"}
                     />
 
@@ -436,7 +486,7 @@ export default function GraphIntelligence() {
                       r={node.size}
                       fill="#033653"
                       stroke={isSelected ? "#ffffff" : "#033653"}
-                      strokeWidth={isSelected ? 2 : 1}
+                      strokeWidth={isSelected ? 2.5 : 1}
                     />
 
                     {/* Center Core */}
@@ -460,7 +510,7 @@ export default function GraphIntelligence() {
                       x={node.x}
                       y={node.y + node.size + 28}
                       textAnchor="middle"
-                      fill={node.status === "alert" ? "#ff8888" : "#66cc00"}
+                      fill={node.status === "alert" ? "#ff8888" : node.status === "review" ? "#6fd3c4" : "#66cc00"}
                       fontSize="9"
                       fontWeight="600"
                       fontFamily="monospace"
@@ -490,51 +540,103 @@ export default function GraphIntelligence() {
           </div>
         </div>
 
-        {/* Side Inspector Drawer */}
+        {/* Side Inspector Drawer with EDIT CAPABILITY */}
         <div className="col-span-12 lg:col-span-4 bg-kyp-navy-surface/95 border-t lg:border-t-0 lg:border-l border-kyp-teal/20 p-6 flex flex-col justify-between">
-          <div className="space-y-5">
+          <div className="space-y-4">
             <div className="flex items-center justify-between border-b border-kyp-teal/15 pb-4">
               <div className="flex items-center gap-2 text-xs font-mono text-kyp-mint uppercase font-semibold">
                 <Info className="w-3.5 h-3.5 text-kyp-teal" />
                 <span>Entity Dossier Inspector</span>
               </div>
-              <span
-                className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase ${
-                  selectedNode.status === "compliant"
-                    ? "bg-kyp-lime/10 text-kyp-lime border border-kyp-lime/30"
-                    : selectedNode.status === "review"
-                    ? "bg-kyp-teal/10 text-kyp-teal border border-kyp-teal/30"
-                    : "bg-red-500/10 text-red-400 border border-red-500/30"
+              <button
+                type="button"
+                onClick={isEditing ? () => setIsEditing(false) : handleStartEdit}
+                className={`px-2.5 py-1 rounded-lg border text-xs font-mono font-bold flex items-center gap-1 cursor-pointer ${
+                  isEditing
+                    ? "bg-yellow-400 text-black border-yellow-400"
+                    : "bg-kyp-navy border-kyp-teal/30 text-kyp-mint hover:border-kyp-lime"
                 }`}
               >
-                {selectedNode.status === "alert" ? "High Risk Alert" : selectedNode.status.toUpperCase()}
-              </span>
+                <Edit3 className="w-3 h-3" />
+                <span>{isEditing ? "Cancel" : "Edit Node"}</span>
+              </button>
             </div>
 
+            {/* Entity Name & Type */}
             <div>
-              <h4 className="text-xl font-bold text-white tracking-tight">{selectedNode.name}</h4>
-              <p className="text-xs font-mono text-gray-400 mt-1">
-                Type: <strong className="text-white uppercase">{selectedNode.type}</strong> &bull; {selectedNode.jurisdiction}
-              </p>
+              {isEditing ? (
+                <div className="space-y-2">
+                  <label className="text-[10px] font-mono text-gray-400 uppercase">Node Name</label>
+                  <input
+                    type="text"
+                    value={editForm.name || ""}
+                    onChange={(e) => setEditForm({ ...editForm, name: e.target.value })}
+                    className="w-full bg-black/80 border border-kyp-lime rounded px-2.5 py-1.5 text-white text-base font-bold focus:outline-none"
+                  />
+                </div>
+              ) : (
+                <>
+                  <h4 className="text-xl font-bold text-white tracking-tight">{selectedNode.name}</h4>
+                  <p className="text-xs font-mono text-gray-400 mt-1">
+                    Type: <strong className="text-white uppercase">{selectedNode.type}</strong> &bull; {selectedNode.jurisdiction}
+                  </p>
+                </>
+              )}
             </div>
 
             {/* Metrics cards */}
             <div className="grid grid-cols-2 gap-3">
               <div className="p-3 rounded-xl bg-black/60 border border-kyp-teal/15">
                 <span className="text-[10px] font-mono text-gray-400 uppercase">Risk Index</span>
-                <div className="text-2xl font-bold mt-0.5">
-                  <span className={selectedNode.riskScore > 70 ? "text-red-400" : selectedNode.riskScore > 40 ? "text-yellow-400" : "text-kyp-lime"}>
-                    {selectedNode.riskScore}
-                  </span>
-                  <span className="text-xs text-gray-500 font-normal"> /100</span>
-                </div>
+                {isEditing ? (
+                  <div className="mt-1 space-y-1">
+                    <input
+                      type="range"
+                      min="0"
+                      max="100"
+                      value={editForm.riskScore ?? selectedNode.riskScore}
+                      onChange={(e) => setEditForm({ ...editForm, riskScore: Number(e.target.value) })}
+                      className="w-full"
+                    />
+                    <div className="text-sm font-bold text-white font-mono">{editForm.riskScore}/100</div>
+                  </div>
+                ) : (
+                  <div className="text-2xl font-bold mt-0.5">
+                    <span className={selectedNode.riskScore > 70 ? "text-red-400" : selectedNode.riskScore > 40 ? "text-yellow-400" : "text-kyp-lime"}>
+                      {selectedNode.riskScore}
+                    </span>
+                    <span className="text-xs text-gray-500 font-normal"> /100</span>
+                  </div>
+                )}
               </div>
 
               <div className="p-3 rounded-xl bg-black/60 border border-kyp-teal/15">
-                <span className="text-[10px] font-mono text-gray-400 uppercase">Connections</span>
-                <div className="text-2xl font-bold text-white mt-0.5">
-                  {selectedNode.connections.length} <span className="text-xs text-gray-400 font-normal">Linked Nodes</span>
-                </div>
+                <span className="text-[10px] font-mono text-gray-400 uppercase">Status Tier</span>
+                {isEditing ? (
+                  <select
+                    value={editForm.status || selectedNode.status}
+                    onChange={(e) => setEditForm({ ...editForm, status: e.target.value as any })}
+                    className="w-full mt-2 bg-black/80 border border-kyp-teal/40 rounded px-2 py-1 text-white text-xs font-mono focus:outline-none focus:border-kyp-lime"
+                  >
+                    <option value="compliant">Compliant</option>
+                    <option value="review">Review</option>
+                    <option value="alert">High Alert</option>
+                  </select>
+                ) : (
+                  <div className="mt-1">
+                    <span
+                      className={`inline-block px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase ${
+                        selectedNode.status === "compliant"
+                          ? "bg-kyp-lime/10 text-kyp-lime border border-kyp-lime/30"
+                          : selectedNode.status === "review"
+                          ? "bg-kyp-teal/10 text-kyp-teal border border-kyp-teal/30"
+                          : "bg-red-500/10 text-red-400 border border-red-500/30"
+                      }`}
+                    >
+                      {selectedNode.status === "alert" ? "High Risk Alert" : selectedNode.status.toUpperCase()}
+                    </span>
+                  </div>
+                )}
               </div>
             </div>
 
@@ -564,19 +666,39 @@ export default function GraphIntelligence() {
                 <AlertTriangle className="w-3.5 h-3.5 text-yellow-400" />
                 <span>Intelligence Summary &amp; Contagion Context</span>
               </div>
-              <p className="text-xs text-gray-300 leading-relaxed">{selectedNode.notes}</p>
+              {isEditing ? (
+                <textarea
+                  rows={3}
+                  value={editForm.notes || ""}
+                  onChange={(e) => setEditForm({ ...editForm, notes: e.target.value })}
+                  className="w-full bg-black/80 border border-kyp-teal/40 rounded px-2.5 py-1.5 text-white text-xs focus:outline-none focus:border-kyp-lime"
+                />
+              ) : (
+                <p className="text-xs text-gray-300 leading-relaxed">{selectedNode.notes}</p>
+              )}
             </div>
           </div>
 
           <div className="pt-4 border-t border-kyp-teal/15 mt-4">
-            <button
-              type="button"
-              onClick={() => alert(`Opening Full Continuous Audit Log for ${selectedNode.name}...`)}
-              className="w-full py-2.5 px-4 rounded-xl bg-kyp-navy hover:bg-kyp-navy-light border border-kyp-teal/30 hover:border-kyp-lime text-xs font-mono font-semibold text-white transition-all flex items-center justify-center gap-2"
-            >
-              <span>View Full Continuous Audit Log</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-kyp-lime" />
-            </button>
+            {isEditing ? (
+              <button
+                type="button"
+                onClick={handleSaveEdit}
+                className="kyp-btn-primary w-full py-2.5 px-4 rounded-xl text-xs font-mono font-bold flex items-center justify-center gap-2 cursor-pointer shadow-lime-glow"
+              >
+                <Save className="w-3.5 h-3.5" />
+                <span>Save Node Changes</span>
+              </button>
+            ) : (
+              <button
+                type="button"
+                onClick={() => showToast(`✓ Opening FCA audit dossier for ${selectedNode.name}...`)}
+                className="w-full py-2.5 px-4 rounded-xl bg-kyp-navy hover:bg-kyp-navy-light border border-kyp-teal/30 hover:border-kyp-lime text-xs font-mono font-semibold text-white transition-all flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <span>View Full Continuous Audit Log</span>
+                <ArrowUpRight className="w-3.5 h-3.5 text-kyp-lime" />
+              </button>
+            )}
           </div>
         </div>
       </div>

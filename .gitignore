@@ -45,3 +45,7 @@ extracted_docs/
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+*.mp4
+extracted_frames/
+
