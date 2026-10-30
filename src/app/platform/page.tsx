@@ -28,20 +28,32 @@ export default function PlatformPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 text-center">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-kyp-lime/10 border border-kyp-lime/30 text-xs font-mono text-kyp-lime mb-6 font-semibold">
             <Sparkles className="w-3.5 h-3.5" />
-            ENTERPRISE ARCHITECTURE SPECIFICATION
+            THE KYP PLATFORM: FROM ONBOARDING TO AUDIT
           </div>
 
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white max-w-4xl mx-auto leading-[1.08]">
-            From Onboarding to Audit.
+            Multiple Data Sources. One Platform.
           </h1>
 
           <p className="text-xl sm:text-2xl text-kyp-mint font-medium mt-4">
-            Multiple data sources. One platform.
+            Faster onboarding. No fragmented reviews. Complete visibility from onboarding to audit.
           </p>
 
           <p className="text-sm sm:text-base text-gray-300 mt-4 max-w-3xl mx-auto leading-relaxed">
-            KYP brings merchant onboarding, due diligence, financial intelligence, continuous monitoring and audit reporting together into one unified platform, eliminating fragmented compliance workflows.
+            KYP brings merchant onboarding, due diligence and continuous monitoring together in one platform, connecting multiple data sources to eliminate fragmented workflows, simplify risk assessments and maintain a complete view of each merchant throughout their lifecycle.
           </p>
+
+          {/* Workflow Badges: Onboard -> Verify -> Monitor -> Report */}
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-3 font-mono text-xs">
+            {["Onboard", "Verify", "Monitor", "Report"].map((step, idx) => (
+              <div key={idx} className="flex items-center gap-3">
+                <span className="px-3.5 py-1.5 rounded-lg bg-kyp-navy-surface border border-kyp-teal/30 text-kyp-mint font-semibold">
+                  {step}
+                </span>
+                {idx < 3 && <ArrowRight className="w-3.5 h-3.5 text-kyp-lime" />}
+              </div>
+            ))}
+          </div>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <Link
@@ -74,109 +86,116 @@ export default function PlatformPage() {
               Ecosystem Overview
             </span>
             <h2 className="text-3xl sm:text-5xl font-bold text-white mt-2 tracking-tight">
-              One Connected View of Merchant Risk Management.
+              Connect Every Stage of Merchant Risk Management.
             </h2>
-            <p className="text-sm sm:text-base text-gray-400 mt-3 leading-relaxed">
-              Accelerate merchant onboarding with AI-assisted document validation, cross-check against 180+ global registries, monitor behavioural drift 24/7, and generate audit-ready reports on demand.
+            <p className="text-lg text-kyp-mint font-medium mt-2">
+              One connected view from onboarding to audit.
+            </p>
+            <p className="text-sm sm:text-base text-gray-300 mt-3 leading-relaxed">
+              Accelerate merchant onboarding with AI-assisted document validation, helping merchants resolve issues before submission. Cross-check information against multiple data sources to build a consolidated risk assessment without switching between tools. Continuously monitor changes in risk against your policies, investigate findings in one place and maintain a complete record of checks, alerts and decisions. Generate audit-ready reports in seconds, reducing manual reviews and making it easier to demonstrate your due diligence.
             </p>
           </div>
 
-          {/* 12 Platform Capabilities Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* 5 Core Pillars Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                title: "AI-Powered Onboarding",
-                desc: "Questionnaires tailored to policy with automated extraction and real-time partner feedback.",
+                title: "AI-Powered Merchant Onboarding",
+                desc: "Questionnaires, document collection and AI validation helping merchants resolve issues before submission.",
+                tag: "ONBOARDING",
               },
               {
-                title: "Document Collection & Validation",
-                desc: "OCR verification of passports, incorporation certificates, and utility statements.",
+                title: "Corporate & Beneficial Ownership",
+                desc: "Sanctions, PEP and adverse media intelligence drawn from multiple commercial and national registry feeds.",
+                tag: "INTELLIGENCE",
               },
               {
-                title: "Corporate Intelligence",
-                desc: "Direct API verification against official company registries across 180+ countries.",
+                title: "Website Compliance & Blacklists",
+                desc: "WebCompli crawler monitoring prohibited content, BRAM/VIRP rules, and potential prohibited market exposure.",
+                tag: "COMPLIANCE",
               },
               {
-                title: "Beneficial Ownership (UBO)",
-                desc: "Graph-based unbundling of complex holding structures and multi-tier shareholding.",
+                title: "Transaction Monitoring & Signals",
+                desc: "Payment activity, volumetric changes, and emerging behavioural risk indicators where data is integrated.",
+                tag: "TRANSACTIONS",
               },
               {
-                title: "Sanctions & PEP Screening",
-                desc: "Continuous automated scanning across OFAC, EU, UN, UK HMT, and global watchlists.",
+                title: "Configurable Rules & Audit Reports",
+                desc: "Policy-aligned rules, automated alerts, structured investigation workspaces, and one-click audit reports.",
+                tag: "GOVERNANCE",
               },
-              {
-                title: "Adverse Media Scanning",
-                desc: "Agentic NLP surveillance across international news feeds, legal gazettes, and court dockets.",
-              },
-              {
-                title: "WebCompli™ Website Compliance",
-                desc: "Automated crawling of terms, refund disclosures, and prohibited items for Mastercard BRAM & Visa VIRP.",
-              },
-              {
-                title: "Regulatory Blacklist Monitoring",
-                desc: "Proactive alerting if partners or merchants appear on official gambling or financial warnings.",
-              },
-              {
-                title: "Transaction Monitoring",
-                desc: "Integrated pattern anomaly detection and payment behaviour tracking where feeds are connected.",
-              },
-              {
-                title: "Configurable Monitoring Rules",
-                desc: "Tailor alert cadences, risk scoring weights, and escalation chains to internal policies.",
-              },
-              {
-                title: "Automated Alerts & Triage",
-                desc: "Context-rich alerts prioritizing material risk mutations over background false alarms.",
-              },
-              {
-                title: "Exportable Audit Reports",
-                desc: "Regulator-ready compliance packs generated in under 60 seconds with full evidentiary backing.",
-              },
-            ].map((cap, idx) => (
+            ].map((pillar, idx) => (
               <div
                 key={idx}
-                className="p-6 rounded-xl bg-black border border-kyp-teal/20 hover:border-kyp-lime/40 transition-all space-y-2.5"
+                className="p-6 rounded-xl bg-black border border-kyp-teal/20 hover:border-kyp-lime/40 transition-all space-y-3"
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-mono text-kyp-teal">CAPABILITY #{String(idx + 1).padStart(2, "0")}</span>
+                  <span className="text-[10px] font-mono text-kyp-teal uppercase tracking-wider">{pillar.tag}</span>
                   <CheckCircle2 className="w-4 h-4 text-kyp-lime" />
                 </div>
-                <h3 className="text-base font-bold text-white">{cap.title}</h3>
-                <p className="text-xs text-gray-400 leading-relaxed">{cap.desc}</p>
+                <h3 className="text-lg font-bold text-white">{pillar.title}</h3>
+                <p className="text-xs text-gray-400 leading-relaxed">{pillar.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* SECTION 3 – AI-POWERED BUSINESS ONBOARDING */}
+      {/* SECTION 3 – AI-POWERED ONBOARDING */}
       <section id="ai-onboarding" className="py-20 lg:py-28 border-b border-kyp-teal/15 kyp-grid-pattern">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-12">
           <div className="max-w-3xl">
             <span className="text-xs font-mono text-kyp-lime uppercase tracking-widest font-semibold">
-              Section 01 &bull; AI-Powered Business Onboarding
+              Section 01 &bull; AI-Powered Onboarding
             </span>
             <h2 className="text-3xl sm:text-5xl font-bold text-white mt-2 tracking-tight">
-              Check Documents. Reduce Manual Work. Onboard Faster.
+              Onboard 10× Faster. Resolve Document Issues Before Submission.
             </h2>
             <p className="text-lg text-kyp-mint font-medium mt-2">
-              Onboarding built around your requirements.
+              Get the information you need from the start.
             </p>
             <p className="text-sm text-gray-300 mt-3 leading-relaxed">
-              KYP uses AI to check documents and populate questionnaires, bringing document collection, AML screening and due diligence reporting into one Know Your Business (KYB) process. Your partners upload the required documents, receive instant feedback and complete only the missing information. Clear onboarding reporting helps identify issues, reduce drop-off and accelerate approvals.
+              KYP uses AI to check documents as business partners complete their onboarding questionnaires, helping them resolve issues before submission and reducing the back-and-forth your team needs to manage. Set the checks and submission requirements that match your onboarding policies. Help partners understand what needs correcting while they complete the questionnaire, rather than discovering problems after submission. Bring their answers, documents and verification findings together for review, with your team retaining control of approval decisions.
             </p>
+            <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-gray-400">
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-3.5 h-3.5 text-kyp-lime shrink-0" />
+                <span>Questionnaires & requirements tailored to policy</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-3.5 h-3.5 text-kyp-lime shrink-0" />
+                <span>AI checks assessing against configured rules</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-3.5 h-3.5 text-kyp-lime shrink-0" />
+                <span>Clear feedback to fix issues before submission</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-3.5 h-3.5 text-kyp-lime shrink-0" />
+                <span>Automatically populated forms via extracted data</span>
+              </li>
+              <li className="flex items-center gap-2 sm:col-span-2">
+                <CheckCircle2 className="w-3.5 h-3.5 text-kyp-lime shrink-0" />
+                <span>Discrepancies flagged between documents, answers & registry records</span>
+              </li>
+            </ul>
           </div>
 
-          {/* Workflow Badges: Upload -> Validate -> Screen -> Report -> Audit */}
-          <div className="flex flex-wrap items-center gap-3 font-mono text-xs">
-            {["Upload", "Validate", "Screen", "Report", "Audit"].map((step, idx) => (
-              <div key={idx} className="flex items-center gap-3">
-                <span className="px-3.5 py-1.5 rounded-lg bg-kyp-navy-surface border border-kyp-teal/25 text-white font-semibold">
-                  {idx + 1}. {step}
-                </span>
-                {idx < 4 && <ArrowRight className="w-3.5 h-3.5 text-kyp-lime" />}
-              </div>
-            ))}
+          {/* Workflow Badges: Collect -> Check -> Resolve -> Submit */}
+          <div className="space-y-2">
+            <div className="flex flex-wrap items-center gap-3 font-mono text-xs">
+              {["Collect", "Check", "Resolve", "Submit"].map((step, idx) => (
+                <div key={idx} className="flex items-center gap-3">
+                  <span className="px-3.5 py-1.5 rounded-lg bg-kyp-navy-surface border border-kyp-teal/25 text-white font-semibold">
+                    {idx + 1}. {step}
+                  </span>
+                  {idx < 3 && <ArrowRight className="w-3.5 h-3.5 text-kyp-lime" />}
+                </div>
+              ))}
+            </div>
+            <p className="text-xs text-kyp-teal font-mono">
+              Help partners get it right before submission. Reduce follow-ups. Accelerate onboarding.
+            </p>
           </div>
 
           <OnboardingInterface />
@@ -188,26 +207,56 @@ export default function PlatformPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-12">
           <div className="max-w-3xl">
             <span className="text-xs font-mono text-kyp-teal uppercase tracking-widest font-semibold">
-              Section 02 &bull; Intelligence Aggregation
+              Section 02 &bull; Data &amp; Integrations
             </span>
             <h2 className="text-3xl sm:text-5xl font-bold text-white mt-2 tracking-tight">
               Bring Your Data Together. Build a 360° View of Risk.
             </h2>
-            <p className="text-sm text-gray-300 mt-3 leading-relaxed">
-              Bring together business information, external intelligence and internal systems to build a consolidated risk assessment without switching between multiple point-in-time tools.
+            <p className="text-lg text-kyp-mint font-medium mt-2">
+              Connect the data behind your risk assessments.
             </p>
+            <p className="text-sm text-gray-300 mt-3 leading-relaxed">
+              Bring together information from your business partners, external sources and internal systems to verify onboarding answers, identify discrepancies and build a consolidated risk assessment. Cross-check onboarding answers against external and internal data to flag inconsistencies and missing information. Bring the findings and supporting evidence together in a single risk report. Keep assessments current with updated information and monitoring configured around your policies.
+            </p>
+            <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-gray-400">
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-3.5 h-3.5 text-kyp-teal shrink-0" />
+                <span>Business questionnaires & supporting documents</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-3.5 h-3.5 text-kyp-teal shrink-0" />
+                <span>Company registry, sanctions, PEP & adverse media</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-3.5 h-3.5 text-kyp-teal shrink-0" />
+                <span>Internal transactional and CRM systems data</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-3.5 h-3.5 text-kyp-teal shrink-0" />
+                <span>Website compliance, restrictions & blacklists</span>
+              </li>
+              <li className="flex items-center gap-2 sm:col-span-2">
+                <CheckCircle2 className="w-3.5 h-3.5 text-kyp-teal shrink-0" />
+                <span>Real-time transaction monitoring & connected cyber-risk intelligence</span>
+              </li>
+            </ul>
           </div>
 
           {/* Workflow: Connect -> Cross-reference -> Assess -> Monitor */}
-          <div className="flex flex-wrap items-center gap-3 font-mono text-xs">
-            {["Connect", "Cross-reference", "Assess", "Monitor"].map((step, idx) => (
-              <div key={idx} className="flex items-center gap-3">
-                <span className="px-3.5 py-1.5 rounded-lg bg-kyp-navy-surface border border-kyp-teal/25 text-kyp-teal font-semibold">
-                  {idx + 1}. {step}
-                </span>
-                {idx < 3 && <ArrowRight className="w-3.5 h-3.5 text-kyp-teal" />}
-              </div>
-            ))}
+          <div className="space-y-2">
+            <div className="flex flex-wrap items-center gap-3 font-mono text-xs">
+              {["Connect", "Cross-reference", "Assess", "Monitor"].map((step, idx) => (
+                <div key={idx} className="flex items-center gap-3">
+                  <span className="px-3.5 py-1.5 rounded-lg bg-kyp-navy-surface border border-kyp-teal/25 text-kyp-teal font-semibold">
+                    {idx + 1}. {step}
+                  </span>
+                  {idx < 3 && <ArrowRight className="w-3.5 h-3.5 text-kyp-teal" />}
+                </div>
+              ))}
+            </div>
+            <p className="text-xs text-kyp-teal font-mono">
+              Verify information. Surface discrepancies. Identify and act on risks.
+            </p>
           </div>
 
           <PlatformFlow />
@@ -241,35 +290,52 @@ export default function PlatformPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-12">
           <div className="max-w-3xl">
             <span className="text-xs font-mono text-kyp-lime uppercase tracking-widest font-semibold">
-              Section 04 &bull; KYP Continuous Monitoring
+              Section 04 &bull; Continuous Monitoring &amp; Alerts
             </span>
             <h2 className="text-3xl sm:text-5xl font-bold text-white mt-2 tracking-tight">
-              Know When Risk Changes: Not at the Next Review.
+              Stay Ahead of Changing Risks. Know When to Act.
             </h2>
             <p className="text-lg text-kyp-mint font-medium mt-2">
-              Continuous compliance. Audit ready.
+              Keep track of the risks that matter.
             </p>
             <p className="text-sm text-gray-300 mt-3 leading-relaxed">
-              KYP continuously monitors your customers, merchants, partners and third parties for changes in risk, helping compliance teams move away from point-in-time reviews and towards always-on monitoring. Instead of waiting for an annual or periodic review, KYP automatically identifies changes across your portfolio and brings the important ones to your attention: What changed. Why it matters. Who requires review. What action was taken. The evidence behind every decision.
+              Monitor changes in your business partners&apos; risk profiles, websites and transaction activity according to your risk management policies. Enable your team to identify emerging risks and prioritise investigations by risk level. Configure monitoring frequencies and alert conditions to match your risk management policies. Track merchant trends over time and flag suspicious transaction activity as it occurs where transaction data is integrated. Receive alerts when new risks are detected, with supporting information to investigate findings and decide what action to take.
             </p>
-            <div className="mt-4 flex flex-wrap gap-2 text-xs font-mono text-kyp-teal">
-              <span className="px-2.5 py-1 rounded bg-black/60 border border-kyp-teal/20">Customer level</span>
-              <span className="px-2.5 py-1 rounded bg-black/60 border border-kyp-teal/20">Merchant level</span>
-              <span className="px-2.5 py-1 rounded bg-black/60 border border-kyp-teal/20">Transaction level</span>
-              <span className="px-2.5 py-1 rounded bg-black/60 border border-kyp-teal/20">Portfolio level</span>
-            </div>
+            <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-gray-400">
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-3.5 h-3.5 text-kyp-lime shrink-0" />
+                <span>Changes in company filings, sanctions & adverse media</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-3.5 h-3.5 text-kyp-lime shrink-0" />
+                <span>Website content, terms and ownership changes</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-3.5 h-3.5 text-kyp-lime shrink-0" />
+                <span>Regulatory restrictions and prohibited markets</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-3.5 h-3.5 text-kyp-lime shrink-0" />
+                <span>Merchant transaction patterns & real-time signals</span>
+              </li>
+            </ul>
           </div>
 
-          {/* Workflow: Detect -> Assess -> Prioritise -> Investigate -> Audit */}
-          <div className="flex flex-wrap items-center gap-3 font-mono text-xs">
-            {["Detect", "Assess", "Prioritise", "Investigate", "Audit"].map((step, idx) => (
-              <div key={idx} className="flex items-center gap-3">
-                <span className="px-3.5 py-1.5 rounded-lg bg-kyp-navy-surface border border-kyp-teal/25 text-white font-semibold">
-                  {idx + 1}. {step}
-                </span>
-                {idx < 4 && <ArrowRight className="w-3.5 h-3.5 text-kyp-lime" />}
-              </div>
-            ))}
+          {/* Workflow: Monitor -> Alert -> Investigate -> Act */}
+          <div className="space-y-2">
+            <div className="flex flex-wrap items-center gap-3 font-mono text-xs">
+              {["Monitor", "Alert", "Investigate", "Act"].map((step, idx) => (
+                <div key={idx} className="flex items-center gap-3">
+                  <span className="px-3.5 py-1.5 rounded-lg bg-kyp-navy-surface border border-kyp-teal/25 text-white font-semibold">
+                    {idx + 1}. {step}
+                  </span>
+                  {idx < 3 && <ArrowRight className="w-3.5 h-3.5 text-kyp-lime" />}
+                </div>
+              ))}
+            </div>
+            <p className="text-xs text-kyp-teal font-mono">
+              Detect changes. Respond to emerging risks.
+            </p>
           </div>
 
           <DashboardMockup />
@@ -281,26 +347,56 @@ export default function PlatformPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-12">
           <div className="max-w-3xl">
             <span className="text-xs font-mono text-kyp-teal uppercase tracking-widest font-semibold">
-              Section 05 &bull; Audit Trail Immutability
+              Section 05 &bull; Investigations &amp; Audit Reporting
             </span>
             <h2 className="text-3xl sm:text-5xl font-bold text-white mt-2 tracking-tight">
-              Every Check. Every Decision. One Audit Trail.
+              See the Evidence. Trace Your Decisions. Be Audit-Ready.
             </h2>
-            <p className="text-sm text-gray-300 mt-3 leading-relaxed">
-              KYP automatically captures the evidence behind your compliance checks, monitoring, and decisions, so audit-ready reports can be generated in around one minute instead of taking up to three weeks.
+            <p className="text-lg text-kyp-mint font-medium mt-2">
+              Keep your due diligence and review history in one place.
             </p>
+            <p className="text-sm text-gray-300 mt-3 leading-relaxed">
+              KYP brings together the due diligence, monitoring findings and actions taken on each business partner, helping your team investigate risks, document decisions and generate audit-ready reports in seconds. Review risks and the evidence behind them. Record your decisions and the reasoning behind them. Generate a single audit-ready report covering onboarding, due diligence, ongoing monitoring and periodic reviews.
+            </p>
+            <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-gray-400">
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-3.5 h-3.5 text-kyp-teal shrink-0" />
+                <span>Onboarding answers, uploads & verification findings</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-3.5 h-3.5 text-kyp-teal shrink-0" />
+                <span>External screening results & supporting sources</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-3.5 h-3.5 text-kyp-teal shrink-0" />
+                <span>Monitoring alerts & changes in identified risks</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-3.5 h-3.5 text-kyp-teal shrink-0" />
+                <span>Reviews, approvals, rejections & reasoned rationales</span>
+              </li>
+              <li className="flex items-center gap-2 sm:col-span-2">
+                <CheckCircle2 className="w-3.5 h-3.5 text-kyp-teal shrink-0" />
+                <span>Comprehensive history of actions taken on each business entity</span>
+              </li>
+            </ul>
           </div>
 
           {/* Workflow: Investigate -> Decide -> Record -> Report */}
-          <div className="flex flex-wrap items-center gap-3 font-mono text-xs">
-            {["Investigate", "Decide", "Record", "Report"].map((step, idx) => (
-              <div key={idx} className="flex items-center gap-3">
-                <span className="px-3.5 py-1.5 rounded-lg bg-kyp-navy-surface border border-kyp-teal/25 text-kyp-mint font-semibold">
-                  {idx + 1}. {step}
-                </span>
-                {idx < 3 && <ArrowRight className="w-3.5 h-3.5 text-kyp-teal" />}
-              </div>
-            ))}
+          <div className="space-y-2">
+            <div className="flex flex-wrap items-center gap-3 font-mono text-xs">
+              {["Investigate", "Decide", "Record", "Report"].map((step, idx) => (
+                <div key={idx} className="flex items-center gap-3">
+                  <span className="px-3.5 py-1.5 rounded-lg bg-kyp-navy-surface border border-kyp-teal/25 text-kyp-mint font-semibold">
+                    {idx + 1}. {step}
+                  </span>
+                  {idx < 3 && <ArrowRight className="w-3.5 h-3.5 text-kyp-teal" />}
+                </div>
+              ))}
+            </div>
+            <p className="text-xs text-kyp-teal font-mono">
+              Log every check, decision and action. Produce audit-ready reports in seconds.
+            </p>
           </div>
 
           <AuditInterface />
