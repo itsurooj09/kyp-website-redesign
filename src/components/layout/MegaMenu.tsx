@@ -282,15 +282,15 @@ export default function MegaMenu({ category, isOpen, onClose }: MegaMenuProps) {
                         className="group block p-2.5 rounded-xl hover:bg-slate-50 transition-all duration-150"
                       >
                         <div className="flex items-center justify-between">
-                          <span className="text-sm font-semibold text-slate-700 group-hover:text-emerald-700 transition-colors flex items-center gap-2">
+                          <span className="text-sm font-semibold text-slate-700 group-hover:text-[#033653] transition-colors flex items-center gap-2">
                             {item.title}
                             {item.badge && (
-                              <span className="px-1.5 py-0.5 text-[9px] font-mono rounded bg-emerald-50 text-emerald-700 border border-emerald-200 font-bold">
+                              <span className="px-1.5 py-0.5 text-[9px] font-mono rounded bg-[#c6f5ef] text-[#033653] border border-[#6fd3c4]/50 font-bold">
                                 {item.badge}
                               </span>
                             )}
                           </span>
-                          <ArrowRight className="w-3.5 h-3.5 text-slate-300 group-hover:text-emerald-600 group-hover:translate-x-1 transition-all opacity-0 group-hover:opacity-100" />
+                          <ArrowRight className="w-3.5 h-3.5 text-slate-300 group-hover:text-[#66cc00] group-hover:translate-x-1 transition-all opacity-0 group-hover:opacity-100" />
                         </div>
                         <p className="text-xs text-slate-400 mt-0.5 line-clamp-1 group-hover:text-slate-500">
                           {item.desc}
@@ -305,7 +305,7 @@ export default function MegaMenu({ category, isOpen, onClose }: MegaMenuProps) {
             {/* Bottom Bar: Action Strip */}
             <div className="mt-8 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-4 text-xs">
               <div className="flex items-center gap-2 text-slate-500 font-mono">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
+                <span className="w-2 h-2 rounded-full bg-[#66cc00] animate-ping" />
                 <span>KYP Enterprise Risk Sentinel &bull; 100% Always-On Surveillance</span>
               </div>
               <div className="flex items-center gap-4">
@@ -320,7 +320,7 @@ export default function MegaMenu({ category, isOpen, onClose }: MegaMenuProps) {
                 <Link
                   href={routes.bookDemo}
                   onClick={onClose}
-                  className="px-4 py-1.5 rounded-full bg-slate-900 text-white font-semibold hover:bg-slate-800 transition-colors shadow-sm"
+                  className="px-4 py-1.5 rounded-full bg-[#000000] text-white font-bold hover:bg-[#033653] transition-colors shadow-sm"
                 >
                   Schedule Consultation
                 </Link>
@@ -345,15 +345,15 @@ export default function MegaMenu({ category, isOpen, onClose }: MegaMenuProps) {
                         className="group block p-2.5 rounded-xl hover:bg-slate-50 transition-all"
                       >
                         <div className="flex items-center justify-between">
-                          <span className="text-sm font-semibold text-slate-700 group-hover:text-emerald-700 transition-colors flex items-center gap-2">
+                          <span className="text-sm font-semibold text-slate-700 group-hover:text-[#033653] transition-colors flex items-center gap-2">
                             {item.title}
                             {item.badge && (
-                              <span className="px-1.5 py-0.5 text-[9px] font-mono rounded bg-emerald-50 text-emerald-700 border border-emerald-200 font-bold">
+                              <span className="px-1.5 py-0.5 text-[9px] font-mono rounded bg-[#c6f5ef] text-[#033653] border border-[#6fd3c4]/50 font-bold">
                                 {item.badge}
                               </span>
                             )}
                           </span>
-                          <ArrowRight className="w-3.5 h-3.5 text-slate-300 group-hover:text-emerald-600 group-hover:translate-x-1 transition-all opacity-0 group-hover:opacity-100" />
+                          <ArrowRight className="w-3.5 h-3.5 text-slate-300 group-hover:text-[#66cc00] group-hover:translate-x-1 transition-all opacity-0 group-hover:opacity-100" />
                         </div>
                         {item.description && (
                           <p className="text-xs text-slate-400 mt-0.5 line-clamp-1 group-hover:text-slate-500">

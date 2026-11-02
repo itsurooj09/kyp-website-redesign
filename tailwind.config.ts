@@ -11,15 +11,31 @@ const config: Config = {
     extend: {
       colors: {
         kyp: {
-          // Official Client SOW Brand Palette (#000000, #66cc00, #c6f5ef, #6fd3c4, #033653)
+          // Official Client Brand Palette (#000000, #66cc00, #c6f5ef, #6fd3c4, #033653)
+          black: "#000000",
           brandBlack: "#000000",
-          brandLime: "#66cc00",
-          brandIce: "#c6f5ef",
-          brandTeal: "#6fd3c4",
-          brandNavy: "#033653",
-
-          black: "#0f172a", // Dark text / accents
           white: "#ffffff",
+          
+          lime: "#66cc00", // Official KYP Lime Green
+          brandLime: "#66cc00",
+          "lime-hover": "#55b300",
+          "lime-light": "#eaffd9",
+          
+          mint: "#c6f5ef", // Official KYP Ice Cyan / Soft Mint
+          brandIce: "#c6f5ef",
+          "mint-dark": "#0fa895",
+          
+          teal: "#6fd3c4", // Official KYP Turquoise / Teal
+          brandTeal: "#6fd3c4",
+          "teal-light": "#e8faf7",
+          "teal-dark": "#033653",
+          
+          navy: "#033653", // Official KYP Deep Navy
+          brandNavy: "#033653",
+          "navy-light": "#084970",
+          "navy-dark": "#011f30",
+          "navy-surface": "#033653",
+          
           slate: {
             50: "#f8fafc",
             100: "#f1f5f9",
@@ -30,19 +46,8 @@ const config: Config = {
             600: "#475569",
             700: "#334155",
             800: "#1e293b",
-            900: "#0f172a",
+            900: "#000000",
           },
-          lime: "#16a34a", // Vibrant accessible green on light background
-          "lime-hover": "#15803d",
-          "lime-light": "#dcfce7",
-          mint: "#0d9488",
-          teal: "#0284c7",
-          "teal-light": "#e0f2fe",
-          "teal-dark": "#0369a1",
-          navy: "#033653",
-          "navy-light": "#084970",
-          "navy-dark": "#022438",
-          "navy-surface": "#f8fafc",
           charcoal: "#f1f5f9",
           surface: "#ffffff",
           "surface-light": "#f8fafc",
@@ -67,15 +72,12 @@ const config: Config = {
           "100%": { strokeDashoffset: "0" },
         },
       },
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
       boxShadow: {
-        "lime-glow": "0 0 25px -5px rgba(22, 163, 74, 0.25)",
-        "teal-glow": "0 0 25px -5px rgba(2, 132, 199, 0.25)",
-        "card-soft": "0 2px 10px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02)",
-        "card-hover": "0 12px 30px -5px rgba(15, 23, 42, 0.08), 0 4px 6px -2px rgba(15, 23, 42, 0.04)",
+        "card-soft": "0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05)",
+        "card-hover": "0 12px 28px -4px rgba(3, 54, 83, 0.12), 0 8px 10px -6px rgba(0, 0, 0, 0.04)",
+        "lime-glow": "0 0 24px -2px rgba(102, 204, 0, 0.4)",
+        "teal-glow": "0 0 24px -2px rgba(111, 211, 196, 0.4)",
+        "navy-glow": "0 0 24px -2px rgba(3, 54, 83, 0.4)",
       },
     },
   },

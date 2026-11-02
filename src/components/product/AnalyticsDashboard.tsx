@@ -86,7 +86,7 @@ export default function AnalyticsDashboard() {
       <div className="p-6 border-b border-slate-100 bg-slate-50/70 flex flex-wrap items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping" />
+            <span className="w-2.5 h-2.5 rounded-full bg-[#c6f5ef]0 animate-ping" />
             <h3 className="text-lg font-bold text-slate-900 tracking-tight">
               Enterprise Risk Intelligence Analytics
             </h3>
@@ -116,7 +116,7 @@ export default function AnalyticsDashboard() {
                 onClick={() => setActiveTab(t.id)}
                 className={`px-3 py-1.5 rounded-full transition-all cursor-pointer ${
                   activeTab === t.id
-                    ? "bg-slate-900 text-white shadow-sm"
+                    ? "bg-[#000000] text-white shadow-sm"
                     : "text-slate-600 hover:text-slate-900"
                 }`}
               >
@@ -133,7 +133,7 @@ export default function AnalyticsDashboard() {
           >
             {isLooping ? (
               <>
-                <Pause className="w-3.5 h-3.5 text-emerald-600" />
+                <Pause className="w-3.5 h-3.5 text-[#66cc00]" />
                 <span>Loop Active</span>
               </>
             ) : (
@@ -157,9 +157,9 @@ export default function AnalyticsDashboard() {
             status: "Low Risk Tier",
             trend: "-14.2% this quarter",
             trendGood: true,
-            icon: <ShieldCheck className="w-4 h-4 text-emerald-600" />,
-            color: "text-emerald-700",
-            bg: "bg-emerald-50",
+            icon: <ShieldCheck className="w-4 h-4 text-[#66cc00]" />,
+            color: "text-[#033653]",
+            bg: "bg-[#c6f5ef]",
           },
           {
             idx: 1,
@@ -170,8 +170,8 @@ export default function AnalyticsDashboard() {
             trend: "+38 new merchants",
             trendGood: true,
             icon: <Activity className="w-4 h-4 text-sky-600" />,
-            color: "text-sky-700",
-            bg: "bg-sky-50",
+            color: "text-[#033653]",
+            bg: "bg-[#c6f5ef]",
           },
           {
             idx: 2,
@@ -181,9 +181,9 @@ export default function AnalyticsDashboard() {
             status: "Mastercard & Visa Pass",
             trend: "Zero scheme violations",
             trendGood: true,
-            icon: <CheckCircle2 className="w-4 h-4 text-emerald-600" />,
-            color: "text-emerald-700",
-            bg: "bg-emerald-50",
+            icon: <CheckCircle2 className="w-4 h-4 text-[#66cc00]" />,
+            color: "text-[#033653]",
+            bg: "bg-[#c6f5ef]",
           },
           {
             idx: 3,
@@ -223,7 +223,7 @@ export default function AnalyticsDashboard() {
             </div>
             <div className="mt-2 pt-2 border-t border-slate-100 flex items-center justify-between text-[11px]">
               <span className="text-slate-500">{kpi.status}</span>
-              <span className="text-emerald-600 font-semibold flex items-center gap-0.5">
+              <span className="text-[#66cc00] font-semibold flex items-center gap-0.5">
                 <TrendingDown className="w-3 h-3" />
                 {kpi.trend}
               </span>
@@ -242,7 +242,7 @@ export default function AnalyticsDashboard() {
                 <h4 className="text-base font-bold text-slate-900">
                   Continuous Risk Index Telemetry
                 </h4>
-                <span className="text-xs font-mono text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full font-semibold">
+                <span className="text-xs font-mono text-[#033653] bg-[#c6f5ef] px-2 py-0.5 rounded-full font-semibold">
                   Down 64.7% since Jan
                 </span>
               </div>
@@ -254,11 +254,11 @@ export default function AnalyticsDashboard() {
             {/* Micro Legend */}
             <div className="flex items-center gap-4 text-xs font-mono text-slate-600">
               <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
+                <span className="w-2.5 h-2.5 rounded-full bg-[#c6f5ef]0" />
                 <span>Risk Index (0-100)</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-sky-500" />
+                <span className="w-2.5 h-2.5 rounded-full bg-[#6fd3c4]" />
                 <span>Monthly Volume</span>
               </div>
             </div>
@@ -277,13 +277,13 @@ export default function AnalyticsDashboard() {
             <svg viewBox="0 0 900 240" className="w-full h-full overflow-visible">
               <defs>
                 <linearGradient id="chart-area-grad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#16a34a" stopOpacity="0.25" />
-                  <stop offset="100%" stopColor="#16a34a" stopOpacity="0" />
+                  <stop offset="0%" stopColor="#66cc00" stopOpacity="0.25" />
+                  <stop offset="100%" stopColor="#66cc00" stopOpacity="0" />
                 </linearGradient>
                 <linearGradient id="chart-line-grad" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stopColor="#0284c7" />
-                  <stop offset="50%" stopColor="#0d9488" />
-                  <stop offset="100%" stopColor="#16a34a" />
+                  <stop offset="0%" stopColor="#033653" />
+                  <stop offset="50%" stopColor="#6fd3c4" />
+                  <stop offset="100%" stopColor="#66cc00" />
                 </linearGradient>
               </defs>
 
@@ -325,7 +325,7 @@ export default function AnalyticsDashboard() {
                         cx={x}
                         cy={y}
                         r="16"
-                        fill="#16a34a"
+                        fill="#66cc00"
                         fillOpacity="0.2"
                         className="animate-ping"
                       />
@@ -337,7 +337,7 @@ export default function AnalyticsDashboard() {
                       cy={y}
                       r={isHovered ? 8 : 5}
                       fill="#ffffff"
-                      stroke="#16a34a"
+                      stroke="#66cc00"
                       strokeWidth={isHovered ? 3 : 2}
                       className="transition-all duration-200"
                     />
@@ -368,7 +368,7 @@ export default function AnalyticsDashboard() {
               >
                 <div className="flex items-center justify-between gap-4 font-bold text-slate-900 border-b border-slate-100 pb-1">
                   <span>Month: {chartPoints[hoveredChartIndex].month}</span>
-                  <span className="text-emerald-700">
+                  <span className="text-[#033653]">
                     Risk Score: {chartPoints[hoveredChartIndex].score}/100
                   </span>
                 </div>
@@ -380,7 +380,7 @@ export default function AnalyticsDashboard() {
                 </div>
                 <div className="flex justify-between gap-4 text-slate-500">
                   <span>Active Alerts Resolved:</span>
-                  <span className="font-bold text-emerald-600">
+                  <span className="font-bold text-[#66cc00]">
                     {chartPoints[hoveredChartIndex].alerts} Flags Cleared
                   </span>
                 </div>
@@ -391,7 +391,7 @@ export default function AnalyticsDashboard() {
           {/* Bottom Bar: Radial Risk Contagion Gauge */}
           <div className="p-4 rounded-2xl bg-slate-50/80 border border-slate-200/80 flex flex-wrap items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-emerald-600 font-bold shadow-sm">
+              <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-[#66cc00] font-bold shadow-sm">
                 <KYPLottie type="heroRadar" className="w-6 h-6" />
               </div>
               <div>
@@ -406,7 +406,7 @@ export default function AnalyticsDashboard() {
 
             <div className="flex items-center gap-3 text-xs font-mono">
               <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
+                <span className="w-2.5 h-2.5 rounded-full bg-[#c6f5ef]0" />
                 <span className="text-slate-700 font-bold">1,050 Compliant</span>
               </div>
               <div className="flex items-center gap-1.5">
@@ -426,7 +426,7 @@ export default function AnalyticsDashboard() {
           <div className="space-y-4">
             <div className="flex items-center justify-between border-b border-slate-200/80 pb-3">
               <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="w-2 h-2 rounded-full bg-[#c6f5ef]0 animate-pulse" />
                 <span className="text-xs font-mono font-bold uppercase text-slate-800">
                   Live Event Stream
                 </span>
@@ -452,14 +452,14 @@ export default function AnalyticsDashboard() {
                       <span
                         className={`px-2 py-0.5 rounded-full font-bold uppercase ${
                           evt.type === "pass"
-                            ? "bg-emerald-50 text-emerald-700 border border-emerald-200"
+                            ? "bg-[#c6f5ef] text-[#033653] border border-emerald-200"
                             : "bg-amber-50 text-amber-700 border border-amber-200"
                         }`}
                       >
                         {evt.metric}
                       </span>
                     </div>
-                    <div className="font-semibold text-xs text-slate-900 group-hover:text-emerald-700 transition-colors line-clamp-1">
+                    <div className="font-semibold text-xs text-slate-900 group-hover:text-[#033653] transition-colors line-clamp-1">
                       {evt.entity}
                     </div>
                     <p className="text-[11px] text-slate-500 mt-0.5 line-clamp-1">
@@ -477,7 +477,7 @@ export default function AnalyticsDashboard() {
                 <KYPLottie type="continuousPulse" className="w-5 h-5" />
                 <span>24/7 Autonomous Sentinel</span>
               </div>
-              <span className="text-emerald-600 font-bold text-xs">Active</span>
+              <span className="text-[#66cc00] font-bold text-xs">Active</span>
             </div>
           </div>
         </div>

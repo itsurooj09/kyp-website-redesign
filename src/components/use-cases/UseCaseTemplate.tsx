@@ -39,10 +39,10 @@ export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail })
       
       {/* SECTION 1 – HERO */}
       <section className="relative pt-12 pb-20 lg:pt-20 lg:pb-28 border-b border-slate-200 bg-gradient-to-b from-slate-50/80 via-white to-slate-50/40 kyp-grid-pattern">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-emerald-100/30 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-kyp-mint/30 rounded-full blur-3xl pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-mono text-emerald-800 mb-6 font-bold shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-kyp-mint/30 border border-kyp-teal/40 text-xs font-mono text-kyp-navy mb-6 font-bold shadow-sm">
             <span className="w-4 h-4 inline-flex items-center justify-center">
               <KYPLottie type="heroRadar" className="w-4 h-4" />
             </span>
@@ -53,7 +53,7 @@ export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail })
             {useCase.headline}
           </h1>
 
-          <p className="text-lg sm:text-xl text-emerald-700 font-semibold mt-4 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-kyp-navy font-semibold mt-4 max-w-3xl mx-auto">
             {useCase.subheading}
           </p>
 
@@ -126,7 +126,7 @@ export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail })
       <section className="py-20 lg:py-28 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
-            <span className="text-xs font-mono text-emerald-700 uppercase tracking-widest font-bold">
+            <span className="text-xs font-mono text-kyp-navy uppercase tracking-widest font-bold">
               The KYP Capability
             </span>
             <h2 className="text-2xl sm:text-4xl font-bold text-slate-900 mt-2 tracking-tight">
@@ -144,8 +144,8 @@ export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail })
                 className="p-6 sm:p-8 rounded-2xl bg-slate-50 border border-slate-200 space-y-3 shadow-sm hover:shadow-md transition-all"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-emerald-100 border border-emerald-200 flex items-center justify-center text-emerald-700 font-mono text-xs font-bold">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                  <div className="w-8 h-8 rounded-lg bg-kyp-mint/40 border border-kyp-teal/30 flex items-center justify-center text-kyp-navy font-mono text-xs font-bold">
+                    <CheckCircle2 className="w-4 h-4 text-kyp-lime stroke-[2.5]" />
                   </div>
                   <h3 className="text-lg font-semibold text-slate-900">{pt.title}</h3>
                 </div>
@@ -162,7 +162,7 @@ export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail })
       <section id="how-it-works" className="py-20 lg:py-28 bg-slate-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-3xl mb-14 text-center mx-auto">
-            <span className="text-xs font-mono text-emerald-700 uppercase tracking-widest font-bold">
+            <span className="text-xs font-mono text-kyp-navy uppercase tracking-widest font-bold">
               Step-By-Step Workflow
             </span>
             <h2 className="text-2xl sm:text-4xl font-bold text-slate-900 mt-2 tracking-tight">
@@ -177,13 +177,13 @@ export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail })
             {useCase.workflow.map((w, idx) => (
               <div
                 key={idx}
-                className="p-6 rounded-2xl bg-white border border-slate-200 space-y-4 relative group hover:border-emerald-500/70 shadow-sm hover:shadow-md transition-all"
+                className="p-6 rounded-2xl bg-white border border-slate-200 space-y-4 relative group hover:border-kyp-teal shadow-sm hover:shadow-md transition-all"
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-xl font-mono font-extrabold text-emerald-700">
+                  <span className="text-xl font-mono font-extrabold text-kyp-navy">
                     {w.step}
                   </span>
-                  <span className="text-[10px] font-mono text-emerald-800 px-2 py-0.5 rounded bg-emerald-50 border border-emerald-200 font-bold">
+                  <span className="text-[10px] font-mono text-kyp-navy px-2 py-0.5 rounded bg-kyp-mint/40 border border-kyp-teal/30 font-bold">
                     {w.highlight}
                   </span>
                 </div>
@@ -213,7 +213,7 @@ export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail })
       <section className="py-20 lg:py-28 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-3xl mb-14">
-            <span className="text-xs font-mono text-emerald-700 uppercase tracking-widest font-bold">
+            <span className="text-xs font-mono text-kyp-navy uppercase tracking-widest font-bold">
               Feature Matrix
             </span>
             <h2 className="text-2xl sm:text-4xl font-bold text-slate-900 mt-2 tracking-tight">
@@ -228,12 +228,12 @@ export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail })
             {useCase.features.map((feat, idx) => (
               <div
                 key={idx}
-                className="p-5 rounded-2xl bg-slate-50 border border-slate-200 hover:border-emerald-500/60 shadow-sm transition-all space-y-3 group"
+                className="p-5 rounded-2xl bg-slate-50 border border-slate-200 hover:border-kyp-teal shadow-sm transition-all space-y-3 group"
               >
                 <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs">
                   {renderFeatureIcon(feat.icon)}
                 </div>
-                <h3 className="text-sm font-semibold text-slate-900 group-hover:text-emerald-700 transition-colors">
+                <h3 className="text-sm font-semibold text-slate-900 group-hover:text-kyp-navy transition-colors">
                   {feat.title}
                 </h3>
                 <p className="text-xs text-slate-600 leading-relaxed">
@@ -249,7 +249,7 @@ export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail })
       <section className="py-20 lg:py-28 bg-slate-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
-            <span className="text-xs font-mono text-emerald-700 uppercase tracking-widest font-bold">
+            <span className="text-xs font-mono text-kyp-navy uppercase tracking-widest font-bold">
               Audit & Decision Trail
             </span>
             <h2 className="text-2xl sm:text-4xl font-bold text-slate-900 mt-2 tracking-tight">
@@ -268,7 +268,7 @@ export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail })
       <section className="py-20 lg:py-28 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
-            <span className="text-xs font-mono text-emerald-700 uppercase tracking-widest font-bold">
+            <span className="text-xs font-mono text-kyp-navy uppercase tracking-widest font-bold">
               Measurable Impact
             </span>
             <h2 className="text-2xl sm:text-4xl font-bold text-slate-900 mt-2 tracking-tight">
@@ -283,7 +283,7 @@ export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail })
                 className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-3 shadow-sm hover:shadow-md transition-all"
               >
                 {b.metric && (
-                  <div className="text-2xl lg:text-3xl font-extrabold text-emerald-700 font-mono">
+                  <div className="text-2xl lg:text-3xl font-extrabold text-kyp-navy font-mono">
                     {b.metric}
                   </div>
                 )}
@@ -296,7 +296,7 @@ export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail })
       </section>
 
       {/* SECTION 8 – FINAL CTA */}
-      <section className="py-20 lg:py-24 bg-gradient-to-b from-slate-50 via-emerald-50/20 to-white text-center border-t border-slate-200 relative overflow-hidden">
+      <section className="py-20 lg:py-24 bg-gradient-to-b from-slate-50 via-kyp-mint/20 to-white text-center border-t border-slate-200 relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 relative z-10 space-y-6">
           <div className="w-14 h-14 mx-auto">
             <KYPLottie type="auditSeal" className="w-full h-full" />

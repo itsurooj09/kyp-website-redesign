@@ -9,7 +9,7 @@ export default function NewsCard({ article }: { article: NewsArticle }) {
       href={article.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group block rounded-2xl bg-white border border-slate-200/90 hover:border-emerald-500/60 overflow-hidden transition-all duration-300 flex flex-col justify-between shadow-sm hover:shadow-md"
+      className="group block rounded-2xl bg-white border border-slate-200/90 hover:border-kyp-teal overflow-hidden transition-all duration-300 flex flex-col justify-between shadow-sm hover:shadow-md"
     >
       <div>
         {/* Featured Image */}
@@ -21,7 +21,7 @@ export default function NewsCard({ article }: { article: NewsArticle }) {
             className="object-cover group-hover:scale-105 transition-transform duration-500"
           />
           <div className="absolute top-3 left-3">
-            <span className="px-2.5 py-1 rounded-md bg-white/90 backdrop-blur-md border border-slate-200 text-[10px] font-mono text-emerald-800 font-bold shadow-sm">
+            <span className="px-2.5 py-1 rounded-md bg-white/95 backdrop-blur-md border border-kyp-teal/30 text-[10px] font-mono text-kyp-navy font-bold shadow-sm">
               {article.category}
             </span>
           </div>
@@ -34,7 +34,7 @@ export default function NewsCard({ article }: { article: NewsArticle }) {
             <span>{article.date}</span>
           </div>
 
-          <h3 className="text-base font-bold text-slate-900 group-hover:text-emerald-700 transition-colors line-clamp-2 leading-snug">
+          <h3 className="text-base font-bold text-slate-900 group-hover:text-kyp-navy transition-colors line-clamp-2 leading-snug">
             {article.title}
           </h3>
 
@@ -45,9 +45,9 @@ export default function NewsCard({ article }: { article: NewsArticle }) {
       </div>
 
       <div className="px-5 pb-5 pt-0">
-        <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-emerald-700 group-hover:text-emerald-800 transition-colors">
+        <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-kyp-navy group-hover:text-black transition-colors">
           <span>Read official article</span>
-          <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          <ArrowUpRight className="w-4 h-4 text-kyp-lime stroke-[2.5] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
         </div>
       </div>
     </a>

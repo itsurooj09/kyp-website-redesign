@@ -169,7 +169,7 @@ export default function IndustryTabs() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 space-y-12">
         {/* Header Section matching Image 1 */}
         <div className="max-w-3xl space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-mono font-bold uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#c6f5ef] text-[#033653] text-xs font-mono font-bold uppercase tracking-wider">
             <Sparkles className="w-3.5 h-3.5" />
             <span>INDUSTRY COVERAGE &bull; TAILORED PROTOCOLS</span>
           </div>
@@ -194,11 +194,11 @@ export default function IndustryTabs() {
                 onClick={() => setActiveTabId(tab.id)}
                 className={`flex items-center gap-2 px-5 py-3 rounded-full text-sm font-semibold transition-all whitespace-nowrap cursor-pointer ${
                   isActive
-                    ? "bg-slate-900 text-white shadow-md scale-102"
+                    ? "bg-[#000000] text-white shadow-md scale-102"
                     : "bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200"
                 }`}
               >
-                <span className={isActive ? "text-emerald-400" : "text-slate-400"}>
+                <span className={isActive ? "text-[#66cc00]" : "text-slate-400"}>
                   {tab.icon}
                 </span>
                 <span>{tab.name}</span>
@@ -225,7 +225,7 @@ export default function IndustryTabs() {
                     {currentTab.regulatoryBadges.map((badge, i) => (
                       <span
                         key={i}
-                        className="px-2.5 py-0.5 rounded-md bg-slate-100 border border-slate-200 text-slate-700 text-[10px] font-mono font-bold uppercase"
+                        className="px-2.5 py-0.5 rounded-md bg-[#c6f5ef] border border-[#6fd3c4]/40 text-[#033653] text-[10px] font-mono font-bold uppercase"
                       >
                         {badge}
                       </span>
@@ -253,10 +253,10 @@ export default function IndustryTabs() {
                         className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-1.5"
                       >
                         <div className="flex items-center justify-between">
-                          <span className="text-[10px] font-mono text-emerald-700 font-bold uppercase">
+                          <span className="text-[10px] font-mono text-[#033653] font-bold uppercase">
                             STEP {wf.step}
                           </span>
-                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#66cc00]" />
                         </div>
                         <h4 className="text-xs font-bold text-slate-900">{wf.action}</h4>
                         <p className="text-[11px] text-slate-500 leading-normal">{wf.detail}</p>
@@ -299,7 +299,7 @@ export default function IndustryTabs() {
                         {currentTab.shortName.toUpperCase()} PROTOCOL &bull; LIVE
                       </span>
                     </div>
-                    <span className="px-2 py-0.5 rounded text-[9px] font-mono bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 font-bold">
+                    <span className="px-2 py-0.5 rounded text-[9px] font-mono bg-[#66cc00]/20 text-[#66cc00] border border-emerald-500/30 font-bold">
                       ACTIVE
                     </span>
                   </div>
@@ -310,7 +310,7 @@ export default function IndustryTabs() {
                       <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700/80 space-y-1">
                         <div className="flex justify-between text-slate-400 text-[10px]">
                           <span>OPERATOR LICENCE REGISTRY</span>
-                          <span className="text-emerald-400">VERIFIED</span>
+                          <span className="text-[#66cc00]">VERIFIED</span>
                         </div>
                         <div className="font-bold text-white">BetStream International PLC</div>
                         <div className="text-[10px] text-slate-400">Licence MGA/B2C/482/2019 &bull; Clean Sanctions</div>
@@ -319,15 +319,15 @@ export default function IndustryTabs() {
                       <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700/80 space-y-1.5">
                         <div className="flex justify-between text-slate-400 text-[10px]">
                           <span>AFFILIATE URL SWEEPER</span>
-                          <span className="text-emerald-400">0 REDIRECT DRIFT</span>
+                          <span className="text-[#66cc00]">0 REDIRECT DRIFT</span>
                         </div>
                         <div className="flex items-center justify-between text-[11px]">
                           <span className="text-slate-300">Geo-IP Gateway Rules:</span>
-                          <span className="text-emerald-400 font-bold">Compliant (100%)</span>
+                          <span className="text-[#66cc00] font-bold">Compliant (100%)</span>
                         </div>
                         <div className="flex items-center justify-between text-[11px]">
                           <span className="text-slate-300">Underage Protection Tag:</span>
-                          <span className="text-emerald-400 font-bold">Active 18+</span>
+                          <span className="text-[#66cc00] font-bold">Active 18+</span>
                         </div>
                       </div>
 
@@ -343,7 +343,7 @@ export default function IndustryTabs() {
                       <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700/80 space-y-1">
                         <div className="flex justify-between text-slate-400 text-[10px]">
                           <span>CARD SCHEME COMPLIANCE SWEEP</span>
-                          <span className="text-emerald-400">PASS</span>
+                          <span className="text-[#66cc00]">PASS</span>
                         </div>
                         <div className="font-bold text-white">Apex Velocity Payments Ltd</div>
                         <div className="text-[10px] text-slate-400">Mastercard BRAM &bull; Visa VIRP &bull; 0 Fines</div>
@@ -371,7 +371,7 @@ export default function IndustryTabs() {
                       <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700/80 space-y-1">
                         <div className="flex justify-between text-slate-400 text-[10px]">
                           <span>SUB-MERCHANT PORTFOLIO HEALTH</span>
-                          <span className="text-emerald-400">100% COVERED</span>
+                          <span className="text-[#66cc00]">100% COVERED</span>
                         </div>
                         <div className="font-bold text-white">1,250 Active Sub-Merchants</div>
                         <div className="text-[10px] text-slate-400">TC40 Chargeback Threshold: All &lt;0.65%</div>
@@ -407,7 +407,7 @@ export default function IndustryTabs() {
                       <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700/80 space-y-1">
                         <div className="flex justify-between text-slate-400 text-[10px]">
                           <span>DAC7 SELLER VERIFICATION</span>
-                          <span className="text-emerald-400">COMPLIANT</span>
+                          <span className="text-[#66cc00]">COMPLIANT</span>
                         </div>
                         <div className="font-bold text-white">Seller Intake Questionnaire Engine</div>
                         <div className="text-[10px] text-slate-400">Tax ID &amp; EU VAT cross-checked automatically</div>

@@ -29,7 +29,7 @@ export default function UseCaseCard({ useCase }: { useCase: UseCaseDetail }) {
       href={useCase.href}
       className={`group block p-6 rounded-2xl bg-white border border-slate-200/90 transition-all duration-300 relative overflow-hidden ${
         useCase.isImplemented
-          ? "hover:border-emerald-500/70 shadow-sm hover:shadow-md"
+          ? "hover:border-kyp-teal shadow-sm hover:shadow-md"
           : "hover:border-slate-300 shadow-sm hover:shadow"
       }`}
     >
@@ -38,7 +38,7 @@ export default function UseCaseCard({ useCase }: { useCase: UseCaseDetail }) {
           {renderIcon(useCase.icon)}
         </div>
         {useCase.isImplemented ? (
-          <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-50 text-emerald-700 border border-emerald-200 font-bold">
+          <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-kyp-mint/40 text-kyp-navy border border-kyp-teal/30 font-bold">
             Live Spec
           </span>
         ) : (
@@ -48,7 +48,7 @@ export default function UseCaseCard({ useCase }: { useCase: UseCaseDetail }) {
         )}
       </div>
 
-      <h3 className="text-base font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
+      <h3 className="text-base font-bold text-slate-900 group-hover:text-kyp-navy transition-colors">
         {useCase.title}
       </h3>
 
@@ -57,10 +57,10 @@ export default function UseCaseCard({ useCase }: { useCase: UseCaseDetail }) {
       </p>
 
       <div className="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
-        <span className={`font-semibold ${useCase.isImplemented ? "text-emerald-600 font-bold" : "text-slate-500"}`}>
+        <span className={`font-semibold ${useCase.isImplemented ? "text-kyp-navy font-bold" : "text-slate-500"}`}>
           {useCase.isImplemented ? "Explore use case" : "Learn overview"}
         </span>
-        <ArrowRight className={`w-3.5 h-3.5 transition-transform group-hover:translate-x-1 ${useCase.isImplemented ? "text-emerald-600" : "text-slate-400"}`} />
+        <ArrowRight className={`w-3.5 h-3.5 transition-transform group-hover:translate-x-1 ${useCase.isImplemented ? "text-kyp-lime stroke-[2.5]" : "text-slate-400"}`} />
       </div>
     </Link>
   );

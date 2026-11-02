@@ -72,14 +72,14 @@ export default function Header() {
     >
       {/* SEON-Style Top Announcement Banner (Image 2) */}
       {showBanner && (
-        <div className="bg-blue-600 text-white text-xs py-2 px-4 flex items-center justify-center relative transition-all">
+        <div className="bg-[#033653] text-white text-xs py-2 px-4 flex items-center justify-center relative transition-all">
           <div className="flex items-center gap-2 sm:gap-3 flex-wrap justify-center text-center">
             <span className="font-medium">
               AI can fake an identity with one prompt. It can&apos;t fake 1,100+ real signals.
             </span>
             <Link
               href={routes.onboarding}
-              className="px-2.5 py-0.5 rounded bg-white text-blue-700 font-bold hover:bg-blue-50 transition-colors inline-flex items-center gap-1 text-[11px] shadow-sm"
+              className="px-2.5 py-0.5 rounded bg-[#66cc00] text-[#000000] font-bold hover:bg-blue-50 transition-colors inline-flex items-center gap-1 text-[11px] shadow-sm"
             >
               <span>See what AI can&apos;t fake</span>
               <ArrowRight className="w-3 h-3" />
@@ -115,7 +115,7 @@ export default function Header() {
                 <KYPLogo className="h-8 w-auto" theme="light" />
               </div>
               <div className="hidden sm:flex flex-col border-l border-slate-200 pl-3">
-                <span className="text-[10px] font-mono tracking-widest text-emerald-700 uppercase font-bold">
+                <span className="text-[10px] font-mono tracking-widest text-[#033653] uppercase font-bold">
                   Risk Intelligence
                 </span>
                 <span className="text-[9px] text-slate-500 font-medium">Enterprise KYB</span>
@@ -137,7 +137,7 @@ export default function Header() {
                       onClick={() => setActiveMenu(isOpen ? null : item.key)}
                       className={`flex items-center gap-1.5 px-3.5 py-2 rounded-full text-sm font-semibold transition-colors duration-200 ${
                         isOpen
-                          ? "text-emerald-700 bg-emerald-50"
+                          ? "text-[#033653] bg-emerald-50"
                           : "text-slate-700 hover:text-slate-900 hover:bg-slate-100/70"
                       }`}
                       aria-expanded={isOpen}

@@ -6,7 +6,7 @@ import { Whitepaper } from "@/data/whitepapers";
 
 export default function WhitepaperCard({ whitepaper }: { whitepaper: Whitepaper }) {
   return (
-    <div className="group rounded-2xl bg-white border border-slate-200/90 hover:border-emerald-500/60 overflow-hidden transition-all duration-300 flex flex-col justify-between shadow-sm hover:shadow-md">
+    <div className="group rounded-2xl bg-white border border-slate-200/90 hover:border-kyp-teal overflow-hidden transition-all duration-300 flex flex-col justify-between shadow-sm hover:shadow-md">
       <div>
         {/* Cover visual */}
         <div className="relative w-full h-44 bg-slate-100 overflow-hidden border-b border-slate-100">
@@ -17,7 +17,7 @@ export default function WhitepaperCard({ whitepaper }: { whitepaper: Whitepaper 
             className="object-cover object-top group-hover:scale-105 transition-all duration-500"
           />
           <div className="absolute top-3 left-3">
-            <span className="px-2.5 py-1 rounded-md bg-white/90 backdrop-blur-md border border-slate-200 text-[10px] font-mono text-emerald-800 font-bold shadow-sm">
+            <span className="px-2.5 py-1 rounded-md bg-white/95 backdrop-blur-md border border-kyp-teal/30 text-[10px] font-mono text-kyp-navy font-bold shadow-sm">
               {whitepaper.category}
             </span>
           </div>
@@ -31,12 +31,12 @@ export default function WhitepaperCard({ whitepaper }: { whitepaper: Whitepaper 
             </span>
             <span>•</span>
             <span className="flex items-center gap-1">
-              <BookOpen className="w-3.5 h-3.5 text-emerald-600" />
+              <BookOpen className="w-3.5 h-3.5 text-kyp-lime stroke-[2.5]" />
               {whitepaper.pages}
             </span>
           </div>
 
-          <h3 className="text-lg font-bold text-slate-900 group-hover:text-emerald-700 transition-colors leading-snug">
+          <h3 className="text-lg font-bold text-slate-900 group-hover:text-kyp-navy transition-colors leading-snug">
             {whitepaper.title}
           </h3>
 
@@ -46,10 +46,10 @@ export default function WhitepaperCard({ whitepaper }: { whitepaper: Whitepaper 
 
           {/* Highlights */}
           <div className="space-y-1.5 pt-2">
-            <div className="text-[10px] font-mono text-emerald-700 uppercase font-bold">Key Findings</div>
+            <div className="text-[10px] font-mono text-kyp-navy uppercase font-bold">Key Findings</div>
             {whitepaper.highlights.slice(0, 2).map((h, i) => (
               <div key={i} className="text-xs text-slate-600 flex items-start gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1.5 shrink-0" />
+                <span className="w-1.5 h-1.5 rounded-full bg-kyp-lime mt-1.5 shrink-0" />
                 <span className="line-clamp-1">{h}</span>
               </div>
             ))}

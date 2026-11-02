@@ -54,7 +54,7 @@ export default function FAQAccordion() {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search questions or keywords..."
-            className="w-full pl-9 pr-4 py-2.5 rounded-full bg-white border border-slate-200 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600 shadow-xs"
+            className="w-full pl-9 pr-4 py-2.5 rounded-full bg-white border border-slate-200 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-kyp-teal focus:ring-1 focus:ring-kyp-teal shadow-xs"
           />
         </div>
       </div>
@@ -74,7 +74,7 @@ export default function FAQAccordion() {
             return (
               <div
                 key={faq.id}
-                className="rounded-2xl border border-slate-200 bg-white overflow-hidden transition-all duration-200 hover:border-emerald-500/60 shadow-sm"
+                className="rounded-2xl border border-slate-200 bg-white overflow-hidden transition-all duration-200 hover:border-kyp-teal shadow-sm"
               >
                 <button
                   onClick={() => toggleItem(faq.id)}
@@ -82,19 +82,19 @@ export default function FAQAccordion() {
                   className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 group focus:outline-none cursor-pointer"
                 >
                   <div className="flex items-start gap-3">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500 mt-2 shrink-0 group-hover:scale-125 transition-transform" />
+                    <span className="w-2 h-2 rounded-full bg-kyp-lime mt-2 shrink-0 group-hover:scale-125 transition-transform" />
                     <div>
-                      <span className="text-[10px] font-mono uppercase text-emerald-700 font-bold block mb-0.5">
+                      <span className="text-[10px] font-mono uppercase text-kyp-navy font-bold block mb-0.5">
                         {faq.category}
                       </span>
-                      <h4 className="text-sm sm:text-base font-semibold text-slate-900 group-hover:text-emerald-700 transition-colors">
+                      <h4 className="text-sm sm:text-base font-semibold text-slate-900 group-hover:text-kyp-navy transition-colors">
                         {faq.question}
                       </h4>
                     </div>
                   </div>
                   <ChevronDown
                     className={`w-4 h-4 text-slate-400 shrink-0 transition-transform duration-300 ${
-                      isOpen ? "rotate-180 text-emerald-600" : ""
+                      isOpen ? "rotate-180 text-kyp-lime" : ""
                     }`}
                   />
                 </button>

@@ -85,8 +85,8 @@ export default function WorkflowSLADemo() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column: Narrative & SLA Value Proposition */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 border border-emerald-200 text-xs font-mono text-emerald-800 font-bold">
-              <Clock className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-kyp-mint/40 border border-kyp-teal/40 text-xs font-mono text-kyp-navy font-bold">
+              <Clock className="w-3.5 h-3.5 text-kyp-lime stroke-[2.5]" />
               <span>PROCESSING SPEED SLAS</span>
             </div>
 
@@ -96,7 +96,7 @@ export default function WorkflowSLADemo() {
 
             <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
               From fragmented inputs to validated transactions in as fast as 10 seconds, backed by a{" "}
-              <strong className="text-emerald-600 font-bold">30-second processing SLA</strong>.{" "}
+              <strong className="text-kyp-navy font-bold">30-second processing SLA</strong>.{" "}
               <strong className="text-slate-900 font-bold">100% Agentic Processing</strong>.
             </p>
 
@@ -105,11 +105,11 @@ export default function WorkflowSLADemo() {
                 <div className="text-[10px] font-mono text-slate-500 uppercase font-semibold">Legacy Review Cycle</div>
                 <div className="text-xl font-bold text-rose-500 line-through mt-0.5">Weeks to Months</div>
               </div>
-              <div className="p-3.5 rounded-xl bg-emerald-50/80 border border-emerald-300 shadow-sm">
-                <div className="text-[10px] font-mono text-emerald-800 uppercase font-bold">KYP Processing SLA</div>
+              <div className="p-3.5 rounded-xl bg-kyp-mint/30 border border-kyp-teal/40 shadow-sm">
+                <div className="text-[10px] font-mono text-kyp-navy uppercase font-bold">KYP Processing SLA</div>
                 <div className="text-xl font-bold text-slate-900 mt-0.5 flex items-center gap-1.5">
                   <span>&lt; 30.0s</span>
-                  <span className="text-xs px-2 py-0.5 rounded bg-emerald-200 text-emerald-900 font-mono font-bold">100% Defensible</span>
+                  <span className="text-xs px-2 py-0.5 rounded bg-kyp-mint border border-kyp-teal/40 text-kyp-navy font-mono font-bold">100% Defensible</span>
                 </div>
               </div>
             </div>
@@ -165,7 +165,7 @@ export default function WorkflowSLADemo() {
 
                 {/* Animated Glowing Progress Line */}
                 <div
-                  className="absolute top-1/2 left-8 -translate-y-1/2 h-0.5 bg-gradient-to-r from-kyp-teal via-kyp-lime to-emerald-400 z-0 transition-all duration-500 ease-out"
+                  className="absolute top-1/2 left-8 -translate-y-1/2 h-0.5 bg-gradient-to-r from-kyp-navy via-kyp-teal to-kyp-lime z-0 transition-all duration-500 ease-out"
                   style={{
                     width: `${(activeStepIndex / (WORKFLOW_STEPS.length - 1)) * (100 - 16)}%`,
                   }}
@@ -192,10 +192,10 @@ export default function WorkflowSLADemo() {
                           className={`w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center font-semibold text-xs sm:text-sm transition-all duration-300 relative ${
                             isActive
                               ? isFinalStep
-                                ? "bg-emerald-500 text-black font-bold scale-110 shadow-[0_0_30px_rgba(16,185,129,0.7)] ring-4 ring-emerald-400/40"
-                                : "bg-gradient-to-br from-kyp-teal to-blue-600 text-white font-bold scale-115 shadow-[0_0_28px_rgba(0,229,255,0.6)] ring-4 ring-kyp-teal/40"
+                                ? "bg-kyp-lime text-black font-bold scale-110 shadow-[0_0_30px_rgba(102,204,0,0.7)] ring-4 ring-kyp-lime/40"
+                                : "bg-gradient-to-br from-kyp-navy to-kyp-teal text-white font-bold scale-115 shadow-[0_0_28px_rgba(111,211,196,0.6)] ring-4 ring-kyp-teal/40"
                               : isPassed
-                              ? "bg-kyp-navy-surface border-2 border-kyp-lime/60 text-kyp-lime"
+                              ? "bg-kyp-navy border-2 border-kyp-lime/60 text-kyp-lime"
                               : "bg-kyp-navy/60 border border-kyp-teal/30 text-gray-400 group-hover:border-kyp-teal group-hover:text-white"
                           }`}
                         >
@@ -226,13 +226,13 @@ export default function WorkflowSLADemo() {
                   <div
                     className={`text-2xl sm:text-4xl font-mono font-bold px-5 py-2 rounded-2xl border transition-all duration-300 flex items-center gap-2 ${
                       isFinalStep
-                        ? "bg-emerald-500/10 border-emerald-500/50 text-emerald-300 shadow-[0_0_25px_rgba(16,185,129,0.3)]"
+                        ? "bg-kyp-lime/10 border-kyp-lime/50 text-kyp-lime shadow-[0_0_25px_rgba(102,204,0,0.3)]"
                         : "bg-black/60 border-kyp-teal/30 text-white"
                     }`}
                   >
                     <span>{currentStep.timeDisplay}</span>
                     {isFinalStep && (
-                      <span className="w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center text-black">
+                      <span className="w-6 h-6 rounded-full bg-kyp-lime flex items-center justify-center text-black">
                         <Check className="w-4 h-4 stroke-[3]" />
                       </span>
                     )}
