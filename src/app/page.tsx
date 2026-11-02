@@ -9,14 +9,14 @@ import { platformFeaturesData } from "@/data/platformFeatures";
 import { testimonialsData, trustedPartners, credentials } from "@/data/testimonials";
 import { newsArticlesData } from "@/data/news";
 
-import HeroMotionGraphicsStack from "@/components/home/HeroMotionGraphicsStack";
+import BrandOrbHeroStage from "@/components/home/BrandOrbHeroStage";
 import PlatformFlow from "@/components/product/PlatformFlow";
 import IndustryTabs from "@/components/home/IndustryTabs";
 import UseCaseCard from "@/components/cards/UseCaseCard";
 import NewsCard from "@/components/cards/NewsCard";
 import AnalyticsDashboard from "@/components/product/AnalyticsDashboard";
 import GraphIntelligence from "@/components/product/GraphIntelligence";
-import { PartnerLogo, CredentialBadge } from "@/components/home/PartnerLogos";
+import { PartnerLogo, CredentialBadge, PartnerCarouselMarquee } from "@/components/home/PartnerLogos";
 import KYPLottie from "@/components/lottie/KYPLottie";
 import PurposeBuiltSolutions from "@/components/home/PurposeBuiltSolutions";
 import WorkflowSLADemo from "@/components/home/WorkflowSLADemo";
@@ -92,56 +92,17 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right Multi-Layered Motion Graphics Stack */}
-            <div className="lg:col-span-6">
-              <HeroMotionGraphicsStack />
+            {/* Right Side: Iconic 3D Brand Risk Intelligence Core Orb */}
+            <div className="lg:col-span-6 flex items-center justify-center">
+              <BrandOrbHeroStage />
             </div>
 
           </div>
         </div>
       </section>
 
-      {/* SECTION 2 – TRUST AND CREDIBILITY STRIP */}
-      <section className="py-12 bg-slate-50 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-8 flex items-center justify-center gap-2">
-            <span className="w-5 h-5 inline-block">
-              <KYPLottie type="securityShield" className="w-5 h-5" />
-            </span>
-            <span className="text-[11px] font-mono tracking-widest text-slate-500 uppercase font-semibold">
-              Trusted by Regulated Leaders &bull; Industry Verified Credibility
-            </span>
-          </div>
-
-          {/* High-Contrast Crisp Partner Logo Cards */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-4 items-center justify-center">
-            {[
-              { id: "neogames", name: "NeoGames" },
-              { id: "riskrecon", name: "RiskRecon (Mastercard)" },
-              { id: "itemize", name: "Itemize" },
-              { id: "tellmoney", name: "tell.money" },
-              { id: "integrated-finance", name: "Integrated Finance" },
-              { id: "btobet", name: "BtoBet" },
-              { id: "pariplay", name: "Pariplay" },
-            ].map((p) => (
-              <div
-                key={p.id}
-                className="h-16 px-4 rounded-xl bg-white border border-slate-200 hover:border-emerald-500 hover:shadow-sm flex items-center justify-center transition-all group"
-              >
-                <PartnerLogo id={p.id} className="h-6 w-auto opacity-90 group-hover:opacity-100 transition-opacity" />
-              </div>
-            ))}
-          </div>
-
-          {/* Accreditations & Certifications with High Contrast Badges */}
-          <div className="mt-8 pt-8 border-t border-slate-200 flex flex-wrap items-center justify-center gap-4 text-xs font-mono">
-            <CredentialBadge id="iso" name="ISO 27001" desc="ISO 27001 Information Security Certified" />
-            <CredentialBadge id="ey" name="EY" desc="EY Growth FinTech Programme Alumni" />
-            <CredentialBadge id="bloom" name="Bloom" desc="Bloom Accredited Supplier" />
-            <CredentialBadge id="london" name="London" desc="Mayor's International Programme Selected" />
-          </div>
-        </div>
-      </section>
+      {/* SECTION 2 – TRUST AND CREDIBILITY MOVING CAROUSEL MARQUEE */}
+      <PartnerCarouselMarquee />
 
       {/* PROVEN IN PRODUCTION (Itemize-Style 4-Card SLA Matrix from User Image) */}
       <ProvenInProduction />

@@ -64,7 +64,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pb-12 border-b border-kyp-teal/15 items-center">
           <div className="lg:col-span-5 space-y-4">
             <Link href={routes.home} className="inline-block">
-              <KYPLogo className="h-9 w-auto" />
+              <KYPLogo className="h-9 w-auto" theme="dark" />
             </Link>
             <p className="text-sm text-gray-400 max-w-md leading-relaxed">
               KYP (Know Your Portfolio / Know Your Partner) empowers regulated firms, payment providers, and iGaming operators to proactively detect financial, regulatory, and reputational risks across their entire third-party ecosystem.

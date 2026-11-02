@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   TrendingDown,
@@ -41,17 +41,109 @@ const INITIAL_EVENTS: TelemetryEvent[] = [
   { id: "e-6", entity: "Nexus Global Pay Limited", action: "Visa VIRP storefront sweep", type: "pass", time: "9m ago", metric: "Zero Prohibited Goods" },
 ];
 
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"];
+
+interface RiskTier {
+  id: "high" | "medium" | "low" | "compliant";
+  label: string;
+  shortLabel: string;
+  score: number;
+  status: string;
+  trend: string;
+  trendGood: boolean;
+  color: string;
+  badgeBg: string;
+  accent: string;
+  readings: number[];
+  volumes: string[];
+  contagion: {
+    compliant: number;
+    review: number;
+    alerts: number;
+  };
+}
+
+const RISK_TIERS: RiskTier[] = [
+  {
+    id: "high",
+    label: "High Risk Triggered",
+    shortLabel: "High Risk (78)",
+    score: 78,
+    status: "Elevated Drift Detected",
+    trend: "+42.4% Anomaly Spike",
+    trendGood: false,
+    color: "#ef4444",
+    badgeBg: "bg-rose-50 border-rose-200 text-rose-800",
+    accent: "#ef4444",
+    readings: [52, 60, 74, 86, 92, 84, 78, 82, 75, 78],
+    volumes: ["1.2M", "1.5M", "2.1M", "3.4M", "4.2M", "4.8M", "5.1M", "5.5M", "5.8M", "6.2M"],
+    contagion: { compliant: 620, review: 380, alerts: 250 },
+  },
+  {
+    id: "medium",
+    label: "Medium Review Triage",
+    shortLabel: "Medium (46)",
+    score: 46,
+    status: "Policy Rule Verification",
+    trend: "-8.2% Under Investigation",
+    trendGood: true,
+    color: "#f59e0b",
+    badgeBg: "bg-amber-50 border-amber-200 text-amber-800",
+    accent: "#f59e0b",
+    readings: [58, 54, 50, 48, 46, 44, 45, 47, 44, 46],
+    volumes: ["1.2M", "1.4M", "1.8M", "2.2M", "2.7M", "3.1M", "3.6M", "4.0M", "4.3M", "4.7M"],
+    contagion: { compliant: 880, review: 240, alerts: 130 },
+  },
+  {
+    id: "low",
+    label: "Low Risk Tier",
+    shortLabel: "Low Risk (24)",
+    score: 24,
+    status: "Continuous Surveillance",
+    trend: "-28.4% this quarter",
+    trendGood: true,
+    color: "#6fd3c4",
+    badgeBg: "bg-kyp-mint/40 border-kyp-teal/40 text-kyp-navy",
+    accent: "#6fd3c4",
+    readings: [68, 62, 54, 48, 42, 35, 31, 28, 26, 24],
+    volumes: ["1.2M", "1.5M", "1.9M", "2.3M", "2.8M", "3.2M", "3.7M", "4.1M", "4.6M", "5.1M"],
+    contagion: { compliant: 1050, review: 150, alerts: 50 },
+  },
+  {
+    id: "compliant",
+    label: "Optimal Compliant Tier",
+    shortLabel: "Compliant (12)",
+    score: 12,
+    status: "Zero Scheme Fines",
+    trend: "-64.7% since Jan",
+    trendGood: true,
+    color: "#66cc00",
+    badgeBg: "bg-emerald-50 border-emerald-200 text-emerald-800",
+    accent: "#66cc00",
+    readings: [32, 26, 22, 19, 17, 15, 14, 13, 12, 12],
+    volumes: ["1.2M", "1.6M", "2.0M", "2.5M", "3.1M", "3.8M", "4.4M", "5.0M", "5.4M", "5.9M"],
+    contagion: { compliant: 1230, review: 18, alerts: 2 },
+  },
+];
+
 export default function AnalyticsDashboard() {
   const [activeTab, setActiveTab] = useState<"velocity" | "scheme" | "contagion" | "audit">("velocity");
-  const [hoveredChartIndex, setHoveredChartIndex] = useState<number | null>(null);
+  const [activeTierIndex, setActiveTierIndex] = useState<number>(2); // Default: Low Risk (24)
   const [isLooping, setIsLooping] = useState<boolean>(true);
+  const [hoveredChartIndex, setHoveredChartIndex] = useState<number | null>(null);
   const [events, setEvents] = useState<TelemetryEvent[]>(INITIAL_EVENTS);
   const [activeKpiHover, setActiveKpiHover] = useState<number | null>(null);
 
-  // Auto-looping telemetry events simulation
+  const currentTier = RISK_TIERS[activeTierIndex];
+
+  // Auto-cycling risk simulation: High -> Medium -> Low -> Compliant -> High
   useEffect(() => {
     if (!isLooping) return;
-    const interval = setInterval(() => {
+    const tierInterval = setInterval(() => {
+      setActiveTierIndex((prev) => (prev + 1) % RISK_TIERS.length);
+    }, 4500);
+
+    const eventInterval = setInterval(() => {
       setEvents((prev) => {
         const last = prev[prev.length - 1];
         const rest = prev.slice(0, prev.length - 1);
@@ -62,65 +154,88 @@ export default function AnalyticsDashboard() {
         };
         return [newEvent, ...rest];
       });
-    }, 3500);
-    return () => clearInterval(interval);
+    }, 3200);
+
+    return () => {
+      clearInterval(tierInterval);
+      clearInterval(eventInterval);
+    };
   }, [isLooping]);
 
-  // Chart data points (Monthly Risk Velocity)
-  const chartPoints = [
-    { month: "Jan", score: 68, volume: "1.2M", alerts: 8 },
-    { month: "Feb", score: 62, volume: "1.5M", alerts: 6 },
-    { month: "Mar", score: 54, volume: "1.9M", alerts: 5 },
-    { month: "Apr", score: 48, volume: "2.3M", alerts: 4 },
-    { month: "May", score: 42, volume: "2.8M", alerts: 3 },
-    { month: "Jun", score: 35, volume: "3.2M", alerts: 2 },
-    { month: "Jul", score: 31, volume: "3.7M", alerts: 2 },
-    { month: "Aug", score: 28, volume: "4.1M", alerts: 1 },
-    { month: "Sep", score: 26, volume: "4.6M", alerts: 1 },
-    { month: "Oct", score: 24, volume: "5.1M", alerts: 0 },
-  ];
+  // Compute SVG Points for the current risk tier readings
+  // x from 50 to 770 (80px spacing), y from 40 (high score 100) to 200 (score 0)
+  const graphPoints = useMemo(() => {
+    return currentTier.readings.map((score, i) => {
+      const x = 50 + i * 80;
+      const y = Math.round(200 - (score / 100) * 160);
+      return { x, y, score, month: MONTHS[i], volume: currentTier.volumes[i] };
+    });
+  }, [currentTier]);
+
+  // Build smooth bezier path string
+  const pathD = useMemo(() => {
+    if (graphPoints.length === 0) return "";
+    let d = `M ${graphPoints[0].x} ${graphPoints[0].y}`;
+    for (let i = 0; i < graphPoints.length - 1; i++) {
+      const p0 = graphPoints[i];
+      const p1 = graphPoints[i + 1];
+      const mx = (p0.x + p1.x) / 2;
+      d += ` C ${mx} ${p0.y}, ${mx} ${p1.y}, ${p1.x} ${p1.y}`;
+    }
+    return d;
+  }, [graphPoints]);
+
+  // Build area fill polygon points
+  const areaD = useMemo(() => {
+    if (graphPoints.length === 0) return "";
+    const firstX = graphPoints[0].x;
+    const lastX = graphPoints[graphPoints.length - 1].x;
+    return `${pathD} L ${lastX} 220 L ${firstX} 220 Z`;
+  }, [pathD, graphPoints]);
 
   return (
-    <div className="w-full bg-white rounded-3xl border border-slate-200/90 shadow-2xl shadow-slate-200/60 overflow-hidden">
+    <div className="w-full bg-white rounded-3xl border border-slate-200/90 shadow-2xl shadow-slate-200/60 overflow-hidden select-none">
       {/* Console Top Header Bar */}
       <div className="p-6 border-b border-slate-100 bg-slate-50/70 flex flex-wrap items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#c6f5ef]0 animate-ping" />
+            <span
+              className="w-2.5 h-2.5 rounded-full animate-ping"
+              style={{ backgroundColor: currentTier.color }}
+            />
             <h3 className="text-lg font-bold text-slate-900 tracking-tight">
               Enterprise Risk Intelligence Analytics
             </h3>
-            <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-emerald-100 text-emerald-800 border border-emerald-200 font-bold">
-              LIVE TELEMETRY
+            <span
+              className={`px-2.5 py-0.5 rounded-full text-[10px] font-mono border font-bold ${currentTier.badgeBg}`}
+            >
+              {currentTier.label.toUpperCase()}
             </span>
           </div>
           <p className="text-xs text-slate-500 mt-0.5">
-            Real-time portfolio surveillance, automated card scheme sweeps, and continuous contagion telemetry.
+            Dynamic risk index waveform updating in real-time across card schemes, AML contagion, and settlement telemetry.
           </p>
         </div>
 
-        {/* View Tabs & Play/Pause Controls */}
+        {/* Dynamic Risk Level Simulator Buttons & Play/Pause */}
         <div className="flex flex-wrap items-center gap-2">
-          <div className="flex items-center rounded-full bg-white border border-slate-200 p-1 text-xs font-semibold shadow-sm">
-            {(
-              [
-                { id: "velocity", label: "Risk Velocity" },
-                { id: "scheme", label: "Scheme Health" },
-                { id: "contagion", label: "Contagion Map" },
-                { id: "audit", label: "Audit Readiness" },
-              ] as const
-            ).map((t) => (
+          {/* Interactive Tier Switcher */}
+          <div className="flex items-center rounded-full bg-white border border-slate-200 p-1 text-xs font-semibold shadow-xs">
+            {RISK_TIERS.map((tier, idx) => (
               <button
                 type="button"
-                key={t.id}
-                onClick={() => setActiveTab(t.id)}
-                className={`px-3 py-1.5 rounded-full transition-all cursor-pointer ${
-                  activeTab === t.id
-                    ? "bg-[#000000] text-white shadow-sm"
+                key={tier.id}
+                onClick={() => {
+                  setActiveTierIndex(idx);
+                  setIsLooping(false);
+                }}
+                className={`px-3 py-1 rounded-full text-xs font-mono font-semibold transition-all cursor-pointer ${
+                  activeTierIndex === idx
+                    ? "bg-[#000000] text-white shadow-xs"
                     : "text-slate-600 hover:text-slate-900"
                 }`}
               >
-                {t.label}
+                {tier.shortLabel}
               </button>
             ))}
           </div>
@@ -128,13 +243,13 @@ export default function AnalyticsDashboard() {
           <button
             type="button"
             onClick={() => setIsLooping(!isLooping)}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-slate-200 text-xs font-mono text-slate-700 hover:bg-slate-50 shadow-sm cursor-pointer"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-slate-200 text-xs font-mono text-slate-700 hover:bg-slate-50 shadow-xs cursor-pointer"
             title={isLooping ? "Pause auto-loop" : "Resume auto-loop"}
           >
             {isLooping ? (
               <>
-                <Pause className="w-3.5 h-3.5 text-[#66cc00]" />
-                <span>Loop Active</span>
+                <Pause className="w-3.5 h-3.5 text-kyp-lime stroke-[2.5]" />
+                <span className="font-bold text-slate-900">Live Auto-Cycle</span>
               </>
             ) : (
               <>
@@ -146,20 +261,20 @@ export default function AnalyticsDashboard() {
         </div>
       </div>
 
-      {/* 4 Interactive KPI Summary Cards with Hover Animation */}
+      {/* 4 Interactive KPI Summary Cards Responding to Active Risk Reading */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 p-6 bg-slate-50/40 border-b border-slate-100">
         {[
           {
             idx: 0,
             label: "Continuous Risk Index",
-            value: "24",
+            value: `${currentTier.score}`,
             unit: "/100",
-            status: "Low Risk Tier",
-            trend: "-14.2% this quarter",
-            trendGood: true,
-            icon: <ShieldCheck className="w-4 h-4 text-[#66cc00]" />,
-            color: "text-[#033653]",
-            bg: "bg-[#c6f5ef]",
+            status: currentTier.status,
+            trend: currentTier.trend,
+            trendGood: currentTier.trendGood,
+            icon: <ShieldCheck className="w-4 h-4" style={{ color: currentTier.color }} />,
+            color: "text-kyp-navy",
+            bg: "bg-kyp-mint/40",
           },
           {
             idx: 1,
@@ -170,20 +285,20 @@ export default function AnalyticsDashboard() {
             trend: "+38 new merchants",
             trendGood: true,
             icon: <Activity className="w-4 h-4 text-sky-600" />,
-            color: "text-[#033653]",
-            bg: "bg-[#c6f5ef]",
+            color: "text-kyp-navy",
+            bg: "bg-kyp-mint/40",
           },
           {
             idx: 2,
             label: "WebCompli™ Status",
-            value: "0 Fines",
+            value: currentTier.id === "high" ? "2 Flags" : "0 Fines",
             unit: "BRAM / VIRP",
-            status: "Mastercard & Visa Pass",
-            trend: "Zero scheme violations",
-            trendGood: true,
-            icon: <CheckCircle2 className="w-4 h-4 text-[#66cc00]" />,
-            color: "text-[#033653]",
-            bg: "bg-[#c6f5ef]",
+            status: currentTier.id === "high" ? "Redirect Warning" : "Mastercard & Visa Pass",
+            trend: currentTier.id === "high" ? "1 Review Needed" : "Zero scheme violations",
+            trendGood: currentTier.id !== "high",
+            icon: <CheckCircle2 className="w-4 h-4 text-kyp-lime" />,
+            color: "text-kyp-navy",
+            bg: "bg-kyp-mint/40",
           },
           {
             idx: 3,
@@ -205,8 +320,8 @@ export default function AnalyticsDashboard() {
             whileHover={{ y: -3 }}
             className={`p-4 rounded-2xl bg-white border transition-all cursor-pointer ${
               activeKpiHover === kpi.idx
-                ? "border-emerald-500/60 shadow-lg shadow-emerald-500/10"
-                : "border-slate-200/80 shadow-sm"
+                ? "border-kyp-teal shadow-lg shadow-kyp-teal/10"
+                : "border-slate-200/80 shadow-xs"
             }`}
           >
             <div className="flex items-center justify-between mb-2">
@@ -222,9 +337,13 @@ export default function AnalyticsDashboard() {
               <span className="text-xs font-mono text-slate-400 font-medium">{kpi.unit}</span>
             </div>
             <div className="mt-2 pt-2 border-t border-slate-100 flex items-center justify-between text-[11px]">
-              <span className="text-slate-500">{kpi.status}</span>
-              <span className="text-[#66cc00] font-semibold flex items-center gap-0.5">
-                <TrendingDown className="w-3 h-3" />
+              <span className="text-slate-500 font-medium">{kpi.status}</span>
+              <span
+                className={`font-semibold flex items-center gap-0.5 ${
+                  kpi.trendGood ? "text-kyp-lime" : "text-rose-500"
+                }`}
+              >
+                {kpi.trendGood ? <TrendingDown className="w-3 h-3" /> : <TrendingUp className="w-3 h-3" />}
                 {kpi.trend}
               </span>
             </div>
@@ -232,9 +351,9 @@ export default function AnalyticsDashboard() {
         ))}
       </div>
 
-      {/* Main Analytics Section: Interactive Waveform Chart + Live Telemetry Stream */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[440px]">
-        {/* Left 8 Cols: Interactive Motion Waveform Chart */}
+      {/* Main Analytics Section: Live Moving Waveform Chart + Live Telemetry Stream */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[460px]">
+        {/* Left 8 Cols: Dynamic Moving Waveform Chart */}
         <div className="col-span-12 lg:col-span-8 p-6 lg:p-8 space-y-6">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div>
@@ -242,112 +361,168 @@ export default function AnalyticsDashboard() {
                 <h4 className="text-base font-bold text-slate-900">
                   Continuous Risk Index Telemetry
                 </h4>
-                <span className="text-xs font-mono text-[#033653] bg-[#c6f5ef] px-2 py-0.5 rounded-full font-semibold">
-                  Down 64.7% since Jan
-                </span>
+                <motion.span
+                  key={currentTier.id}
+                  initial={{ scale: 0.9, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  className={`text-xs font-mono px-2.5 py-0.5 rounded-full font-bold border ${currentTier.badgeBg}`}
+                >
+                  Current Reading: {currentTier.score}/100 ({currentTier.label})
+                </motion.span>
               </div>
               <p className="text-xs text-slate-500 mt-0.5">
-                Hover over data nodes to inspect real-time transaction volume and alert resolutions.
+                Waveform actively recalculates based on live telemetry feeds. Hover over nodes or select a tier above.
               </p>
             </div>
 
             {/* Micro Legend */}
             <div className="flex items-center gap-4 text-xs font-mono text-slate-600">
               <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#c6f5ef]0" />
+                <span className="w-2.5 h-2.5 rounded-full bg-kyp-lime" />
                 <span>Risk Index (0-100)</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#6fd3c4]" />
+                <span className="w-2.5 h-2.5 rounded-full bg-kyp-teal" />
                 <span>Monthly Volume</span>
               </div>
             </div>
           </div>
 
           {/* SVG Animated Interactive Waveform Chart */}
-          <div className="relative w-full h-64 bg-slate-50/60 rounded-2xl border border-slate-200/80 p-4 select-none overflow-hidden">
-            {/* Background horizontal grid lines */}
+          <div className="relative w-full h-72 bg-slate-50/70 rounded-2xl border border-slate-200/90 p-4 select-none overflow-hidden">
+            {/* Background horizontal dashed grid lines */}
             <div className="absolute inset-0 flex flex-col justify-between p-4 pointer-events-none opacity-40">
-              <div className="border-b border-dashed border-slate-300 w-full" />
-              <div className="border-b border-dashed border-slate-300 w-full" />
-              <div className="border-b border-dashed border-slate-300 w-full" />
-              <div className="border-b border-dashed border-slate-300 w-full" />
+              <div className="flex items-center justify-between text-[10px] font-mono text-slate-400 border-b border-dashed border-slate-300 pb-1">
+                <span>100 (Critical Risk)</span>
+              </div>
+              <div className="flex items-center justify-between text-[10px] font-mono text-slate-400 border-b border-dashed border-slate-300 pb-1">
+                <span>75 (High Risk Tier)</span>
+              </div>
+              <div className="flex items-center justify-between text-[10px] font-mono text-slate-400 border-b border-dashed border-slate-300 pb-1">
+                <span>50 (Medium Triage)</span>
+              </div>
+              <div className="flex items-center justify-between text-[10px] font-mono text-slate-400 border-b border-dashed border-slate-300 pb-1">
+                <span>25 (Compliant Tier)</span>
+              </div>
+              <div className="flex items-center justify-between text-[10px] font-mono text-slate-400 pb-1">
+                <span>0 (Zero Risk Baseline)</span>
+              </div>
             </div>
 
-            <svg viewBox="0 0 900 240" className="w-full h-full overflow-visible">
+            {/* Moving Laser Scanner Bar sweeping across graph */}
+            <div
+              className="absolute top-0 bottom-0 w-0.5 z-20 pointer-events-none"
+              style={{
+                background: `linear-gradient(to bottom, transparent, ${currentTier.color}, transparent)`,
+                animation: "laser-scan 4s ease-in-out infinite alternate",
+                boxShadow: `0 0 12px ${currentTier.color}`,
+              }}
+            />
+
+            <svg viewBox="0 0 840 240" className="w-full h-full overflow-visible relative z-10">
               <defs>
-                <linearGradient id="chart-area-grad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#66cc00" stopOpacity="0.25" />
-                  <stop offset="100%" stopColor="#66cc00" stopOpacity="0" />
+                <linearGradient id="live-area-grad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor={currentTier.color} stopOpacity="0.25" />
+                  <stop offset="100%" stopColor={currentTier.color} stopOpacity="0.0" />
                 </linearGradient>
-                <linearGradient id="chart-line-grad" x1="0" y1="0" x2="1" y2="0">
+                <linearGradient id="live-line-grad" x1="0" y1="0" x2="1" y2="0">
                   <stop offset="0%" stopColor="#033653" />
                   <stop offset="50%" stopColor="#6fd3c4" />
-                  <stop offset="100%" stopColor="#66cc00" />
+                  <stop offset="100%" stopColor={currentTier.color} />
                 </linearGradient>
               </defs>
 
-              {/* Area fill */}
-              <polygon
-                points="40,170 120,150 200,130 280,115 360,100 440,85 520,75 600,68 680,63 760,58 760,220 40,220"
-                fill="url(#chart-area-grad)"
+              {/* Dynamic Animated Area Fill */}
+              <motion.path
+                key={`area-${currentTier.id}`}
+                d={areaD}
+                fill="url(#live-area-grad)"
+                initial={{ opacity: 0.4 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6 }}
               />
 
-              {/* Main Wave Line */}
+              {/* Dynamic Animated Line Path */}
               <motion.path
-                d="M 40 170 Q 120 150, 200 130 T 360 100 T 520 75 T 680 63 T 760 58"
+                key={`line-${currentTier.id}`}
+                d={pathD}
                 fill="none"
-                stroke="url(#chart-line-grad)"
+                stroke="url(#live-line-grad)"
                 strokeWidth="3.5"
                 strokeLinecap="round"
-                initial={{ pathLength: 0 }}
+                initial={{ pathLength: 0.6 }}
                 animate={{ pathLength: 1 }}
-                transition={{ duration: 1.8, ease: "easeOut" }}
+                transition={{ duration: 0.8, ease: "easeInOut" }}
               />
 
-              {/* Data Node Circles */}
-              {chartPoints.map((pt, i) => {
-                const x = 40 + i * 80;
-                // mapping score 68 -> 170, 24 -> 58
-                const y = 220 - (pt.score / 100) * 230;
+              {/* Interactive Data Nodes along the moving curve */}
+              {graphPoints.map((pt, i) => {
                 const isHovered = hoveredChartIndex === i;
 
                 return (
                   <g
-                    key={pt.month}
+                    key={`${pt.month}-${currentTier.id}`}
                     className="cursor-pointer"
                     onMouseEnter={() => setHoveredChartIndex(i)}
                     onMouseLeave={() => setHoveredChartIndex(null)}
                   >
-                    {/* Hover Pulse Ring */}
+                    {/* Hover Pulse Halo */}
                     {isHovered && (
                       <circle
-                        cx={x}
-                        cy={y}
+                        cx={pt.x}
+                        cy={pt.y}
                         r="16"
-                        fill="#66cc00"
-                        fillOpacity="0.2"
+                        fill={currentTier.color}
+                        fillOpacity="0.25"
                         className="animate-ping"
                       />
                     )}
 
-                    {/* Outer circle */}
-                    <circle
-                      cx={x}
-                      cy={y}
+                    {/* Data Node Point */}
+                    <motion.circle
+                      cx={pt.x}
+                      cy={pt.y}
                       r={isHovered ? 8 : 5}
                       fill="#ffffff"
-                      stroke="#66cc00"
-                      strokeWidth={isHovered ? 3 : 2}
-                      className="transition-all duration-200"
+                      stroke={currentTier.color}
+                      strokeWidth={isHovered ? 3 : 2.5}
+                      className="transition-all duration-300"
+                      initial={{ scale: 0.8 }}
+                      animate={{ scale: 1 }}
                     />
+
+                    {/* Score Tag above node if active or hovered */}
+                    {(isHovered || i === graphPoints.length - 1) && (
+                      <g>
+                        <rect
+                          x={pt.x - 22}
+                          y={pt.y - 26}
+                          width="44"
+                          height="18"
+                          rx="4"
+                          fill="#000000"
+                          opacity="0.85"
+                        />
+                        <text
+                          x={pt.x}
+                          y={pt.y - 13}
+                          textAnchor="middle"
+                          fill="#ffffff"
+                          fontSize="10"
+                          fontWeight="bold"
+                          fontFamily="monospace"
+                        >
+                          {pt.score}
+                        </text>
+                      </g>
+                    )}
 
                     {/* Month X-Axis Label */}
                     <text
-                      x={x}
+                      x={pt.x}
                       y="235"
                       textAnchor="middle"
-                      fill={isHovered ? "#0f172a" : "#94a3b8"}
+                      fill={isHovered ? "#000000" : "#64748b"}
                       fontSize="11"
                       fontWeight={isHovered ? "bold" : "normal"}
                       fontFamily="monospace"
@@ -364,34 +539,34 @@ export default function AnalyticsDashboard() {
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="absolute top-4 right-4 bg-white/95 backdrop-blur-md p-3.5 rounded-2xl border border-slate-200 shadow-xl text-xs font-mono space-y-1 z-20 pointer-events-none"
+                className="absolute top-4 right-4 bg-white/95 backdrop-blur-md p-3.5 rounded-2xl border border-slate-200 shadow-xl text-xs font-mono space-y-1 z-30 pointer-events-none"
               >
                 <div className="flex items-center justify-between gap-4 font-bold text-slate-900 border-b border-slate-100 pb-1">
-                  <span>Month: {chartPoints[hoveredChartIndex].month}</span>
-                  <span className="text-[#033653]">
-                    Risk Score: {chartPoints[hoveredChartIndex].score}/100
+                  <span>Month: {graphPoints[hoveredChartIndex].month}</span>
+                  <span className="font-bold" style={{ color: currentTier.color }}>
+                    Risk Score: {graphPoints[hoveredChartIndex].score}/100
                   </span>
                 </div>
                 <div className="flex justify-between gap-4 text-slate-500">
                   <span>Processed Volume:</span>
                   <span className="font-bold text-slate-800">
-                    ${chartPoints[hoveredChartIndex].volume}
+                    ${graphPoints[hoveredChartIndex].volume}
                   </span>
                 </div>
                 <div className="flex justify-between gap-4 text-slate-500">
-                  <span>Active Alerts Resolved:</span>
-                  <span className="font-bold text-[#66cc00]">
-                    {chartPoints[hoveredChartIndex].alerts} Flags Cleared
+                  <span>Telemetry State:</span>
+                  <span className="font-bold" style={{ color: currentTier.color }}>
+                    {currentTier.label}
                   </span>
                 </div>
               </motion.div>
             )}
           </div>
 
-          {/* Bottom Bar: Radial Risk Contagion Gauge */}
+          {/* Bottom Bar: Radial Risk Contagion Breakdown */}
           <div className="p-4 rounded-2xl bg-slate-50/80 border border-slate-200/80 flex flex-wrap items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-[#66cc00] font-bold shadow-sm">
+              <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-kyp-lime font-bold shadow-xs">
                 <KYPLottie type="heroRadar" className="w-6 h-6" />
               </div>
               <div>
@@ -399,23 +574,23 @@ export default function AnalyticsDashboard() {
                   Portfolio Contagion Breakdown
                 </span>
                 <p className="text-[11px] text-slate-500">
-                  84% Clean &bull; 12% Low Review &bull; 4% Sanctions Scrutiny
+                  Real-time entity health distribution across regulated partner portfolio
                 </p>
               </div>
             </div>
 
             <div className="flex items-center gap-3 text-xs font-mono">
               <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#c6f5ef]0" />
-                <span className="text-slate-700 font-bold">1,050 Compliant</span>
+                <span className="w-2.5 h-2.5 rounded-full bg-kyp-lime" />
+                <span className="text-slate-700 font-bold">{currentTier.contagion.compliant} Compliant</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <span className="w-2.5 h-2.5 rounded-full bg-amber-400" />
-                <span className="text-slate-700 font-bold">150 Review</span>
+                <span className="text-slate-700 font-bold">{currentTier.contagion.review} Review</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <span className="w-2.5 h-2.5 rounded-full bg-rose-500" />
-                <span className="text-slate-700 font-bold">50 Alerts</span>
+                <span className="text-slate-700 font-bold">{currentTier.contagion.alerts} Alerts</span>
               </div>
             </div>
           </div>
@@ -426,7 +601,7 @@ export default function AnalyticsDashboard() {
           <div className="space-y-4">
             <div className="flex items-center justify-between border-b border-slate-200/80 pb-3">
               <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[#c6f5ef]0 animate-pulse" />
+                <span className="w-2 h-2 rounded-full bg-kyp-lime animate-pulse" />
                 <span className="text-xs font-mono font-bold uppercase text-slate-800">
                   Live Event Stream
                 </span>
@@ -445,21 +620,21 @@ export default function AnalyticsDashboard() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.9 }}
                     transition={{ duration: 0.35 }}
-                    className="p-3 rounded-xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-slate-300 transition-all cursor-pointer group"
+                    className="p-3 rounded-xl bg-white border border-slate-200 shadow-xs hover:shadow-md hover:border-kyp-teal transition-all cursor-pointer group"
                   >
                     <div className="flex items-center justify-between text-[10px] font-mono mb-1">
                       <span className="text-slate-400">{evt.time}</span>
                       <span
                         className={`px-2 py-0.5 rounded-full font-bold uppercase ${
                           evt.type === "pass"
-                            ? "bg-[#c6f5ef] text-[#033653] border border-emerald-200"
+                            ? "bg-kyp-mint/40 text-kyp-navy border border-kyp-teal/30"
                             : "bg-amber-50 text-amber-700 border border-amber-200"
                         }`}
                       >
                         {evt.metric}
                       </span>
                     </div>
-                    <div className="font-semibold text-xs text-slate-900 group-hover:text-[#033653] transition-colors line-clamp-1">
+                    <div className="font-semibold text-xs text-slate-900 group-hover:text-kyp-navy transition-colors line-clamp-1">
                       {evt.entity}
                     </div>
                     <p className="text-[11px] text-slate-500 mt-0.5 line-clamp-1">
@@ -477,7 +652,10 @@ export default function AnalyticsDashboard() {
                 <KYPLottie type="continuousPulse" className="w-5 h-5" />
                 <span>24/7 Autonomous Sentinel</span>
               </div>
-              <span className="text-[#66cc00] font-bold text-xs">Active</span>
+              <span className="text-kyp-lime font-bold text-xs flex items-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-kyp-lime animate-pulse" />
+                Active
+              </span>
             </div>
           </div>
         </div>

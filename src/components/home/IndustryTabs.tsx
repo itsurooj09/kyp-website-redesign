@@ -304,118 +304,419 @@ export default function IndustryTabs() {
                     </span>
                   </div>
 
-                  {/* Dynamic Simulation Content per Industry */}
+                  {/* Dynamic Motion Animated Graph Content per Industry */}
                   {currentTab.id === "igaming" && (
-                    <div className="space-y-3 text-xs font-mono">
-                      <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700/80 space-y-1">
-                        <div className="flex justify-between text-slate-400 text-[10px]">
-                          <span>OPERATOR LICENCE REGISTRY</span>
-                          <span className="text-[#66cc00]">VERIFIED</span>
+                    <div className="space-y-4 text-xs font-mono">
+                      {/* Top Metric Header */}
+                      <div className="flex items-center justify-between p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/80">
+                        <div>
+                          <div className="text-[10px] text-slate-400">AFFILIATE TRAFFIC INTEGRITY RADAR</div>
+                          <div className="font-bold text-white text-sm">BetStream &bull; 0 Drift Drift</div>
                         </div>
-                        <div className="font-bold text-white">BetStream International PLC</div>
-                        <div className="text-[10px] text-slate-400">Licence MGA/B2C/482/2019 &bull; Clean Sanctions</div>
+                        <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-kyp-lime/20 text-kyp-lime border border-kyp-lime/40">
+                          100% CLEAN
+                        </span>
                       </div>
 
-                      <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700/80 space-y-1.5">
-                        <div className="flex justify-between text-slate-400 text-[10px]">
-                          <span>AFFILIATE URL SWEEPER</span>
-                          <span className="text-[#66cc00]">0 REDIRECT DRIFT</span>
-                        </div>
-                        <div className="flex items-center justify-between text-[11px]">
-                          <span className="text-slate-300">Geo-IP Gateway Rules:</span>
-                          <span className="text-[#66cc00] font-bold">Compliant (100%)</span>
-                        </div>
-                        <div className="flex items-center justify-between text-[11px]">
-                          <span className="text-slate-300">Underage Protection Tag:</span>
-                          <span className="text-[#66cc00] font-bold">Active 18+</span>
-                        </div>
+                      {/* Animated SVG Radar & Waveform Graph */}
+                      <div className="relative h-44 rounded-xl bg-black/60 border border-kyp-teal/30 p-2 overflow-hidden flex items-center justify-center">
+                        {/* Radar concentric circles */}
+                        <div className="absolute w-36 h-36 rounded-full border border-kyp-teal/20" />
+                        <div className="absolute w-24 h-24 rounded-full border border-kyp-teal/30" />
+                        <div className="absolute w-12 h-12 rounded-full border border-kyp-lime/40" />
+
+                        {/* 360 Rotating Radar Beam */}
+                        <div
+                          className="absolute w-36 h-36 rounded-full pointer-events-none animate-spin"
+                          style={{
+                            animationDuration: "4s",
+                            background: "conic-gradient(from 0deg, transparent 70%, rgba(102,204,0,0.35) 100%)",
+                          }}
+                        />
+
+                        {/* Moving Oscillating Sine Wave Graph Across Radar */}
+                        <svg viewBox="0 0 400 120" className="w-full h-full relative z-10 overflow-visible">
+                          <defs>
+                            <linearGradient id="igaming-wave" x1="0" y1="0" x2="1" y2="0">
+                              <stop offset="0%" stopColor="#6fd3c4" stopOpacity="0.8" />
+                              <stop offset="50%" stopColor="#66cc00" stopOpacity="1" />
+                              <stop offset="100%" stopColor="#6fd3c4" stopOpacity="0.8" />
+                            </linearGradient>
+                          </defs>
+
+                          {/* Undulating Animated Path */}
+                          <path
+                            d="M 10,60 Q 60,20 110,60 T 210,60 T 310,60 T 390,60"
+                            fill="none"
+                            stroke="url(#igaming-wave)"
+                            strokeWidth="2.5"
+                            className="opacity-90"
+                          >
+                            <animate
+                              attributeName="d"
+                              dur="3s"
+                              repeatCount="indefinite"
+                              values="
+                                M 10,60 Q 60,20 110,60 T 210,60 T 310,60 T 390,60;
+                                M 10,60 Q 60,90 110,60 T 210,60 T 310,60 T 390,60;
+                                M 10,60 Q 60,20 110,60 T 210,60 T 310,60 T 390,60
+                              "
+                            />
+                          </path>
+
+                          {/* Radar Scan Nodes with pulse animation */}
+                          <circle cx="110" cy="60" r="4" fill="#66cc00" className="animate-ping opacity-75" />
+                          <circle cx="110" cy="60" r="3" fill="#66cc00" />
+                          <text x="115" y="55" fill="#66cc00" fontSize="9" fontFamily="monospace">URL: Safe</text>
+
+                          <circle cx="260" cy="45" r="4" fill="#6fd3c4" className="animate-ping opacity-75" />
+                          <circle cx="260" cy="45" r="3" fill="#6fd3c4" />
+                          <text x="265" y="40" fill="#6fd3c4" fontSize="9" fontFamily="monospace">Geo-IP: 18+</text>
+                        </svg>
                       </div>
 
-                      <div className="p-2.5 rounded-xl bg-emerald-950/60 border border-emerald-500/40 text-emerald-300 text-[10px] flex items-center justify-between">
-                        <span>Regulator Dossier Ready:</span>
-                        <span className="font-bold">60-Sec Audit SLA</span>
+                      {/* Live Status Indicators */}
+                      <div className="grid grid-cols-2 gap-2 text-[10px]">
+                        <div className="p-2 rounded-lg bg-slate-800/80 border border-slate-700/80 flex items-center justify-between">
+                          <span className="text-slate-400">Licence MGA:</span>
+                          <span className="text-kyp-lime font-bold">VERIFIED</span>
+                        </div>
+                        <div className="p-2 rounded-lg bg-slate-800/80 border border-slate-700/80 flex items-center justify-between">
+                          <span className="text-slate-400">Underage Shield:</span>
+                          <span className="text-kyp-lime font-bold">ACTIVE</span>
+                        </div>
                       </div>
                     </div>
                   )}
 
                   {currentTab.id === "payments" && (
-                    <div className="space-y-3 text-xs font-mono">
-                      <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700/80 space-y-1">
-                        <div className="flex justify-between text-slate-400 text-[10px]">
-                          <span>CARD SCHEME COMPLIANCE SWEEP</span>
-                          <span className="text-[#66cc00]">PASS</span>
+                    <div className="space-y-4 text-xs font-mono">
+                      {/* Top Metric Header */}
+                      <div className="flex items-center justify-between p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/80">
+                        <div>
+                          <div className="text-[10px] text-slate-400">SETTLEMENT VELOCITY &amp; SCHEME RADAR</div>
+                          <div className="font-bold text-white text-sm">Apex Velocity Payments</div>
                         </div>
-                        <div className="font-bold text-white">Apex Velocity Payments Ltd</div>
-                        <div className="text-[10px] text-slate-400">Mastercard BRAM &bull; Visa VIRP &bull; 0 Fines</div>
+                        <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-kyp-lime/20 text-kyp-lime border border-kyp-lime/40">
+                          BRAM / VIRP: 0 FINES
+                        </span>
                       </div>
 
-                      <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700/80 space-y-1">
-                        <div className="text-[10px] text-slate-400">SETTLEMENT VELOCITY TELEMETRY</div>
-                        <div className="flex items-center gap-2 pt-1">
-                          <div className="flex-1 bg-slate-700 h-2 rounded-full overflow-hidden">
-                            <div className="bg-emerald-400 h-full w-[24%]" />
-                          </div>
-                          <span className="font-bold text-white">24/100 Risk</span>
+                      {/* Moving Waveform Graph with Moving Laser Scan */}
+                      <div className="relative h-44 rounded-xl bg-black/60 border border-kyp-teal/30 p-2 overflow-hidden flex items-center justify-center">
+                        {/* Background Grid */}
+                        <div className="absolute inset-0 flex flex-col justify-between p-3 pointer-events-none opacity-20">
+                          <div className="border-b border-dashed border-slate-400 w-full" />
+                          <div className="border-b border-dashed border-slate-400 w-full" />
+                          <div className="border-b border-dashed border-slate-400 w-full" />
                         </div>
+
+                        {/* Moving Vertical Laser Scan Bar */}
+                        <div
+                          className="absolute top-0 bottom-0 w-0.5 bg-gradient-to-b from-transparent via-kyp-lime to-transparent z-20 pointer-events-none"
+                          style={{
+                            animation: "laser-scan 3.5s ease-in-out infinite alternate",
+                            boxShadow: "0 0 10px #66cc00",
+                          }}
+                        />
+
+                        {/* SVG Dynamic Waveform */}
+                        <svg viewBox="0 0 400 120" className="w-full h-full relative z-10 overflow-visible">
+                          <defs>
+                            <linearGradient id="payments-area" x1="0" y1="0" x2="0" y2="1">
+                              <stop offset="0%" stopColor="#66cc00" stopOpacity="0.35" />
+                              <stop offset="100%" stopColor="#033653" stopOpacity="0.0" />
+                            </linearGradient>
+                          </defs>
+
+                          {/* Animated Area Fill */}
+                          <path
+                            d="M 0,90 Q 70,30 140,70 T 260,50 T 400,30 L 400,120 L 0,120 Z"
+                            fill="url(#payments-area)"
+                          >
+                            <animate
+                              attributeName="d"
+                              dur="4s"
+                              repeatCount="indefinite"
+                              values="
+                                M 0,90 Q 70,30 140,70 T 260,50 T 400,30 L 400,120 L 0,120 Z;
+                                M 0,70 Q 70,80 140,40 T 260,75 T 400,50 L 400,120 L 0,120 Z;
+                                M 0,90 Q 70,30 140,70 T 260,50 T 400,30 L 400,120 L 0,120 Z
+                              "
+                            />
+                          </path>
+
+                          {/* Animated Top Wave Stroke */}
+                          <path
+                            d="M 0,90 Q 70,30 140,70 T 260,50 T 400,30"
+                            fill="none"
+                            stroke="#66cc00"
+                            strokeWidth="2.5"
+                          >
+                            <animate
+                              attributeName="d"
+                              dur="4s"
+                              repeatCount="indefinite"
+                              values="
+                                M 0,90 Q 70,30 140,70 T 260,50 T 400,30;
+                                M 0,70 Q 70,80 140,40 T 260,75 T 400,50;
+                                M 0,90 Q 70,30 140,70 T 260,50 T 400,30
+                              "
+                            />
+                          </path>
+
+                          {/* Data node indicator */}
+                          <circle cx="260" cy="50" r="4" fill="#ffffff" stroke="#66cc00" strokeWidth="2" />
+                          <text x="245" y="35" fill="#ffffff" fontSize="9" fontWeight="bold" fontFamily="monospace">
+                            $1.2M/hr &bull; 24/100
+                          </text>
+                        </svg>
                       </div>
 
-                      <div className="p-2.5 rounded-xl bg-sky-950/60 border border-sky-500/40 text-sky-300 text-[10px] flex items-center justify-between">
-                        <span>Automated Sweep SLA:</span>
-                        <span className="font-bold">&lt; 30 Seconds</span>
+                      {/* Live Status Indicators */}
+                      <div className="grid grid-cols-2 gap-2 text-[10px]">
+                        <div className="p-2 rounded-lg bg-slate-800/80 border border-slate-700/80 flex items-center justify-between">
+                          <span className="text-slate-400">Mastercard BRAM:</span>
+                          <span className="text-kyp-lime font-bold">ZERO FINES</span>
+                        </div>
+                        <div className="p-2 rounded-lg bg-slate-800/80 border border-slate-700/80 flex items-center justify-between">
+                          <span className="text-slate-400">Decision SLA:</span>
+                          <span className="text-kyp-mint font-bold">&lt; 30 SECONDS</span>
+                        </div>
                       </div>
                     </div>
                   )}
 
                   {currentTab.id === "acquirers" && (
-                    <div className="space-y-3 text-xs font-mono">
-                      <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700/80 space-y-1">
-                        <div className="flex justify-between text-slate-400 text-[10px]">
-                          <span>SUB-MERCHANT PORTFOLIO HEALTH</span>
-                          <span className="text-[#66cc00]">100% COVERED</span>
+                    <div className="space-y-4 text-xs font-mono">
+                      {/* Top Metric Header */}
+                      <div className="flex items-center justify-between p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/80">
+                        <div>
+                          <div className="text-[10px] text-slate-400">SUB-MERCHANT HIERARCHY TREE &bull; TC40</div>
+                          <div className="font-bold text-white text-sm">1,250 Merchants Monitored</div>
                         </div>
-                        <div className="font-bold text-white">1,250 Active Sub-Merchants</div>
-                        <div className="text-[10px] text-slate-400">TC40 Chargeback Threshold: All &lt;0.65%</div>
+                        <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-kyp-lime/20 text-kyp-lime border border-kyp-lime/40">
+                          TC40 &lt; 0.65% PASS
+                        </span>
                       </div>
 
-                      <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700/80 space-y-1">
-                        <div className="text-[10px] text-slate-400">PRODUCT MUTATION RADAR</div>
-                        <p className="text-[11px] text-slate-300">Continuous crawler checks landing pages for unauthorized inventory drift post-onboarding.</p>
+                      {/* Animated Node Hierarchy Tree */}
+                      <div className="relative h-44 rounded-xl bg-black/60 border border-kyp-teal/30 p-2 overflow-hidden flex items-center justify-center">
+                        <svg viewBox="0 0 380 140" className="w-full h-full overflow-visible">
+                          {/* Connection Lines from Root Acquirer to PayFac to Sub-Merchants */}
+                          <path
+                            d="M 50,70 L 150,70 M 150,70 L 260,30 M 150,70 L 260,70 M 150,70 L 260,110"
+                            stroke="#6fd3c4"
+                            strokeWidth="1.8"
+                            strokeDasharray="4 3"
+                            fill="none"
+                            className="opacity-70"
+                          />
+
+                          {/* Animated Moving Pulses Along Connections */}
+                          <circle r="3" fill="#66cc00">
+                            <animateMotion path="M 50,70 L 150,70" dur="1.5s" repeatCount="indefinite" />
+                          </circle>
+                          <circle r="2.5" fill="#66cc00">
+                            <animateMotion path="M 150,70 L 260,30" dur="2s" repeatCount="indefinite" />
+                          </circle>
+                          <circle r="2.5" fill="#66cc00">
+                            <animateMotion path="M 150,70 L 260,70" dur="1.8s" repeatCount="indefinite" />
+                          </circle>
+                          <circle r="2.5" fill="#66cc00">
+                            <animateMotion path="M 150,70 L 260,110" dur="2.2s" repeatCount="indefinite" />
+                          </circle>
+
+                          {/* Root Acquirer Node */}
+                          <g transform="translate(50, 70)">
+                            <circle r="16" fill="#033653" stroke="#6fd3c4" strokeWidth="2" />
+                            <circle r="6" fill="#66cc00" />
+                            <text x="0" y="26" textAnchor="middle" fill="#ffffff" fontSize="9" fontWeight="bold">Acquirer</text>
+                          </g>
+
+                          {/* PayFac Mid Node */}
+                          <g transform="translate(150, 70)">
+                            <circle r="14" fill="#033653" stroke="#66cc00" strokeWidth="2" />
+                            <circle r="4" fill="#c6f5ef" />
+                            <text x="0" y="24" textAnchor="middle" fill="#c6f5ef" fontSize="9">PayFac</text>
+                          </g>
+
+                          {/* Sub-Merchant 1 */}
+                          <g transform="translate(260, 30)">
+                            <circle r="11" fill="#082b40" stroke="#6fd3c4" strokeWidth="1.5" />
+                            <circle r="3" fill="#66cc00" />
+                            <text x="18" y="4" fill="#ffffff" fontSize="8">Sub-Merchant A (0.12%)</text>
+                          </g>
+
+                          {/* Sub-Merchant 2 */}
+                          <g transform="translate(260, 70)">
+                            <circle r="11" fill="#082b40" stroke="#6fd3c4" strokeWidth="1.5" />
+                            <circle r="3" fill="#66cc00" />
+                            <text x="18" y="4" fill="#ffffff" fontSize="8">Sub-Merchant B (0.24%)</text>
+                          </g>
+
+                          {/* Sub-Merchant 3 */}
+                          <g transform="translate(260, 110)">
+                            <circle r="11" fill="#082b40" stroke="#6fd3c4" strokeWidth="1.5" />
+                            <circle r="3" fill="#66cc00" />
+                            <text x="18" y="4" fill="#ffffff" fontSize="8">Sub-Merchant C (0.08%)</text>
+                          </g>
+                        </svg>
+                      </div>
+
+                      {/* Live Status Indicators */}
+                      <div className="grid grid-cols-2 gap-2 text-[10px]">
+                        <div className="p-2 rounded-lg bg-slate-800/80 border border-slate-700/80 flex items-center justify-between">
+                          <span className="text-slate-400">Rogue URL Scan:</span>
+                          <span className="text-kyp-lime font-bold">0 MUTATIONS</span>
+                        </div>
+                        <div className="p-2 rounded-lg bg-slate-800/80 border border-slate-700/80 flex items-center justify-between">
+                          <span className="text-slate-400">Coverage:</span>
+                          <span className="text-white font-bold">100% PORTFOLIO</span>
+                        </div>
                       </div>
                     </div>
                   )}
 
                   {currentTab.id === "banking" && (
-                    <div className="space-y-3 text-xs font-mono">
-                      <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700/80 space-y-1">
-                        <div className="flex justify-between text-slate-400 text-[10px]">
-                          <span>GRAPH CONTAGION RESOLUTION</span>
-                          <span className="text-purple-400">RESOLVED</span>
+                    <div className="space-y-4 text-xs font-mono">
+                      {/* Top Metric Header */}
+                      <div className="flex items-center justify-between p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/80">
+                        <div>
+                          <div className="text-[10px] text-slate-400">UBO CONTAGION GRAPH &bull; 180+ REGISTRIES</div>
+                          <div className="font-bold text-white text-sm">Apex Global Holdings SA</div>
                         </div>
-                        <div className="font-bold text-white">Apex Global Holdings SA</div>
-                        <div className="text-[10px] text-slate-400">Controlling UBO: Marcus Vance (38.5%) &bull; Clean PEP</div>
+                        <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-kyp-lime/20 text-kyp-lime border border-kyp-lime/40">
+                          UBO 38.5% VERIFIED
+                        </span>
                       </div>
 
-                      <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700/80 space-y-1">
-                        <div className="text-[10px] text-slate-400">180+ GLOBAL REGISTRIES SYNC</div>
-                        <p className="text-[11px] text-slate-300">Articles of Association &amp; Certificate of Incorporation verified with 0 discrepancies.</p>
+                      {/* Animated Contagion Cluster Visualizer */}
+                      <div className="relative h-44 rounded-xl bg-black/60 border border-kyp-teal/30 p-2 overflow-hidden flex items-center justify-center">
+                        <svg viewBox="0 0 380 140" className="w-full h-full overflow-visible">
+                          {/* Outer Orbit Rings */}
+                          <circle cx="190" cy="70" r="55" fill="none" stroke="#0d4e75" strokeWidth="1" strokeDasharray="3 3" />
+                          <circle cx="190" cy="70" r="30" fill="none" stroke="#6fd3c4" strokeWidth="0.8" opacity="0.4" />
+
+                          {/* Radial Connecting Rays */}
+                          <line x1="190" y1="70" x2="135" y2="45" stroke="#6fd3c4" strokeWidth="1.5" />
+                          <line x1="190" y1="70" x2="245" y2="45" stroke="#6fd3c4" strokeWidth="1.5" />
+                          <line x1="190" y1="70" x2="150" y2="105" stroke="#66cc00" strokeWidth="1.8" />
+                          <line x1="190" y1="70" x2="230" y2="105" stroke="#6fd3c4" strokeWidth="1.5" />
+
+                          {/* Animated moving photons */}
+                          <circle r="3" fill="#66cc00">
+                            <animateMotion path="M 190,70 L 150,105" dur="1.8s" repeatCount="indefinite" />
+                          </circle>
+                          <circle r="2.5" fill="#c6f5ef">
+                            <animateMotion path="M 190,70 L 245,45" dur="2.2s" repeatCount="indefinite" />
+                          </circle>
+
+                          {/* Center Entity Node */}
+                          <g transform="translate(190, 70)">
+                            <circle r="18" fill="#033653" stroke="#66cc00" strokeWidth="2.5" />
+                            <circle r="6" fill="#c6f5ef" />
+                            <text x="0" y="32" textAnchor="middle" fill="#ffffff" fontSize="9" fontWeight="bold">Primary Target</text>
+                          </g>
+
+                          {/* Satellite Holding Node 1 */}
+                          <g transform="translate(135, 45)">
+                            <circle r="10" fill="#0b3751" stroke="#6fd3c4" strokeWidth="1.5" />
+                            <circle r="3" fill="#6fd3c4" />
+                            <text x="-14" y="-12" fill="#c6f5ef" fontSize="8">Holding SA (LU)</text>
+                          </g>
+
+                          {/* Satellite Holding Node 2 */}
+                          <g transform="translate(245, 45)">
+                            <circle r="10" fill="#0b3751" stroke="#6fd3c4" strokeWidth="1.5" />
+                            <circle r="3" fill="#6fd3c4" />
+                            <text x="0" y="-12" fill="#c6f5ef" fontSize="8">Fintech BV (NL)</text>
+                          </g>
+
+                          {/* Controlling UBO Node */}
+                          <g transform="translate(150, 105)">
+                            <circle r="12" fill="#0b3751" stroke="#66cc00" strokeWidth="2" />
+                            <circle r="4" fill="#66cc00" />
+                            <text x="-10" y="24" fill="#66cc00" fontSize="8" fontWeight="bold">UBO: Marcus V. (38.5%)</text>
+                          </g>
+
+                          {/* Clean Sanctions Match */}
+                          <g transform="translate(230, 105)">
+                            <circle r="10" fill="#0b3751" stroke="#6fd3c4" strokeWidth="1.5" />
+                            <circle r="3" fill="#66cc00" />
+                            <text x="14" y="16" fill="#ffffff" fontSize="8">OFAC / EU: Clean</text>
+                          </g>
+                        </svg>
+                      </div>
+
+                      {/* Live Status Indicators */}
+                      <div className="grid grid-cols-2 gap-2 text-[10px]">
+                        <div className="p-2 rounded-lg bg-slate-800/80 border border-slate-700/80 flex items-center justify-between">
+                          <span className="text-slate-400">Registry Delta:</span>
+                          <span className="text-kyp-lime font-bold">0 DISCREPANCIES</span>
+                        </div>
+                        <div className="p-2 rounded-lg bg-slate-800/80 border border-slate-700/80 flex items-center justify-between">
+                          <span className="text-slate-400">PEP Resolution:</span>
+                          <span className="text-white font-bold">PASS &bull; NO MATCH</span>
+                        </div>
                       </div>
                     </div>
                   )}
 
                   {currentTab.id === "marketplaces" && (
-                    <div className="space-y-3 text-xs font-mono">
-                      <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700/80 space-y-1">
-                        <div className="flex justify-between text-slate-400 text-[10px]">
-                          <span>DAC7 SELLER VERIFICATION</span>
-                          <span className="text-[#66cc00]">COMPLIANT</span>
+                    <div className="space-y-4 text-xs font-mono">
+                      {/* Top Metric Header */}
+                      <div className="flex items-center justify-between p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/80">
+                        <div>
+                          <div className="text-[10px] text-slate-400">DAC7 SELLER INTAKE &bull; SPLIT-PAYOUTS</div>
+                          <div className="font-bold text-white text-sm">Storefront Sweeper Active</div>
                         </div>
-                        <div className="font-bold text-white">Seller Intake Questionnaire Engine</div>
-                        <div className="text-[10px] text-slate-400">Tax ID &amp; EU VAT cross-checked automatically</div>
+                        <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-kyp-lime/20 text-kyp-lime border border-kyp-lime/40">
+                          DAC7: 100% COMPLIANT
+                        </span>
                       </div>
 
-                      <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700/80 space-y-1">
-                        <div className="text-[10px] text-slate-400">STOREFRONT DISCLOSURE SWEEPER</div>
-                        <p className="text-[11px] text-slate-300">Refund policies, legal entity notices, and inventory terms verified across 100% of sellers.</p>
+                      {/* Dynamic Bar Graph with Moving Payout Heights */}
+                      <div className="relative h-44 rounded-xl bg-black/60 border border-kyp-teal/30 p-4 overflow-hidden flex items-end justify-between gap-3">
+                        {/* 6 Animated Dynamic Bars */}
+                        {[
+                          { day: "Mon", height: "65%", val: "€140K", pass: true },
+                          { day: "Tue", height: "85%", val: "€210K", pass: true },
+                          { day: "Wed", height: "50%", val: "€115K", pass: true },
+                          { day: "Thu", height: "92%", val: "€260K", pass: true },
+                          { day: "Fri", height: "78%", val: "€195K", pass: true },
+                          { day: "Sat", height: "88%", val: "€240K", pass: true },
+                        ].map((b, i) => (
+                          <div key={i} className="flex-1 flex flex-col items-center gap-1.5 h-full justify-end z-10">
+                            <span className="text-[9px] text-kyp-lime font-bold">{b.val}</span>
+                            <div className="w-full bg-slate-800/80 rounded-t-lg h-full flex items-end p-0.5 overflow-hidden">
+                              <motion.div
+                                animate={{
+                                  height: [b.height, `${parseInt(b.height) - 15}%`, `${parseInt(b.height) + 10}%`, b.height],
+                                }}
+                                transition={{
+                                  duration: 3 + i * 0.5,
+                                  repeat: Infinity,
+                                  ease: "easeInOut",
+                                }}
+                                className="w-full rounded-t bg-gradient-to-t from-kyp-navy via-kyp-teal to-kyp-lime"
+                              />
+                            </div>
+                            <span className="text-[9px] text-slate-400">{b.day}</span>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Live Status Indicators */}
+                      <div className="grid grid-cols-2 gap-2 text-[10px]">
+                        <div className="p-2 rounded-lg bg-slate-800/80 border border-slate-700/80 flex items-center justify-between">
+                          <span className="text-slate-400">EU VAT Validation:</span>
+                          <span className="text-kyp-lime font-bold">100% PASS</span>
+                        </div>
+                        <div className="p-2 rounded-lg bg-slate-800/80 border border-slate-700/80 flex items-center justify-between">
+                          <span className="text-slate-400">Storefront Terms:</span>
+                          <span className="text-white font-bold">VERIFIED</span>
+                        </div>
                       </div>
                     </div>
                   )}
