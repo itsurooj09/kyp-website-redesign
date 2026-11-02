@@ -12,45 +12,45 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="w-full bg-black text-white relative overflow-hidden">
+    <div className="w-full bg-white text-slate-900 relative overflow-hidden">
       
       {/* HERO */}
-      <section className="relative pt-12 pb-16 lg:pt-20 lg:pb-24 border-b border-kyp-teal/15 kyp-grid-pattern">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-kyp-navy/35 rounded-full blur-3xl pointer-events-none" />
+      <section className="relative pt-12 pb-16 lg:pt-20 lg:pb-24 border-b border-slate-200 bg-gradient-to-b from-slate-50/80 via-white to-slate-50/40 kyp-grid-pattern">
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-emerald-100/30 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-kyp-lime/10 border border-kyp-lime/30 text-xs font-mono text-kyp-lime mb-6 font-semibold">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-mono text-emerald-800 mb-6 font-bold shadow-sm">
             <span className="w-4 h-4 inline-flex items-center justify-center">
               <KYPLottie type="heroRadar" className="w-4 h-4" />
             </span>
-            BOOK A DEMO &bull; COMPLIANCE CONSULTATION
+            <span>BOOK A DEMO &bull; COMPLIANCE CONSULTATION</span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white max-w-4xl mx-auto leading-[1.1]">
+          <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-900 max-w-4xl mx-auto leading-[1.1] font-heading">
             See the KYP Platform in Action.
           </h1>
 
-          <p className="text-base sm:text-lg text-gray-300 mt-4 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-slate-600 mt-4 max-w-2xl mx-auto leading-relaxed">
             Speak with our team to discover how KYP can help you monitor risk, simplify compliance and reduce manual due diligence.
           </p>
         </div>
       </section>
 
       {/* FORM & CONTACT DETAILS SPLIT */}
-      <section className="py-16 lg:py-24 bg-kyp-charcoal/40 border-b border-kyp-teal/15">
+      <section className="py-16 lg:py-24 bg-slate-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             
             {/* Left: Contact Form */}
-            <div className="lg:col-span-7 bg-kyp-navy-surface/90 p-6 sm:p-10 rounded-2xl border border-kyp-teal/25 shadow-2xl">
+            <div className="lg:col-span-7 bg-white p-6 sm:p-10 rounded-3xl border border-slate-200 shadow-xl shadow-slate-200/50">
               <div className="mb-8">
-                <span className="text-xs font-mono text-kyp-lime uppercase tracking-widest font-semibold">
+                <span className="text-xs font-mono text-emerald-700 uppercase tracking-widest font-bold">
                   Platform Demonstration Request
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-bold text-white mt-1">
+                <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mt-1">
                   Schedule a Consultation
                 </h2>
-                <p className="text-xs sm:text-sm text-gray-400 mt-1">
+                <p className="text-xs sm:text-sm text-slate-500 mt-1">
                   Complete the form below and an enterprise compliance specialist will prepare a customized workflow review.
                 </p>
               </div>
@@ -58,75 +58,59 @@ export default function ContactPage() {
               <ContactForm />
             </div>
 
-            {/* Right: Verified Company Details & Office */}
-            <div className="lg:col-span-5 space-y-8">
-              <div className="kyp-glass-card p-6 sm:p-8 rounded-2xl border border-kyp-teal/20 space-y-6">
+            {/* Right: Headquarters & Direct Touchpoints */}
+            <div className="lg:col-span-5 space-y-6">
+              {/* Location Card */}
+              <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 space-y-4 shadow-sm">
+                <div className="w-10 h-10 rounded-xl bg-emerald-100 border border-emerald-200 flex items-center justify-center text-emerald-700">
+                  <MapPin className="w-5 h-5" />
+                </div>
                 <div>
-                  <span className="text-xs font-mono text-kyp-teal uppercase tracking-widest font-semibold">
-                    Global Headquarters
-                  </span>
-                  <h3 className="text-xl font-bold text-white mt-1">
-                    Cinnte Solutions Ltd (KYP)
-                  </h3>
+                  <div className="text-xs font-mono text-emerald-700 uppercase tracking-wider font-bold">Global Headquarters</div>
+                  <h3 className="text-lg font-bold text-slate-900 mt-1">London, United Kingdom</h3>
+                  <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                    33 Queen St, London, EC4R 1AP, United Kingdom
+                  </p>
                 </div>
-
-                <div className="space-y-4 text-xs sm:text-sm text-gray-300">
-                  <div className="flex items-start gap-3">
-                    <MapPin className="w-5 h-5 text-kyp-lime shrink-0 mt-0.5" />
-                    <div>
-                      <div className="font-semibold text-white">London Office</div>
-                      <div className="text-gray-400 mt-0.5 leading-relaxed">
-                        33 Queen St, London, EC4R 1AP, United Kingdom
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <Mail className="w-5 h-5 text-kyp-teal shrink-0 mt-0.5" />
-                    <div>
-                      <div className="font-semibold text-white">General &amp; Demo Inquiries</div>
-                      <a
-                        href="mailto:hello@kyp.io"
-                        className="text-kyp-mint hover:text-kyp-lime transition-colors block mt-0.5"
-                      >
-                        hello@kyp.io
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <Clock className="w-5 h-5 text-kyp-mint shrink-0 mt-0.5" />
-                    <div>
-                      <div className="font-semibold text-white">Operating Hours</div>
-                      <div className="text-gray-400 mt-0.5">
-                        Monday &ndash; Friday: 8:00 &ndash; 18:00 GMT
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="pt-4 border-t border-kyp-teal/15 flex items-center justify-between">
-                  <span className="text-xs font-mono text-gray-400">Professional Network</span>
-                  <a
-                    href="https://www.linkedin.com/company/know-your-partner/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-kyp-lime hover:text-white transition-colors"
-                  >
-                    <Linkedin className="w-4 h-4" />
-                    <span>KYP on LinkedIn</span>
-                  </a>
+                <div className="pt-2 border-t border-slate-100 flex items-center gap-2 text-xs text-slate-500 font-mono">
+                  <Clock className="w-4 h-4 text-emerald-600" />
+                  <span>Mon – Fri: 08:00 – 18:00 GMT</span>
                 </div>
               </div>
 
-              {/* Security & Confidentiality Box */}
-              <div className="p-6 rounded-2xl bg-black border border-kyp-teal/20 space-y-3">
-                <div className="flex items-center gap-2 text-kyp-lime text-xs font-mono font-semibold">
-                  <ShieldCheck className="w-4 h-4" />
-                  <span>ISO 27001 Certified Security</span>
+              {/* Direct Inquiries Card */}
+              <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 space-y-4 shadow-sm">
+                <div className="w-10 h-10 rounded-xl bg-sky-100 border border-sky-200 flex items-center justify-center text-sky-700">
+                  <Mail className="w-5 h-5" />
                 </div>
-                <p className="text-xs text-gray-400 leading-relaxed">
-                  KYP operates under strict institutional confidentiality agreements. All information submitted is protected by enterprise TLS 1.3 encryption and stored in ISO 27001-certified UK/EU data centers.
+                <div>
+                  <div className="text-xs font-mono text-sky-700 uppercase tracking-wider font-bold">Direct Communication</div>
+                  <h3 className="text-lg font-bold text-slate-900 mt-1">Institutional Desk</h3>
+                  <div className="mt-2 space-y-1.5 text-xs">
+                    <div>
+                      <span className="text-slate-500">General Inquiries: </span>
+                      <a href="mailto:hello@kyp.io" className="text-emerald-700 font-semibold hover:underline">
+                        hello@kyp.io
+                      </a>
+                    </div>
+                    <div>
+                      <span className="text-slate-500">Security & Privacy: </span>
+                      <a href="mailto:security@kyp.io" className="text-emerald-700 font-semibold hover:underline">
+                        security@kyp.io
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Assurance Card */}
+              <div className="p-6 rounded-3xl bg-emerald-50/80 border border-emerald-200 space-y-2 text-xs">
+                <div className="flex items-center gap-2 text-emerald-800 font-bold font-mono">
+                  <ShieldCheck className="w-4 h-4" />
+                  <span>ISO 27001 Certified Infrastructure</span>
+                </div>
+                <p className="text-slate-600 text-[11px] leading-relaxed">
+                  KYP operates under rigorous information security governance. Enterprise sandbox testing environments and compliance audits are hosted within dedicated tenant boundaries.
                 </p>
               </div>
             </div>

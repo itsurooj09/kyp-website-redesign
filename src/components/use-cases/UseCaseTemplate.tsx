@@ -6,7 +6,7 @@ import { ArrowRight, CheckCircle2, AlertTriangle, ShieldCheck, Sparkles, Buildin
 import { UseCaseDetail } from "@/data/useCases";
 import { routes } from "@/lib/routes";
 import OnboardingInterface from "@/components/product/OnboardingInterface";
-import DashboardMockup from "@/components/product/DashboardMockup";
+import AnalyticsDashboard from "@/components/product/AnalyticsDashboard";
 import GraphIntelligence from "@/components/product/GraphIntelligence";
 import AuditInterface from "@/components/product/AuditInterface";
 import KYPLottie from "@/components/lottie/KYPLottie";
@@ -14,93 +14,93 @@ import KYPLottie from "@/components/lottie/KYPLottie";
 // Helper for dynamic icons
 const renderFeatureIcon = (name: string) => {
   switch (name) {
-    case "UserCheck": return <UserCheck className="w-5 h-5 text-kyp-lime" />;
-    case "ShieldAlert": return <ShieldAlert className="w-5 h-5 text-red-400" />;
-    case "Sliders": return <Sliders className="w-5 h-5 text-kyp-teal" />;
-    case "FormInput": return <FormInput className="w-5 h-5 text-kyp-mint" />;
-    case "AlertCircle": return <AlertCircle className="w-5 h-5 text-yellow-400" />;
-    case "GitCompare": return <GitCompare className="w-5 h-5 text-kyp-teal" />;
-    case "Building": return <Building className="w-5 h-5 text-kyp-lime" />;
-    case "FileText": return <FileText className="w-5 h-5 text-kyp-mint" />;
-    case "ShieldCheck": return <ShieldCheck className="w-5 h-5 text-kyp-lime" />;
-    case "Network": return <Network className="w-5 h-5 text-kyp-teal" />;
-    case "Newspaper": return <Newspaper className="w-5 h-5 text-kyp-mint" />;
-    case "BellRing": return <BellRing className="w-5 h-5 text-yellow-400" />;
-    case "Activity": return <Activity className="w-5 h-5 text-kyp-lime" />;
-    case "SlidersHorizontal": return <SlidersHorizontal className="w-5 h-5 text-kyp-teal" />;
-    case "FileCheck2": return <FileCheck2 className="w-5 h-5 text-kyp-lime" />;
-    default: return <Sparkles className="w-5 h-5 text-kyp-lime" />;
+    case "UserCheck": return <UserCheck className="w-5 h-5 text-emerald-600" />;
+    case "ShieldAlert": return <ShieldAlert className="w-5 h-5 text-rose-500" />;
+    case "Sliders": return <Sliders className="w-5 h-5 text-sky-600" />;
+    case "FormInput": return <FormInput className="w-5 h-5 text-teal-600" />;
+    case "AlertCircle": return <AlertCircle className="w-5 h-5 text-amber-500" />;
+    case "GitCompare": return <GitCompare className="w-5 h-5 text-indigo-600" />;
+    case "Building": return <Building className="w-5 h-5 text-emerald-600" />;
+    case "FileText": return <FileText className="w-5 h-5 text-teal-600" />;
+    case "ShieldCheck": return <ShieldCheck className="w-5 h-5 text-emerald-600" />;
+    case "Network": return <Network className="w-5 h-5 text-sky-600" />;
+    case "Newspaper": return <Newspaper className="w-5 h-5 text-teal-600" />;
+    case "BellRing": return <BellRing className="w-5 h-5 text-amber-500" />;
+    case "Activity": return <Activity className="w-5 h-5 text-emerald-600" />;
+    case "SlidersHorizontal": return <SlidersHorizontal className="w-5 h-5 text-sky-600" />;
+    case "FileCheck2": return <FileCheck2 className="w-5 h-5 text-emerald-600" />;
+    default: return <Sparkles className="w-5 h-5 text-emerald-600" />;
   }
 };
 
 export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail }) {
   return (
-    <div className="w-full bg-black text-white relative overflow-hidden">
+    <div className="w-full bg-white text-slate-900 relative overflow-hidden">
       
       {/* SECTION 1 – HERO */}
-      <section className="relative pt-12 pb-20 lg:pt-20 lg:pb-28 border-b border-kyp-teal/15 kyp-grid-pattern">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-kyp-navy/30 rounded-full blur-3xl pointer-events-none" />
+      <section className="relative pt-12 pb-20 lg:pt-20 lg:pb-28 border-b border-slate-200 bg-gradient-to-b from-slate-50/80 via-white to-slate-50/40 kyp-grid-pattern">
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-emerald-100/30 rounded-full blur-3xl pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-kyp-lime/10 border border-kyp-lime/30 text-xs font-mono text-kyp-lime mb-6 font-semibold">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-mono text-emerald-800 mb-6 font-bold shadow-sm">
             <span className="w-4 h-4 inline-flex items-center justify-center">
               <KYPLottie type="heroRadar" className="w-4 h-4" />
             </span>
-            USE CASE • {useCase.category.toUpperCase()}
+            <span>USE CASE • {useCase.category.toUpperCase()}</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white max-w-4xl mx-auto leading-[1.15]">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 max-w-4xl mx-auto leading-[1.15] font-heading">
             {useCase.headline}
           </h1>
 
-          <p className="text-lg sm:text-xl text-kyp-mint font-medium mt-4 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-emerald-700 font-semibold mt-4 max-w-3xl mx-auto">
             {useCase.subheading}
           </p>
 
-          <p className="text-sm sm:text-base text-gray-400 mt-4 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base text-slate-600 mt-4 max-w-2xl mx-auto leading-relaxed">
             {useCase.supportingText}
           </p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <Link
               href={routes.bookDemo}
-              className="kyp-btn-primary px-7 py-3 rounded-xl text-sm font-semibold flex items-center gap-2 shadow-lime-glow"
+              className="kyp-btn-primary px-8 py-3.5 rounded-full text-sm font-semibold flex items-center gap-2 shadow-md hover:shadow-lg transition-all"
             >
               <span>{useCase.cta.buttonText}</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
             <a
               href="#how-it-works"
-              className="kyp-btn-secondary px-7 py-3 rounded-xl text-sm font-semibold flex items-center gap-2"
+              className="kyp-btn-secondary px-8 py-3.5 rounded-full text-sm font-semibold flex items-center gap-2"
             >
               <span>Explore Workflow</span>
             </a>
           </div>
 
           {/* Hero Interface Visual */}
-          <div className="mt-14 max-w-5xl mx-auto">
+          <div className="mt-14 max-w-5xl mx-auto text-left">
             {useCase.interfaceMockup.type === "onboarding" ? (
               <OnboardingInterface />
             ) : useCase.interfaceMockup.type === "aml" ? (
               <GraphIntelligence />
             ) : (
-              <DashboardMockup />
+              <AnalyticsDashboard />
             )}
           </div>
         </div>
       </section>
 
       {/* SECTION 2 – THE PROBLEM */}
-      <section className="py-20 lg:py-28 bg-kyp-charcoal/50 border-b border-kyp-teal/15">
+      <section className="py-20 lg:py-28 bg-slate-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
-            <span className="text-xs font-mono text-red-400 uppercase tracking-widest font-semibold">
+            <span className="text-xs font-mono text-rose-700 uppercase tracking-widest font-bold">
               The Operational Challenge
             </span>
-            <h2 className="text-2xl sm:text-4xl font-bold text-white mt-2 tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-bold text-slate-900 mt-2 tracking-tight">
               {useCase.problem.title}
             </h2>
-            <p className="text-sm sm:text-base text-gray-400 mt-3 leading-relaxed">
+            <p className="text-sm sm:text-base text-slate-600 mt-3 leading-relaxed">
               {useCase.problem.description}
             </p>
           </div>
@@ -109,13 +109,13 @@ export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail })
             {useCase.problem.points.map((pt, idx) => (
               <div
                 key={idx}
-                className="p-6 rounded-xl bg-black border border-red-500/20 hover:border-red-500/40 transition-colors space-y-3"
+                className="p-6 rounded-2xl bg-white border border-rose-200/80 hover:border-rose-300 shadow-sm transition-all space-y-3"
               >
-                <div className="w-8 h-8 rounded-lg bg-red-950/40 border border-red-500/30 flex items-center justify-center text-red-400 font-mono text-xs font-bold">
+                <div className="w-8 h-8 rounded-lg bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-700 font-mono text-xs font-bold">
                   0{idx + 1}
                 </div>
-                <h3 className="text-base font-semibold text-white">{pt.title}</h3>
-                <p className="text-xs text-gray-400 leading-relaxed">{pt.desc}</p>
+                <h3 className="text-base font-semibold text-slate-900">{pt.title}</h3>
+                <p className="text-xs text-slate-600 leading-relaxed">{pt.desc}</p>
               </div>
             ))}
           </div>
@@ -123,16 +123,16 @@ export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail })
       </section>
 
       {/* SECTION 3 – THE KYP SOLUTION */}
-      <section className="py-20 lg:py-28 border-b border-kyp-teal/15 kyp-grid-pattern">
+      <section className="py-20 lg:py-28 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
-            <span className="text-xs font-mono text-kyp-lime uppercase tracking-widest font-semibold">
+            <span className="text-xs font-mono text-emerald-700 uppercase tracking-widest font-bold">
               The KYP Capability
             </span>
-            <h2 className="text-2xl sm:text-4xl font-bold text-white mt-2 tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-bold text-slate-900 mt-2 tracking-tight">
               {useCase.solution.title}
             </h2>
-            <p className="text-sm sm:text-base text-gray-400 mt-3 leading-relaxed">
+            <p className="text-sm sm:text-base text-slate-600 mt-3 leading-relaxed">
               {useCase.solution.description}
             </p>
           </div>
@@ -141,15 +141,15 @@ export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail })
             {useCase.solution.points.map((pt, idx) => (
               <div
                 key={idx}
-                className="kyp-glass-card p-6 sm:p-8 rounded-xl border border-kyp-teal/20 space-y-3"
+                className="p-6 sm:p-8 rounded-2xl bg-slate-50 border border-slate-200 space-y-3 shadow-sm hover:shadow-md transition-all"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-kyp-navy border border-kyp-teal/30 flex items-center justify-center text-kyp-lime font-mono text-xs font-bold">
-                    <CheckCircle2 className="w-4 h-4 text-kyp-lime" />
+                  <div className="w-8 h-8 rounded-lg bg-emerald-100 border border-emerald-200 flex items-center justify-center text-emerald-700 font-mono text-xs font-bold">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                   </div>
-                  <h3 className="text-lg font-semibold text-white">{pt.title}</h3>
+                  <h3 className="text-lg font-semibold text-slate-900">{pt.title}</h3>
                 </div>
-                <p className="text-xs sm:text-sm text-gray-300 leading-relaxed pl-11">
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed pl-11">
                   {pt.desc}
                 </p>
               </div>
@@ -159,16 +159,16 @@ export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail })
       </section>
 
       {/* SECTION 4 – HOW IT WORKS (STEP-BY-STEP WORKFLOW) */}
-      <section id="how-it-works" className="py-20 lg:py-28 bg-kyp-charcoal/40 border-b border-kyp-teal/15">
+      <section id="how-it-works" className="py-20 lg:py-28 bg-slate-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-3xl mb-14 text-center mx-auto">
-            <span className="text-xs font-mono text-kyp-teal uppercase tracking-widest font-semibold">
+            <span className="text-xs font-mono text-emerald-700 uppercase tracking-widest font-bold">
               Step-By-Step Workflow
             </span>
-            <h2 className="text-2xl sm:text-4xl font-bold text-white mt-2 tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-bold text-slate-900 mt-2 tracking-tight">
               How the Compliance Process Executes
             </h2>
-            <p className="text-sm sm:text-base text-gray-400 mt-3">
+            <p className="text-sm sm:text-base text-slate-600 mt-3">
               End-to-end automation keeping your team fully in control of every approval decision.
             </p>
           </div>
@@ -177,29 +177,29 @@ export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail })
             {useCase.workflow.map((w, idx) => (
               <div
                 key={idx}
-                className="p-6 rounded-xl bg-kyp-navy-surface border border-kyp-teal/25 space-y-4 relative group hover:border-kyp-lime transition-all"
+                className="p-6 rounded-2xl bg-white border border-slate-200 space-y-4 relative group hover:border-emerald-500/70 shadow-sm hover:shadow-md transition-all"
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-xl font-mono font-extrabold text-kyp-lime">
+                  <span className="text-xl font-mono font-extrabold text-emerald-700">
                     {w.step}
                   </span>
-                  <span className="text-[10px] font-mono text-kyp-mint px-2 py-0.5 rounded bg-black/60 border border-kyp-teal/20">
+                  <span className="text-[10px] font-mono text-emerald-800 px-2 py-0.5 rounded bg-emerald-50 border border-emerald-200 font-bold">
                     {w.highlight}
                   </span>
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-bold text-white">{w.title}</h3>
-                  <p className="text-xs text-gray-400 mt-1 leading-relaxed">
+                  <h3 className="text-lg font-bold text-slate-900">{w.title}</h3>
+                  <p className="text-xs text-slate-600 mt-1 leading-relaxed">
                     {w.description}
                   </p>
                 </div>
 
-                <div className="p-3 rounded-lg bg-black/70 border border-kyp-teal/15 space-y-1">
-                  <div className="text-[9px] font-mono text-gray-400 uppercase">
+                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                  <div className="text-[9px] font-mono text-slate-500 uppercase font-semibold">
                     {w.uiDetail.label}
                   </div>
-                  <div className="text-[11px] font-mono font-semibold text-kyp-mint">
+                  <div className="text-[11px] font-mono font-bold text-slate-800">
                     {w.uiDetail.value}
                   </div>
                 </div>
@@ -210,16 +210,16 @@ export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail })
       </section>
 
       {/* SECTION 5 – KEY FEATURES */}
-      <section className="py-20 lg:py-28 border-b border-kyp-teal/15 kyp-grid-pattern">
+      <section className="py-20 lg:py-28 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-3xl mb-14">
-            <span className="text-xs font-mono text-kyp-mint uppercase tracking-widest font-semibold">
+            <span className="text-xs font-mono text-emerald-700 uppercase tracking-widest font-bold">
               Feature Matrix
             </span>
-            <h2 className="text-2xl sm:text-4xl font-bold text-white mt-2 tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-bold text-slate-900 mt-2 tracking-tight">
               Engineered for Enterprise Compliance Teams
             </h2>
-            <p className="text-sm sm:text-base text-gray-400 mt-3">
+            <p className="text-sm sm:text-base text-slate-600 mt-3">
               Purpose-built capabilities designed to eliminate friction and satisfy stringent regulatory audits.
             </p>
           </div>
@@ -228,15 +228,15 @@ export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail })
             {useCase.features.map((feat, idx) => (
               <div
                 key={idx}
-                className="p-5 rounded-xl bg-black border border-kyp-teal/20 hover:border-kyp-lime/40 transition-all space-y-3 group"
+                className="p-5 rounded-2xl bg-slate-50 border border-slate-200 hover:border-emerald-500/60 shadow-sm transition-all space-y-3 group"
               >
-                <div className="w-10 h-10 rounded-lg bg-kyp-navy border border-kyp-teal/30 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs">
                   {renderFeatureIcon(feat.icon)}
                 </div>
-                <h3 className="text-sm font-semibold text-white group-hover:text-kyp-mint transition-colors">
+                <h3 className="text-sm font-semibold text-slate-900 group-hover:text-emerald-700 transition-colors">
                   {feat.title}
                 </h3>
-                <p className="text-xs text-gray-400 leading-relaxed">
+                <p className="text-xs text-slate-600 leading-relaxed">
                   {feat.description}
                 </p>
               </div>
@@ -246,16 +246,16 @@ export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail })
       </section>
 
       {/* SECTION 6 – PLATFORM INTERFACE DEMO (Secondary Interactive Element) */}
-      <section className="py-20 lg:py-28 bg-kyp-charcoal/50 border-b border-kyp-teal/15">
+      <section className="py-20 lg:py-28 bg-slate-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
-            <span className="text-xs font-mono text-kyp-lime uppercase tracking-widest font-semibold">
+            <span className="text-xs font-mono text-emerald-700 uppercase tracking-widest font-bold">
               Audit & Decision Trail
             </span>
-            <h2 className="text-2xl sm:text-4xl font-bold text-white mt-2 tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-bold text-slate-900 mt-2 tracking-tight">
               Every Decision Recorded Immutably
             </h2>
-            <p className="text-sm sm:text-base text-gray-400 mt-3">
+            <p className="text-sm sm:text-base text-slate-600 mt-3">
               See the complete audit record that backs every verification check and analyst sign-off.
             </p>
           </div>
@@ -265,13 +265,13 @@ export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail })
       </section>
 
       {/* SECTION 7 – BUSINESS BENEFITS */}
-      <section className="py-20 lg:py-28 border-b border-kyp-teal/15 kyp-grid-pattern">
+      <section className="py-20 lg:py-28 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
-            <span className="text-xs font-mono text-kyp-teal uppercase tracking-widest font-semibold">
+            <span className="text-xs font-mono text-emerald-700 uppercase tracking-widest font-bold">
               Measurable Impact
             </span>
-            <h2 className="text-2xl sm:text-4xl font-bold text-white mt-2 tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-bold text-slate-900 mt-2 tracking-tight">
               Transform Your Operational Footprint
             </h2>
           </div>
@@ -280,15 +280,15 @@ export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail })
             {useCase.benefits.map((b, idx) => (
               <div
                 key={idx}
-                className="p-6 rounded-xl bg-kyp-navy-surface border border-kyp-teal/20 space-y-3"
+                className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-3 shadow-sm hover:shadow-md transition-all"
               >
                 {b.metric && (
-                  <div className="text-2xl lg:text-3xl font-extrabold text-kyp-lime font-mono">
+                  <div className="text-2xl lg:text-3xl font-extrabold text-emerald-700 font-mono">
                     {b.metric}
                   </div>
                 )}
-                <h3 className="text-base font-bold text-white">{b.title}</h3>
-                <p className="text-xs text-gray-400 leading-relaxed">{b.description}</p>
+                <h3 className="text-base font-bold text-slate-900">{b.title}</h3>
+                <p className="text-xs text-slate-600 leading-relaxed">{b.description}</p>
               </div>
             ))}
           </div>
@@ -296,28 +296,28 @@ export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail })
       </section>
 
       {/* SECTION 8 – FINAL CTA */}
-      <section className="py-20 lg:py-24 bg-gradient-to-b from-kyp-navy-surface to-black text-center relative overflow-hidden">
+      <section className="py-20 lg:py-24 bg-gradient-to-b from-slate-50 via-emerald-50/20 to-white text-center border-t border-slate-200 relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 relative z-10 space-y-6">
           <div className="w-14 h-14 mx-auto">
             <KYPLottie type="auditSeal" className="w-full h-full" />
           </div>
-          <h2 className="text-3xl sm:text-5xl font-bold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-5xl font-bold text-slate-900 tracking-tight">
             {useCase.cta.headline}
           </h2>
-          <p className="text-sm sm:text-base text-gray-300 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto">
             Discover how KYP helps compliance teams monitor risks, eliminate manual review friction, and stay continuously audit-ready.
           </p>
           <div className="pt-4 flex flex-wrap justify-center gap-4">
             <Link
               href={routes.bookDemo}
-              className="kyp-btn-primary px-8 py-3.5 rounded-xl text-sm font-semibold flex items-center gap-2 shadow-lime-glow"
+              className="kyp-btn-primary px-8 py-3.5 rounded-full text-sm font-semibold flex items-center gap-2 shadow-md hover:shadow-lg transition-all"
             >
               <span>{useCase.cta.buttonText}</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               href={routes.platform}
-              className="kyp-btn-secondary px-8 py-3.5 rounded-xl text-sm font-semibold flex items-center gap-2"
+              className="kyp-btn-secondary px-8 py-3.5 rounded-full text-sm font-semibold flex items-center gap-2"
             >
               <span>Explore Platform Capabilities</span>
             </Link>

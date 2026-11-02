@@ -11,19 +11,34 @@ const config: Config = {
     extend: {
       colors: {
         kyp: {
-          black: "#000000",
-          lime: "#66cc00",
-          "lime-hover": "#57b300",
-          mint: "#c6f5ef",
-          teal: "#6fd3c4",
-          "teal-dark": "#4db3a3",
+          black: "#0f172a", // Dark text / accents
+          white: "#ffffff",
+          slate: {
+            50: "#f8fafc",
+            100: "#f1f5f9",
+            200: "#e2e8f0",
+            300: "#cbd5e1",
+            400: "#94a3b8",
+            500: "#64748b",
+            600: "#475569",
+            700: "#334155",
+            800: "#1e293b",
+            900: "#0f172a",
+          },
+          lime: "#16a34a", // Vibrant accessible green on light background
+          "lime-hover": "#15803d",
+          "lime-light": "#dcfce7",
+          mint: "#0d9488",
+          teal: "#0284c7",
+          "teal-light": "#e0f2fe",
+          "teal-dark": "#0369a1",
           navy: "#033653",
           "navy-light": "#084970",
           "navy-dark": "#022438",
-          "navy-surface": "#052235",
-          charcoal: "#070c12",
-          surface: "#0c1520",
-          "surface-light": "#132132",
+          "navy-surface": "#f8fafc",
+          charcoal: "#f1f5f9",
+          surface: "#ffffff",
+          "surface-light": "#f8fafc",
         },
       },
       fontFamily: {
@@ -38,7 +53,7 @@ const config: Config = {
       keyframes: {
         float: {
           "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-10px)" },
+          "50%": { transform: "translateY(-8px)" },
         },
         glowLine: {
           "0%": { strokeDashoffset: "100" },
@@ -48,13 +63,12 @@ const config: Config = {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-        "mesh-pattern": "radial-gradient(circle at 50% 50%, rgba(3, 54, 83, 0.25) 0%, rgba(0, 0, 0, 0.95) 70%)",
       },
       boxShadow: {
-        "lime-glow": "0 0 25px -5px rgba(102, 204, 0, 0.35)",
-        "teal-glow": "0 0 25px -5px rgba(111, 211, 196, 0.3)",
-        "mint-glow": "0 0 25px -5px rgba(198, 245, 239, 0.25)",
-        "navy-card": "0 10px 30px -10px rgba(3, 54, 83, 0.5)",
+        "lime-glow": "0 0 25px -5px rgba(22, 163, 74, 0.25)",
+        "teal-glow": "0 0 25px -5px rgba(2, 132, 199, 0.25)",
+        "card-soft": "0 2px 10px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02)",
+        "card-hover": "0 12px 30px -5px rgba(15, 23, 42, 0.08), 0 4px 6px -2px rgba(15, 23, 42, 0.04)",
       },
     },
   },

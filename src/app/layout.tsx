@@ -78,9 +78,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
-      <body className="bg-kyp-black text-white antialiased selection:bg-kyp-lime selection:text-black">
+      <body className="bg-white text-slate-900 antialiased selection:bg-emerald-100 selection:text-emerald-900">
         <Header />
-        <main className="min-h-screen pt-20">{children}</main>
+        <main className="min-h-screen pt-28">{children}</main>
         <Footer />
       </body>
     </html>

@@ -232,37 +232,34 @@ export default function PurposeBuiltSolutions() {
   const getPillStyles = (variant: SolutionCard["statusVariant"]) => {
     switch (variant) {
       case "lime":
-        return "bg-kyp-lime/10 text-kyp-lime border-kyp-lime/30";
+        return "bg-emerald-50 text-emerald-800 border-emerald-200";
       case "cyan":
-        return "bg-kyp-teal/10 text-kyp-teal border-kyp-teal/30";
+        return "bg-sky-50 text-sky-800 border-sky-200";
       case "purple":
-        return "bg-purple-500/10 text-purple-300 border-purple-500/30";
+        return "bg-purple-50 text-purple-800 border-purple-200";
       case "blue":
-        return "bg-sky-500/10 text-sky-300 border-sky-500/30";
+        return "bg-blue-50 text-blue-800 border-blue-200";
       case "mint":
-        return "bg-emerald-500/10 text-emerald-300 border-emerald-500/30";
+        return "bg-teal-50 text-teal-800 border-teal-200";
     }
   };
 
   return (
-    <section className="py-20 lg:py-28 border-b border-kyp-teal/15 bg-black relative overflow-hidden kyp-grid-pattern">
-      {/* Background ambient radial glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[350px] bg-kyp-navy/30 rounded-full blur-3xl pointer-events-none" />
-
+    <section className="py-20 lg:py-28 border-b border-slate-200 bg-slate-50/70 relative overflow-hidden kyp-grid-pattern">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         {/* Header Ribbon */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div className="max-w-2xl space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-kyp-teal/10 border border-kyp-teal/30 text-xs font-mono text-kyp-teal font-semibold">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 border border-emerald-200 text-xs font-mono text-emerald-800 font-bold">
               <Sparkles className="w-3.5 h-3.5" />
               <span>OPERATING SOLUTIONS • RISK MODULES</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-tight">
               Purpose-Built Solutions for Enterprise Risk &amp; Compliance Operations
             </h2>
 
-            <p className="text-sm sm:text-base text-gray-400">
+            <p className="text-sm sm:text-base text-slate-600">
               Each module delivers automated intelligence tailored to modern regulatory obligations across onboarding, scheme monitoring, UBO contagion, and audit defence.
             </p>
           </div>
@@ -270,7 +267,7 @@ export default function PurposeBuiltSolutions() {
           <div>
             <Link
               href={routes.platform}
-              className="inline-flex items-center gap-2 text-sm font-mono text-kyp-lime hover:text-white font-semibold transition-colors group"
+              className="inline-flex items-center gap-2 text-sm font-mono text-emerald-700 hover:text-emerald-800 font-bold transition-colors group"
             >
               <span>Explore All Solutions</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -287,25 +284,25 @@ export default function PurposeBuiltSolutions() {
                 key={sol.id}
                 onMouseEnter={() => setHoveredCard(sol.id)}
                 onMouseLeave={() => setHoveredCard(null)}
-                className={`group relative rounded-2xl bg-gradient-to-b from-kyp-navy-surface/90 to-black border border-kyp-teal/20 hover:border-kyp-lime/60 p-5 flex flex-col justify-between transition-all duration-300 shadow-xl border-t-4 ${sol.accentColor} hover:-translate-y-1 hover:shadow-lime-glow/20`}
+                className={`group relative rounded-2xl bg-white border border-slate-200 hover:border-emerald-500/70 p-5 flex flex-col justify-between transition-all duration-300 shadow-sm hover:shadow-md border-t-4 ${sol.accentColor} hover:-translate-y-1`}
               >
                 <div>
                   {/* Card Title */}
-                  <h3 className="text-base font-bold text-white tracking-tight group-hover:text-kyp-lime transition-colors">
+                  <h3 className="text-base font-bold text-slate-900 tracking-tight group-hover:text-emerald-700 transition-colors">
                     {sol.title}
                   </h3>
-                  <p className="text-[11px] text-gray-400 mt-1 line-clamp-2 leading-relaxed">
+                  <p className="text-[11px] text-slate-500 mt-1 line-clamp-2 leading-relaxed">
                     {sol.tagline}
                   </p>
 
                   {/* Micro Visual Diagram Container */}
-                  <div className="my-5 bg-black/60 rounded-xl border border-white/5 p-2 overflow-hidden flex items-center justify-center">
+                  <div className="my-5 bg-slate-50 rounded-xl border border-slate-100 p-2 overflow-hidden flex items-center justify-center">
                     {sol.renderVisual(isHovered)}
                   </div>
                 </div>
 
                 {/* Card Bottom: Status Pill + Explore Link */}
-                <div className="space-y-3 pt-3 border-t border-kyp-teal/15">
+                <div className="space-y-3 pt-3 border-t border-slate-100">
                   <div className="flex justify-end">
                     <span
                       className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-mono font-bold border ${getPillStyles(
@@ -319,7 +316,7 @@ export default function PurposeBuiltSolutions() {
 
                   <Link
                     href={sol.href}
-                    className="flex items-center justify-between text-xs font-mono font-semibold text-gray-300 group-hover:text-kyp-lime transition-colors pt-1"
+                    className="flex items-center justify-between text-xs font-mono font-semibold text-slate-600 group-hover:text-emerald-700 transition-colors pt-1"
                   >
                     <span>Explore</span>
                     <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />

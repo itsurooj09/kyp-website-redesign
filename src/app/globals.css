@@ -3,20 +3,20 @@
 @tailwind utilities;
 
 :root {
-  --kyp-black: #000000;
-  --kyp-lime: #66cc00;
-  --kyp-lime-hover: #57b300;
-  --kyp-mint: #c6f5ef;
-  --kyp-teal: #6fd3c4;
+  --kyp-bg: #ffffff;
+  --kyp-bg-alt: #f8fafc;
+  --kyp-bg-card: #ffffff;
+  --kyp-text: #0f172a;
+  --kyp-text-muted: #475569;
+  --kyp-border: #e2e8f0;
+  --kyp-border-hover: #cbd5e1;
+  --kyp-lime: #16a34a;
+  --kyp-lime-hover: #15803d;
+  --kyp-teal: #0284c7;
+  --kyp-teal-dark: #0369a1;
   --kyp-navy: #033653;
-  --kyp-navy-light: #084970;
-  --kyp-navy-dark: #022438;
-  --kyp-navy-surface: #052235;
-  --kyp-charcoal: #070c12;
-  --kyp-surface: #0a1118;
-  --kyp-surface-card: #0d1722;
-  --kyp-border: rgba(111, 211, 196, 0.14);
-  --kyp-border-hover: rgba(102, 204, 0, 0.45);
+  --kyp-navy-surface: #0f172a;
+  --kyp-mint: #0d9488;
 }
 
 * {
@@ -25,14 +25,14 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: #000000;
-  color: #ffffff;
-  color-scheme: dark;
+  background-color: #ffffff;
+  color: #0f172a;
+  color-scheme: light;
 }
 
 body {
-  background-color: #000000;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #0f172a;
   min-height: 100vh;
   overflow-x: hidden;
   font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -40,112 +40,128 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom scrollbar matching dark enterprise aesthetics */
+/* Custom scrollbar matching light enterprise aesthetics */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #000000;
+  background: #f8fafc;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #033653;
+  background: #cbd5e1;
   border-radius: 4px;
-  border: 1px solid rgba(111, 211, 196, 0.2);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #6fd3c4;
+  background: #94a3b8;
 }
 
-/* Glassmorphism surfaces derived from approved palette */
+/* Light Theme Card & Glass Surfaces */
 .kyp-glass {
-  background: rgba(3, 54, 83, 0.35);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(111, 211, 196, 0.15);
+  border: 1px solid rgba(226, 232, 240, 0.8);
 }
 
 .kyp-glass-card {
-  background: linear-gradient(180deg, rgba(5, 34, 53, 0.6) 0%, rgba(3, 54, 83, 0.2) 100%);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(111, 211, 196, 0.14);
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .kyp-glass-card:hover {
-  border-color: rgba(102, 204, 0, 0.4);
-  box-shadow: 0 10px 30px -10px rgba(3, 54, 83, 0.5), 0 0 20px -5px rgba(102, 204, 0, 0.15);
+  border-color: #cbd5e1;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+  transform: translateY(-2px);
 }
 
-/* Itemize-inspired gradient text highlights */
+/* Gradient text highlights */
 .kyp-gradient-text {
-  background: linear-gradient(135deg, #ffffff 40%, #c6f5ef 70%, #6fd3c4 100%);
+  background: linear-gradient(135deg, #0f172a 30%, #033653 70%, #0284c7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .kyp-lime-text {
-  color: #66cc00;
+  color: #16a34a;
 }
 
 .kyp-mint-text {
-  color: #c6f5ef;
+  color: #0d9488;
 }
 
 .kyp-teal-text {
-  color: #6fd3c4;
+  color: #0284c7;
 }
 
-/* Background grid patterns */
+/* Background grid patterns for light theme */
 .kyp-grid-pattern {
-  background-size: 40px 40px;
+  background-size: 32px 32px;
   background-image: 
-    linear-gradient(to right, rgba(111, 211, 196, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(111, 211, 196, 0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgba(15, 23, 42, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.035) 1px, transparent 1px);
 }
 
 .kyp-radial-glow {
-  background: radial-gradient(circle 600px at 50% -100px, rgba(3, 54, 83, 0.6), transparent 70%);
+  background: radial-gradient(circle 600px at 50% -100px, rgba(2, 132, 199, 0.08), transparent 70%);
 }
 
 .kyp-glow-top-left {
-  background: radial-gradient(circle 500px at 0% 0%, rgba(3, 54, 83, 0.5), transparent 70%);
+  background: radial-gradient(circle 500px at 0% 0%, rgba(3, 54, 83, 0.06), transparent 70%);
 }
 
 .kyp-glow-bottom-right {
-  background: radial-gradient(circle 500px at 100% 100%, rgba(111, 211, 196, 0.08), transparent 70%);
+  background: radial-gradient(circle 500px at 100% 100%, rgba(22, 163, 74, 0.06), transparent 70%);
 }
 
-/* Buttons */
+/* Primary Button (SEON Style Dark Pill or Emerald) */
 .kyp-btn-primary {
-  background-color: #66cc00;
-  color: #000000;
+  background-color: #0f172a;
+  color: #ffffff;
   font-weight: 600;
+  border-radius: 9999px;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.1);
 }
 
 .kyp-btn-primary:hover {
-  background-color: #57b300;
-  box-shadow: 0 0 25px rgba(102, 204, 0, 0.45);
+  background-color: #1e293b;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
+  transform: translateY(-1px);
+}
+
+.kyp-btn-accent {
+  background-color: #16a34a;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 9999px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(22, 163, 74, 0.25);
+}
+
+.kyp-btn-accent:hover {
+  background-color: #15803d;
+  box-shadow: 0 4px 16px rgba(22, 163, 74, 0.35);
   transform: translateY(-1px);
 }
 
 .kyp-btn-secondary {
-  background-color: transparent;
-  color: #ffffff;
-  border: 1px solid rgba(111, 211, 196, 0.35);
+  background-color: #ffffff;
+  color: #0f172a;
+  border: 1px solid #cbd5e1;
   font-weight: 500;
+  border-radius: 9999px;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .kyp-btn-secondary:hover {
-  border-color: #6fd3c4;
-  background: rgba(111, 211, 196, 0.08);
-  color: #c6f5ef;
+  border-color: #94a3b8;
+  background-color: #f8fafc;
   transform: translateY(-1px);
 }
 

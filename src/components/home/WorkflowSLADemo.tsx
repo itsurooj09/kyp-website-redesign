@@ -80,39 +80,36 @@ export default function WorkflowSLADemo() {
   const isFinalStep = activeStepIndex === WORKFLOW_STEPS.length - 1;
 
   return (
-    <section className="py-20 lg:py-28 bg-gradient-to-b from-kyp-charcoal/60 via-kyp-navy/30 to-black border-b border-kyp-teal/15 relative overflow-hidden">
-      {/* Background radial glow */}
-      <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[600px] h-[350px] bg-kyp-navy/40 rounded-full blur-3xl pointer-events-none" />
-
+    <section className="py-20 lg:py-28 bg-white border-b border-slate-200 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column: Narrative & SLA Value Proposition */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-kyp-lime/10 border border-kyp-lime/30 text-xs font-mono text-kyp-lime font-semibold">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 border border-emerald-200 text-xs font-mono text-emerald-800 font-bold">
               <Clock className="w-3.5 h-3.5" />
               <span>PROCESSING SPEED SLAS</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-tight">
               Better Risk Outcomes for Every Transaction.
             </h2>
 
-            <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
               From fragmented inputs to validated transactions in as fast as 10 seconds, backed by a{" "}
-              <strong className="text-kyp-lime font-bold">30-second processing SLA</strong>.{" "}
-              <strong className="text-white">100% Agentic Processing</strong>.
+              <strong className="text-emerald-600 font-bold">30-second processing SLA</strong>.{" "}
+              <strong className="text-slate-900 font-bold">100% Agentic Processing</strong>.
             </p>
 
             <div className="pt-2 flex flex-wrap items-center gap-4">
-              <div className="p-3.5 rounded-xl bg-kyp-navy-surface/90 border border-kyp-teal/20">
-                <div className="text-[10px] font-mono text-gray-400 uppercase">Legacy Review Cycle</div>
-                <div className="text-xl font-bold text-red-400 line-through mt-0.5">Weeks to Months</div>
+              <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                <div className="text-[10px] font-mono text-slate-500 uppercase font-semibold">Legacy Review Cycle</div>
+                <div className="text-xl font-bold text-rose-500 line-through mt-0.5">Weeks to Months</div>
               </div>
-              <div className="p-3.5 rounded-xl bg-kyp-navy-surface/90 border border-kyp-lime/30 shadow-lime-glow/10">
-                <div className="text-[10px] font-mono text-kyp-lime uppercase font-semibold">KYP Processing SLA</div>
-                <div className="text-xl font-bold text-white mt-0.5 flex items-center gap-1.5">
+              <div className="p-3.5 rounded-xl bg-emerald-50/80 border border-emerald-300 shadow-sm">
+                <div className="text-[10px] font-mono text-emerald-800 uppercase font-bold">KYP Processing SLA</div>
+                <div className="text-xl font-bold text-slate-900 mt-0.5 flex items-center gap-1.5">
                   <span>&lt; 30.0s</span>
-                  <span className="text-xs px-2 py-0.5 rounded bg-kyp-lime/20 text-kyp-lime font-mono">100% Defensible</span>
+                  <span className="text-xs px-2 py-0.5 rounded bg-emerald-200 text-emerald-900 font-mono font-bold">100% Defensible</span>
                 </div>
               </div>
             </div>
@@ -120,7 +117,7 @@ export default function WorkflowSLADemo() {
             <div className="pt-2">
               <Link
                 href={routes.bookDemo}
-                className="kyp-btn-primary px-6 py-3 rounded-xl text-sm font-semibold inline-flex items-center gap-2 shadow-lime-glow"
+                className="kyp-btn-primary px-6 py-3 rounded-full text-sm font-semibold inline-flex items-center gap-2"
               >
                 <span>Experience Live Sentinel</span>
                 <ArrowRight className="w-4 h-4" />
@@ -130,14 +127,14 @@ export default function WorkflowSLADemo() {
 
           {/* Right Column: Console Terminal with 5 Interactive Step Nodes */}
           <div className="lg:col-span-7">
-            <div className="w-full bg-gradient-to-b from-[#031d2e] via-[#02131f] to-black rounded-3xl border border-kyp-teal/30 p-6 sm:p-8 lg:p-10 shadow-2xl relative overflow-hidden kyp-grid-pattern">
+            <div className="w-full bg-slate-900 rounded-3xl border border-slate-800 p-6 sm:p-8 lg:p-10 shadow-2xl relative overflow-hidden">
               {/* Terminal Top Window Bar */}
-              <div className="flex items-center justify-between border-b border-kyp-teal/15 pb-4 mb-8">
+              <div className="flex items-center justify-between border-b border-slate-800 pb-4 mb-8">
                 <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
-                  <span className="text-[11px] font-mono text-kyp-teal tracking-wider ml-2 uppercase font-semibold">
+                  <span className="w-2.5 h-2.5 rounded-full bg-rose-500" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-amber-500" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
+                  <span className="text-[11px] font-mono text-slate-400 tracking-wider ml-2 uppercase font-semibold">
                     ITEMIZE WORKFLOW / LIVE DEMO
                   </span>
                 </div>

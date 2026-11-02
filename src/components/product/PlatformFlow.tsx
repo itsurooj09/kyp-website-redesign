@@ -182,26 +182,26 @@ export default function PlatformFlow() {
   };
 
   return (
-    <div className="w-full bg-black border border-kyp-teal/30 rounded-2xl p-6 lg:p-10 relative overflow-hidden kyp-grid-pattern shadow-2xl">
+    <div className="w-full bg-white border border-slate-200 rounded-3xl p-6 lg:p-10 relative overflow-hidden shadow-xl">
       {/* Ambient background glow */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-kyp-navy/40 rounded-full blur-3xl pointer-events-none" />
 
       {/* Header with Client Image Key Headings */}
       <div className="max-w-4xl mb-8 relative z-10 space-y-3">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-kyp-lime/10 border border-kyp-lime/30 text-xs font-mono text-kyp-lime font-semibold">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 border border-emerald-200 text-xs font-mono text-emerald-800 font-bold">
           <Sparkles className="w-3.5 h-3.5" />
           ANIMATED PLATFORM FLOW • ITEMIZE-INSPIRED MOVING GRAPH
         </div>
 
-        <h3 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
+        <h3 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-tight">
           Can You See Behavioural Risk Emerging Before It Becomes a Financial Issue?
         </h3>
 
-        <p className="text-base sm:text-lg text-kyp-mint font-medium">
+        <p className="text-base sm:text-lg text-emerald-700 font-bold">
           Move from periodic manual reviews to continuous risk intelligence with KYP.
         </p>
 
-        <p className="text-xs sm:text-sm text-gray-300 leading-relaxed max-w-3xl">
+        <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-3xl">
           Watch real-time risk intelligence flow through the platform: from AI onboarding ingestion and corporate structure verification, to live volumetric and WebCompli™ website surveillance, graph contagion investigations, and instant audit reporting.
         </p>
       </div>
@@ -217,19 +217,19 @@ export default function PlatformFlow() {
               onClick={() => handleStageSelect(idx)}
               className={`p-3.5 rounded-xl border text-left transition-all duration-300 relative group cursor-pointer ${
                 isActive
-                  ? "bg-kyp-navy/95 border-kyp-lime shadow-lime-glow ring-1 ring-kyp-lime"
-                  : "bg-kyp-black/80 border-kyp-teal/20 hover:border-kyp-teal/50 hover:bg-kyp-navy/30"
+                  ? "bg-slate-900 border-slate-900 text-white shadow-md ring-1 ring-slate-900"
+                  : "bg-slate-50 border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-100"
               }`}
             >
               <div className="flex items-center justify-between mb-1.5">
-                <span className={`text-[10px] font-mono tracking-widest uppercase font-bold ${isActive ? "text-kyp-lime" : "text-kyp-teal"}`}>
+                <span className={`text-[10px] font-mono tracking-widest uppercase font-bold ${isActive ? "text-emerald-400" : "text-slate-500"}`}>
                   STEP {st.step}
                 </span>
                 <div className={`p-1 rounded ${isActive ? "bg-kyp-lime text-black" : "bg-black/60 border border-kyp-teal/20"}`}>
                   {st.icon}
                 </div>
               </div>
-              <div className={`text-sm font-bold ${isActive ? "text-white" : "text-gray-300 group-hover:text-white"}`}>
+              <div className={`text-sm font-bold ${isActive ? "text-white" : "text-slate-800 group-hover:text-slate-900"}`}>
                 {st.title}
               </div>
               <div className="text-[11px] text-gray-400 line-clamp-1 mt-0.5 font-mono">
@@ -437,23 +437,23 @@ export default function PlatformFlow() {
       </div>
 
       {/* Detailed Active Stage Breakdown Card */}
-      <div className="p-6 rounded-2xl bg-kyp-navy-surface/80 border border-kyp-teal/25 mb-8">
+      <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 mb-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-8 space-y-3">
             <div className="flex items-center gap-3">
-              <span className="px-3 py-1 rounded bg-kyp-lime text-black font-mono font-bold text-xs">
+              <span className="px-3 py-1 rounded bg-slate-900 text-white font-mono font-bold text-xs">
                 Stage {currentStage.step} &bull; {currentStage.title}
               </span>
-              <span className="text-xs font-mono text-kyp-mint">
+              <span className="text-xs font-mono text-emerald-700 font-bold">
                 {currentStage.action}
               </span>
             </div>
 
-            <h4 className="text-xl sm:text-2xl font-bold text-white">
+            <h4 className="text-xl sm:text-2xl font-bold text-slate-900">
               {currentStage.clientHeading}: {currentStage.tagline}
             </h4>
 
-            <p className="text-sm text-gray-300 leading-relaxed">
+            <p className="text-sm text-slate-600 leading-relaxed">
               {currentStage.clientDescription}
             </p>
 
@@ -461,7 +461,7 @@ export default function PlatformFlow() {
               {currentStage.dataPoints.map((dp, i) => (
                 <span
                   key={i}
-                  className="px-2.5 py-1 rounded-lg bg-black/60 border border-kyp-teal/20 text-xs font-mono text-kyp-mint flex items-center gap-1.5"
+                  className="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-mono text-slate-700 flex items-center gap-1.5"
                 >
                   <Check className="w-3 h-3 text-kyp-lime" />
                   {dp}
@@ -470,7 +470,7 @@ export default function PlatformFlow() {
             </div>
           </div>
 
-          <div className="lg:col-span-4 bg-black/80 p-5 rounded-xl border border-kyp-teal/20 space-y-3 font-mono text-xs">
+          <div className="lg:col-span-4 bg-white p-5 rounded-xl border border-slate-200 space-y-3 font-mono text-xs">
             <div className="flex items-center justify-between border-b border-kyp-teal/20 pb-2">
               <span className="text-gray-400">Stage Latency:</span>
               <span className="text-kyp-lime font-bold">{currentStage.telemetry.latency}</span>
@@ -489,46 +489,46 @@ export default function PlatformFlow() {
 
       {/* 4 Official Client Key Feature Cards (Volumetric, Webcompli, Corporate Structure, Behavioural Shifts) */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="p-4 rounded-xl bg-black/70 border border-kyp-teal/20 hover:border-kyp-lime/40 transition-all space-y-2">
+        <div className="p-4 rounded-xl bg-white border border-slate-200 hover:border-emerald-500/60 shadow-sm transition-all space-y-2">
           <div className="flex items-center justify-between">
-            <span className="text-[10px] font-mono text-kyp-teal uppercase">CLIENT FEATURE 01</span>
+            <span className="text-[10px] font-mono text-emerald-700 font-bold uppercase">CLIENT FEATURE 01</span>
             <TrendingUp className="w-4 h-4 text-kyp-lime" />
           </div>
-          <h4 className="text-base font-bold text-white">Volumetric Monitoring</h4>
-          <p className="text-xs text-gray-400 leading-relaxed">
+          <h4 className="text-base font-bold text-slate-900">Volumetric Monitoring</h4>
+          <p className="text-xs text-slate-600 leading-relaxed">
             Spot unusual transaction velocity spikes, round-number structuring, and abnormal settlement volume before settlement.
           </p>
         </div>
 
-        <div className="p-4 rounded-xl bg-black/70 border border-kyp-teal/20 hover:border-kyp-lime/40 transition-all space-y-2">
+        <div className="p-4 rounded-xl bg-white border border-slate-200 hover:border-emerald-500/60 shadow-sm transition-all space-y-2">
           <div className="flex items-center justify-between">
-            <span className="text-[10px] font-mono text-kyp-teal uppercase">CLIENT FEATURE 02</span>
+            <span className="text-[10px] font-mono text-emerald-700 font-bold uppercase">CLIENT FEATURE 02</span>
             <Globe className="w-4 h-4 text-kyp-teal" />
           </div>
-          <h4 className="text-base font-bold text-white">Webcompli™</h4>
-          <p className="text-xs text-gray-400 leading-relaxed">
+          <h4 className="text-base font-bold text-slate-900">Webcompli™</h4>
+          <p className="text-xs text-slate-600 leading-relaxed">
             Automated crawler screening merchant terms, prohibited items, Mastercard BRAM & Visa VIRP violations, and ghost sites.
           </p>
         </div>
 
-        <div className="p-4 rounded-xl bg-black/70 border border-kyp-teal/20 hover:border-kyp-lime/40 transition-all space-y-2">
+        <div className="p-4 rounded-xl bg-white border border-slate-200 hover:border-emerald-500/60 shadow-sm transition-all space-y-2">
           <div className="flex items-center justify-between">
-            <span className="text-[10px] font-mono text-kyp-teal uppercase">CLIENT FEATURE 03</span>
+            <span className="text-[10px] font-mono text-emerald-700 font-bold uppercase">CLIENT FEATURE 03</span>
             <Building2 className="w-4 h-4 text-kyp-mint" />
           </div>
-          <h4 className="text-base font-bold text-white">Corporate Structure Changes</h4>
-          <p className="text-xs text-gray-400 leading-relaxed">
+          <h4 className="text-base font-bold text-slate-900">Corporate Structure Changes</h4>
+          <p className="text-xs text-slate-600 leading-relaxed">
             Real-time alerts when partner companies file director mutations, shareholding shifts, or registered office relocations.
           </p>
         </div>
 
-        <div className="p-4 rounded-xl bg-black/70 border border-kyp-teal/20 hover:border-kyp-lime/40 transition-all space-y-2">
+        <div className="p-4 rounded-xl bg-white border border-slate-200 hover:border-emerald-500/60 shadow-sm transition-all space-y-2">
           <div className="flex items-center justify-between">
-            <span className="text-[10px] font-mono text-kyp-teal uppercase">CLIENT FEATURE 04</span>
+            <span className="text-[10px] font-mono text-emerald-700 font-bold uppercase">CLIENT FEATURE 04</span>
             <AlertTriangle className="w-4 h-4 text-kyp-lime" />
           </div>
-          <h4 className="text-base font-bold text-white">Merchant Behavioural Shifts</h4>
-          <p className="text-xs text-gray-400 leading-relaxed">
+          <h4 className="text-base font-bold text-slate-900">Merchant Behavioural Shifts</h4>
+          <p className="text-xs text-slate-600 leading-relaxed">
             Detect subtle drifts in product lines, unauthorized MCC activity, and hidden cross-border customer exposure.
           </p>
         </div>

@@ -49,3 +49,4 @@ next-env.d.ts
 *.mp4
 extracted_frames/
 
+.vercel
