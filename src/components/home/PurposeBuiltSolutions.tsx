@@ -7,218 +7,199 @@ import { routes } from "@/lib/routes";
 
 interface SolutionCard {
   id: string;
-  accentColor: string; // Tailwind border or hex
+  accentColor: string;
   accentHex: string;
   title: string;
   tagline: string;
   statusText: string;
-  statusVariant: "cyan" | "lime" | "purple" | "blue" | "mint";
+  statusBadgeColor: string;
   href: string;
   renderVisual: (isHovered: boolean) => React.ReactNode;
 }
 
 const SOLUTIONS: SolutionCard[] = [
   {
-    id: "onboarding-mailroom",
-    accentColor: "border-t-[#6fd3c4]",
-    accentHex: "#6fd3c4",
+    id: "lockbox-digital-mailroom",
+    accentColor: "border-t-[#0284c7]",
+    accentHex: "#0284c7",
     title: "AI Onboarding & Digital Intake",
-    tagline: "OCR document validation & registry cross-check",
-    statusText: "Pre-Screened",
-    statusVariant: "cyan",
+    tagline: "Lockbox and digital extraction workflows",
+    statusText: "Balanced",
+    statusBadgeColor: "bg-sky-50 text-sky-700 border-sky-200",
     href: routes.onboarding,
     renderVisual: (isHovered) => (
-      <div className="relative w-full h-32 flex items-center justify-center">
-        {/* Background tilted card */}
-        <div className="absolute left-3 top-3 w-28 h-20 bg-kyp-navy/80 rounded-xl border border-kyp-teal/20 -rotate-6 transition-transform duration-300 group-hover:-rotate-12 flex flex-col justify-between p-2">
+      <div className="relative w-full h-36 flex items-center justify-center">
+        {/* Background tilted document card */}
+        <div className="absolute left-4 top-4 w-28 h-20 bg-slate-50 rounded-xl border border-slate-200 -rotate-6 transition-transform duration-300 group-hover:-rotate-12 flex flex-col justify-between p-2 shadow-xs">
           <div className="flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-kyp-teal" />
-            <span className="text-[8px] font-mono text-gray-400">REG-8921</span>
+            <span className="w-2 h-2 rounded-full bg-sky-500" />
+            <span className="text-[8px] font-mono text-slate-400">REG-8921</span>
           </div>
           <div className="space-y-1">
-            <div className="w-16 h-1.5 bg-gray-700 rounded" />
-            <div className="w-10 h-1.5 bg-gray-700/60 rounded" />
+            <div className="w-16 h-1.5 bg-slate-200 rounded" />
+            <div className="w-10 h-1.5 bg-slate-100 rounded" />
           </div>
         </div>
 
-        {/* Foreground prominent card */}
-        <div className="relative z-10 w-36 bg-black/90 rounded-xl border border-kyp-teal/40 p-2.5 shadow-xl transition-transform duration-300 group-hover:scale-105">
+        {/* Foreground prominent document card */}
+        <div className="relative z-10 w-38 bg-white rounded-xl border border-slate-200 p-3 shadow-md transition-transform duration-300 group-hover:scale-105">
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-1.5">
-              <div className="w-4 h-4 rounded bg-kyp-lime/20 flex items-center justify-center text-kyp-lime">
+              <div className="w-4 h-4 rounded bg-emerald-50 text-emerald-600 flex items-center justify-center">
                 <Check className="w-2.5 h-2.5" />
               </div>
-              <span className="text-[9px] font-bold text-white font-mono">Check Detail</span>
+              <span className="text-[10px] font-bold text-slate-900 font-mono">Check Detail</span>
             </div>
-            <span className="text-[8px] font-mono px-1.5 py-0.5 rounded bg-kyp-navy text-kyp-teal border border-kyp-teal/30">
+            <span className="text-[8px] font-mono px-1.5 py-0.5 rounded bg-sky-50 text-sky-700 border border-sky-200 font-bold">
               Batch 204
             </span>
           </div>
-          <div className="space-y-1">
-            <div className="w-24 h-1.5 bg-gray-700 rounded" />
-            <div className="w-16 h-1.5 bg-gray-800 rounded" />
-          </div>
-          <div className="mt-2 pt-1.5 border-t border-white/5 flex items-center justify-between text-[10px] font-mono">
-            <span className="text-gray-400">Match Rate</span>
-            <span className="text-kyp-lime font-bold">100%</span>
+          <div className="space-y-1.5">
+            <div className="text-xs font-bold font-mono text-slate-800">$48,205</div>
+            <div className="w-24 h-1.5 bg-slate-100 rounded" />
           </div>
         </div>
       </div>
     ),
   },
   {
-    id: "volumetric-remittance",
-    accentColor: "border-t-[#66cc00]",
-    accentHex: "#66cc00",
-    title: "Scheme & Volumetric Automation",
-    tagline: "Real-time BRAM & VIRP compliance pipeline",
+    id: "deposit-remittance",
+    accentColor: "border-t-[#16a34a]",
+    accentHex: "#16a34a",
+    title: "Continuous Remittance & Scheme Rules",
+    tagline: "Deposit operations and automated compliance",
     statusText: "Reconciled",
-    statusVariant: "lime",
-    href: routes.platform,
+    statusBadgeColor: "bg-emerald-50 text-emerald-700 border-emerald-200",
+    href: routes.websiteCompliance,
     renderVisual: (isHovered) => (
-      <div className="relative w-full h-32 flex items-center justify-center">
-        {/* Diagram Flow Card */}
-        <div className="w-44 bg-black/90 rounded-xl border border-kyp-lime/30 p-2.5 shadow-xl space-y-1.5 text-[9px] font-mono">
-          <div className="flex items-center justify-between pb-1.5 border-b border-kyp-teal/15">
-            <span className="text-white font-bold flex items-center gap-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-kyp-lime animate-ping" />
+      <div className="relative w-full h-36 flex items-center justify-center">
+        {/* Diagram Flow Card matching Video 2 */}
+        <div className="w-48 bg-white rounded-xl border border-slate-200 p-3 shadow-md space-y-1.5 text-[9px] font-mono">
+          <div className="flex items-center justify-between pb-1.5 border-b border-slate-100">
+            <span className="text-slate-900 font-bold flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
               Deposit Batch
             </span>
-            <span className="text-[8px] text-kyp-lime px-1.5 py-0.2 rounded bg-kyp-lime/10 border border-kyp-lime/30">
+            <span className="text-[8px] text-emerald-700 px-1.5 py-0.5 rounded bg-emerald-50 border border-emerald-200 font-bold">
               Capture
             </span>
           </div>
 
-          <div className="flex items-center justify-between text-gray-300 py-0.5">
-            <span className="text-gray-400">Check Detail</span>
-            <span className="text-kyp-mint font-semibold">Validate</span>
+          <div className="flex items-center justify-between text-slate-600 py-0.5">
+            <span className="text-slate-400">Check Detail</span>
+            <span className="text-emerald-700 font-semibold flex items-center gap-1">
+              Validate <Check className="w-2.5 h-2.5" />
+            </span>
           </div>
 
-          <div className="flex items-center justify-between text-gray-300 py-0.5">
-            <span className="text-gray-400">Card Scheme</span>
-            <span className="text-kyp-teal font-semibold">Balance</span>
+          <div className="flex items-center justify-between text-slate-600 py-0.5">
+            <span className="text-slate-400">Card Scheme</span>
+            <span className="text-sky-700 font-semibold">Balance</span>
           </div>
 
-          <div className="flex items-center justify-between text-gray-300 py-0.5 border-t border-white/5 pt-1">
-            <span className="text-gray-400">BRAM / VIRP</span>
-            <span className="text-kyp-lime font-bold">Pass 0 Fines</span>
+          <div className="flex items-center justify-between text-slate-600 py-0.5 border-t border-slate-100 pt-1">
+            <span className="text-slate-400">BRAM / VIRP</span>
+            <span className="text-emerald-700 font-bold">Pass 0 Fines</span>
           </div>
         </div>
       </div>
     ),
   },
   {
-    id: "cash-app-graph",
-    accentColor: "border-t-[#a855f7]",
-    accentHex: "#a855f7",
-    title: "Graph Contagion & UBO Resolution",
-    tagline: "Unravel multi-tier ownership & connected risks",
+    id: "cash-app-receivables",
+    accentColor: "border-t-[#8b5cf6]",
+    accentHex: "#8b5cf6",
+    title: "Cash Application & UBO Resolution",
+    tagline: "Cash application for merchant receivables",
     statusText: "Matched",
-    statusVariant: "purple",
-    href: routes.platform,
+    statusBadgeColor: "bg-purple-50 text-purple-700 border-purple-200",
+    href: routes.platformGraphIntelligence,
     renderVisual: (isHovered) => (
-      <div className="relative w-full h-32 flex items-center justify-center">
-        {/* Payment -> Invoice Flow */}
-        <div className="flex items-center gap-1.5">
-          {/* Source node */}
-          <div className="w-18 bg-black/90 rounded-xl border border-purple-500/40 p-2 text-center shadow-lg transition-transform duration-300 group-hover:-translate-x-1">
-            <span className="text-[8px] font-mono text-purple-300 block mb-1">Controller</span>
-            <div className="w-6 h-6 mx-auto rounded-full bg-purple-500/20 border border-purple-400/40 flex items-center justify-center text-purple-300 font-bold text-[9px]">
-              UBO
+      <div className="relative w-full h-36 flex items-center justify-center">
+        {/* Payment -> Invoice Flow matching Video 2 */}
+        <div className="flex items-center gap-2">
+          {/* Payment node */}
+          <div className="w-18 bg-white rounded-xl border border-purple-200 p-2 text-center shadow-md transition-transform duration-300 group-hover:-translate-x-1">
+            <span className="text-[8px] font-mono text-purple-600 font-bold block mb-1">$48K</span>
+            <div className="px-2 py-0.5 rounded bg-purple-50 text-purple-700 font-bold text-[8px] font-mono border border-purple-200">
+              Payment
             </div>
-            <span className="text-[8px] font-mono text-gray-400 block mt-1">38.5%</span>
           </div>
 
           {/* Connection arrow */}
           <div className="flex flex-col items-center">
-            <span className="text-[7px] font-mono text-purple-400 font-semibold mb-0.5">Equity</span>
-            <div className="w-7 h-0.5 bg-gradient-to-r from-purple-500 to-kyp-teal relative">
-              <span className="w-1.5 h-1.5 rounded-full bg-purple-400 absolute right-0 -top-0.5" />
+            <div className="w-6 h-0.5 bg-gradient-to-r from-purple-500 to-sky-500 relative">
+              <span className="w-1.5 h-1.5 rounded-full bg-purple-500 absolute right-0 -top-0.5 animate-ping" />
             </div>
           </div>
 
-          {/* Target node */}
-          <div className="w-18 bg-black/90 rounded-xl border border-kyp-teal/40 p-2 text-center shadow-lg transition-transform duration-300 group-hover:translate-x-1">
-            <span className="text-[8px] font-mono text-kyp-teal block mb-1">Subsidiary</span>
-            <div className="w-6 h-6 mx-auto rounded-full bg-kyp-teal/20 border border-kyp-teal/40 flex items-center justify-center text-kyp-teal font-bold text-[9px]">
-              PSP
+          {/* Invoice node */}
+          <div className="w-18 bg-white rounded-xl border border-sky-200 p-2 text-center shadow-md transition-transform duration-300 group-hover:translate-x-1">
+            <div className="px-2 py-0.5 rounded bg-sky-50 text-sky-700 font-bold text-[8px] font-mono border border-sky-200 mb-1">
+              Invoice
             </div>
-            <span className="text-[8px] font-mono text-kyp-lime font-bold block mt-1">Clean</span>
+            <span className="text-[8px] font-mono text-slate-500 block">Matched</span>
           </div>
         </div>
       </div>
     ),
   },
   {
-    id: "agentic-ap-sentinel",
-    accentColor: "border-t-[#38bdf8]",
-    accentHex: "#38bdf8",
-    title: "Agentic AML & Watchlist Sentinel",
-    tagline: "Autonomous sanctions, PEP, and adverse media crawler",
+    id: "accounts-payable",
+    accentColor: "border-t-[#0369a1]",
+    accentHex: "#0369a1",
+    title: "Accounts Payable & Invoice Processing",
+    tagline: "Automated general ledger reconciliation",
     statusText: "Approved",
-    statusVariant: "blue",
-    href: routes.aml,
+    statusBadgeColor: "bg-blue-50 text-blue-700 border-blue-200",
+    href: routes.transactionMonitoring,
     renderVisual: (isHovered) => (
-      <div className="relative w-full h-32 flex items-center justify-center">
-        {/* Invoice / Sanctions Card with GL Tags */}
-        <div className="flex items-center gap-2">
-          {/* Main Inspection Sheet */}
-          <div className="w-24 bg-black/90 rounded-xl border border-sky-500/40 p-2 shadow-xl space-y-1">
-            <div className="flex items-center gap-1">
-              <span className="w-3.5 h-3.5 rounded bg-sky-500/20 text-sky-400 flex items-center justify-center text-[8px] font-bold">
-                §
-              </span>
-              <span className="text-[9px] font-mono text-white font-bold">AML File</span>
-            </div>
-            <div className="w-14 h-1.5 bg-gray-700 rounded mt-1" />
-            <div className="w-10 h-1.5 bg-gray-800 rounded" />
-            <div className="pt-1.5 border-t border-white/5 text-[9px] font-mono text-kyp-lime font-bold">
-              Score: 12/100
-            </div>
+      <div className="relative w-full h-36 flex items-center justify-center">
+        {/* Invoice & GL Codes matching Video 2 */}
+        <div className="w-44 bg-white rounded-xl border border-slate-200 p-3 shadow-md space-y-2">
+          <div className="flex items-center justify-between border-b border-slate-100 pb-1.5">
+            <span className="text-[9px] font-bold font-mono text-slate-800 flex items-center gap-1">
+              <FileText className="w-3 h-3 text-sky-600" />
+              Invoice
+            </span>
+            <span className="text-[8px] font-mono px-1.5 py-0.5 rounded bg-slate-100 text-slate-600">
+              GL 6100
+            </span>
           </div>
-
-          {/* Floating GL Tags */}
-          <div className="space-y-1.5 text-[8px] font-mono">
-            <div className="px-2 py-1 rounded bg-kyp-navy-surface border border-sky-400/30 text-sky-300 font-semibold shadow">
-              OFAC 0
-            </div>
-            <div className="px-2 py-1 rounded bg-kyp-navy-surface border border-kyp-teal/30 text-kyp-teal font-semibold shadow">
-              PEP Clear
-            </div>
+          <div className="flex items-center justify-between text-xs font-mono">
+            <span className="font-bold text-slate-900">$12,940</span>
+            <span className="text-[8px] font-mono px-1.5 py-0.5 rounded bg-slate-100 text-slate-600">
+              CC 835
+            </span>
+          </div>
+          <div className="w-full h-1 bg-sky-100 rounded-full overflow-hidden">
+            <div className="w-full h-full bg-sky-600 rounded-full" />
           </div>
         </div>
       </div>
     ),
   },
   {
-    id: "healthcare-audit-cycle",
-    accentColor: "border-t-[#10b981]",
-    accentHex: "#10b981",
-    title: "Regulator-Ready Audit Generation",
-    tagline: "60-second defensible dossiers with SHA-256 seal",
+    id: "cycle-management",
+    accentColor: "border-t-[#0d9488]",
+    accentHex: "#0d9488",
+    title: "Revenue Cycle & Portfolio Management",
+    tagline: "End-to-end claim and settlement reconciliation",
     statusText: "Reconciled",
-    statusVariant: "mint",
-    href: routes.whitepapers,
+    statusBadgeColor: "bg-teal-50 text-teal-700 border-teal-200",
+    href: routes.issuingMonitoring,
     renderVisual: (isHovered) => (
-      <div className="relative w-full h-32 flex items-center justify-center">
-        {/* Claims & ERA Dual Cards */}
+      <div className="relative w-full h-36 flex items-center justify-center">
+        {/* Claim 835 & ERA cards matching Video 2 */}
         <div className="flex items-center gap-2">
-          {/* Claim card */}
-          <div className="w-18 bg-black/90 rounded-xl border border-emerald-500/40 p-2 text-center shadow-lg">
-            <div className="w-5 h-5 mx-auto rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-[10px] font-bold mb-1">
-              +
-            </div>
-            <span className="text-[8px] font-mono text-gray-300 block font-semibold">Dossier</span>
-            <span className="text-[8px] font-mono text-kyp-teal block mt-0.5">835 Pkg</span>
+          <div className="w-18 bg-white rounded-xl border border-teal-200 p-2 text-center shadow-md">
+            <span className="text-[8px] font-mono text-teal-700 font-bold block mb-1">Claim</span>
+            <span className="text-[9px] font-mono text-slate-700 font-bold">835</span>
           </div>
-
-          {/* ERA card */}
-          <div className="w-18 bg-black/90 rounded-xl border border-emerald-500/40 p-2 text-center shadow-lg">
-            <div className="w-5 h-5 mx-auto rounded-full bg-kyp-lime/20 text-kyp-lime flex items-center justify-center text-[10px] font-bold mb-1">
-              ✓
-            </div>
-            <span className="text-[8px] font-mono text-gray-300 block font-semibold">SHA-256</span>
-            <span className="text-[8px] font-mono text-kyp-lime font-bold block mt-0.5">Defensible</span>
+          <div className="text-slate-300 font-bold text-xs">&rarr;</div>
+          <div className="w-18 bg-white rounded-xl border border-emerald-200 p-2 text-center shadow-md">
+            <span className="text-[8px] font-mono text-emerald-700 font-bold block mb-1">ERA</span>
+            <span className="text-[9px] font-mono text-slate-700 font-bold">$1,284</span>
           </div>
         </div>
       </div>
@@ -229,97 +210,73 @@ const SOLUTIONS: SolutionCard[] = [
 export default function PurposeBuiltSolutions() {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
 
-  const getPillStyles = (variant: SolutionCard["statusVariant"]) => {
-    switch (variant) {
-      case "lime":
-        return "bg-emerald-50 text-emerald-800 border-emerald-200";
-      case "cyan":
-        return "bg-sky-50 text-sky-800 border-sky-200";
-      case "purple":
-        return "bg-purple-50 text-purple-800 border-purple-200";
-      case "blue":
-        return "bg-blue-50 text-blue-800 border-blue-200";
-      case "mint":
-        return "bg-teal-50 text-teal-800 border-teal-200";
-    }
-  };
-
   return (
-    <section className="py-20 lg:py-28 border-b border-slate-200 bg-slate-50/70 relative overflow-hidden kyp-grid-pattern">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-        {/* Header Ribbon */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-          <div className="max-w-2xl space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 border border-emerald-200 text-xs font-mono text-emerald-800 font-bold">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>OPERATING SOLUTIONS • RISK MODULES</span>
-            </div>
-
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-tight">
-              Purpose-Built Solutions for Enterprise Risk &amp; Compliance Operations
+    <section className="py-20 lg:py-28 bg-slate-50/70 border-b border-slate-200 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-12">
+        {/* Top Header matching Video 2 */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div className="max-w-2xl space-y-2">
+            <span className="text-xs font-mono text-emerald-700 uppercase tracking-widest font-bold">
+              OPERATING SOLUTIONS
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 font-heading">
+              Connect the work that shapes your financial outcomes.
             </h2>
-
-            <p className="text-sm sm:text-base text-slate-600">
-              Each module delivers automated intelligence tailored to modern regulatory obligations across onboarding, scheme monitoring, UBO contagion, and audit defence.
-            </p>
           </div>
-
-          <div>
-            <Link
-              href={routes.platform}
-              className="inline-flex items-center gap-2 text-sm font-mono text-emerald-700 hover:text-emerald-800 font-bold transition-colors group"
-            >
-              <span>Explore All Solutions</span>
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-          </div>
+          <Link
+            href={routes.onboarding}
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-800 hover:text-emerald-700 transition-colors shrink-0 group font-mono"
+          >
+            <span>Explore All Solutions</span>
+            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
 
-        {/* 5-Card Row */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+        {/* 5 Cards Row matching Video 2 1:1 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5">
           {SOLUTIONS.map((sol) => {
             const isHovered = hoveredCard === sol.id;
+
             return (
               <div
                 key={sol.id}
                 onMouseEnter={() => setHoveredCard(sol.id)}
                 onMouseLeave={() => setHoveredCard(null)}
-                className={`group relative rounded-2xl bg-white border border-slate-200 hover:border-emerald-500/70 p-5 flex flex-col justify-between transition-all duration-300 shadow-sm hover:shadow-md border-t-4 ${sol.accentColor} hover:-translate-y-1`}
+                className={`group rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden relative border-t-4 ${sol.accentColor} hover:-translate-y-2`}
               >
-                <div>
-                  {/* Card Title */}
-                  <h3 className="text-base font-bold text-slate-900 tracking-tight group-hover:text-emerald-700 transition-colors">
-                    {sol.title}
-                  </h3>
-                  <p className="text-[11px] text-slate-500 mt-1 line-clamp-2 leading-relaxed">
-                    {sol.tagline}
-                  </p>
+                <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
+                  {/* Title and Tagline */}
+                  <div className="space-y-1.5">
+                    <h3 className="text-sm font-bold text-slate-900 group-hover:text-emerald-700 transition-colors leading-snug">
+                      {sol.title}
+                    </h3>
+                    <p className="text-[11px] text-slate-500 leading-normal line-clamp-2">
+                      {sol.tagline}
+                    </p>
+                  </div>
 
-                  {/* Micro Visual Diagram Container */}
-                  <div className="my-5 bg-slate-50 rounded-xl border border-slate-100 p-2 overflow-hidden flex items-center justify-center">
+                  {/* Inner Interactive Micro-Visual */}
+                  <div className="py-2">
                     {sol.renderVisual(isHovered)}
+                  </div>
+
+                  {/* Status Pill Badge matching Video 2 */}
+                  <div className="pt-2 flex justify-center">
+                    <div className={`px-3 py-1 rounded-full text-[10px] font-mono font-bold flex items-center gap-1.5 border shadow-xs ${sol.statusBadgeColor}`}>
+                      <span>{sol.statusText}</span>
+                      <Check className="w-3 h-3" />
+                    </div>
                   </div>
                 </div>
 
-                {/* Card Bottom: Status Pill + Explore Link */}
-                <div className="space-y-3 pt-3 border-t border-slate-100">
-                  <div className="flex justify-end">
-                    <span
-                      className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-mono font-bold border ${getPillStyles(
-                        sol.statusVariant
-                      )}`}
-                    >
-                      <span>{sol.statusText}</span>
-                      <Check className="w-3 h-3" />
-                    </span>
-                  </div>
-
+                {/* Bottom Action Footer */}
+                <div className="px-5 py-3 border-t border-slate-100 bg-slate-50/50 flex items-center justify-between text-xs">
                   <Link
                     href={sol.href}
-                    className="flex items-center justify-between text-xs font-mono font-semibold text-slate-600 group-hover:text-emerald-700 transition-colors pt-1"
+                    className="font-semibold text-slate-700 group-hover:text-emerald-700 transition-colors flex items-center gap-1 text-[11px]"
                   >
                     <span>Explore</span>
-                    <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                    <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
               </div>

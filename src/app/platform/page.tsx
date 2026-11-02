@@ -11,6 +11,7 @@ import AnalyticsDashboard from "@/components/product/AnalyticsDashboard";
 import OnboardingInterface from "@/components/product/OnboardingInterface";
 import AuditInterface from "@/components/product/AuditInterface";
 import KYPLottie from "@/components/lottie/KYPLottie";
+import RiskIntelligenceGraphShowcase from "@/components/home/RiskIntelligenceGraphShowcase";
 
 export const metadata: Metadata = {
   title: "The KYP Platform | From Onboarding to Audit",
@@ -272,12 +273,14 @@ export default function PlatformPage() {
         </div>
       </section>
 
-      {/* SECTION 5 – GRAPH INTELLIGENCE */}
+      {/* SECTION 5 – GRAPH INTELLIGENCE & 3D ORBITAL SHOWCASE */}
+      <RiskIntelligenceGraphShowcase />
+
       <section id="graph-intelligence" className="py-20 lg:py-28 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-12">
           <div className="max-w-3xl">
             <span className="text-xs font-mono text-emerald-700 uppercase tracking-widest font-bold">
-              Section 03 &bull; Entity Resolution &amp; Contagion
+              Interactive Network &bull; Entity Resolution &amp; Contagion
             </span>
             <h2 className="text-3xl sm:text-5xl font-bold text-slate-900 mt-2 tracking-tight">
               See the Connections Behind the Risks.

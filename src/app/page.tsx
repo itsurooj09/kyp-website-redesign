@@ -20,6 +20,8 @@ import { PartnerLogo, CredentialBadge } from "@/components/home/PartnerLogos";
 import KYPLottie from "@/components/lottie/KYPLottie";
 import PurposeBuiltSolutions from "@/components/home/PurposeBuiltSolutions";
 import WorkflowSLADemo from "@/components/home/WorkflowSLADemo";
+import ProvenInProduction from "@/components/home/ProvenInProduction";
+import RiskIntelligenceGraphShowcase from "@/components/home/RiskIntelligenceGraphShowcase";
 
 export default function HomePage() {
   const latestThreeNews = newsArticlesData.slice(0, 3);
@@ -141,6 +143,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* PROVEN IN PRODUCTION (Itemize-Style 4-Card SLA Matrix from User Image) */}
+      <ProvenInProduction />
+
       {/* SECTION 3 – THE PROBLEM */}
       <section className="py-20 lg:py-28 bg-white border-b border-slate-200 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -221,7 +226,10 @@ export default function HomePage() {
       {/* SECTION 4 – INDUSTRY TABS (Replaces Image 1 card grid with interactive tabs & simulation) */}
       <IndustryTabs />
 
-      {/* PURPOSE-BUILT OPERATING SOLUTIONS CARDS (Horizontal Suite) */}
+      {/* THE RISK INTELLIGENCE GRAPH™ (Flagship Section from Recording 2026-11-02 153705) */}
+      <RiskIntelligenceGraphShowcase />
+
+      {/* PURPOSE-BUILT OPERATING SOLUTIONS CARDS (Horizontal Suite from Recording 2026-11-02 153808) */}
       <PurposeBuiltSolutions />
 
       {/* SECTION 5 – PLATFORM HIGHLIGHTS (Expansive light layout & animated analytics command center) */}
