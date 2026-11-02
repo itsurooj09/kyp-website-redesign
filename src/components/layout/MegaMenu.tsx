@@ -16,6 +16,12 @@ import {
   Cpu,
   Sparkles,
   ExternalLink,
+  CreditCard,
+  Gamepad2,
+  Landmark,
+  Store,
+  Compass,
+  FileText
 } from "lucide-react";
 import { MegaMenuCategory } from "@/data/navigation";
 import { routes } from "@/lib/routes";
@@ -41,58 +47,189 @@ interface MegaMenuColumn {
   items: MegaMenuItem[];
 }
 
-// 4 Signature Pillars matching SEON's clean 4-column architecture in Image 2
-const SEON_COLUMNS: MegaMenuColumn[] = [
+// 1. USE CASES: The 10 Official Scope of Work Use Cases in 4 SEON Columns
+const USE_CASE_COLUMNS: MegaMenuColumn[] = [
   {
-    key: "onboarding",
-    title: "ONBOARDING & KYB",
-    icon: <ShieldAlert className="w-4 h-4 text-sky-600" />,
-    badgeColor: "text-sky-700 bg-sky-50 border-sky-200",
-    items: [
-      { title: "AI-Powered KYB Intake", href: routes.onboarding, desc: "Instant extraction & discrepancy checks before submission" },
-      { title: "OCR Document Verification", href: routes.onboarding, desc: "Articles of association & registry cross-checks" },
-      { title: "Digital Registry Lookup", href: routes.platform, desc: "Live API access to 180+ global registries" },
-      { title: "Smart Intake Questionnaires", href: routes.onboarding, desc: "Policy-tailored partner verification forms" },
-      { title: "Pre-Screening Radar", href: routes.platform, desc: "Proactive fraud & bot entity detection" },
-    ],
-  },
-  {
-    key: "monitoring",
-    title: "CONTINUOUS SURVEILLANCE",
-    icon: <Activity className="w-4 h-4 text-emerald-600" />,
+    key: "onboarding-edd",
+    title: "ONBOARDING & EDD",
+    icon: <UserCheck className="w-4 h-4 text-emerald-600" />,
     badgeColor: "text-emerald-700 bg-emerald-50 border-emerald-200",
     items: [
-      { title: "Volumetric Monitoring", href: routes.platform, desc: "Real-time payment volume & velocity anomaly detection" },
-      { title: "WebCompli™ Scheme Crawler", href: routes.platform, desc: "Automated Mastercard BRAM & Visa VIRP surveillance" },
-      { title: "Merchant Behavioural Shifts", href: routes.platform, desc: "Detect unauthorized product drift & URL redirects" },
-      { title: "24/7 Regulatory Blacklist Alerting", href: routes.platform, desc: "Immediate warning when partners breach compliance" },
-      { title: "Automated Policy Engine", href: routes.platform, desc: "Custom threshold rules per tier and portfolio" },
+      {
+        title: "AI-Powered Business Onboarding",
+        href: routes.onboarding,
+        desc: "Automated document checks & questionnaire pre-screening",
+        badge: "Core",
+      },
+      {
+        title: "Enhanced Compliance (EDD)",
+        href: routes.enhancedCompliance,
+        desc: "In-depth due diligence for high-risk corporate structures",
+      },
+      {
+        title: "Automated Policy Rules",
+        href: routes.automatedPolicyRules,
+        desc: "Configurable review thresholds tailored to your policies",
+      },
     ],
   },
   {
-    key: "aml",
-    title: "AML & INVESTIGATIONS",
+    key: "portfolio-surveillance",
+    title: "PORTFOLIO & ISSUING",
+    icon: <CreditCard className="w-4 h-4 text-sky-600" />,
+    badgeColor: "text-sky-700 bg-sky-50 border-sky-200",
+    items: [
+      {
+        title: "Portfolio Issuing Monitoring",
+        href: routes.issuingMonitoring,
+        desc: "Continuous visibility for card issuing programmes & limits",
+      },
+      {
+        title: "Transaction Monitoring",
+        href: routes.transactionMonitoring,
+        desc: "Detect velocity spikes, structuring, and payment anomalies",
+      },
+      {
+        title: "ESG AI Alerting",
+        href: routes.esgAlerting,
+        desc: "Agentic research into governance controversies & ethics",
+      },
+    ],
+  },
+  {
+    key: "aml-crime",
+    title: "FINANCIAL CRIME & AML",
     icon: <Layers className="w-4 h-4 text-purple-600" />,
     badgeColor: "text-purple-700 bg-purple-50 border-purple-200",
     items: [
-      { title: "AML Compliance & Screening", href: routes.aml, desc: "Global OFAC, EU, UN, and UK HMT sanctions lists synced 24/7" },
-      { title: "PEP & Adverse Media Scanning", href: routes.aml, desc: "Autonomous news & regulatory gazette analysis" },
-      { title: "KYP Graph Intelligence™", href: routes.platform, desc: "Unravel multi-tier holding companies & circular equity", badge: "Interactive" },
-      { title: "UBO Resolution Engine", href: routes.platform, desc: "38.5%+ controlling shareholder detection" },
-      { title: "Case Management Workspace", href: routes.platform, desc: "Unified evidence timeline & analyst notes" },
+      {
+        title: "Anti Money Laundering (AML)",
+        href: routes.aml,
+        desc: "Real-time sanctions, PEP lists, and adverse media scans",
+        badge: "Live Sentinel",
+      },
+      {
+        title: "Graph Intelligence™",
+        href: routes.platformGraphIntelligence,
+        desc: "Map complex UBO webs and circular corporate shareholdings",
+        badge: "Interactive",
+      },
     ],
   },
   {
-    key: "audit",
+    key: "web-audit",
+    title: "WEB & AUDIT COMPLIANCE",
+    icon: <FileCheck2 className="w-4 h-4 text-blue-600" />,
+    badgeColor: "text-blue-700 bg-blue-50 border-blue-200",
+    items: [
+      {
+        title: "Website Compliance (WebCompli)",
+        href: routes.websiteCompliance,
+        desc: "Mastercard BRAM & Visa VIRP automated policy crawl",
+        badge: "Zero Fines",
+      },
+      {
+        title: "Illegal Traffic Detection",
+        href: routes.illegalTrafficDetection,
+        desc: "Identify unauthorized redirects & blacklisted domains",
+      },
+      {
+        title: "Instant Audit Ready Reporting",
+        href: routes.instantAuditReporting,
+        desc: "60-second regulator-ready dossiers for FCA & card schemes",
+      },
+    ],
+  },
+];
+
+// 2. PLATFORM: Platform Core Architecture in 4 SEON Columns
+const PLATFORM_COLUMNS: MegaMenuColumn[] = [
+  {
+    key: "core",
+    title: "CORE ARCHITECTURE",
+    icon: <Cpu className="w-4 h-4 text-sky-600" />,
+    badgeColor: "text-sky-700 bg-sky-50 border-sky-200",
+    items: [
+      { title: "Platform Overview", href: routes.platformOverview, desc: "Unified risk sentinel connecting intake to audit" },
+      { title: "Data & Integrations", href: routes.platformDataIntegrations, desc: "Live API access to 180+ global registries & watchlists" },
+      { title: "Defensible Audit Trails", href: routes.platformEvidenceDecisions, desc: "SHA-256 cryptographically timestamped event logging" },
+    ],
+  },
+  {
+    key: "ai-intake",
+    title: "AI INTAKE & VERIFICATION",
+    icon: <ShieldAlert className="w-4 h-4 text-emerald-600" />,
+    badgeColor: "text-emerald-700 bg-emerald-50 border-emerald-200",
+    items: [
+      { title: "AI-Powered Onboarding", href: routes.platformAiOnboarding, desc: "OCR validation & discrepancy detection before submission" },
+      { title: "Smart Questionnaire Engine", href: routes.onboarding, desc: "Dynamic risk-tailored intake questionnaires" },
+      { title: "Digital Registry Lookup", href: routes.platform, desc: "Instant corporate filings and registry validation" },
+    ],
+  },
+  {
+    key: "surveillance",
+    title: "SURVEILLANCE & GRAPH",
+    icon: <Activity className="w-4 h-4 text-purple-600" />,
+    badgeColor: "text-purple-700 bg-purple-50 border-purple-200",
+    items: [
+      { title: "Graph Intelligence™", href: routes.platformGraphIntelligence, desc: "Interactive multi-tier entity resolution", badge: "Interactive" },
+      { title: "Continuous Monitoring & Alerts", href: routes.platformMonitoringAlerts, desc: "24/7 corporate changes, sanctions, and director tracking" },
+      { title: "WebCompli Scheme Sentinel", href: routes.websiteCompliance, desc: "Continuous merchant web surveillance" },
+    ],
+  },
+  {
+    key: "decisions",
     title: "AUDIT & REPORTING",
     icon: <FileCheck2 className="w-4 h-4 text-blue-600" />,
     badgeColor: "text-blue-700 bg-blue-50 border-blue-200",
     items: [
-      { title: "60-Second Audit Dossier", href: routes.platform, desc: "Regulator-ready chronological compliance pack" },
-      { title: "Cryptographic SHA-256 Trails", href: routes.platform, desc: "100% defensible immutable activity logs" },
-      { title: "SAR / STR Reporting Hub", href: routes.aml, desc: "Automated regulatory disclosure formatting" },
+      { title: "60-Second Audit Dossier", href: routes.instantAuditReporting, desc: "Regulator-ready chronological compliance pack" },
+      { title: "Case Management Workspace", href: routes.platformEvidenceDecisions, desc: "Unified evidence timeline & analyst triage" },
       { title: "Sponsor Bank Oversight", href: routes.platform, desc: "Exportable partner oversight packages" },
-      { title: "Investigate with AI", href: routes.platform, desc: "Natural language query over merchant ecosystem" },
+    ],
+  },
+];
+
+// 3. INDUSTRIES: 4 Columns covering target risk sectors
+const INDUSTRY_COLUMNS: MegaMenuColumn[] = [
+  {
+    key: "payments",
+    title: "PAYMENTS & PSPS",
+    icon: <CreditCard className="w-4 h-4 text-sky-600" />,
+    badgeColor: "text-sky-700 bg-sky-50 border-sky-200",
+    items: [
+      { title: "Payments & PSPs", href: routes.payments, desc: "Merchant portfolio monitoring, chargeback alerts & BRAM/VIRP" },
+      { title: "Acquirers & PayFacs", href: routes.acquirers, desc: "Oversight across ISOs, agents, and nested merchant portfolios" },
+    ],
+  },
+  {
+    key: "gaming",
+    title: "IGAMING & GAMBLING",
+    icon: <Gamepad2 className="w-4 h-4 text-emerald-600" />,
+    badgeColor: "text-emerald-700 bg-emerald-50 border-emerald-200",
+    items: [
+      { title: "iGaming & Gambling", href: routes.igaming, desc: "Automate operator due diligence, affiliate tracking & licensing" },
+      { title: "Illegal Traffic Monitoring", href: routes.illegalTrafficDetection, desc: "Block unauthorized affiliate redirect domains" },
+    ],
+  },
+  {
+    key: "banking",
+    title: "FINANCIAL SERVICES",
+    icon: <Landmark className="w-4 h-4 text-purple-600" />,
+    badgeColor: "text-purple-700 bg-purple-50 border-purple-200",
+    items: [
+      { title: "Banking & Financial Services", href: routes.banking, desc: "Connected financial crime intelligence & continuous risk oversight" },
+      { title: "Fintech Fast Growth", href: routes.fintech, desc: "API-first scalable KYB and sanctions screening" },
+    ],
+  },
+  {
+    key: "marketplaces",
+    title: "PLATFORMS & MARKETPLACES",
+    icon: <Store className="w-4 h-4 text-blue-600" />,
+    badgeColor: "text-blue-700 bg-blue-50 border-blue-200",
+    items: [
+      { title: "Marketplaces & Platforms", href: routes.marketplaces, desc: "High-volume seller vetting, counterfeit detection & payouts" },
+      { title: "Explore Sector Simulator", href: "/#industry-tabs", desc: "Interactive industry pipeline simulation", badge: "Interactive" },
     ],
   },
 ];
@@ -100,8 +237,18 @@ const SEON_COLUMNS: MegaMenuColumn[] = [
 export default function MegaMenu({ category, isOpen, onClose }: MegaMenuProps) {
   if (!isOpen) return null;
 
-  // For Platform or Use Cases, show the comprehensive 4-column SEON-inspired mega menu
-  const isPlatformOrSolutions = category.title === "Platform" || category.title === "Use Cases";
+  // Determine active column structure
+  let columnsToRender = USE_CASE_COLUMNS;
+  if (category.title === "Platform") {
+    columnsToRender = PLATFORM_COLUMNS;
+  } else if (category.title === "Industries") {
+    columnsToRender = INDUSTRY_COLUMNS;
+  } else if (category.title === "Use Cases" || category.title === "Solutions") {
+    columnsToRender = USE_CASE_COLUMNS;
+  } else {
+    // For Resources or Company, use their standard section layout
+    columnsToRender = [];
+  }
 
   return (
     <div
@@ -109,13 +256,13 @@ export default function MegaMenu({ category, isOpen, onClose }: MegaMenuProps) {
       onMouseLeave={onClose}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        {isPlatformOrSolutions ? (
-          /* SEON Style 4 Columns exactly matching Image 2 */
+        {columnsToRender.length > 0 ? (
+          /* SEON Style 4 Columns */
           <div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {SEON_COLUMNS.map((col) => (
+              {columnsToRender.map((col) => (
                 <div key={col.key} className="space-y-4">
-                  {/* Column Header matching SEON Image 2 */}
+                  {/* Column Header */}
                   <div className="flex items-center gap-2 border-b border-slate-100 pb-3">
                     <div className="p-1.5 rounded-lg bg-slate-50 border border-slate-100">
                       {col.icon}
@@ -163,17 +310,17 @@ export default function MegaMenu({ category, isOpen, onClose }: MegaMenuProps) {
               </div>
               <div className="flex items-center gap-4">
                 <Link
-                  href={routes.onboarding}
+                  href={routes.insights}
                   onClick={onClose}
                   className="font-semibold text-slate-700 hover:text-emerald-700 transition-colors flex items-center gap-1"
                 >
-                  <span>Explore AI Onboarding Spec</span>
+                  <span>Browse KYP Insights & Whitepapers</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
                 <Link
                   href={routes.bookDemo}
                   onClick={onClose}
-                  className="px-4 py-1.5 rounded-full bg-slate-900 text-white font-semibold hover:bg-slate-800 transition-colors"
+                  className="px-4 py-1.5 rounded-full bg-slate-900 text-white font-semibold hover:bg-slate-800 transition-colors shadow-sm"
                 >
                   Schedule Consultation
                 </Link>
@@ -181,7 +328,7 @@ export default function MegaMenu({ category, isOpen, onClose }: MegaMenuProps) {
             </div>
           </div>
         ) : (
-          /* General Category Layout (Industries / Resources / Company) */
+          /* General Category Layout (Resources / Company) */
           <div className="grid grid-cols-12 gap-8 items-start">
             <div className="col-span-12 lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-8">
               {category.sections.map((section, idx) => (
@@ -201,7 +348,7 @@ export default function MegaMenu({ category, isOpen, onClose }: MegaMenuProps) {
                           <span className="text-sm font-semibold text-slate-700 group-hover:text-emerald-700 transition-colors flex items-center gap-2">
                             {item.title}
                             {item.badge && (
-                              <span className="px-1.5 py-0.5 text-[9px] font-mono rounded bg-emerald-50 text-emerald-700 border border-emerald-200">
+                              <span className="px-1.5 py-0.5 text-[9px] font-mono rounded bg-emerald-50 text-emerald-700 border border-emerald-200 font-bold">
                                 {item.badge}
                               </span>
                             )}
@@ -209,7 +356,7 @@ export default function MegaMenu({ category, isOpen, onClose }: MegaMenuProps) {
                           <ArrowRight className="w-3.5 h-3.5 text-slate-300 group-hover:text-emerald-600 group-hover:translate-x-1 transition-all opacity-0 group-hover:opacity-100" />
                         </div>
                         {item.description && (
-                          <p className="text-xs text-slate-400 mt-0.5 line-clamp-2">
+                          <p className="text-xs text-slate-400 mt-0.5 line-clamp-1 group-hover:text-slate-500">
                             {item.description}
                           </p>
                         )}
@@ -220,31 +367,28 @@ export default function MegaMenu({ category, isOpen, onClose }: MegaMenuProps) {
               ))}
             </div>
 
-            {/* Right Highlight Box */}
-            <div className="col-span-12 lg:col-span-4 border-l border-slate-100 pl-0 lg:pl-8">
-              <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-3">
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-mono font-bold uppercase">
-                  <Sparkles className="w-3 h-3" />
-                  Regulatory Leadership
+            {/* Featured Box on Right */}
+            {category.featured && (
+              <div className="col-span-12 lg:col-span-4 bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-4">
+                <span className="text-[10px] font-mono font-bold text-emerald-700 uppercase tracking-wider bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
+                  {category.featured.tag}
                 </span>
-                <h4 className="text-base font-bold text-slate-900">
-                  Defending Portfolios Against $100k+ Card Scheme Violations
+                <h4 className="text-base font-bold text-slate-900 leading-snug">
+                  {category.featured.title}
                 </h4>
                 <p className="text-xs text-slate-500 leading-relaxed">
-                  How KYP&apos;s WebCompli™ automated crawling eliminates Mastercard BRAM and Visa VIRP non-compliance for payment institutions.
+                  {category.featured.description}
                 </p>
-                <div className="pt-2">
-                  <Link
-                    href={routes.whitepapers}
-                    onClick={onClose}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 hover:text-emerald-800"
-                  >
-                    <span>Read Whitepaper</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
+                <Link
+                  href={category.featured.href}
+                  onClick={onClose}
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-900 hover:text-emerald-700 transition-colors pt-1"
+                >
+                  <span>Explore Knowledge Hub</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
               </div>
-            </div>
+            )}
           </div>
         )}
       </div>

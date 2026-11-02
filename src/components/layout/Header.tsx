@@ -58,7 +58,7 @@ export default function Header() {
 
   const navItems = [
     { key: "platform", label: "Platform" },
-    { key: "useCases", label: "Solutions" },
+    { key: "useCases", label: "Use Cases" },
     { key: "industries", label: "Industries" },
     { key: "resources", label: "Resources" },
     { key: "company", label: "Company" },

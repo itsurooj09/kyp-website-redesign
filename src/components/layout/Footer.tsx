@@ -39,6 +39,7 @@ export default function Footer() {
   ];
 
   const resourceLinks = [
+    { label: "Insights Hub", href: routes.insights },
     { label: "Frequently Asked Questions", href: routes.faq },
     { label: "Latest News & Press", href: routes.news },
     { label: "Research & Whitepapers", href: routes.whitepapers },
@@ -48,7 +49,8 @@ export default function Footer() {
     { label: "About KYP", href: routes.about },
     { label: "Careers", href: routes.careers },
     { label: "Contact Us", href: routes.contact },
-    { label: "Book a Demo", href: routes.contact },
+    { label: "Privacy & Cookies", href: routes.privacy },
+    { label: "Book a Demo", href: routes.bookDemo },
   ];
 
   return (
@@ -134,21 +136,16 @@ export default function Footer() {
               Use Cases
             </h4>
             <ul className="space-y-2.5 text-xs text-gray-400">
-              {useCaseLinks.map((link, idx) => {
-                const isHash = link.href === "#";
-                return (
-                  <li key={idx}>
-                    <Link
-                      href={link.href}
-                      className={`hover:text-kyp-lime transition-colors block ${
-                        isHash ? "opacity-70 hover:opacity-100" : "text-gray-300 font-medium"
-                      }`}
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                );
-              })}
+              {useCaseLinks.map((link, idx) => (
+                <li key={idx}>
+                  <Link
+                    href={link.href}
+                    className="hover:text-kyp-lime transition-colors block text-gray-300 font-medium"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -238,7 +235,7 @@ export default function Footer() {
             <Link href={routes.about} className="hover:text-gray-400 transition-colors">
               Terms of Service
             </Link>
-            <Link href={routes.about} className="hover:text-gray-400 transition-colors">
+            <Link href={routes.privacy} className="hover:text-gray-400 transition-colors">
               Privacy & Cookies
             </Link>
             <Link href={routes.about} className="hover:text-gray-400 transition-colors">

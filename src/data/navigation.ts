@@ -204,25 +204,31 @@ export const navigationData: Record<"platform" | "industries" | "useCases" | "re
 
   resources: {
     title: "Resources",
-    href: routes.faq,
+    href: routes.insights,
     sections: [
       {
         title: "KNOWLEDGE & RESEARCH",
         items: [
           {
-            title: "FAQ",
-            href: routes.faq,
-            description: "Comprehensive answers to compliance, technical, and implementation questions.",
+            title: "Insights Hub",
+            href: routes.insights,
+            description: "Centralized intelligence, regulatory analyses, and scheme briefings.",
+            badge: "New",
           },
           {
-            title: "News & Insights",
+            title: "News & Press",
             href: routes.news,
-            description: "Latest announcements, partnerships, industry commentary, and press releases.",
+            description: "Latest announcements, partnerships, and product releases.",
           },
           {
             title: "Whitepapers",
             href: routes.whitepapers,
             description: "In-depth research on KYB trends, regulatory frameworks, and risk models.",
+          },
+          {
+            title: "FAQ",
+            href: routes.faq,
+            description: "Comprehensive answers to compliance, technical, and implementation questions.",
           },
         ],
       },
@@ -231,7 +237,7 @@ export const navigationData: Record<"platform" | "industries" | "useCases" | "re
       title: "2026 Enterprise Risk & Compliance Report",
       description: "Why continuous partner intelligence is replacing annual periodic reviews across top European fintechs.",
       tag: "Featured Guide",
-      href: routes.whitepapers,
+      href: routes.insights,
       image: "/images/screenshots/kyp-ui-display.webp",
     },
   },
@@ -258,6 +264,11 @@ export const navigationData: Record<"platform" | "industries" | "useCases" | "re
             title: "Contact",
             href: routes.contact,
             description: "Connect with our compliance specialists or book a personalized platform demo.",
+          },
+          {
+            title: "Privacy & Cookies",
+            href: routes.privacy,
+            description: "Statutory compliance, GDPR data subject rights, and cookie management.",
           },
         ],
       },

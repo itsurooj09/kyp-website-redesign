@@ -1,9 +1,10 @@
 /**
  * KYP Centralized Routing Configuration
  * Ensures unified routing across headers, mega-menus, footers, cards and buttons.
- * Unimplemented future pages point strictly to "#" to prevent 404s.
+ * Complete 20-Page Scope of Work mapping.
  */
 export const routes = {
+  // Core General Pages (10 Total)
   home: "/",
   platform: "/platform",
   platformOverview: "/platform#overview",
@@ -13,39 +14,36 @@ export const routes = {
   platformMonitoringAlerts: "/platform#monitoring-alerts",
   platformEvidenceDecisions: "/platform#evidence-decisions",
   
-  // Use Cases
-  onboarding: "/use-cases/onboarding",
-  aml: "/use-cases/anti-money-laundering",
-  
-  // Future Use Cases (point to "#" as per specification)
-  issuingMonitoring: "#",
-  automatedPolicyRules: "#",
-  websiteCompliance: "#",
-  transactionMonitoring: "#",
-  illegalTrafficDetection: "#",
-  esgAlerting: "#",
-  enhancedCompliance: "#",
-  instantAuditReporting: "#",
-
-  // Industries (future pages point to "#")
-  igaming: "#",
-  payments: "#",
-  acquirers: "#",
-  banking: "#",
-  fintech: "#",
-  marketplaces: "#",
-
-  // Resources
   faq: "/faq",
+  insights: "/insights",
   news: "/news",
   whitepapers: "/whitepapers",
-
-  // Company
   about: "/about",
   careers: "/careers",
   contact: "/contact",
+  privacy: "/privacy-and-cookies",
+  
+  // Use Case Pages (10 Total - Full Scope of Work)
+  onboarding: "/use-cases/onboarding",
+  issuingMonitoring: "/use-cases/portfolio-issuing-monitoring",
+  aml: "/use-cases/anti-money-laundering",
+  automatedPolicyRules: "/use-cases/automated-policy-rules",
+  websiteCompliance: "/use-cases/website-compliance",
+  transactionMonitoring: "/use-cases/transaction-monitoring",
+  illegalTrafficDetection: "/use-cases/illegal-traffic-detection",
+  esgAlerting: "/use-cases/esg-ai-alerting",
+  enhancedCompliance: "/use-cases/enhanced-compliance",
+  instantAuditReporting: "/use-cases/instant-audit-reporting",
 
-  // Main CTA
+  // Industries (Handled via interactive tabbed experience on Home & Platform per SOW)
+  igaming: "/#industry-tabs",
+  payments: "/#industry-tabs",
+  acquirers: "/#industry-tabs",
+  banking: "/#industry-tabs",
+  fintech: "/#industry-tabs",
+  marketplaces: "/#industry-tabs",
+
+  // Main Call to Action
   bookDemo: "/contact",
 } as const;
 

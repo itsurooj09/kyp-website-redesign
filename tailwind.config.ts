@@ -11,6 +11,13 @@ const config: Config = {
     extend: {
       colors: {
         kyp: {
+          // Official Client SOW Brand Palette (#000000, #66cc00, #c6f5ef, #6fd3c4, #033653)
+          brandBlack: "#000000",
+          brandLime: "#66cc00",
+          brandIce: "#c6f5ef",
+          brandTeal: "#6fd3c4",
+          brandNavy: "#033653",
+
           black: "#0f172a", // Dark text / accents
           white: "#ffffff",
           slate: {
