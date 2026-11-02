@@ -210,7 +210,7 @@ export default function DashboardMockup() {
   };
 
   return (
-    <div className="w-full bg-black/95 rounded-2xl border border-kyp-teal/30 overflow-hidden shadow-2xl kyp-grid-pattern relative">
+    <div className="w-full bg-black/95 rounded-2xl border border-[#033653] overflow-hidden shadow-2xl kyp-grid-pattern relative">
       {/* Toast Alert */}
       {toastMsg && (
         <div className="absolute top-4 right-4 z-50 bg-kyp-lime text-black px-4 py-2 rounded-xl font-mono text-xs font-bold shadow-lime-glow flex items-center gap-2 animate-bounce">
@@ -220,7 +220,7 @@ export default function DashboardMockup() {
       )}
 
       {/* Top Console Bar */}
-      <div className="p-4 sm:p-6 border-b border-kyp-teal/15 bg-kyp-navy-surface/90 flex flex-wrap items-center justify-between gap-4">
+      <div className="p-4 sm:p-6 border-b border-[#033653] bg-kyp-navy-surface/90 flex flex-wrap items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-kyp-lime animate-ping" />
@@ -246,7 +246,7 @@ export default function DashboardMockup() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Filter company, country, UBO..."
-              className="pl-8 pr-3 py-1.5 rounded-xl bg-black/80 border border-kyp-teal/25 text-xs font-mono text-white placeholder-gray-500 focus:outline-none focus:border-kyp-lime transition-colors w-48 sm:w-56"
+              className="pl-8 pr-3 py-1.5 rounded-xl bg-black/80 border border-[#033653] text-xs font-mono text-white placeholder-gray-500 focus:outline-none focus:border-kyp-lime transition-colors w-48 sm:w-56"
             />
             {search && (
               <button
@@ -260,7 +260,7 @@ export default function DashboardMockup() {
           </div>
 
           {/* Filter Tabs with Clear Active Feedback */}
-          <div className="flex items-center gap-1 p-1 rounded-xl bg-black/80 border border-kyp-teal/25 text-xs font-mono">
+          <div className="flex items-center gap-1 p-1 rounded-xl bg-black/80 border border-[#033653] text-xs font-mono">
             <button
               type="button"
               onClick={() => setActiveTab("all")}
@@ -271,7 +271,7 @@ export default function DashboardMockup() {
               }`}
             >
               <span>All Records</span>
-              <span className={`px-1.5 py-0.2 rounded text-[10px] ${activeTab === "all" ? "bg-black/20 text-black font-bold" : "bg-kyp-navy text-kyp-teal"}`}>
+              <span className={`px-1.5 py-0.2 rounded text-[10px] ${activeTab === "all" ? "bg-black/20 text-black font-bold" : "bg-kyp-navy text-[#66cc00]"}`}>
                 {merchants.length}
               </span>
             </button>
@@ -296,12 +296,12 @@ export default function DashboardMockup() {
               onClick={() => setActiveTab("compliant")}
               className={`px-3 py-1.5 rounded-lg transition-all duration-200 flex items-center gap-1.5 cursor-pointer ${
                 activeTab === "compliant"
-                  ? "bg-kyp-teal text-black font-bold shadow-md"
+                  ? "bg-[#66cc00] text-black font-bold shadow-md"
                   : "text-gray-300 hover:text-white hover:bg-white/5"
               }`}
             >
               <span>Compliant</span>
-              <span className={`px-1.5 py-0.2 rounded text-[10px] ${activeTab === "compliant" ? "bg-black/20 text-black font-bold" : "bg-kyp-teal/20 text-kyp-teal"}`}>
+              <span className={`px-1.5 py-0.2 rounded text-[10px] ${activeTab === "compliant" ? "bg-black/20 text-black font-bold" : "bg-[#66cc00]/15 text-[#66cc00]"}`}>
                 {compliantCount}
               </span>
             </button>
@@ -320,25 +320,25 @@ export default function DashboardMockup() {
       </div>
 
       {/* KPI Ribbon */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 p-4 sm:p-5 bg-kyp-black/60 border-b border-kyp-teal/15 text-xs">
-        <div className="p-3 rounded-xl bg-kyp-navy-surface/80 border border-kyp-teal/20">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 p-4 sm:p-5 bg-kyp-black/60 border-b border-[#033653] text-xs">
+        <div className="p-3 rounded-xl bg-kyp-navy-surface/80 border border-[#033653]">
           <div className="text-[10px] font-mono text-gray-400 uppercase">Monitored Portfolio</div>
           <div className="text-lg font-bold text-white mt-0.5">{1243 + merchants.length} Entities</div>
           <div className="text-[10px] text-kyp-lime font-mono mt-0.5">100% Continuous Coverage</div>
         </div>
-        <div className="p-3 rounded-xl bg-kyp-navy-surface/80 border border-kyp-teal/20">
+        <div className="p-3 rounded-xl bg-kyp-navy-surface/80 border border-[#033653]">
           <div className="text-[10px] font-mono text-gray-400 uppercase">Active Risk Flags</div>
           <div className="text-lg font-bold text-yellow-400 mt-0.5">{reviewCount} In Active Scope</div>
           <div className="text-[10px] text-gray-400 font-mono mt-0.5">Triage Time: &lt;15 Mins</div>
         </div>
-        <div className="p-3 rounded-xl bg-kyp-navy-surface/80 border border-kyp-teal/20">
+        <div className="p-3 rounded-xl bg-kyp-navy-surface/80 border border-[#033653]">
           <div className="text-[10px] font-mono text-gray-400 uppercase">WebCompli Status</div>
           <div className="text-lg font-bold text-kyp-mint mt-0.5">Zero BRAM Fines</div>
           <div className="text-[10px] text-kyp-lime font-mono mt-0.5">Automated Sweep: Pass</div>
         </div>
-        <div className="p-3 rounded-xl bg-kyp-navy-surface/80 border border-kyp-teal/20">
+        <div className="p-3 rounded-xl bg-kyp-navy-surface/80 border border-[#033653]">
           <div className="text-[10px] font-mono text-gray-400 uppercase">Audit Dossiers</div>
-          <div className="text-lg font-bold text-kyp-teal mt-0.5">60-Sec Generator</div>
+          <div className="text-lg font-bold text-[#66cc00] mt-0.5">60-Sec Generator</div>
           <div className="text-[10px] text-kyp-mint font-mono mt-0.5">FCA &amp; Scheme Compliant</div>
         </div>
       </div>
@@ -347,7 +347,7 @@ export default function DashboardMockup() {
       <div className="w-full overflow-x-auto">
         <table className="w-full text-left text-xs border-collapse min-w-[760px]">
           <thead>
-            <tr className="border-b border-kyp-teal/20 bg-black/80 text-kyp-teal font-mono uppercase text-[10px] tracking-wider">
+            <tr className="border-b border-[#033653] bg-black/80 text-[#66cc00] font-mono uppercase text-[10px] tracking-wider">
               <th className="py-3 px-4 sm:px-6">Merchant / Partner</th>
               <th className="py-3 px-4">Sector</th>
               <th className="py-3 px-4">Jurisdiction</th>
@@ -433,7 +433,7 @@ export default function DashboardMockup() {
                             e.stopPropagation();
                             handleOpenDossier(m);
                           }}
-                          className="px-2.5 py-1 rounded-lg bg-kyp-navy-surface border border-kyp-teal/30 hover:border-kyp-lime hover:text-kyp-lime text-[11px] font-mono text-kyp-mint transition-all cursor-pointer"
+                          className="px-2.5 py-1 rounded-lg bg-kyp-navy-surface border border-[#033653] hover:border-kyp-lime hover:text-kyp-lime text-[11px] font-mono text-kyp-mint transition-all cursor-pointer"
                         >
                           Dossier &rarr;
                         </button>
@@ -448,7 +448,7 @@ export default function DashboardMockup() {
       </div>
 
       {/* Footer Info Strip */}
-      <div className="p-3 bg-black/90 border-t border-kyp-teal/15 flex flex-wrap items-center justify-between text-[11px] font-mono text-gray-400 px-4 sm:px-6 gap-2">
+      <div className="p-3 bg-black/90 border-t border-[#033653] flex flex-wrap items-center justify-between text-[11px] font-mono text-gray-400 px-4 sm:px-6 gap-2">
         <div>
           Showing {filtered.length} of {merchants.length} merchant records &bull; Click any record or Dossier button to view &amp; edit
         </div>
@@ -465,7 +465,7 @@ export default function DashboardMockup() {
             <RotateCcw className="w-3 h-3" />
             <span>Reset Dataset</span>
           </button>
-          <div className="text-kyp-teal">Filter: {activeTab.toUpperCase()}</div>
+          <div className="text-[#66cc00]">Filter: {activeTab.toUpperCase()}</div>
         </div>
       </div>
 
@@ -473,13 +473,13 @@ export default function DashboardMockup() {
       {selectedMerchant && (
         <div className="absolute inset-0 z-40 bg-black/95 backdrop-blur-md p-4 sm:p-6 flex flex-col justify-between overflow-y-auto">
           <div className="space-y-4 max-w-4xl mx-auto w-full">
-            <div className="flex items-center justify-between border-b border-kyp-teal/20 pb-4">
+            <div className="flex items-center justify-between border-b border-[#033653] pb-4">
               <div>
                 <div className="flex items-center gap-2">
                   <span className="text-xs font-mono text-kyp-lime uppercase font-semibold">
                     Entity Compliance Dossier #{selectedMerchant.id}
                   </span>
-                  <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-kyp-teal/20 text-kyp-teal border border-kyp-teal/30">
+                  <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-[#66cc00]/15 text-[#66cc00] border border-[#033653]">
                     {isEditing ? "EDITING MODE" : "VIEW MODE"}
                   </span>
                 </div>
@@ -503,7 +503,7 @@ export default function DashboardMockup() {
                   className={`px-3 py-1.5 rounded-lg border text-xs font-mono font-bold flex items-center gap-1.5 cursor-pointer ${
                     isEditing
                       ? "bg-yellow-400 text-black border-yellow-400"
-                      : "bg-kyp-navy-surface border-kyp-teal/30 text-kyp-mint hover:border-kyp-lime"
+                      : "bg-kyp-navy-surface border-[#033653] text-kyp-mint hover:border-kyp-lime"
                   }`}
                 >
                   <Edit3 className="w-3.5 h-3.5" />
@@ -512,7 +512,7 @@ export default function DashboardMockup() {
                 <button
                   type="button"
                   onClick={() => setSelectedMerchant(null)}
-                  className="p-2 rounded-lg bg-kyp-navy-surface border border-kyp-teal/20 text-gray-300 hover:text-white hover:border-kyp-lime cursor-pointer"
+                  className="p-2 rounded-lg bg-kyp-navy-surface border border-[#033653] text-gray-300 hover:text-white hover:border-kyp-lime cursor-pointer"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -521,35 +521,35 @@ export default function DashboardMockup() {
 
             {/* Editable Fields Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs font-mono">
-              <div className="p-3 rounded-lg bg-kyp-navy-surface border border-kyp-teal/20">
+              <div className="p-3 rounded-lg bg-kyp-navy-surface border border-[#033653]">
                 <span className="text-gray-400">Jurisdiction / Country:</span>
                 {isEditing ? (
                   <input
                     type="text"
                     value={editForm.country || ""}
                     onChange={(e) => setEditForm({ ...editForm, country: e.target.value })}
-                    className="w-full mt-1 bg-black/80 border border-kyp-teal/40 rounded px-2 py-1 text-white text-xs focus:outline-none focus:border-kyp-lime"
+                    className="w-full mt-1 bg-black/80 border border-[#033653] rounded px-2 py-1 text-white text-xs focus:outline-none focus:border-kyp-lime"
                   />
                 ) : (
                   <p className="text-white font-semibold mt-1">{selectedMerchant.country}</p>
                 )}
               </div>
 
-              <div className="p-3 rounded-lg bg-kyp-navy-surface border border-kyp-teal/20">
+              <div className="p-3 rounded-lg bg-kyp-navy-surface border border-[#033653]">
                 <span className="text-gray-400">Sector / Category:</span>
                 {isEditing ? (
                   <input
                     type="text"
                     value={editForm.sector || ""}
                     onChange={(e) => setEditForm({ ...editForm, sector: e.target.value })}
-                    className="w-full mt-1 bg-black/80 border border-kyp-teal/40 rounded px-2 py-1 text-white text-xs focus:outline-none focus:border-kyp-lime"
+                    className="w-full mt-1 bg-black/80 border border-[#033653] rounded px-2 py-1 text-white text-xs focus:outline-none focus:border-kyp-lime"
                   />
                 ) : (
                   <p className="text-white font-semibold mt-1">{selectedMerchant.sector}</p>
                 )}
               </div>
 
-              <div className="p-3 rounded-lg bg-kyp-navy-surface border border-kyp-teal/20">
+              <div className="p-3 rounded-lg bg-kyp-navy-surface border border-[#033653]">
                 <span className="text-gray-400">Risk Score &amp; Status:</span>
                 {isEditing ? (
                   <div className="mt-1 space-y-2">
@@ -567,7 +567,7 @@ export default function DashboardMockup() {
                     <select
                       value={editForm.status || selectedMerchant.status}
                       onChange={(e) => setEditForm({ ...editForm, status: e.target.value as any })}
-                      className="w-full bg-black/80 border border-kyp-teal/40 rounded px-2 py-1 text-white text-xs focus:outline-none focus:border-kyp-lime"
+                      className="w-full bg-black/80 border border-[#033653] rounded px-2 py-1 text-white text-xs focus:outline-none focus:border-kyp-lime"
                     >
                       <option value="Compliant">Compliant</option>
                       <option value="Requires Review">Requires Review</option>
@@ -583,7 +583,7 @@ export default function DashboardMockup() {
             </div>
 
             {/* Verification Details */}
-            <div className="p-4 rounded-xl bg-kyp-navy/60 border border-kyp-teal/25 space-y-3 text-xs">
+            <div className="p-4 rounded-xl bg-kyp-navy/60 border border-[#033653] space-y-3 text-xs">
               <div className="font-semibold text-kyp-mint flex items-center justify-between">
                 <div className="flex items-center gap-1.5">
                   <FileCheck2 className="w-4 h-4 text-kyp-lime" />
@@ -599,7 +599,7 @@ export default function DashboardMockup() {
                     type="text"
                     value={editForm.ubo || ""}
                     onChange={(e) => setEditForm({ ...editForm, ubo: e.target.value })}
-                    className="w-full bg-black/80 border border-kyp-teal/40 rounded px-2 py-1 text-white text-xs focus:outline-none focus:border-kyp-lime"
+                    className="w-full bg-black/80 border border-[#033653] rounded px-2 py-1 text-white text-xs focus:outline-none focus:border-kyp-lime"
                   />
                 ) : (
                   <p className="text-white font-semibold">{selectedMerchant.ubo}</p>
@@ -614,7 +614,7 @@ export default function DashboardMockup() {
                     value={editForm.alertType || ""}
                     onChange={(e) => setEditForm({ ...editForm, alertType: e.target.value })}
                     placeholder="Describe any active scheme flags, sanctions note, or leave empty if clear..."
-                    className="w-full bg-black/80 border border-kyp-teal/40 rounded px-2 py-1 text-white text-xs focus:outline-none focus:border-kyp-lime"
+                    className="w-full bg-black/80 border border-[#033653] rounded px-2 py-1 text-white text-xs focus:outline-none focus:border-kyp-lime"
                   />
                 ) : selectedMerchant.alertType ? (
                   <div className="p-3 rounded-lg bg-red-950/40 border border-red-500/30 text-red-200">
@@ -630,7 +630,7 @@ export default function DashboardMockup() {
 
             {/* Quick Status Modifiers */}
             {isEditing && (
-              <div className="flex flex-wrap items-center gap-2 p-3 rounded-xl bg-black/60 border border-kyp-teal/20 text-xs font-mono">
+              <div className="flex flex-wrap items-center gap-2 p-3 rounded-xl bg-black/60 border border-[#033653] text-xs font-mono">
                 <span className="text-gray-400">Quick Status Presets:</span>
                 <button
                   type="button"
@@ -658,7 +658,7 @@ export default function DashboardMockup() {
           </div>
 
           {/* Footer Bar with Save / Export / Delete */}
-          <div className="pt-4 border-t border-kyp-teal/20 flex flex-wrap items-center justify-between gap-3 max-w-4xl mx-auto w-full">
+          <div className="pt-4 border-t border-[#033653] flex flex-wrap items-center justify-between gap-3 max-w-4xl mx-auto w-full">
             <span className="text-[11px] font-mono text-gray-400">
               SHA-256 Audit Seal: 8f9b2d...c3a4 &bull; Defensible Regulator Trail
             </span>
@@ -687,7 +687,7 @@ export default function DashboardMockup() {
                   <button
                     type="button"
                     onClick={() => setSelectedMerchant(null)}
-                    className="px-4 py-2 rounded-lg bg-kyp-navy-surface border border-kyp-teal/30 text-xs font-mono text-white hover:border-kyp-lime cursor-pointer"
+                    className="px-4 py-2 rounded-lg bg-kyp-navy-surface border border-[#033653] text-xs font-mono text-white hover:border-kyp-lime cursor-pointer"
                   >
                     Close Inspector
                   </button>
@@ -713,7 +713,7 @@ export default function DashboardMockup() {
             onSubmit={handleAddNewSubmit}
             className="w-full max-w-md bg-kyp-navy-surface border border-kyp-lime/40 rounded-2xl p-6 shadow-2xl space-y-4"
           >
-            <div className="flex items-center justify-between border-b border-kyp-teal/20 pb-3">
+            <div className="flex items-center justify-between border-b border-[#033653] pb-3">
               <h4 className="text-lg font-bold text-white flex items-center gap-2">
                 <Plus className="w-5 h-5 text-kyp-lime" />
                 <span>Add Monitored Entity</span>
@@ -736,7 +736,7 @@ export default function DashboardMockup() {
                   placeholder="e.g. Nexus Global FinTech Ltd"
                   value={newForm.name || ""}
                   onChange={(e) => setNewForm({ ...newForm, name: e.target.value })}
-                  className="w-full bg-black/80 border border-kyp-teal/30 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-kyp-lime"
+                  className="w-full bg-black/80 border border-[#033653] rounded-lg px-3 py-2 text-white focus:outline-none focus:border-kyp-lime"
                 />
               </div>
 
@@ -747,7 +747,7 @@ export default function DashboardMockup() {
                     type="text"
                     value={newForm.sector || ""}
                     onChange={(e) => setNewForm({ ...newForm, sector: e.target.value })}
-                    className="w-full bg-black/80 border border-kyp-teal/30 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-kyp-lime"
+                    className="w-full bg-black/80 border border-[#033653] rounded-lg px-3 py-2 text-white focus:outline-none focus:border-kyp-lime"
                   />
                 </div>
                 <div>
@@ -756,7 +756,7 @@ export default function DashboardMockup() {
                     type="text"
                     value={newForm.country || ""}
                     onChange={(e) => setNewForm({ ...newForm, country: e.target.value })}
-                    className="w-full bg-black/80 border border-kyp-teal/30 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-kyp-lime"
+                    className="w-full bg-black/80 border border-[#033653] rounded-lg px-3 py-2 text-white focus:outline-none focus:border-kyp-lime"
                   />
                 </div>
               </div>
@@ -768,7 +768,7 @@ export default function DashboardMockup() {
                   placeholder="e.g. Alexander Cole (45%)"
                   value={newForm.ubo || ""}
                   onChange={(e) => setNewForm({ ...newForm, ubo: e.target.value })}
-                  className="w-full bg-black/80 border border-kyp-teal/30 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-kyp-lime"
+                  className="w-full bg-black/80 border border-[#033653] rounded-lg px-3 py-2 text-white focus:outline-none focus:border-kyp-lime"
                 />
               </div>
 
@@ -781,7 +781,7 @@ export default function DashboardMockup() {
                     max="100"
                     value={newForm.riskScore ?? 25}
                     onChange={(e) => setNewForm({ ...newForm, riskScore: Number(e.target.value) })}
-                    className="w-full bg-black/80 border border-kyp-teal/30 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-kyp-lime"
+                    className="w-full bg-black/80 border border-[#033653] rounded-lg px-3 py-2 text-white focus:outline-none focus:border-kyp-lime"
                   />
                 </div>
                 <div>
@@ -789,7 +789,7 @@ export default function DashboardMockup() {
                   <select
                     value={newForm.status || "Compliant"}
                     onChange={(e) => setNewForm({ ...newForm, status: e.target.value as any })}
-                    className="w-full bg-black/80 border border-kyp-teal/30 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-kyp-lime"
+                    className="w-full bg-black/80 border border-[#033653] rounded-lg px-3 py-2 text-white focus:outline-none focus:border-kyp-lime"
                   >
                     <option value="Compliant">Compliant</option>
                     <option value="Requires Review">Requires Review</option>
@@ -799,11 +799,11 @@ export default function DashboardMockup() {
               </div>
             </div>
 
-            <div className="pt-3 border-t border-kyp-teal/20 flex items-center justify-end gap-2">
+            <div className="pt-3 border-t border-[#033653] flex items-center justify-end gap-2">
               <button
                 type="button"
                 onClick={() => setIsAddingNew(false)}
-                className="px-4 py-2 rounded-lg bg-black/60 border border-kyp-teal/20 text-xs font-mono text-gray-300 hover:text-white"
+                className="px-4 py-2 rounded-lg bg-black/60 border border-[#033653] text-xs font-mono text-gray-300 hover:text-white"
               >
                 Cancel
               </button>

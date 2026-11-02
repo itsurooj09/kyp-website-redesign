@@ -85,8 +85,8 @@ export default function WorkflowSLADemo() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column: Narrative & SLA Value Proposition */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-kyp-mint/40 border border-kyp-teal/40 text-xs font-mono text-kyp-navy font-bold">
-              <Clock className="w-3.5 h-3.5 text-kyp-lime stroke-[2.5]" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#000000] border border-[#033653] text-xs font-mono text-white font-bold">
+              <Clock className="w-3.5 h-3.5 text-[#66cc00] stroke-[2.5]" />
               <span>PROCESSING SPEED SLAS</span>
             </div>
 
@@ -105,11 +105,11 @@ export default function WorkflowSLADemo() {
                 <div className="text-[10px] font-mono text-slate-500 uppercase font-semibold">Legacy Review Cycle</div>
                 <div className="text-xl font-bold text-rose-500 line-through mt-0.5">Weeks to Months</div>
               </div>
-              <div className="p-3.5 rounded-xl bg-kyp-mint/30 border border-kyp-teal/40 shadow-sm">
+              <div className="p-3.5 rounded-xl bg-kyp-mint/30 border border-[#033653] shadow-sm">
                 <div className="text-[10px] font-mono text-kyp-navy uppercase font-bold">KYP Processing SLA</div>
                 <div className="text-xl font-bold text-slate-900 mt-0.5 flex items-center gap-1.5">
                   <span>&lt; 30.0s</span>
-                  <span className="text-xs px-2 py-0.5 rounded bg-kyp-mint border border-kyp-teal/40 text-kyp-navy font-mono font-bold">100% Defensible</span>
+                  <span className="text-xs px-2 py-0.5 rounded bg-kyp-mint border border-[#033653] text-kyp-navy font-mono font-bold">100% Defensible</span>
                 </div>
               </div>
             </div>
@@ -142,7 +142,7 @@ export default function WorkflowSLADemo() {
                 <button
                   type="button"
                   onClick={() => setIsPlaying(!isPlaying)}
-                  className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-black/60 border border-kyp-teal/20 text-xs font-mono text-kyp-mint hover:border-kyp-lime transition-all cursor-pointer"
+                  className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-black/60 border border-[#033653] text-xs font-mono text-kyp-mint hover:border-kyp-lime transition-all cursor-pointer"
                 >
                   {isPlaying ? (
                     <>
@@ -161,7 +161,7 @@ export default function WorkflowSLADemo() {
               {/* 5 Connected Step Circles (Horizontal Stream) */}
               <div className="relative py-6 my-2">
                 {/* Background Connecting Line */}
-                <div className="absolute top-1/2 left-8 right-8 -translate-y-1/2 h-0.5 bg-kyp-teal/20 z-0" />
+                <div className="absolute top-1/2 left-8 right-8 -translate-y-1/2 h-0.5 bg-[#66cc00]/15 z-0" />
 
                 {/* Animated Glowing Progress Line */}
                 <div
@@ -196,7 +196,7 @@ export default function WorkflowSLADemo() {
                                 : "bg-gradient-to-br from-kyp-navy to-kyp-teal text-white font-bold scale-115 shadow-[0_0_28px_rgba(111,211,196,0.6)] ring-4 ring-kyp-teal/40"
                               : isPassed
                               ? "bg-kyp-navy border-2 border-kyp-lime/60 text-kyp-lime"
-                              : "bg-kyp-navy/60 border border-kyp-teal/30 text-gray-400 group-hover:border-kyp-teal group-hover:text-white"
+                              : "bg-kyp-navy/60 border border-[#033653] text-gray-400 group-hover:border-[#033653] group-hover:text-white"
                           }`}
                         >
                           {isPassed ? (
@@ -227,7 +227,7 @@ export default function WorkflowSLADemo() {
                     className={`text-2xl sm:text-4xl font-mono font-bold px-5 py-2 rounded-2xl border transition-all duration-300 flex items-center gap-2 ${
                       isFinalStep
                         ? "bg-kyp-lime/10 border-kyp-lime/50 text-kyp-lime shadow-[0_0_25px_rgba(102,204,0,0.3)]"
-                        : "bg-black/60 border-kyp-teal/30 text-white"
+                        : "bg-black/60 border-[#033653] text-white"
                     }`}
                   >
                     <span>{currentStep.timeDisplay}</span>
@@ -246,7 +246,7 @@ export default function WorkflowSLADemo() {
               </div>
 
               {/* Bottom Footer Tags: VALIDATED • TRACEABLE • AUDITABLE */}
-              <div className="pt-6 border-t border-kyp-teal/15 flex flex-wrap items-center justify-center gap-4 text-[10px] sm:text-[11px] font-mono tracking-widest text-kyp-teal font-semibold">
+              <div className="pt-6 border-t border-[#033653] flex flex-wrap items-center justify-center gap-4 text-[10px] sm:text-[11px] font-mono tracking-widest text-[#66cc00] font-semibold">
                 <span className="hover:text-white transition-colors">VALIDATED</span>
                 <span className="text-gray-600">&bull;</span>
                 <span className="hover:text-white transition-colors">TRACEABLE</span>

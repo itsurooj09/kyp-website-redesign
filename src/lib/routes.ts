@@ -26,6 +26,7 @@ export const routes = {
   // Use Case Pages (10 Total - Full Scope of Work)
   onboarding: "/use-cases/onboarding",
   issuingMonitoring: "/use-cases/portfolio-issuing-monitoring",
+  portfolioIssuing: "/use-cases/portfolio-issuing-monitoring",
   aml: "/use-cases/anti-money-laundering",
   automatedPolicyRules: "/use-cases/automated-policy-rules",
   websiteCompliance: "/use-cases/website-compliance",
@@ -34,6 +35,7 @@ export const routes = {
   esgAlerting: "/use-cases/esg-ai-alerting",
   enhancedCompliance: "/use-cases/enhanced-compliance",
   instantAuditReporting: "/use-cases/instant-audit-reporting",
+  instantAudit: "/use-cases/instant-audit-reporting",
 
   // Industries (Handled via interactive tabbed experience on Home & Platform per SOW)
   igaming: "/#industry-tabs",

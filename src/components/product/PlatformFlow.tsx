@@ -61,7 +61,7 @@ const FLOW_STAGES: FlowStage[] = [
     clientHeading: "Corporate Structure Changes",
     clientDescription: "Direct API verification against 180+ global registries, unravelling complex holding companies, parent entities, and ultimate beneficial owners (UBOs).",
     tagline: "Understand relationships. Uncover hidden exposure. Verify corporate entities in sub-seconds.",
-    icon: <ShieldCheck className="w-4 h-4 text-kyp-teal" />,
+    icon: <ShieldCheck className="w-4 h-4 text-[#66cc00]" />,
     dataPoints: ["180+ Company Registries", "Global Sanctions & PEP", "UBO Graph Resolution", "Adverse Media Scanning"],
     telemetry: { latency: "<250ms", throughput: "180 Registries", accuracy: "100% Traceable" },
   },
@@ -97,7 +97,7 @@ const FLOW_STAGES: FlowStage[] = [
     clientHeading: "Regulatory Compliance Made Easy",
     clientDescription: "Immutable chronological activity trail recording every upload, screening, alert, and analyst sign-off into exportable dossiers in under 60 seconds.",
     tagline: "Turn weeks of audit preparation into seconds. 100% defensible evidence trails.",
-    icon: <FileCheck2 className="w-4 h-4 text-kyp-teal" />,
+    icon: <FileCheck2 className="w-4 h-4 text-[#66cc00]" />,
     dataPoints: ["One-Click Audit Dossiers", "SAR / STR Reporting", "Cryptographic Signatures", "Sponsor Bank Exports"],
     telemetry: { latency: "60 Seconds", throughput: "PDF + JSON Packages", accuracy: "FCA Defensible" },
   },
@@ -121,21 +121,21 @@ const FLOW_NODES: FlowNode[] = [
   { id: "fn-2", name: "AI Document Validation", sub: "OCR & registry cross-check", stage: 0, x: 100, y: 360, r: 24, color: "#66cc00", clientHeading: "Reduce Manual Due Diligence" },
 
   // Stage 1: Verification & Structuring
-  { id: "fn-3", name: "180+ Global Registries", sub: "Corporate filings & status", stage: 1, x: 300, y: 130, r: 26, color: "#6fd3c4", clientHeading: "Corporate Structure Changes" },
+  { id: "fn-3", name: "180+ Global Registries", sub: "Corporate filings & status", stage: 1, x: 300, y: 130, r: 26, color: "#66cc00", clientHeading: "Corporate Structure Changes" },
   { id: "fn-4", name: "Beneficial Ownership", sub: "UBO unbundling graph", stage: 1, x: 300, y: 380, r: 26, color: "#c6f5ef", clientHeading: "Corporate Structure Changes" },
 
   // Stage 2: Central Surveillance Core (Client's Key Headings)
   { id: "fn-5", name: "Volumetric Monitoring", sub: "Velocity spikes & anomaly", stage: 2, x: 500, y: 120, r: 32, color: "#66cc00", clientHeading: "Volumetric Monitoring" },
-  { id: "fn-6", name: "Webcompli™ Scanner", sub: "Mastercard BRAM & Visa VIRP", stage: 2, x: 500, y: 260, r: 34, color: "#6fd3c4", clientHeading: "Webcompli" },
+  { id: "fn-6", name: "Webcompli™ Scanner", sub: "Mastercard BRAM & Visa VIRP", stage: 2, x: 500, y: 260, r: 34, color: "#66cc00", clientHeading: "Webcompli" },
   { id: "fn-7", name: "Merchant Behavioural Shifts", sub: "Product mutations & drift", stage: 2, x: 500, y: 400, r: 30, color: "#c6f5ef", clientHeading: "Merchant Behavioural Shifts" },
 
   // Stage 3: Investigation Workspace
-  { id: "fn-8", name: "Graph Intelligence", sub: "Entity contagion analysis", stage: 3, x: 700, y: 170, r: 28, color: "#6fd3c4", clientHeading: "Customisable & Scalable" },
+  { id: "fn-8", name: "Graph Intelligence", sub: "Entity contagion analysis", stage: 3, x: 700, y: 170, r: 28, color: "#66cc00", clientHeading: "Customisable & Scalable" },
   { id: "fn-9", name: "Case Management", sub: "Evidence aggregation", stage: 3, x: 700, y: 350, r: 26, color: "#66cc00", clientHeading: "Customisable & Scalable" },
 
   // Stage 4: Reporting & Audit
   { id: "fn-10", name: "Audit-Ready in 60s", sub: "Regulator dossier export", stage: 4, x: 900, y: 200, r: 30, color: "#66cc00", clientHeading: "Regulatory Compliance Made Easy" },
-  { id: "fn-11", name: "SAR / STR Reporting", sub: "Regulatory disclosures", stage: 4, x: 900, y: 360, r: 24, color: "#6fd3c4", clientHeading: "Regulatory Compliance Made Easy" },
+  { id: "fn-11", name: "SAR / STR Reporting", sub: "Regulatory disclosures", stage: 4, x: 900, y: 360, r: 24, color: "#66cc00", clientHeading: "Regulatory Compliance Made Easy" },
 ];
 
 const FLOW_LINKS = [
@@ -183,21 +183,18 @@ export default function PlatformFlow() {
 
   return (
     <div className="w-full bg-white border border-slate-200 rounded-3xl p-6 lg:p-10 relative overflow-hidden shadow-xl">
-      {/* Ambient background glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-kyp-navy/40 rounded-full blur-3xl pointer-events-none" />
-
       {/* Header with Client Image Key Headings */}
       <div className="max-w-4xl mb-8 relative z-10 space-y-3">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 border border-emerald-200 text-xs font-mono text-emerald-800 font-bold">
-          <Sparkles className="w-3.5 h-3.5" />
-          ANIMATED PLATFORM FLOW • ITEMIZE-INSPIRED MOVING GRAPH
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#000000] border border-[#033653] text-xs font-mono text-white font-bold shadow-sm">
+          <span className="w-2 h-2 rounded-full bg-[#66cc00] animate-pulse" />
+          <span>ANIMATED PLATFORM FLOW &bull; ITEMIZE-INSPIRED MOVING GRAPH</span>
         </div>
 
         <h3 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-tight">
           Can You See Behavioural Risk Emerging Before It Becomes a Financial Issue?
         </h3>
 
-        <p className="text-base sm:text-lg text-emerald-700 font-bold">
+        <p className="text-base sm:text-lg text-[#033653] font-bold">
           Move from periodic manual reviews to continuous risk intelligence with KYP.
         </p>
 
@@ -225,7 +222,7 @@ export default function PlatformFlow() {
                 <span className={`text-[10px] font-mono tracking-widest uppercase font-bold ${isActive ? "text-emerald-400" : "text-slate-500"}`}>
                   STEP {st.step}
                 </span>
-                <div className={`p-1 rounded ${isActive ? "bg-kyp-lime text-black" : "bg-black/60 border border-kyp-teal/20"}`}>
+                <div className={`p-1 rounded ${isActive ? "bg-kyp-lime text-black" : "bg-black/60 border border-[#033653]"}`}>
                   {st.icon}
                 </div>
               </div>
@@ -241,12 +238,12 @@ export default function PlatformFlow() {
       </div>
 
       {/* GUARANTEED SVG-BASED MOVING GRAPH ENGINE */}
-      <div className="relative w-full rounded-2xl bg-gradient-to-b from-kyp-navy-surface/90 to-black/95 border border-kyp-teal/30 overflow-hidden mb-8 shadow-2xl">
+      <div className="relative w-full rounded-2xl bg-gradient-to-b from-kyp-navy-surface/90 to-black/95 border border-[#033653] overflow-hidden mb-8 shadow-2xl">
         {/* Floating Controls HUD */}
-        <div className="absolute top-4 left-4 z-20 flex items-center gap-2 bg-black/80 backdrop-blur-md px-3 py-1.5 rounded-xl border border-kyp-teal/20 text-xs font-mono">
+        <div className="absolute top-4 left-4 z-20 flex items-center gap-2 bg-black/80 backdrop-blur-md px-3 py-1.5 rounded-xl border border-[#033653] text-xs font-mono">
           <span className="w-2.5 h-2.5 rounded-full bg-kyp-lime animate-ping" />
           <span className="text-white font-semibold">FLOWING GRAPH SENTINEL</span>
-          <span className="text-kyp-teal border-l border-kyp-teal/25 pl-2 ml-1">
+          <span className="text-[#66cc00] border-l border-[#033653] pl-2 ml-1">
             ACTIVE STAGE: {currentStage.title.toUpperCase()}
           </span>
         </div>
@@ -255,7 +252,7 @@ export default function PlatformFlow() {
           <button
             type="button"
             onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-            className="flex items-center gap-1.5 bg-black/80 backdrop-blur-md px-3 py-1.5 rounded-xl border border-kyp-teal/25 text-xs font-mono text-kyp-mint hover:border-kyp-lime transition-all cursor-pointer"
+            className="flex items-center gap-1.5 bg-black/80 backdrop-blur-md px-3 py-1.5 rounded-xl border border-[#033653] text-xs font-mono text-kyp-mint hover:border-kyp-lime transition-all cursor-pointer"
           >
             {isAutoPlaying ? (
               <>
@@ -292,7 +289,7 @@ export default function PlatformFlow() {
 
           {/* Radar Ambient Rings */}
           <g className="radar-circles" opacity="0.12">
-            <circle cx="500" cy="260" r="220" stroke="#6fd3c4" strokeWidth="1" fill="none" />
+            <circle cx="500" cy="260" r="220" stroke="#66cc00" strokeWidth="1" fill="none" />
             <circle cx="500" cy="260" r="140" stroke="#66cc00" strokeWidth="1" fill="none" />
             <circle cx="500" cy="260" r="70" stroke="#c6f5ef" strokeWidth="1" fill="none" />
           </g>
@@ -315,13 +312,13 @@ export default function PlatformFlow() {
                   <path
                     d={pathD}
                     fill="none"
-                    stroke={isSelectedPath ? "#c6f5ef" : isStageActive ? "#66cc00" : "#6fd3c4"}
+                    stroke={isSelectedPath ? "#c6f5ef" : isStageActive ? "#66cc00" : "#66cc00"}
                     strokeWidth={isSelectedPath ? 3 : isStageActive ? 2.2 : 1.2}
                     strokeOpacity={isStageActive || isSelectedPath ? 0.9 : 0.25}
                     strokeDasharray={isStageActive ? "none" : "4 4"}
                   />
                   {/* Flowing Animated Photons along path */}
-                  <circle r={isStageActive ? 3.5 : 2.5} fill={isStageActive ? "#66cc00" : "#6fd3c4"}>
+                  <circle r={isStageActive ? 3.5 : 2.5} fill={isStageActive ? "#66cc00" : "#66cc00"}>
                     <animateMotion
                       path={pathD}
                       dur={`${2.2 + (idx % 3) * 0.4}s`}
@@ -366,7 +363,7 @@ export default function PlatformFlow() {
                     cy={node.y}
                     r={node.r + 4}
                     fill="none"
-                    stroke={isSelected ? "#c6f5ef" : isCurrentStage ? "#66cc00" : "#6fd3c4"}
+                    stroke={isSelected ? "#c6f5ef" : isCurrentStage ? "#66cc00" : "#66cc00"}
                     strokeWidth={isSelected || isCurrentStage ? 2.5 : 1.2}
                     strokeDasharray={node.stage === 2 ? "3 3" : "none"}
                   />
@@ -421,9 +418,9 @@ export default function PlatformFlow() {
         </svg>
 
         {/* Interactive Bottom Overlay Pill */}
-        <div className="p-3 bg-black/90 border-t border-kyp-teal/20 flex flex-wrap items-center justify-between gap-3 text-xs font-mono px-4 sm:px-6">
+        <div className="p-3 bg-black/90 border-t border-[#033653] flex flex-wrap items-center justify-between gap-3 text-xs font-mono px-4 sm:px-6">
           <div className="flex items-center gap-2">
-            <span className="text-kyp-teal">Selected Node:</span>
+            <span className="text-[#66cc00]">Selected Node:</span>
             <span className="text-white font-bold">{selectedNode.name}</span>
             <span className="text-gray-400">({selectedNode.sub})</span>
           </div>
@@ -444,7 +441,7 @@ export default function PlatformFlow() {
               <span className="px-3 py-1 rounded bg-slate-900 text-white font-mono font-bold text-xs">
                 Stage {currentStage.step} &bull; {currentStage.title}
               </span>
-              <span className="text-xs font-mono text-emerald-700 font-bold">
+              <span className="text-xs font-mono text-white font-bold">
                 {currentStage.action}
               </span>
             </div>
@@ -471,11 +468,11 @@ export default function PlatformFlow() {
           </div>
 
           <div className="lg:col-span-4 bg-white p-5 rounded-xl border border-slate-200 space-y-3 font-mono text-xs">
-            <div className="flex items-center justify-between border-b border-kyp-teal/20 pb-2">
+            <div className="flex items-center justify-between border-b border-[#033653] pb-2">
               <span className="text-gray-400">Stage Latency:</span>
               <span className="text-kyp-lime font-bold">{currentStage.telemetry.latency}</span>
             </div>
-            <div className="flex items-center justify-between border-b border-kyp-teal/20 pb-2">
+            <div className="flex items-center justify-between border-b border-[#033653] pb-2">
               <span className="text-gray-400">Coverage Capacity:</span>
               <span className="text-white font-bold">{currentStage.telemetry.throughput}</span>
             </div>
@@ -491,7 +488,7 @@ export default function PlatformFlow() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <div className="p-4 rounded-xl bg-white border border-slate-200 hover:border-emerald-500/60 shadow-sm transition-all space-y-2">
           <div className="flex items-center justify-between">
-            <span className="text-[10px] font-mono text-emerald-700 font-bold uppercase">CLIENT FEATURE 01</span>
+            <span className="text-[10px] font-mono text-white font-bold uppercase">CLIENT FEATURE 01</span>
             <TrendingUp className="w-4 h-4 text-kyp-lime" />
           </div>
           <h4 className="text-base font-bold text-slate-900">Volumetric Monitoring</h4>
@@ -502,8 +499,8 @@ export default function PlatformFlow() {
 
         <div className="p-4 rounded-xl bg-white border border-slate-200 hover:border-emerald-500/60 shadow-sm transition-all space-y-2">
           <div className="flex items-center justify-between">
-            <span className="text-[10px] font-mono text-emerald-700 font-bold uppercase">CLIENT FEATURE 02</span>
-            <Globe className="w-4 h-4 text-kyp-teal" />
+            <span className="text-[10px] font-mono text-white font-bold uppercase">CLIENT FEATURE 02</span>
+            <Globe className="w-4 h-4 text-[#66cc00]" />
           </div>
           <h4 className="text-base font-bold text-slate-900">Webcompli™</h4>
           <p className="text-xs text-slate-600 leading-relaxed">
@@ -513,7 +510,7 @@ export default function PlatformFlow() {
 
         <div className="p-4 rounded-xl bg-white border border-slate-200 hover:border-emerald-500/60 shadow-sm transition-all space-y-2">
           <div className="flex items-center justify-between">
-            <span className="text-[10px] font-mono text-emerald-700 font-bold uppercase">CLIENT FEATURE 03</span>
+            <span className="text-[10px] font-mono text-white font-bold uppercase">CLIENT FEATURE 03</span>
             <Building2 className="w-4 h-4 text-kyp-mint" />
           </div>
           <h4 className="text-base font-bold text-slate-900">Corporate Structure Changes</h4>
@@ -524,7 +521,7 @@ export default function PlatformFlow() {
 
         <div className="p-4 rounded-xl bg-white border border-slate-200 hover:border-emerald-500/60 shadow-sm transition-all space-y-2">
           <div className="flex items-center justify-between">
-            <span className="text-[10px] font-mono text-emerald-700 font-bold uppercase">CLIENT FEATURE 04</span>
+            <span className="text-[10px] font-mono text-white font-bold uppercase">CLIENT FEATURE 04</span>
             <AlertTriangle className="w-4 h-4 text-kyp-lime" />
           </div>
           <h4 className="text-base font-bold text-slate-900">Merchant Behavioural Shifts</h4>

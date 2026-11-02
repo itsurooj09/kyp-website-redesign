@@ -30,17 +30,17 @@ export default function KYPLottie({
             <defs>
               <linearGradient id="radar-sweep-grad" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stopColor="#66cc00" stopOpacity="0.8" />
-                <stop offset="40%" stopColor="#6fd3c4" stopOpacity="0.3" />
+                <stop offset="40%" stopColor="#66cc00" stopOpacity="0.3" />
                 <stop offset="100%" stopColor="#033653" stopOpacity="0" />
               </linearGradient>
             </defs>
             {/* Concentric rings */}
-            <circle cx="50" cy="50" r="45" fill="none" stroke="#6fd3c4" strokeOpacity="0.25" strokeWidth="0.8" />
-            <circle cx="50" cy="50" r="32" fill="none" stroke="#6fd3c4" strokeOpacity="0.35" strokeWidth="0.8" />
-            <circle cx="50" cy="50" r="18" fill="none" stroke="#6fd3c4" strokeOpacity="0.45" strokeWidth="0.8" />
+            <circle cx="50" cy="50" r="45" fill="none" stroke="#66cc00" strokeOpacity="0.25" strokeWidth="0.8" />
+            <circle cx="50" cy="50" r="32" fill="none" stroke="#66cc00" strokeOpacity="0.35" strokeWidth="0.8" />
+            <circle cx="50" cy="50" r="18" fill="none" stroke="#66cc00" strokeOpacity="0.45" strokeWidth="0.8" />
             {/* Crosshairs */}
-            <line x1="5" y1="50" x2="95" y2="50" stroke="#6fd3c4" strokeOpacity="0.25" strokeWidth="0.8" />
-            <line x1="50" y1="5" x2="50" y2="95" stroke="#6fd3c4" strokeOpacity="0.25" strokeWidth="0.8" />
+            <line x1="5" y1="50" x2="95" y2="50" stroke="#66cc00" strokeOpacity="0.25" strokeWidth="0.8" />
+            <line x1="50" y1="5" x2="50" y2="95" stroke="#66cc00" strokeOpacity="0.25" strokeWidth="0.8" />
             {/* Rotating Sweep Beam */}
             <motion.g
               animate={{ rotate: 360 }}
@@ -80,7 +80,7 @@ export default function KYPLottie({
           <svg viewBox="0 0 120 120" className="w-full h-full max-w-full max-h-full">
             <defs>
               <linearGradient id="shield-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#6fd3c4" stopOpacity="0.4" />
+                <stop offset="0%" stopColor="#66cc00" stopOpacity="0.4" />
                 <stop offset="100%" stopColor="#033653" stopOpacity="0.9" />
               </linearGradient>
               <filter id="shield-glow" x="-20%" y="-20%" width="140%" height="140%">
@@ -105,10 +105,10 @@ export default function KYPLottie({
             <motion.path
               d="M60 18 L92 32 C92 72 60 98 60 98 C60 98 28 72 28 32 Z"
               fill="url(#shield-grad)"
-              stroke="#6fd3c4"
+              stroke="#66cc00"
               strokeWidth="2.5"
               filter="url(#shield-glow)"
-              animate={{ stroke: ["#6fd3c4", "#66cc00", "#6fd3c4"] }}
+              animate={{ stroke: ["#66cc00", "#66cc00", "#66cc00"] }}
               transition={{ duration: 4, repeat: Infinity }}
             />
             {/* Inner checkmark / keyhole icon */}
@@ -137,13 +137,13 @@ export default function KYPLottie({
               </linearGradient>
             </defs>
             {/* Document sheet */}
-            <rect x="25" y="16" width="70" height="88" rx="6" fill="#033653" fillOpacity="0.85" stroke="#6fd3c4" strokeWidth="1.5" />
+            <rect x="25" y="16" width="70" height="88" rx="6" fill="#033653" fillOpacity="0.85" stroke="#66cc00" strokeWidth="1.5" />
             {/* Text lines */}
             <rect x="36" y="30" width="34" height="4" rx="2" fill="#66cc00" />
-            <rect x="36" y="42" width="48" height="3" rx="1.5" fill="#6fd3c4" fillOpacity="0.6" />
-            <rect x="36" y="52" width="42" height="3" rx="1.5" fill="#6fd3c4" fillOpacity="0.6" />
-            <rect x="36" y="62" width="46" height="3" rx="1.5" fill="#6fd3c4" fillOpacity="0.6" />
-            <rect x="36" y="72" width="30" height="3" rx="1.5" fill="#6fd3c4" fillOpacity="0.6" />
+            <rect x="36" y="42" width="48" height="3" rx="1.5" fill="#66cc00" fillOpacity="0.6" />
+            <rect x="36" y="52" width="42" height="3" rx="1.5" fill="#66cc00" fillOpacity="0.6" />
+            <rect x="36" y="62" width="46" height="3" rx="1.5" fill="#66cc00" fillOpacity="0.6" />
+            <rect x="36" y="72" width="30" height="3" rx="1.5" fill="#66cc00" fillOpacity="0.6" />
             {/* Pass badge in corner */}
             <rect x="64" y="28" width="22" height="10" rx="3" fill="#66cc00" fillOpacity="0.2" stroke="#66cc00" strokeWidth="0.8" />
             <text x="75" y="35.5" fill="#66cc00" fontSize="6" fontWeight="bold" fontFamily="monospace" textAnchor="middle">PASS</text>
@@ -170,11 +170,11 @@ export default function KYPLottie({
               </radialGradient>
             </defs>
             {/* Background constellation circles */}
-            <circle cx="80" cy="80" r="60" fill="none" stroke="#6fd3c4" strokeOpacity="0.15" strokeWidth="1" strokeDasharray="3 3" />
-            <circle cx="80" cy="80" r="38" fill="none" stroke="#6fd3c4" strokeOpacity="0.25" strokeWidth="1" />
+            <circle cx="80" cy="80" r="60" fill="none" stroke="#66cc00" strokeOpacity="0.15" strokeWidth="1" strokeDasharray="3 3" />
+            <circle cx="80" cy="80" r="38" fill="none" stroke="#66cc00" strokeOpacity="0.25" strokeWidth="1" />
 
             {/* Connecting arcs to peripheral nodes */}
-            <g stroke="#6fd3c4" strokeOpacity="0.4" strokeWidth="1.2">
+            <g stroke="#66cc00" strokeOpacity="0.4" strokeWidth="1.2">
               <line x1="80" y1="80" x2="30" y2="40" />
               <line x1="80" y1="80" x2="130" y2="40" />
               <line x1="80" y1="80" x2="140" y2="105" />
@@ -203,7 +203,7 @@ export default function KYPLottie({
             />
             <motion.circle
               r="3"
-              fill="#6fd3c4"
+              fill="#66cc00"
               animate={{ cx: [80, 80, 80], cy: [80, 140, 80] }}
               transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
             />
@@ -215,19 +215,19 @@ export default function KYPLottie({
             />
 
             {/* Peripheral Nodes */}
-            <circle cx="30" cy="40" r="7" fill="#033653" stroke="#6fd3c4" strokeWidth="1.5" />
+            <circle cx="30" cy="40" r="7" fill="#033653" stroke="#66cc00" strokeWidth="1.5" />
             <circle cx="30" cy="40" r="3" fill="#66cc00" />
 
-            <circle cx="130" cy="40" r="7" fill="#033653" stroke="#6fd3c4" strokeWidth="1.5" />
+            <circle cx="130" cy="40" r="7" fill="#033653" stroke="#66cc00" strokeWidth="1.5" />
             <circle cx="130" cy="40" r="3" fill="#c6f5ef" />
 
             <circle cx="140" cy="105" r="7" fill="#033653" stroke="#66cc00" strokeWidth="1.5" />
             <circle cx="140" cy="105" r="3" fill="#66cc00" />
 
-            <circle cx="80" cy="140" r="7" fill="#033653" stroke="#6fd3c4" strokeWidth="1.5" />
-            <circle cx="80" cy="140" r="3" fill="#6fd3c4" />
+            <circle cx="80" cy="140" r="7" fill="#033653" stroke="#66cc00" strokeWidth="1.5" />
+            <circle cx="80" cy="140" r="3" fill="#66cc00" />
 
-            <circle cx="25" cy="115" r="7" fill="#033653" stroke="#6fd3c4" strokeWidth="1.5" />
+            <circle cx="25" cy="115" r="7" fill="#033653" stroke="#66cc00" strokeWidth="1.5" />
             <circle cx="25" cy="115" r="3" fill="#c6f5ef" />
 
             {/* Central Intelligence Core with Pulse */}
@@ -269,7 +269,7 @@ export default function KYPLottie({
               cy="60"
               r="20"
               fill="none"
-              stroke="#6fd3c4"
+              stroke="#66cc00"
               strokeWidth="1.5"
               animate={{ r: [15, 52], opacity: [0.9, 0] }}
               transition={{ duration: 2.5, repeat: Infinity, ease: "easeOut", delay: 0.8 }}
@@ -310,7 +310,7 @@ export default function KYPLottie({
               transition={{ duration: 16, repeat: Infinity, ease: "linear" }}
               style={{ originX: "60px", originY: "60px" }}
             >
-              <circle cx="60" cy="60" r="48" fill="none" stroke="#6fd3c4" strokeWidth="1.5" strokeDasharray="6 4" />
+              <circle cx="60" cy="60" r="48" fill="none" stroke="#66cc00" strokeWidth="1.5" strokeDasharray="6 4" />
               <circle cx="60" cy="60" r="42" fill="none" stroke="#66cc00" strokeWidth="1" strokeDasharray="2 3" />
             </motion.g>
             {/* Hexagonal inner badge */}

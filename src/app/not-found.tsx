@@ -7,7 +7,7 @@ export default function NotFound() {
   return (
     <div className="min-h-[70vh] flex items-center justify-center bg-white text-slate-900 px-6 kyp-grid-pattern">
       <div className="max-w-md mx-auto text-center space-y-6">
-        <div className="w-16 h-16 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700 mx-auto font-mono text-xl font-bold shadow-sm">
+        <div className="w-16 h-16 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-white mx-auto font-mono text-xl font-bold shadow-sm">
           404
         </div>
         <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 font-heading">

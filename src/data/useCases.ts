@@ -103,7 +103,7 @@ export const useCasesData: UseCaseDetail[] = [
         },
       ],
     },
-    workflow: [
+        workflow: [
       {
         step: "01",
         title: "Upload",
@@ -150,7 +150,18 @@ export const useCasesData: UseCaseDetail[] = [
       },
       {
         step: "05",
-        title: "Audit",
+        title: "Sign-Off",
+        description: "Compliance officers conduct multi-tier digital reviews and record immutable sign-off decisions.",
+        highlight: "Governance & approval ledger",
+        uiDetail: {
+          label: "Approval Ledger",
+          value: "Tier 1 Approval Recorded",
+          status: "success",
+        },
+      },
+      {
+        step: "06",
+        title: "Monitor",
         description: "Once onboarded, entities transition into continuous monitoring with an immutable, tamper-evident audit log.",
         highlight: "Continuous compliance linkage",
         uiDetail: {
@@ -290,7 +301,7 @@ export const useCasesData: UseCaseDetail[] = [
         },
       ],
     },
-    workflow: [
+        workflow: [
       {
         step: "01",
         title: "Onboard",
@@ -327,7 +338,7 @@ export const useCasesData: UseCaseDetail[] = [
       {
         step: "04",
         title: "Investigate",
-        description: "When risk triggers fire, compliance analysts review unified evidence, transaction context, and connected ownership nodes in one view.",
+        description: "When risk triggers fire, compliance analysts review unified evidence, transaction context, and connected ownership nodes.",
         highlight: "Graph-enabled investigations",
         uiDetail: {
           label: "Case Dossier #AML-4982",
@@ -337,6 +348,17 @@ export const useCasesData: UseCaseDetail[] = [
       },
       {
         step: "05",
+        title: "Escalate",
+        description: "Automate priority escalation, SAR preparation, and notification routing when policies require action.",
+        highlight: "Risk escalation & SAR triage",
+        uiDetail: {
+          label: "Escalation Queue",
+          value: "MLRO Review Triggered",
+          status: "warning",
+        },
+      },
+      {
+        step: "06",
         title: "Audit",
         description: "Export timestamped, tamper-evident regulatory compliance packages in under 60 seconds with complete decision history.",
         highlight: "Instant regulator ready",
@@ -462,32 +484,46 @@ export const useCasesData: UseCaseDetail[] = [
         },
       ],
     },
-    workflow: [
+        workflow: [
       {
         step: "01",
         title: "Ingest",
-        description: "Connect issuing portfolio feeds, card transactions, and merchant accounts.",
-        highlight: "Unified ingestion",
+        description: "Connect issuing portfolio feeds, card transactions, and merchant accounts in real-time.",
+        highlight: "Unified stream ingestion",
         uiDetail: { label: "Portfolio Stream", value: "Active • 24/7 Monitoring", status: "success" },
       },
       {
         step: "02",
         title: "Monitor",
-        description: "Track volumetric changes, TC40 fraud files, and chargeback velocity.",
+        description: "Track volumetric changes, TC40 fraud files, and chargeback velocity against configured limits.",
         highlight: "Real-time thresholds",
         uiDetail: { label: "TC40 Ratio", value: "0.12% (Within Card Scheme Limits)", status: "success" },
       },
       {
         step: "03",
         title: "Prioritise",
-        description: "Identify accounts requiring immediate compliance review and investigation.",
-        highlight: "Smart triage",
+        description: "Identify accounts requiring immediate compliance review and proactive risk containment.",
+        highlight: "Smart alert triage",
         uiDetail: { label: "Alert Triage", value: "2 High-Velocity Accounts Flagged", status: "warning" },
       },
       {
         step: "04",
+        title: "Investigate",
+        description: "Inspect customer dispute spikes, velocity anomalies, and connected merchant fraud networks.",
+        highlight: "Deep merchant context",
+        uiDetail: { label: "Forensic Analysis", value: "Risk Clustering Identified", status: "warning" },
+      },
+      {
+        step: "05",
+        title: "Mitigate",
+        description: "Deploy automated velocity throttles, settlement delays, or enhanced review holds.",
+        highlight: "Proactive risk containment",
+        uiDetail: { label: "Mitigation Action", value: "Automated Policy Action Applied", status: "info" },
+      },
+      {
+        step: "06",
         title: "Audit",
-        description: "One-click export of compliance, operational, and transactional audit trails.",
+        description: "One-click export of compliance, operational, and transactional audit trails ready for card schemes.",
         highlight: "Instant reports",
         uiDetail: { label: "Export Status", value: "Audit Dossier Ready", status: "success" },
       },
@@ -583,7 +619,7 @@ export const useCasesData: UseCaseDetail[] = [
         },
       ],
     },
-    workflow: [
+        workflow: [
       {
         step: "01",
         title: "Policy",
@@ -608,6 +644,17 @@ export const useCasesData: UseCaseDetail[] = [
       },
       {
         step: "03",
+        title: "Trigger",
+        description: "Evaluate live portfolio events against policy conditions with zero manual overhead.",
+        highlight: "Real-time evaluation",
+        uiDetail: {
+          label: "Condition Match",
+          value: "Automatic Threshold Verification Active",
+          status: "success",
+        },
+      },
+      {
+        step: "04",
         title: "Automated Monitoring",
         description: "KYP continuously applies rules across portfolios, identifying changes and escalating accounts automatically.",
         highlight: "Continuous surveillance",
@@ -618,7 +665,18 @@ export const useCasesData: UseCaseDetail[] = [
         },
       },
       {
-        step: "04",
+        step: "05",
+        title: "Escalate",
+        description: "Route non-compliant partners directly to designated compliance officers with enriched evidence.",
+        highlight: "Intelligent routing",
+        uiDetail: {
+          label: "Escalation Target",
+          value: "Assigned to Senior Risk Officer",
+          status: "info",
+        },
+      },
+      {
+        step: "06",
         title: "Audit",
         description: "Maintain total alignment as policies change, with exportable audit logs demonstrating compliance adherence.",
         highlight: "Regulator-ready proof",
@@ -744,7 +802,7 @@ export const useCasesData: UseCaseDetail[] = [
         },
       ],
     },
-    workflow: [
+        workflow: [
       {
         step: "01",
         title: "Screen",
@@ -791,6 +849,17 @@ export const useCasesData: UseCaseDetail[] = [
       },
       {
         step: "05",
+        title: "Remediate",
+        description: "Deliver instant compliance feedback to merchants to fix disclosure gaps prior to card scheme fines.",
+        highlight: "Automated merchant notices",
+        uiDetail: {
+          label: "Correction Notice",
+          value: "Dispute Policy Remediation Dispatched",
+          status: "info",
+        },
+      },
+      {
+        step: "06",
         title: "Audit",
         description: "Generate structured assessments with findings and timestamped evidence to support compliance decisions.",
         highlight: "Defensible evidence trail",
@@ -921,7 +990,7 @@ export const useCasesData: UseCaseDetail[] = [
         },
       ],
     },
-    workflow: [
+        workflow: [
       {
         step: "01",
         title: "Connect",
@@ -957,6 +1026,17 @@ export const useCasesData: UseCaseDetail[] = [
       },
       {
         step: "04",
+        title: "Decision",
+        description: "Evaluate behavioral risk velocity, anomaly scoring, and record analyst determination notes.",
+        highlight: "AI-guided decisioning",
+        uiDetail: {
+          label: "Analyst Sign-Off",
+          value: "False Positive Cleared with Annotation",
+          status: "success",
+        },
+      },
+      {
+        step: "05",
         title: "Report",
         description: "Generate suspicious activity reports (SARs/STRs) and regulatory filings in seconds with full evidence.",
         highlight: "One-click SAR/STR reporting",
@@ -967,13 +1047,13 @@ export const useCasesData: UseCaseDetail[] = [
         },
       },
       {
-        step: "05",
+        step: "06",
         title: "Audit",
         description: "Maintain a complete audit trail of checks, alerts, and decisions to support regulatory reporting and reviews.",
         highlight: "Immutable evidence trail",
         uiDetail: {
           label: "Audit Ledger",
-          value: "Defensible Case Record Sealed",
+          value: "Regulatory Audit Stream Locked",
           status: "success",
         },
       },
@@ -1082,34 +1162,48 @@ export const useCasesData: UseCaseDetail[] = [
         },
       ],
     },
-    workflow: [
+        workflow: [
       {
         step: "01",
         title: "Screen",
-        description: "Screen merchant URLs against global regulatory enforcement blacklists.",
+        description: "Screen merchant URLs against global regulatory enforcement blacklists and warning feeds.",
         highlight: "Real-time list check",
         uiDetail: { label: "Blacklist Status", value: "Clean across 40+ authorities", status: "success" },
       },
       {
         step: "02",
         title: "Compare",
-        description: "Compare website operators with known regulatory action records.",
+        description: "Compare website operators with known regulatory action records and corporate databases.",
         highlight: "Historical vs Active",
         uiDetail: { label: "Restriction History", value: "0 Active Bans Found", status: "success" },
       },
       {
         step: "03",
         title: "Assess",
-        description: "Assess visitor traffic geography to detect prohibited country traffic.",
+        description: "Assess visitor traffic geography to detect prohibited country traffic and VPN concealment.",
         highlight: "Geo-traffic analysis",
         uiDetail: { label: "Restricted Traffic", value: "<0.01% (Safe Threshold)", status: "info" },
       },
       {
         step: "04",
+        title: "Correlate",
+        description: "Analyze affiliate referral trees, deceptive URL redirects, and cloaked transaction gateways.",
+        highlight: "Redirect cloaking audit",
+        uiDetail: { label: "Domain Graph", value: "Direct Traffic Confirmed", status: "success" },
+      },
+      {
+        step: "05",
         title: "Monitor",
-        description: "Continuously monitor website changes and traffic drift over time.",
+        description: "Continuously monitor website changes, operator shifts, and visitor traffic drift over time.",
         highlight: "Always-on sentinel",
         uiDetail: { label: "Surveillance", value: "Daily Sweeps Configured", status: "success" },
+      },
+      {
+        step: "06",
+        title: "Audit",
+        description: "Export regulator-defensible domain audit packages documenting complete URL history.",
+        highlight: "Domain dossier",
+        uiDetail: { label: "Audit Dossier", value: "Regulatory Evidence Pack Complete", status: "success" },
       },
     ],
     features: [
@@ -1182,39 +1276,46 @@ export const useCasesData: UseCaseDetail[] = [
         },
       ],
     },
-    workflow: [
+        workflow: [
       {
         step: "01",
         title: "Research",
-        description: "Agentic AI scans global web sources, legal filings, and international news.",
+        description: "Agentic AI scans global web sources, legal filings, and international news across 40+ languages.",
         highlight: "Multi-language NLP",
         uiDetail: { label: "Web Sentinel", value: "Scanning 10,000+ ESG Sources", status: "info" },
       },
       {
         step: "02",
         title: "Assess",
-        description: "Analyse adverse media and categorize findings across E, S, and G pillars.",
+        description: "Analyse adverse media and categorize findings across Environmental, Social, and Governance pillars.",
         highlight: "Structured evaluation",
         uiDetail: { label: "Risk Categorization", value: "0 Severe Controversies", status: "success" },
       },
       {
         step: "03",
+        title: "Score",
+        description: "Calculate calibrated controversy severity scores matching institutional materiality benchmarks.",
+        highlight: "Materiality rating",
+        uiDetail: { label: "ESG Score", value: "A- Grade (Low Material Risk)", status: "success" },
+      },
+      {
+        step: "04",
         title: "Monitor",
-        description: "Set monitoring frequencies matching your internal ESG risk policies.",
+        description: "Set monitoring frequencies matching your internal ESG risk policies and stakeholder requirements.",
         highlight: "Continuous surveillance",
         uiDetail: { label: "Monitoring Sentinel", value: "Weekly Ingestion Sweep", status: "success" },
       },
       {
-        step: "04",
+        step: "05",
         title: "Report",
-        description: "Compile findings with direct citations to supporting evidence.",
+        description: "Compile findings with direct citations to supporting evidence, articles, and corporate disclosures.",
         highlight: "Documented evidence",
         uiDetail: { label: "ESG Dossier", value: "Full Audit Trail Backed", status: "success" },
       },
       {
-        step: "05",
+        step: "06",
         title: "Audit",
-        description: "Export comprehensive portfolio ESG reports for internal reviews and stakeholder audits.",
+        description: "Export comprehensive portfolio ESG reports for internal reviews, annual ESG filings, and audits.",
         highlight: "One-click export",
         uiDetail: { label: "Audit Readiness", value: "Instant Export Available", status: "success" },
       },
@@ -1296,39 +1397,46 @@ export const useCasesData: UseCaseDetail[] = [
         },
       ],
     },
-    workflow: [
+        workflow: [
       {
         step: "01",
         title: "Scope",
-        description: "Define the specific questions you need answered and select a report format.",
+        description: "Define the specific questions you need answered and select a tailored report investigation format.",
         highlight: "Tailored scope",
         uiDetail: { label: "Investigation Scope", value: "Cross-Border UBO Forensic Check", status: "info" },
       },
       {
         step: "02",
         title: "Research",
-        description: "Specialists conduct in-depth corporate, legal, and reputational research.",
+        description: "Specialists conduct in-depth corporate, legal, and reputational research across official registries.",
         highlight: "Analyst collaboration",
         uiDetail: { label: "Research Specialist", value: "Assigned & Active", status: "success" },
       },
       {
         step: "03",
         title: "Review",
-        description: "Review detailed multilingual findings with supporting documentation.",
+        description: "Review detailed multilingual findings with supporting primary documentation and court records.",
         highlight: "Source-backed",
         uiDetail: { label: "Findings Dossier", value: "100% Primary Sources", status: "success" },
       },
       {
         step: "04",
+        title: "Cross-Match",
+        description: "Unravel circular corporate holding structures, offshore nominee directors, and hidden ownership.",
+        highlight: "Ownership graph unraveling",
+        uiDetail: { label: "Graph Traversal", value: "Tier 3 Beneficial Owners Exposed", status: "warning" },
+      },
+      {
+        step: "05",
         title: "Decide",
-        description: "Use the findings to support risk assessments, internal reviews, and documented decisions.",
+        description: "Use the findings to support risk assessments, internal reviews, and documented governance decisions.",
         highlight: "Defensible decisions",
         uiDetail: { label: "Decision Log", value: "Documented Sign-Off", status: "success" },
       },
       {
-        step: "05",
+        step: "06",
         title: "Audit",
-        description: "Maintain a complete audit trail of the investigation for regulators and sponsor banks.",
+        description: "Maintain a complete audit trail of the investigation for regulators, auditors, and sponsor banks.",
         highlight: "Audit-ready",
         uiDetail: { label: "Audit Dossier", value: "Exportable & Immutable", status: "success" },
       },
@@ -1408,27 +1516,48 @@ export const useCasesData: UseCaseDetail[] = [
         },
       ],
     },
-    workflow: [
+        workflow: [
       {
         step: "01",
         title: "Capture",
-        description: "Automatically log all onboarding checks, verification findings, and monitoring alerts.",
+        description: "Automatically log all onboarding checks, verification findings, and continuous monitoring alerts.",
         highlight: "Real-time ledger",
         uiDetail: { label: "Evidence Ledger", value: "SHA-256 Timestamped Log", status: "success" },
       },
       {
         step: "02",
+        title: "Aggregate",
+        description: "Consolidate corporate registry documents, watchlist sweeps, and card scheme monitoring histories.",
+        highlight: "Unified data sync",
+        uiDetail: { label: "Data Pipeline", value: "180+ Registries Aggregated", status: "success" },
+      },
+      {
+        step: "03",
         title: "Package",
-        description: "One-click aggregation of company data, director checks, and analyst review notes.",
+        description: "One-click aggregation of company data, director checks, and analyst review notes into structured packs.",
         highlight: "Single file compilation",
         uiDetail: { label: "Dossier Packager", value: "Compiling 28 Evidence Nodes", status: "info" },
       },
       {
-        step: "03",
+        step: "04",
+        title: "Verify",
+        description: "Cryptographically seal the audit trail with tamper-evident digital verification signatures.",
+        highlight: "Tamper-evident verification",
+        uiDetail: { label: "Integrity Seal", value: "FCA Defensible Cryptographic Hash", status: "success" },
+      },
+      {
+        step: "05",
         title: "Export",
         description: "Generate structured audit-ready PDF and JSON packages in approximately one minute.",
         highlight: "Regulator & sponsor ready",
         uiDetail: { label: "Output Status", value: "Audit-Ready Dossier Ready (1 Min)", status: "success" },
+      },
+      {
+        step: "06",
+        title: "Archive",
+        description: "Store audit records in compliant immutable cloud storage for the mandated multi-year retention period.",
+        highlight: "Statutory retention",
+        uiDetail: { label: "Retention Policy", value: "7-Year Statutory Ledger Active", status: "success" },
       },
     ],
     features: [

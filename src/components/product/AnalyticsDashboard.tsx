@@ -102,9 +102,9 @@ const RISK_TIERS: RiskTier[] = [
     status: "Continuous Surveillance",
     trend: "-28.4% this quarter",
     trendGood: true,
-    color: "#6fd3c4",
-    badgeBg: "bg-kyp-mint/40 border-kyp-teal/40 text-kyp-navy",
-    accent: "#6fd3c4",
+    color: "#66cc00",
+    badgeBg: "bg-kyp-mint/40 border-[#033653] text-kyp-navy",
+    accent: "#66cc00",
     readings: [68, 62, 54, 48, 42, 35, 31, 28, 26, 24],
     volumes: ["1.2M", "1.5M", "1.9M", "2.3M", "2.8M", "3.2M", "3.7M", "4.1M", "4.6M", "5.1M"],
     contagion: { compliant: 1050, review: 150, alerts: 50 },
@@ -118,7 +118,7 @@ const RISK_TIERS: RiskTier[] = [
     trend: "-64.7% since Jan",
     trendGood: true,
     color: "#66cc00",
-    badgeBg: "bg-emerald-50 border-emerald-200 text-emerald-800",
+    badgeBg: "bg-[#000000] border border-[#033653] text-[#66cc00]",
     accent: "#66cc00",
     readings: [32, 26, 22, 19, 17, 15, 14, 13, 12, 12],
     volumes: ["1.2M", "1.6M", "2.0M", "2.5M", "3.1M", "3.8M", "4.4M", "5.0M", "5.4M", "5.9M"],
@@ -325,7 +325,7 @@ export default function AnalyticsDashboard() {
             whileHover={{ y: -3 }}
             className={`p-4 rounded-2xl bg-white border transition-all cursor-pointer ${
               activeKpiHover === kpi.idx
-                ? "border-kyp-teal shadow-lg shadow-kyp-teal/10"
+                ? "border-[#033653] shadow-lg shadow-kyp-teal/10"
                 : "border-slate-200/80 shadow-xs"
             }`}
           >
@@ -387,7 +387,7 @@ export default function AnalyticsDashboard() {
                 <span>Risk Index (0-100)</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-kyp-teal" />
+                <span className="w-2.5 h-2.5 rounded-full bg-[#66cc00]" />
                 <span>Monthly Volume</span>
               </div>
             </div>
@@ -432,7 +432,7 @@ export default function AnalyticsDashboard() {
                 </linearGradient>
                 <linearGradient id="live-line-grad" x1="0" y1="0" x2="1" y2="0">
                   <stop offset="0%" stopColor="#033653" />
-                  <stop offset="50%" stopColor="#6fd3c4" />
+                  <stop offset="50%" stopColor="#66cc00" />
                   <stop offset="100%" stopColor={currentTier.color} />
                 </linearGradient>
               </defs>
@@ -625,14 +625,14 @@ export default function AnalyticsDashboard() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.9 }}
                     transition={{ duration: 0.35 }}
-                    className="p-3 rounded-xl bg-white border border-slate-200 shadow-xs hover:shadow-md hover:border-kyp-teal transition-all cursor-pointer group"
+                    className="p-3 rounded-xl bg-white border border-slate-200 shadow-xs hover:shadow-md hover:border-[#033653] transition-all cursor-pointer group"
                   >
                     <div className="flex items-center justify-between text-[10px] font-mono mb-1">
                       <span className="text-slate-400">{evt.time}</span>
                       <span
                         className={`px-2 py-0.5 rounded-full font-bold uppercase ${
                           evt.type === "pass"
-                            ? "bg-kyp-mint/40 text-kyp-navy border border-kyp-teal/30"
+                            ? "bg-kyp-mint/40 text-kyp-navy border border-[#033653]"
                             : "bg-amber-50 text-amber-700 border border-amber-200"
                         }`}
                       >

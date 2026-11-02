@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   Gamepad2,
   CreditCard,
@@ -174,12 +174,12 @@ export default function IndustryTabs() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 space-y-12">
         {/* Header Section matching Image 1 */}
         <div className="max-w-3xl space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#c6f5ef] text-[#033653] text-xs font-mono font-bold uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#000000] text-white border border-[#033653] text-xs font-mono font-bold uppercase tracking-wider shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-[#66cc00] animate-pulse" />
             <span>INDUSTRY COVERAGE &bull; TAILORED PROTOCOLS</span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl font-bold text-slate-900 tracking-tight">
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-[#000000] tracking-tight">
             Built for Complex Risk Environments.
           </h2>
 
@@ -212,30 +212,26 @@ export default function IndustryTabs() {
           })}
         </div>
 
-        {/* Tab Content Card (Light Theme 2-Column Showcase) */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentTab.id}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.35 }}
-            className="p-6 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-xl shadow-slate-200/50"
-          >
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-              {/* Left Column: Narrative & Workflows */}
-              <div className="lg:col-span-7 space-y-6">
-                <div>
-                  <div className="flex flex-wrap items-center gap-2 mb-3">
-                    {currentTab.regulatoryBadges.map((badge, i) => (
-                      <span
-                        key={i}
-                        className="px-2.5 py-0.5 rounded-md bg-[#c6f5ef] border border-[#6fd3c4]/40 text-[#033653] text-[10px] font-mono font-bold uppercase"
-                      >
-                        {badge}
-                      </span>
-                    ))}
-                  </div>
+        {/* Tab Content Card (Immediate High-Performance Rendering) */}
+        <div
+          key={currentTab.id}
+          className="p-6 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-xl shadow-slate-200/50 transition-all duration-300 animate-fade-in"
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            {/* Left Column: Narrative & Workflows */}
+            <div className="lg:col-span-7 space-y-6">
+              <div>
+                <div className="flex flex-wrap items-center gap-2 mb-3">
+                  {currentTab.regulatoryBadges.map((badge, i) => (
+                    <span
+                      key={i}
+                      className="px-3 py-1 rounded-full bg-[#000000] border border-[#033653] text-white text-[10.5px] font-mono font-bold uppercase tracking-wide flex items-center gap-1.5 shadow-xs hover:border-[#66cc00] transition-colors"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#66cc00]" />
+                      {badge}
+                    </span>
+                  ))}
+                </div>
 
                   <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight leading-snug">
                     {currentTab.headline}
@@ -246,26 +242,31 @@ export default function IndustryTabs() {
                   </p>
                 </div>
 
-                {/* 3-Step Tailored Workflow */}
+                {/* 3-Step Tailored Workflow with Dark Black Hover */}
                 <div className="space-y-3 pt-2">
                   <div className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider">
                     Specialized Operational Pipeline:
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                     {currentTab.workflow.map((wf, idx) => (
-                      <div
+                      <motion.div
                         key={idx}
-                        className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-1.5"
+                        whileHover={{ y: -4 }}
+                        className="p-4 rounded-2xl bg-slate-50 hover:bg-[#000000] border border-slate-200 hover:border-[#033653] space-y-2 group cursor-pointer transition-all duration-300 shadow-xs hover:shadow-xl"
                       >
                         <div className="flex items-center justify-between">
-                          <span className="text-[10px] font-mono text-[#033653] font-bold uppercase">
-                            STEP {wf.step}
+                          <span className="text-xs font-mono font-bold text-[#033653] group-hover:text-[#66cc00] transition-colors">
+                            {wf.step}
                           </span>
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#66cc00]" />
+                          <span className="w-2 h-2 rounded-full bg-[#66cc00] group-hover:animate-ping" />
                         </div>
-                        <h4 className="text-xs font-bold text-slate-900">{wf.action}</h4>
-                        <p className="text-[11px] text-slate-500 leading-normal">{wf.detail}</p>
-                      </div>
+                        <h4 className="text-xs font-bold text-[#000000] group-hover:text-white transition-colors">
+                          {wf.action}
+                        </h4>
+                        <p className="text-[11px] text-slate-600 group-hover:text-slate-300 leading-relaxed transition-colors">
+                          {wf.detail}
+                        </p>
+                      </motion.div>
                     ))}
                   </div>
                 </div>
@@ -275,7 +276,7 @@ export default function IndustryTabs() {
                   <div className="flex items-center gap-6 text-left">
                     {currentTab.metrics.map((m, i) => (
                       <div key={i}>
-                        <div className="text-lg font-bold text-slate-900 font-mono">{m.value}</div>
+                        <div className="text-xl font-bold text-[#000000] font-mono">{m.value}</div>
                         <div className="text-[11px] text-slate-500">{m.label}</div>
                       </div>
                     ))}
@@ -283,7 +284,7 @@ export default function IndustryTabs() {
 
                   <Link
                     href={currentTab.href}
-                    className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-5 py-2.5 rounded-full text-xs font-semibold shadow-sm hover:shadow transition-all group"
+                    className="inline-flex items-center gap-2 bg-[#000000] hover:bg-[#033653] text-white px-5 py-2.5 rounded-full text-xs font-semibold shadow-sm hover:shadow transition-all group"
                   >
                     <span>Explore {currentTab.shortName} Solution</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -310,14 +311,7 @@ export default function IndustryTabs() {
                   </div>
 
                   {/* Dynamic Motion Animated Graph Content per Industry */}
-                  {!isMounted ? (
-                    <div className="h-64 rounded-xl bg-black/60 border border-slate-800 flex flex-col items-center justify-center text-center p-6 space-y-3">
-                      <div className="w-5 h-5 rounded-full border-2 border-kyp-lime border-t-transparent animate-spin" />
-                      <div className="text-xs font-mono text-kyp-mint">Initializing Live Telemetry Protocol...</div>
-                    </div>
-                  ) : (
-                    <>
-                      {currentTab.id === "igaming" && (
+                  {currentTab.id === "igaming" && (
                     <div className="space-y-4 text-xs font-mono">
                       {/* Top Metric Header */}
                       <div className="flex items-center justify-between p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/80">
@@ -331,10 +325,10 @@ export default function IndustryTabs() {
                       </div>
 
                       {/* Animated SVG Radar & Waveform Graph */}
-                      <div className="relative h-44 rounded-xl bg-black/60 border border-kyp-teal/30 p-2 overflow-hidden flex items-center justify-center">
+                      <div className="relative h-44 rounded-xl bg-black/60 border border-[#033653] p-2 overflow-hidden flex items-center justify-center">
                         {/* Radar concentric circles */}
-                        <div className="absolute w-36 h-36 rounded-full border border-kyp-teal/20" />
-                        <div className="absolute w-24 h-24 rounded-full border border-kyp-teal/30" />
+                        <div className="absolute w-36 h-36 rounded-full border border-[#033653]" />
+                        <div className="absolute w-24 h-24 rounded-full border border-[#033653]" />
                         <div className="absolute w-12 h-12 rounded-full border border-kyp-lime/40" />
 
                         {/* 360 Rotating Radar Beam */}
@@ -350,9 +344,9 @@ export default function IndustryTabs() {
                         <svg viewBox="0 0 400 120" className="w-full h-full relative z-10 overflow-visible">
                           <defs>
                             <linearGradient id="igaming-wave" x1="0" y1="0" x2="1" y2="0">
-                              <stop offset="0%" stopColor="#6fd3c4" stopOpacity="0.8" />
+                              <stop offset="0%" stopColor="#66cc00" stopOpacity="0.8" />
                               <stop offset="50%" stopColor="#66cc00" stopOpacity="1" />
-                              <stop offset="100%" stopColor="#6fd3c4" stopOpacity="0.8" />
+                              <stop offset="100%" stopColor="#66cc00" stopOpacity="0.8" />
                             </linearGradient>
                           </defs>
 
@@ -381,9 +375,9 @@ export default function IndustryTabs() {
                           <circle cx="110" cy="60" r="3" fill="#66cc00" />
                           <text x="115" y="55" fill="#66cc00" fontSize="9" fontFamily="monospace">URL: Safe</text>
 
-                          <circle cx="260" cy="45" r="4" fill="#6fd3c4" className="animate-ping opacity-75" />
-                          <circle cx="260" cy="45" r="3" fill="#6fd3c4" />
-                          <text x="265" y="40" fill="#6fd3c4" fontSize="9" fontFamily="monospace">Geo-IP: 18+</text>
+                          <circle cx="260" cy="45" r="4" fill="#66cc00" className="animate-ping opacity-75" />
+                          <circle cx="260" cy="45" r="3" fill="#66cc00" />
+                          <text x="265" y="40" fill="#66cc00" fontSize="9" fontFamily="monospace">Geo-IP: 18+</text>
                         </svg>
                       </div>
 
@@ -415,7 +409,7 @@ export default function IndustryTabs() {
                       </div>
 
                       {/* Moving Waveform Graph with Moving Laser Scan */}
-                      <div className="relative h-44 rounded-xl bg-black/60 border border-kyp-teal/30 p-2 overflow-hidden flex items-center justify-center">
+                      <div className="relative h-44 rounded-xl bg-black/60 border border-[#033653] p-2 overflow-hidden flex items-center justify-center">
                         {/* Background Grid */}
                         <div className="absolute inset-0 flex flex-col justify-between p-3 pointer-events-none opacity-20">
                           <div className="border-b border-dashed border-slate-400 w-full" />
@@ -513,12 +507,12 @@ export default function IndustryTabs() {
                       </div>
 
                       {/* Animated Node Hierarchy Tree */}
-                      <div className="relative h-44 rounded-xl bg-black/60 border border-kyp-teal/30 p-2 overflow-hidden flex items-center justify-center">
+                      <div className="relative h-44 rounded-xl bg-black/60 border border-[#033653] p-2 overflow-hidden flex items-center justify-center">
                         <svg viewBox="0 0 380 140" className="w-full h-full overflow-visible">
                           {/* Connection Lines from Root Acquirer to PayFac to Sub-Merchants */}
                           <path
                             d="M 50,70 L 150,70 M 150,70 L 260,30 M 150,70 L 260,70 M 150,70 L 260,110"
-                            stroke="#6fd3c4"
+                            stroke="#66cc00"
                             strokeWidth="1.8"
                             strokeDasharray="4 3"
                             fill="none"
@@ -541,7 +535,7 @@ export default function IndustryTabs() {
 
                           {/* Root Acquirer Node */}
                           <g transform="translate(50, 70)">
-                            <circle r="16" fill="#033653" stroke="#6fd3c4" strokeWidth="2" />
+                            <circle r="16" fill="#033653" stroke="#66cc00" strokeWidth="2" />
                             <circle r="6" fill="#66cc00" />
                             <text x="0" y="26" textAnchor="middle" fill="#ffffff" fontSize="9" fontWeight="bold">Acquirer</text>
                           </g>
@@ -555,21 +549,21 @@ export default function IndustryTabs() {
 
                           {/* Sub-Merchant 1 */}
                           <g transform="translate(260, 30)">
-                            <circle r="11" fill="#082b40" stroke="#6fd3c4" strokeWidth="1.5" />
+                            <circle r="11" fill="#082b40" stroke="#66cc00" strokeWidth="1.5" />
                             <circle r="3" fill="#66cc00" />
                             <text x="18" y="4" fill="#ffffff" fontSize="8">Sub-Merchant A (0.12%)</text>
                           </g>
 
                           {/* Sub-Merchant 2 */}
                           <g transform="translate(260, 70)">
-                            <circle r="11" fill="#082b40" stroke="#6fd3c4" strokeWidth="1.5" />
+                            <circle r="11" fill="#082b40" stroke="#66cc00" strokeWidth="1.5" />
                             <circle r="3" fill="#66cc00" />
                             <text x="18" y="4" fill="#ffffff" fontSize="8">Sub-Merchant B (0.24%)</text>
                           </g>
 
                           {/* Sub-Merchant 3 */}
                           <g transform="translate(260, 110)">
-                            <circle r="11" fill="#082b40" stroke="#6fd3c4" strokeWidth="1.5" />
+                            <circle r="11" fill="#082b40" stroke="#66cc00" strokeWidth="1.5" />
                             <circle r="3" fill="#66cc00" />
                             <text x="18" y="4" fill="#ffffff" fontSize="8">Sub-Merchant C (0.08%)</text>
                           </g>
@@ -604,17 +598,17 @@ export default function IndustryTabs() {
                       </div>
 
                       {/* Animated Contagion Cluster Visualizer */}
-                      <div className="relative h-44 rounded-xl bg-black/60 border border-kyp-teal/30 p-2 overflow-hidden flex items-center justify-center">
+                      <div className="relative h-44 rounded-xl bg-black/60 border border-[#033653] p-2 overflow-hidden flex items-center justify-center">
                         <svg viewBox="0 0 380 140" className="w-full h-full overflow-visible">
                           {/* Outer Orbit Rings */}
                           <circle cx="190" cy="70" r="55" fill="none" stroke="#0d4e75" strokeWidth="1" strokeDasharray="3 3" />
-                          <circle cx="190" cy="70" r="30" fill="none" stroke="#6fd3c4" strokeWidth="0.8" opacity="0.4" />
+                          <circle cx="190" cy="70" r="30" fill="none" stroke="#66cc00" strokeWidth="0.8" opacity="0.4" />
 
                           {/* Radial Connecting Rays */}
-                          <line x1="190" y1="70" x2="135" y2="45" stroke="#6fd3c4" strokeWidth="1.5" />
-                          <line x1="190" y1="70" x2="245" y2="45" stroke="#6fd3c4" strokeWidth="1.5" />
+                          <line x1="190" y1="70" x2="135" y2="45" stroke="#66cc00" strokeWidth="1.5" />
+                          <line x1="190" y1="70" x2="245" y2="45" stroke="#66cc00" strokeWidth="1.5" />
                           <line x1="190" y1="70" x2="150" y2="105" stroke="#66cc00" strokeWidth="1.8" />
-                          <line x1="190" y1="70" x2="230" y2="105" stroke="#6fd3c4" strokeWidth="1.5" />
+                          <line x1="190" y1="70" x2="230" y2="105" stroke="#66cc00" strokeWidth="1.5" />
 
                           {/* Animated moving photons */}
                           <circle r="3" fill="#66cc00">
@@ -633,15 +627,15 @@ export default function IndustryTabs() {
 
                           {/* Satellite Holding Node 1 */}
                           <g transform="translate(135, 45)">
-                            <circle r="10" fill="#0b3751" stroke="#6fd3c4" strokeWidth="1.5" />
-                            <circle r="3" fill="#6fd3c4" />
+                            <circle r="10" fill="#0b3751" stroke="#66cc00" strokeWidth="1.5" />
+                            <circle r="3" fill="#66cc00" />
                             <text x="-14" y="-12" fill="#c6f5ef" fontSize="8">Holding SA (LU)</text>
                           </g>
 
                           {/* Satellite Holding Node 2 */}
                           <g transform="translate(245, 45)">
-                            <circle r="10" fill="#0b3751" stroke="#6fd3c4" strokeWidth="1.5" />
-                            <circle r="3" fill="#6fd3c4" />
+                            <circle r="10" fill="#0b3751" stroke="#66cc00" strokeWidth="1.5" />
+                            <circle r="3" fill="#66cc00" />
                             <text x="0" y="-12" fill="#c6f5ef" fontSize="8">Fintech BV (NL)</text>
                           </g>
 
@@ -654,7 +648,7 @@ export default function IndustryTabs() {
 
                           {/* Clean Sanctions Match */}
                           <g transform="translate(230, 105)">
-                            <circle r="10" fill="#0b3751" stroke="#6fd3c4" strokeWidth="1.5" />
+                            <circle r="10" fill="#0b3751" stroke="#66cc00" strokeWidth="1.5" />
                             <circle r="3" fill="#66cc00" />
                             <text x="14" y="16" fill="#ffffff" fontSize="8">OFAC / EU: Clean</text>
                           </g>
@@ -689,7 +683,7 @@ export default function IndustryTabs() {
                       </div>
 
                       {/* Dynamic Bar Graph with Moving Payout Heights */}
-                      <div className="relative h-44 rounded-xl bg-black/60 border border-kyp-teal/30 p-4 overflow-hidden flex items-end justify-between gap-3">
+                      <div className="relative h-44 rounded-xl bg-black/60 border border-[#033653] p-4 overflow-hidden flex items-end justify-between gap-3">
                         {/* 6 Animated Dynamic Bars */}
                         {[
                           { day: "Mon", height: "65%", val: "€140K", pass: true },
@@ -732,13 +726,10 @@ export default function IndustryTabs() {
                       </div>
                     </div>
                   )}
-                    </>
-                  )}
                 </div>
               </div>
             </div>
-          </motion.div>
-        </AnimatePresence>
+          </div>
       </div>
     </section>
   );

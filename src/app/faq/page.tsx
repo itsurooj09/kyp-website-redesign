@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Metadata } from "next";
-import { ArrowRight, Sparkles, HelpCircle, Mail } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { routes } from "@/lib/routes";
 import FAQAccordion from "@/components/faq/FAQAccordion";
 
@@ -17,15 +17,14 @@ export default function FAQPage() {
       
       {/* HERO */}
       <section className="relative pt-12 pb-16 lg:pt-20 lg:pb-24 border-b border-slate-200 bg-gradient-to-b from-slate-50/80 via-white to-slate-50/40 kyp-grid-pattern">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-emerald-100/30 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-mono text-emerald-800 mb-6 font-bold shadow-sm">
-            <Sparkles className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#000000] border border-[#033653] text-xs font-mono text-white mb-6 font-bold shadow-xs">
+            <Sparkles className="w-3.5 h-3.5 text-[#66cc00]" />
             <span>KNOWLEDGE BASE &bull; REGULATORY FAQ</span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-900 max-w-4xl mx-auto leading-[1.1] font-heading">
+          <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-[#000000] max-w-4xl mx-auto leading-[1.1] font-heading">
             Frequently Asked Questions.
           </h1>
 
@@ -42,26 +41,7 @@ export default function FAQPage() {
         </div>
       </section>
 
-      {/* FINAL BOOK A DEMO CTA */}
-      <section className="py-20 lg:py-24 bg-gradient-to-b from-slate-50 via-emerald-50/20 to-white text-center border-t border-slate-200 relative overflow-hidden">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8 relative z-10 space-y-6">
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
-            Still Have Questions About KYP?
-          </h2>
-          <p className="text-sm sm:text-base text-slate-600 max-w-xl mx-auto">
-            Our compliance engineering team is on hand to review your specific partner monitoring workflow and demonstrate live capabilities.
-          </p>
-          <div className="pt-2">
-            <Link
-              href={routes.bookDemo}
-              className="kyp-btn-primary px-8 py-3.5 rounded-full text-sm font-semibold inline-flex items-center gap-2 shadow-md hover:shadow-lg transition-all"
-            >
-              <span>Book a Demo</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* Note: Per user explicit specification, final CTA banner is completely removed from all pages. */}
     </div>
   );
 }

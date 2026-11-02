@@ -11,17 +11,17 @@ export default function HeroGraphVisualization() {
       <div className="absolute -inset-1 bg-gradient-to-r from-kyp-lime/20 via-kyp-teal/20 to-kyp-navy/40 rounded-3xl blur-2xl opacity-70 group-hover:opacity-100 transition duration-1000 -z-10" />
 
       {/* Main Layered Canvas Surface */}
-      <div className="relative rounded-2xl border border-kyp-teal/30 bg-black/90 backdrop-blur-xl overflow-hidden shadow-2xl p-4 sm:p-6 lg:p-8 kyp-grid-pattern">
+      <div className="relative rounded-2xl border border-[#033653] bg-black/90 backdrop-blur-xl overflow-hidden shadow-2xl p-4 sm:p-6 lg:p-8 kyp-grid-pattern">
         
         {/* Top Control Bar of Dashboard */}
-        <div className="flex flex-wrap items-center justify-between pb-6 border-b border-kyp-teal/15 gap-4">
+        <div className="flex flex-wrap items-center justify-between pb-6 border-b border-[#033653] gap-4">
           <div className="flex items-center gap-3">
             <div className="flex gap-1.5">
               <span className="w-3 h-3 rounded-full bg-red-500/80" />
               <span className="w-3 h-3 rounded-full bg-yellow-500/80" />
               <span className="w-3 h-3 rounded-full bg-kyp-lime" />
             </div>
-            <div className="h-4 w-px bg-kyp-teal/20 mx-1" />
+            <div className="h-4 w-px bg-[#66cc00]/15 mx-1" />
             <span className="text-xs font-mono text-gray-300 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-kyp-lime animate-pulse" />
               KYP Enterprise Risk Sentinel • v4.2 Live
@@ -29,18 +29,18 @@ export default function HeroGraphVisualization() {
           </div>
 
           <div className="flex items-center gap-3 text-xs font-mono">
-            <div className="px-3 py-1 rounded-md bg-kyp-navy/60 border border-kyp-teal/25 text-kyp-mint flex items-center gap-1.5">
+            <div className="px-3 py-1 rounded-md bg-kyp-navy/60 border border-[#033653] text-kyp-mint flex items-center gap-1.5">
               <Activity className="w-3.5 h-3.5 text-kyp-lime" />
               <span>1,248 Merchants Monitored</span>
             </div>
-            <div className="px-3 py-1 rounded-md bg-kyp-navy/60 border border-kyp-teal/25 text-gray-300">
+            <div className="px-3 py-1 rounded-md bg-kyp-navy/60 border border-[#033653] text-gray-300">
               Audit Readiness: <span className="text-kyp-lime font-bold">100%</span>
             </div>
           </div>
         </div>
 
         {/* Central Layered Architecture: Actual UI Display Screenshot + Layered Interactive Node Overlay */}
-        <div className="relative mt-6 rounded-xl overflow-hidden border border-kyp-teal/25 bg-kyp-navy-surface/60">
+        <div className="relative mt-6 rounded-xl overflow-hidden border border-[#033653] bg-kyp-navy-surface/60">
           
           {/* Real Platform Screenshot Base */}
           <div className="relative w-full h-[320px] sm:h-[420px] lg:h-[480px]">
@@ -56,9 +56,9 @@ export default function HeroGraphVisualization() {
           </div>
 
           {/* Floating Data Card 1: Top Left - AI Discrepancy Check */}
-          <div className="absolute top-4 left-4 sm:top-6 sm:left-6 max-w-xs p-3.5 rounded-xl bg-black/90 backdrop-blur-md border border-kyp-teal/30 shadow-2xl animate-float hidden sm:block">
+          <div className="absolute top-4 left-4 sm:top-6 sm:left-6 max-w-xs p-3.5 rounded-xl bg-black/90 backdrop-blur-md border border-[#033653] shadow-2xl animate-float hidden sm:block">
             <div className="flex items-center justify-between gap-3 mb-2">
-              <span className="text-[10px] font-mono uppercase text-kyp-teal font-semibold flex items-center gap-1">
+              <span className="text-[10px] font-mono uppercase text-[#66cc00] font-semibold flex items-center gap-1">
                 <Sparkles className="w-3 h-3 text-kyp-lime" />
                 AI Document Sentinel
               </span>
@@ -78,7 +78,7 @@ export default function HeroGraphVisualization() {
           <div className="absolute top-4 right-4 sm:top-6 sm:right-6 max-w-xs p-3.5 rounded-xl bg-black/90 backdrop-blur-md border border-kyp-mint/30 shadow-2xl hidden md:block">
             <div className="flex items-center justify-between gap-3 mb-2">
               <span className="text-[10px] font-mono uppercase text-kyp-mint font-semibold flex items-center gap-1">
-                <Network className="w-3 h-3 text-kyp-teal" />
+                <Network className="w-3 h-3 text-[#66cc00]" />
                 Graph Intelligence
               </span>
               <span className="px-1.5 py-0.5 rounded bg-yellow-500/10 text-yellow-400 text-[9px] font-mono">
@@ -94,7 +94,7 @@ export default function HeroGraphVisualization() {
           </div>
 
           {/* Floating Data Card 3: Bottom Left - Continuous WebCompli Status */}
-          <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 max-w-xs p-3.5 rounded-xl bg-black/95 backdrop-blur-md border border-kyp-teal/30 shadow-2xl">
+          <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 max-w-xs p-3.5 rounded-xl bg-black/95 backdrop-blur-md border border-[#033653] shadow-2xl">
             <div className="flex items-center justify-between gap-3 mb-1.5">
               <span className="text-[10px] font-mono uppercase text-kyp-lime font-semibold flex items-center gap-1">
                 <CheckCircle2 className="w-3.5 h-3.5 text-kyp-lime" />
@@ -111,7 +111,7 @@ export default function HeroGraphVisualization() {
           </div>
 
           {/* Floating Data Card 4: Bottom Right - One-Click Audit Report */}
-          <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 max-w-xs p-3.5 rounded-xl bg-black/95 backdrop-blur-md border border-kyp-teal/30 shadow-2xl hidden sm:block">
+          <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 max-w-xs p-3.5 rounded-xl bg-black/95 backdrop-blur-md border border-[#033653] shadow-2xl hidden sm:block">
             <div className="flex items-center justify-between gap-3 mb-1.5">
               <span className="text-[10px] font-mono uppercase text-kyp-mint font-semibold flex items-center gap-1">
                 <FileCheck className="w-3.5 h-3.5 text-kyp-mint" />
@@ -129,7 +129,7 @@ export default function HeroGraphVisualization() {
         </div>
 
         {/* Bottom Metrics Ticker */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6 pt-6 border-t border-kyp-teal/15 text-center">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6 pt-6 border-t border-[#033653] text-center">
           <div className="p-2">
             <div className="text-2xl lg:text-3xl font-extrabold text-white tracking-tight">
               10×
@@ -147,7 +147,7 @@ export default function HeroGraphVisualization() {
             </div>
           </div>
           <div className="p-2">
-            <div className="text-2xl lg:text-3xl font-extrabold text-kyp-teal tracking-tight">
+            <div className="text-2xl lg:text-3xl font-extrabold text-[#66cc00] tracking-tight">
               24/7/365
             </div>
             <div className="text-xs text-gray-400 font-mono mt-0.5">

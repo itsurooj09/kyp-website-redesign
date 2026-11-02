@@ -130,7 +130,7 @@ export function PartnerCarouselMarquee() {
           {[...PARTNERS, ...PARTNERS, ...PARTNERS, ...PARTNERS].map((p, idx) => (
             <div
               key={`${p.id}-${idx}`}
-              className="h-22 sm:h-24 min-w-[220px] sm:min-w-[260px] px-8 rounded-2xl bg-white border-2 border-slate-200/80 hover:border-kyp-teal shadow-xs hover:shadow-lg flex items-center justify-center transition-all group shrink-0"
+              className="h-22 sm:h-24 min-w-[220px] sm:min-w-[260px] px-8 rounded-2xl bg-white border-2 border-slate-200/80 hover:border-[#033653] shadow-xs hover:shadow-lg flex items-center justify-center transition-all group shrink-0"
             >
               <PartnerLogo
                 id={p.id}

@@ -62,7 +62,7 @@ export const whitepapersData: Whitepaper[] = [
       "Graph database modeling vs. relational databases for high-speed beneficial ownership tracing",
       "Interactive visual analytics for senior MLROs and forensic financial investigators",
     ],
-    coverImage: "/images/partners/itemize-logo.webp",
+    coverImage: "/images/news/news-aazzur.webp",
     downloadUrl: routes.contact,
   },
   {
@@ -79,7 +79,7 @@ export const whitepapersData: Whitepaper[] = [
       "Integrating continuous cyber risk scoring (RiskRecon) with corporate KYB intelligence",
       "Producing audit-ready compliance evidence packs for supervisory authorities in minutes",
     ],
-    coverImage: "/images/partners/iso-27001.webp",
+    coverImage: "/images/news/news-fca.webp",
     downloadUrl: routes.contact,
   },
 ];

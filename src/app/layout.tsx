@@ -98,7 +98,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="bg-white text-slate-900 antialiased selection:bg-emerald-100 selection:text-emerald-900">
+      <body className="bg-white text-slate-900 antialiased selection:bg-[#000000] selection:text-[#66cc00]">
         <Header />
         <main className="min-h-screen pt-28">{children}</main>
         <Footer />

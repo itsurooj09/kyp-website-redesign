@@ -6,8 +6,9 @@ import { routes } from "@/lib/routes";
 import { platformFeaturesData } from "@/data/platformFeatures";
 
 import GraphIntelligence from "@/components/product/GraphIntelligence";
-import PlatformFlow from "@/components/product/PlatformFlow";
+import ArchitecturalIntelligenceFlow from "@/components/product/ArchitecturalIntelligenceFlow";
 import AnalyticsDashboard from "@/components/product/AnalyticsDashboard";
+import ClientPlatformInterface from "@/components/product/ClientPlatformInterface";
 import OnboardingInterface from "@/components/product/OnboardingInterface";
 import AuditInterface from "@/components/product/AuditInterface";
 import KYPLottie from "@/components/lottie/KYPLottie";
@@ -23,24 +24,23 @@ export default function PlatformPage() {
   return (
     <div className="w-full bg-white text-slate-900 relative overflow-hidden">
       
-      {/* SECTION 1 – PLATFORM HERO */}
+      {/* SECTION 1 – PLATFORM HERO (EXPANSIVE AMBIENT GLOW & CENTERED ARCHITECTURE) */}
       <section className="relative pt-12 pb-20 lg:pt-20 lg:pb-28 border-b border-slate-200 bg-gradient-to-b from-slate-50/80 via-white to-slate-50/40 kyp-grid-pattern">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[650px] h-[350px] bg-emerald-100/30 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-mono text-emerald-800 mb-6 font-bold shadow-sm">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>THE KYP PLATFORM: FROM ONBOARDING TO AUDIT</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#000000] border border-[#033653] text-xs font-mono text-white mb-6 font-bold shadow-xs">
+            <Sparkles className="w-3.5 h-3.5 text-[#66cc00]" />
+            <span>THE KYP PLATFORM &bull; FROM ONBOARDING TO AUDIT</span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 max-w-4xl mx-auto leading-[1.08] font-heading">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-[#000000] max-w-4xl mx-auto leading-[1.08] font-heading">
             Multiple Data Sources. <br />
-            <span className="bg-gradient-to-r from-emerald-600 via-teal-600 to-sky-600 bg-clip-text text-transparent">
+            <span className="text-[#033653]">
               One Unified Platform.
             </span>
           </h1>
 
-          <p className="text-xl sm:text-2xl text-emerald-700 font-semibold mt-4">
+          <p className="text-xl sm:text-2xl text-[#033653] font-bold mt-4">
             Faster onboarding. No fragmented reviews. Complete visibility from onboarding to audit.
           </p>
 
@@ -49,13 +49,13 @@ export default function PlatformPage() {
           </p>
 
           {/* Workflow Badges: Onboard -> Verify -> Monitor -> Report */}
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-3 font-mono text-xs">
+          <div className="mt-7 flex flex-wrap items-center justify-center gap-3 font-mono text-xs">
             {["Onboard", "Verify", "Monitor", "Report"].map((step, idx) => (
               <div key={idx} className="flex items-center gap-3">
-                <span className="px-3.5 py-1.5 rounded-md bg-slate-100 border border-slate-200 text-slate-700 font-semibold">
+                <span className="px-4 py-1.5 rounded-full bg-[#000000] border border-[#033653] text-white font-bold shadow-xs">
                   {step}
                 </span>
-                {idx < 3 && <ArrowRight className="w-3.5 h-3.5 text-emerald-600" />}
+                {idx < 3 && <ArrowRight className="w-3.5 h-3.5 text-[#66cc00]" />}
               </div>
             ))}
           </div>
@@ -63,45 +63,45 @@ export default function PlatformPage() {
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <Link
               href={routes.bookDemo}
-              className="kyp-btn-primary px-8 py-3.5 rounded-full text-sm font-semibold flex items-center gap-2 shadow-md hover:shadow-lg transition-all"
+              className="px-8 py-3.5 rounded-full bg-[#66cc00] hover:bg-[#55b300] text-[#000000] text-sm font-extrabold flex items-center gap-2 shadow-md hover:shadow-lg transition-all"
             >
               <span>Book a Demo</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
             <a
               href="#graph-intelligence"
-              className="kyp-btn-secondary px-8 py-3.5 rounded-full text-sm font-semibold flex items-center gap-2"
+              className="px-8 py-3.5 rounded-full bg-white border border-[#033653] text-[#033653] hover:bg-slate-50 text-sm font-semibold flex items-center gap-2 transition-all"
             >
               <span>Explore Graph Intelligence</span>
             </a>
           </div>
 
-          {/* Hero Analytics Visual */}
-          <div className="mt-14 max-w-5xl mx-auto text-left">
-            <AnalyticsDashboard />
+          {/* Hero Platform Showcase: Client Platform Interface */}
+          <div className="mt-14 max-w-6xl mx-auto text-left">
+            <ClientPlatformInterface />
           </div>
         </div>
       </section>
 
-      {/* SECTION 2 – PLATFORM OVERVIEW */}
+      {/* SECTION 2 – ECOSYSTEM OVERVIEW (CENTERED HEADER & BALANCED 5 PILLARS) */}
       <section id="overview" className="py-20 lg:py-28 bg-slate-50 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="max-w-3xl mb-14">
-            <span className="text-xs font-mono text-emerald-700 uppercase tracking-widest font-bold">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-14">
+          <div className="max-w-4xl mx-auto text-center space-y-3">
+            <span className="text-xs font-mono bg-[#000000] text-white px-3.5 py-1 rounded-full border border-[#033653] uppercase tracking-widest font-bold">
               Ecosystem Overview
             </span>
-            <h2 className="text-3xl sm:text-5xl font-bold text-slate-900 mt-2 tracking-tight">
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-[#000000] tracking-tight">
               Connect Every Stage of Merchant Risk Management.
             </h2>
-            <p className="text-lg text-emerald-700 font-bold mt-2">
+            <p className="text-lg text-[#033653] font-bold">
               One connected view from onboarding to audit.
             </p>
-            <p className="text-sm sm:text-base text-slate-600 mt-3 leading-relaxed">
-              Accelerate merchant onboarding with AI-assisted document validation, helping merchants resolve issues before submission. Cross-check information against multiple data sources to build a consolidated risk assessment without switching between tools. Continuously monitor changes in risk against your policies, investigate findings in one place and maintain a complete record of checks, alerts and decisions. Generate audit-ready reports in seconds, reducing manual reviews and making it easier to demonstrate your due diligence.
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-3xl mx-auto">
+              Accelerate merchant onboarding with AI-assisted document validation, helping merchants resolve issues before submission. Cross-check information against multiple data sources to build a consolidated risk assessment without switching between tools.
             </p>
           </div>
 
-          {/* 5 Core Pillars Grid */}
+          {/* 6 Core Pillars Grid - Balanced in 3, 3 */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
@@ -125,151 +125,108 @@ export default function PlatformPage() {
                 tag: "TRANSACTIONS",
               },
               {
-                title: "Configurable Rules & Audit Reports",
-                desc: "Policy-aligned rules, automated alerts, structured investigation workspaces, and one-click audit reports.",
+                title: "Configurable Rules & Alert Engine",
+                desc: "Policy-aligned rules, automated alerts, structured investigation workspaces, and multi-tier escalation thresholds.",
                 tag: "GOVERNANCE",
+              },
+              {
+                title: "Instant Audit-Ready Reporting",
+                desc: "One-click defensible compliance dossiers, complete historical event timelines, and regulatory export packs.",
+                tag: "DEFENSIBILITY",
               },
             ].map((pillar, idx) => (
               <div
                 key={idx}
-                className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-all space-y-3"
+                className="p-7 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-2xl transition-all duration-300 space-y-3 group cursor-pointer hover:bg-[#000000] hover:border-[#033653] hover:-translate-y-1.5"
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-mono text-emerald-700 font-bold uppercase tracking-wider">{pillar.tag}</span>
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                  <span className="text-[10px] font-mono text-white group-hover:text-[#66cc00] px-2.5 py-0.5 rounded-full bg-[#000000] border border-[#033653] group-hover:border-[#66cc00] font-bold uppercase tracking-wider transition-colors">
+                    {pillar.tag}
+                  </span>
+                  <CheckCircle2 className="w-4 h-4 text-[#66cc00] group-hover:scale-110 transition-transform" />
                 </div>
-                <h3 className="text-lg font-bold text-slate-900">{pillar.title}</h3>
-                <p className="text-xs text-slate-600 leading-relaxed">{pillar.desc}</p>
+                <h3 className="text-lg font-bold text-[#000000] group-hover:text-white transition-colors">{pillar.title}</h3>
+                <p className="text-xs sm:text-sm text-slate-600 group-hover:text-slate-300 leading-relaxed transition-colors">{pillar.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* SECTION 3 – AI-POWERED ONBOARDING */}
+      {/* SECTION 3 – AI-POWERED ONBOARDING (CENTERED HEADER & FULL VISUAL) */}
       <section id="ai-onboarding" className="py-20 lg:py-28 bg-white border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-12">
-          <div className="max-w-3xl">
-            <div className="flex items-center gap-3">
-              <span className="text-xs font-mono text-emerald-700 uppercase tracking-widest font-bold">
-                Section 01 &bull; AI-Powered Onboarding
-              </span>
-              <div className="w-6 h-6">
-                <KYPLottie type="docScanner" className="w-full h-full" />
-              </div>
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-14">
+          <div className="max-w-4xl mx-auto text-center space-y-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#000000] border border-[#033653] text-xs font-mono text-white font-bold">
+              <span className="w-2 h-2 rounded-full bg-[#66cc00] animate-pulse" />
+              <span>SECTION 01 &bull; AI-POWERED ONBOARDING</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-bold text-slate-900 mt-2 tracking-tight">
-              Onboard 10× Faster. Resolve Document Issues Before Submission.
+            
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-[#000000] tracking-tight">
+              Onboard 10&times; Faster. Resolve Document Issues Before Submission.
             </h2>
-            <p className="text-lg text-emerald-700 font-bold mt-2">
+            
+            <p className="text-lg text-[#033653] font-bold">
               Get the information you need from the start.
             </p>
-            <p className="text-sm text-slate-600 mt-3 leading-relaxed">
-              KYP uses AI to check documents as business partners complete their onboarding questionnaires, helping them resolve issues before submission and reducing the back-and-forth your team needs to manage. Set the checks and submission requirements that match your onboarding policies. Help partners understand what needs correcting while they complete the questionnaire, rather than discovering problems after submission. Bring their answers, documents and verification findings together for review, with your team retaining control of approval decisions.
+            
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-3xl mx-auto">
+              KYP uses AI to check documents as business partners complete their onboarding questionnaires, helping them resolve issues before submission and reducing the back-and-forth your team needs to manage.
             </p>
-            <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-600">
-              <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span>Questionnaires & requirements tailored to policy</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span>AI checks assessing against configured rules</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span>Clear feedback to fix issues before submission</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span>Automatically populated forms via extracted data</span>
-              </li>
-              <li className="flex items-center gap-2 sm:col-span-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span>Discrepancies flagged between documents, answers & registry records</span>
-              </li>
-            </ul>
-          </div>
 
-          {/* Workflow Badges: Collect -> Check -> Resolve -> Submit */}
-          <div className="space-y-2">
-            <div className="flex flex-wrap items-center gap-3 font-mono text-xs">
+            {/* Centered Workflow Steps */}
+            <div className="pt-2 flex flex-wrap items-center justify-center gap-3 font-mono text-xs">
               {["Collect", "Check", "Resolve", "Submit"].map((step, idx) => (
                 <div key={idx} className="flex items-center gap-3">
-                  <span className="px-3.5 py-1.5 rounded-md bg-slate-100 border border-slate-200 text-slate-700 font-semibold">
-                    {idx + 1}. {step}
+                  <span className="px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-[#033653] font-bold shadow-xs">
+                    0{idx + 1}. {step}
                   </span>
-                  {idx < 3 && <ArrowRight className="w-3.5 h-3.5 text-emerald-600" />}
+                  {idx < 3 && <ArrowRight className="w-3.5 h-3.5 text-[#66cc00]" />}
                 </div>
               ))}
             </div>
-            <p className="text-xs text-emerald-700 font-mono font-semibold">
-              Help partners get it right before submission. Reduce follow-ups. Accelerate onboarding.
-            </p>
           </div>
 
           <OnboardingInterface />
         </div>
       </section>
 
-      {/* SECTION 4 – DATA & INTEGRATIONS */}
+      {/* SECTION 4 – DATA & INTEGRATIONS (CENTERED HEADER & PIPELINE) */}
       <section id="data-integrations" className="py-20 lg:py-28 bg-slate-50 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-12">
-          <div className="max-w-3xl">
-            <span className="text-xs font-mono text-emerald-700 uppercase tracking-widest font-bold">
-              Section 02 &bull; Data &amp; Integrations
-            </span>
-            <h2 className="text-3xl sm:text-5xl font-bold text-slate-900 mt-2 tracking-tight">
-              Bring Your Data Together. Build a 360° View of Risk.
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-14">
+          <div className="max-w-4xl mx-auto text-center space-y-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#000000] border border-[#033653] text-xs font-mono text-white font-bold">
+              <span className="w-2 h-2 rounded-full bg-[#66cc00] animate-pulse" />
+              <span>SECTION 02 &bull; DATA &amp; INTEGRATIONS</span>
+            </div>
+
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-[#000000] tracking-tight">
+              Bring Your Data Together. Build a 360&deg; View of Risk.
             </h2>
-            <p className="text-lg text-emerald-700 font-bold mt-2">
+
+            <p className="text-lg text-[#033653] font-bold">
               Connect the data behind your risk assessments.
             </p>
-            <p className="text-sm text-slate-600 mt-3 leading-relaxed">
-              Bring together information from your business partners, external sources and internal systems to verify onboarding answers, identify discrepancies and build a consolidated risk assessment. Cross-check onboarding answers against external and internal data to flag inconsistencies and missing information. Bring the findings and supporting evidence together in a single risk report. Keep assessments current with updated information and monitoring configured around your policies.
-            </p>
-            <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-600">
-              <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span>Business questionnaires & supporting documents</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span>Company registry, sanctions, PEP & adverse media</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span>Internal transactional and CRM systems data</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span>Website compliance, restrictions & blacklists</span>
-              </li>
-              <li className="flex items-center gap-2 sm:col-span-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span>Real-time transaction monitoring & connected cyber-risk intelligence</span>
-              </li>
-            </ul>
-          </div>
 
-          {/* Workflow: Connect -> Cross-reference -> Assess -> Monitor */}
-          <div className="space-y-2">
-            <div className="flex flex-wrap items-center gap-3 font-mono text-xs">
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-3xl mx-auto">
+              Bring together information from your business partners, external sources and internal systems to verify onboarding answers, identify discrepancies and build a consolidated risk assessment.
+            </p>
+
+            {/* Workflow Badges */}
+            <div className="pt-2 flex flex-wrap items-center justify-center gap-3 font-mono text-xs">
               {["Connect", "Cross-reference", "Assess", "Monitor"].map((step, idx) => (
                 <div key={idx} className="flex items-center gap-3">
-                  <span className="px-3.5 py-1.5 rounded-md bg-white border border-slate-200 text-slate-700 font-semibold shadow-sm">
-                    {idx + 1}. {step}
+                  <span className="px-4 py-1.5 rounded-full bg-white border border-slate-200 text-[#033653] font-bold shadow-xs">
+                    0{idx + 1}. {step}
                   </span>
-                  {idx < 3 && <ArrowRight className="w-3.5 h-3.5 text-emerald-600" />}
+                  {idx < 3 && <ArrowRight className="w-3.5 h-3.5 text-[#66cc00]" />}
                 </div>
               ))}
             </div>
-            <p className="text-xs text-emerald-700 font-mono font-semibold">
-              Verify information. Surface discrepancies. Identify and act on risks.
-            </p>
           </div>
 
-          <PlatformFlow />
+          {/* Architectural Flow Diagram with 6 Tabs & Animation (Image 4 & Image 5) */}
+          <ArchitecturalIntelligenceFlow />
         </div>
       </section>
 
@@ -277,18 +234,18 @@ export default function PlatformPage() {
       <RiskIntelligenceGraphShowcase />
 
       <section id="graph-intelligence" className="py-20 lg:py-28 bg-white border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-12">
-          <div className="max-w-3xl">
-            <span className="text-xs font-mono text-emerald-700 uppercase tracking-widest font-bold">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-14">
+          <div className="max-w-4xl mx-auto text-center space-y-4">
+            <span className="text-xs font-mono bg-[#000000] text-white px-3.5 py-1 rounded-full border border-[#033653] uppercase tracking-widest font-bold">
               Interactive Network &bull; Entity Resolution &amp; Contagion
             </span>
-            <h2 className="text-3xl sm:text-5xl font-bold text-slate-900 mt-2 tracking-tight">
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-[#000000] tracking-tight">
               See the Connections Behind the Risks.
             </h2>
-            <p className="text-lg text-emerald-700 font-bold mt-2">
+            <p className="text-lg text-[#033653] font-bold">
               Understand relationships. Uncover hidden exposure. Make better-informed decisions.
             </p>
-            <p className="text-sm text-slate-600 mt-3 leading-relaxed">
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-3xl mx-auto">
               KYP Graph Intelligence maps entity relationships in real time, connecting parent companies, beneficial owners (UBOs), directors, subsidiaries, and merchants to uncover hidden contagion risks.
             </p>
           </div>
@@ -297,158 +254,79 @@ export default function PlatformPage() {
         </div>
       </section>
 
-      {/* SECTION 6 – CONTINUOUS MONITORING & ALERTS */}
+      {/* SECTION 6 – CONTINUOUS MONITORING & ALERTS (CENTERED) */}
       <section id="monitoring-alerts" className="py-20 lg:py-28 bg-slate-50 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-12">
-          <div className="max-w-3xl">
-            <div className="flex items-center gap-3">
-              <span className="text-xs font-mono text-emerald-700 uppercase tracking-widest font-bold">
-                Section 04 &bull; Continuous Monitoring &amp; Alerts
-              </span>
-              <div className="w-6 h-6">
-                <KYPLottie type="continuousPulse" className="w-full h-full" />
-              </div>
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-14">
+          <div className="max-w-4xl mx-auto text-center space-y-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#000000] border border-[#033653] text-xs font-mono text-white font-bold">
+              <span className="w-2 h-2 rounded-full bg-[#66cc00] animate-pulse" />
+              <span>SECTION 04 &bull; CONTINUOUS MONITORING &amp; ALERTS</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-bold text-slate-900 mt-2 tracking-tight">
+
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-[#000000] tracking-tight">
               Stay Ahead of Changing Risks. Know When to Act.
             </h2>
-            <p className="text-lg text-emerald-700 font-bold mt-2">
+
+            <p className="text-lg text-[#033653] font-bold">
               Keep track of the risks that matter.
             </p>
-            <p className="text-sm text-slate-600 mt-3 leading-relaxed">
-              Monitor changes in your business partners&apos; risk profiles, websites and transaction activity according to your risk management policies. Enable your team to identify emerging risks and prioritise investigations by risk level. Configure monitoring frequencies and alert conditions to match your risk management policies. Track merchant trends over time and flag suspicious transaction activity as it occurs where transaction data is integrated. Receive alerts when new risks are detected, with supporting information to investigate findings and decide what action to take.
-            </p>
-            <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-600">
-              <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span>Changes in company filings, sanctions & adverse media</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span>Website content, terms and ownership changes</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span>Regulatory restrictions and prohibited markets</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span>Merchant transaction patterns & real-time signals</span>
-              </li>
-            </ul>
-          </div>
 
-          {/* Workflow: Monitor -> Alert -> Investigate -> Act */}
-          <div className="space-y-2">
-            <div className="flex flex-wrap items-center gap-3 font-mono text-xs">
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-3xl mx-auto">
+              Monitor changes in your business partners&apos; risk profiles, websites and transaction activity according to your risk management policies. Enable your team to identify emerging risks and prioritise investigations by risk level.
+            </p>
+
+            {/* Workflow Badges */}
+            <div className="pt-2 flex flex-wrap items-center justify-center gap-3 font-mono text-xs">
               {["Monitor", "Alert", "Investigate", "Act"].map((step, idx) => (
                 <div key={idx} className="flex items-center gap-3">
-                  <span className="px-3.5 py-1.5 rounded-md bg-white border border-slate-200 text-slate-700 font-semibold shadow-sm">
-                    {idx + 1}. {step}
+                  <span className="px-4 py-1.5 rounded-full bg-white border border-slate-200 text-[#033653] font-bold shadow-xs">
+                    0{idx + 1}. {step}
                   </span>
-                  {idx < 3 && <ArrowRight className="w-3.5 h-3.5 text-emerald-600" />}
+                  {idx < 3 && <ArrowRight className="w-3.5 h-3.5 text-[#66cc00]" />}
                 </div>
               ))}
             </div>
-            <p className="text-xs text-emerald-700 font-mono font-semibold">
-              Detect changes. Respond to emerging risks.
-            </p>
           </div>
 
           <AnalyticsDashboard />
         </div>
       </section>
 
-      {/* SECTION 7 – EVIDENCE & DECISIONS */}
+      {/* SECTION 7 – EVIDENCE & DECISIONS (CENTERED) */}
       <section id="evidence-decisions" className="py-20 lg:py-28 bg-white border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-12">
-          <div className="max-w-3xl">
-            <div className="flex items-center gap-3">
-              <span className="text-xs font-mono text-emerald-700 uppercase tracking-widest font-bold">
-                Section 05 &bull; Investigations &amp; Audit Reporting
-              </span>
-              <div className="w-6 h-6">
-                <KYPLottie type="auditSeal" className="w-full h-full" />
-              </div>
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-14">
+          <div className="max-w-4xl mx-auto text-center space-y-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#000000] border border-[#033653] text-xs font-mono text-white font-bold">
+              <span className="w-2 h-2 rounded-full bg-[#66cc00] animate-pulse" />
+              <span>SECTION 05 &bull; INVESTIGATIONS &amp; AUDIT REPORTING</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-bold text-slate-900 mt-2 tracking-tight">
+
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-[#000000] tracking-tight">
               See the Evidence. Trace Your Decisions. Be Audit-Ready.
             </h2>
-            <p className="text-lg text-emerald-700 font-bold mt-2">
+
+            <p className="text-lg text-[#033653] font-bold">
               Keep your due diligence and review history in one place.
             </p>
-            <p className="text-sm text-slate-600 mt-3 leading-relaxed">
-              KYP brings together the due diligence, monitoring findings and actions taken on each business partner, helping your team investigate risks, document decisions and generate audit-ready reports in seconds. Review risks and the evidence behind them. Record your decisions and the reasoning behind them. Generate a single audit-ready report covering onboarding, due diligence, ongoing monitoring and periodic reviews.
-            </p>
-            <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-600">
-              <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span>Onboarding answers, uploads & verification findings</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span>External screening results & supporting sources</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span>Monitoring alerts & changes in identified risks</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span>Reviews, approvals, rejections & reasoned rationales</span>
-              </li>
-              <li className="flex items-center gap-2 sm:col-span-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span>Comprehensive history of actions taken on each business entity</span>
-              </li>
-            </ul>
-          </div>
 
-          {/* Workflow: Investigate -> Decide -> Record -> Report */}
-          <div className="space-y-2">
-            <div className="flex flex-wrap items-center gap-3 font-mono text-xs">
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-3xl mx-auto">
+              KYP brings together the due diligence, monitoring findings and actions taken on each business partner, helping your team investigate risks, document decisions and generate audit-ready reports in seconds.
+            </p>
+
+            {/* Workflow Badges */}
+            <div className="pt-2 flex flex-wrap items-center justify-center gap-3 font-mono text-xs">
               {["Investigate", "Decide", "Record", "Report"].map((step, idx) => (
                 <div key={idx} className="flex items-center gap-3">
-                  <span className="px-3.5 py-1.5 rounded-md bg-slate-100 border border-slate-200 text-slate-700 font-semibold">
-                    {idx + 1}. {step}
+                  <span className="px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-[#033653] font-bold shadow-xs">
+                    0{idx + 1}. {step}
                   </span>
-                  {idx < 3 && <ArrowRight className="w-3.5 h-3.5 text-emerald-600" />}
+                  {idx < 3 && <ArrowRight className="w-3.5 h-3.5 text-[#66cc00]" />}
                 </div>
               ))}
             </div>
-            <p className="text-xs text-emerald-700 font-mono font-semibold">
-              Log every check, decision and action. Produce audit-ready reports in seconds.
-            </p>
           </div>
 
           <AuditInterface />
-        </div>
-      </section>
-
-      {/* SECTION 8 – FINAL CTA */}
-      <section className="py-24 bg-gradient-to-b from-slate-50 via-emerald-50/20 to-white text-center border-t border-slate-200 relative overflow-hidden">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8 relative z-10 space-y-6">
-          <h2 className="text-3xl sm:text-5xl font-bold text-slate-900 tracking-tight">
-            One Platform. Complete Visibility from Onboarding to Audit.
-          </h2>
-          <p className="text-base text-slate-600 max-w-2xl mx-auto">
-            Speak with our compliance experts to see how the KYP platform can be configured around your specific risk models and regulatory obligations.
-          </p>
-          <div className="pt-4 flex flex-wrap justify-center gap-4">
-            <Link
-              href={routes.contact}
-              className="kyp-btn-primary px-8 py-3.5 rounded-full text-sm font-semibold flex items-center gap-2 shadow-md hover:shadow-lg transition-all"
-            >
-              <span>Book a Demo</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link
-              href={routes.onboarding}
-              className="kyp-btn-secondary px-8 py-3.5 rounded-full text-sm font-semibold flex items-center gap-2"
-            >
-              <span>Explore Onboarding Use Case</span>
-            </Link>
-          </div>
         </div>
       </section>
     </div>

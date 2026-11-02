@@ -54,7 +54,7 @@ export default function FAQAccordion() {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search questions or keywords..."
-            className="w-full pl-9 pr-4 py-2.5 rounded-full bg-white border border-slate-200 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-kyp-teal focus:ring-1 focus:ring-kyp-teal shadow-xs"
+            className="w-full pl-9 pr-4 py-2.5 rounded-full bg-white border border-slate-200 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#033653] focus:ring-1 focus:ring-kyp-teal shadow-xs"
           />
         </div>
       </div>
@@ -74,7 +74,7 @@ export default function FAQAccordion() {
             return (
               <div
                 key={faq.id}
-                className="rounded-2xl border border-slate-200 bg-white overflow-hidden transition-all duration-200 hover:border-kyp-teal shadow-sm"
+                className="rounded-2xl border border-slate-200 bg-white overflow-hidden transition-all duration-200 hover:border-[#033653] shadow-sm"
               >
                 <button
                   onClick={() => toggleItem(faq.id)}

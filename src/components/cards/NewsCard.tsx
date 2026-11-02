@@ -1,15 +1,14 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowUpRight, Calendar } from "lucide-react";
 import { NewsArticle } from "@/data/news";
 
 export default function NewsCard({ article }: { article: NewsArticle }) {
   return (
-    <a
-      href={article.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group block rounded-2xl bg-white border border-slate-200/90 hover:border-kyp-teal overflow-hidden transition-all duration-300 flex flex-col justify-between shadow-sm hover:shadow-md"
+    <Link
+      href={`/news/${article.id}`}
+      className="group block rounded-2xl bg-white hover:bg-[#000000] border border-slate-200/90 hover:border-[#033653] overflow-hidden transition-all duration-300 flex flex-col justify-between shadow-sm hover:shadow-2xl hover:-translate-y-1.5 cursor-pointer"
     >
       <div>
         {/* Featured Image */}
@@ -21,7 +20,7 @@ export default function NewsCard({ article }: { article: NewsArticle }) {
             className="object-cover group-hover:scale-105 transition-transform duration-500"
           />
           <div className="absolute top-3 left-3">
-            <span className="px-2.5 py-1 rounded-md bg-white/95 backdrop-blur-md border border-kyp-teal/30 text-[10px] font-mono text-kyp-navy font-bold shadow-sm">
+            <span className="px-2.5 py-1 rounded-md bg-white/95 group-hover:bg-[#000000]/90 backdrop-blur-md border border-[#033653] text-[10px] font-mono text-[#033653] group-hover:text-[#66cc00] font-bold shadow-sm transition-colors">
               {article.category}
             </span>
           </div>
@@ -29,27 +28,27 @@ export default function NewsCard({ article }: { article: NewsArticle }) {
 
         {/* Content */}
         <div className="p-5 sm:p-6 space-y-3">
-          <div className="flex items-center gap-2 text-xs font-mono text-slate-500">
-            <Calendar className="w-3.5 h-3.5 text-slate-400" />
+          <div className="flex items-center gap-2 text-xs font-mono text-slate-500 group-hover:text-slate-400 transition-colors">
+            <Calendar className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#66cc00]" />
             <span>{article.date}</span>
           </div>
 
-          <h3 className="text-base font-bold text-slate-900 group-hover:text-kyp-navy transition-colors line-clamp-2 leading-snug">
+          <h3 className="text-base font-bold text-[#000000] group-hover:text-white transition-colors line-clamp-2 leading-snug">
             {article.title}
           </h3>
 
-          <p className="text-xs text-slate-600 line-clamp-3 leading-relaxed">
+          <p className="text-xs text-slate-600 group-hover:text-slate-300 line-clamp-3 leading-relaxed transition-colors">
             {article.excerpt}
           </p>
         </div>
       </div>
 
       <div className="px-5 pb-5 pt-0">
-        <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-kyp-navy group-hover:text-black transition-colors">
+        <div className="pt-3 border-t border-slate-100 group-hover:border-slate-800 flex items-center justify-between text-xs font-semibold text-[#033653] group-hover:text-[#66cc00] transition-colors">
           <span>Read official article</span>
-          <ArrowUpRight className="w-4 h-4 text-kyp-lime stroke-[2.5] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          <ArrowUpRight className="w-4 h-4 text-[#66cc00] stroke-[2.5] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
         </div>
       </div>
-    </a>
+    </Link>
   );
 }

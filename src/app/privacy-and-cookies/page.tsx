@@ -34,7 +34,7 @@ export default function PrivacyAndCookiesPage() {
       {/* HEADER SECTION */}
       <section className="relative pt-16 pb-16 lg:pt-24 lg:pb-20 bg-gradient-to-b from-slate-50 via-white to-slate-50 border-b border-slate-200">
         <div className="max-w-5xl mx-auto px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-mono text-emerald-800 font-bold mb-6">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#000000] border border-[#033653] text-xs font-mono text-white font-bold mb-6">
             <ShieldCheck className="w-4 h-4 text-emerald-600" />
             <span>LEGAL & COMPLIANCE FRAMEWORK • UK & EU GDPR</span>
           </div>
@@ -52,7 +52,7 @@ export default function PrivacyAndCookiesPage() {
             <span>&bull;</span>
             <span>Version: 3.2 (Production)</span>
             <span>&bull;</span>
-            <span className="text-emerald-700 font-semibold">ISO 27001 Certified Controls</span>
+            <span className="text-white font-semibold">ISO 27001 Certified Controls</span>
           </div>
         </div>
       </section>
@@ -273,7 +273,7 @@ export default function PrivacyAndCookiesPage() {
                     Save Preferences
                   </button>
                   {savedNotification && (
-                    <span className="text-xs text-emerald-700 font-semibold flex items-center gap-1">
+                    <span className="text-xs text-white font-semibold flex items-center gap-1">
                       <CheckCircle2 className="w-3.5 h-3.5" />
                       Preferences saved successfully
                     </span>
@@ -310,7 +310,7 @@ export default function PrivacyAndCookiesPage() {
                 If you have questions, subject access requests, or wish to exercise statutory privacy rights, contact our Data Protection Officer:
               </p>
               <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs space-y-1">
-                <div><strong>Email:</strong> <a href="mailto:dpo@kyp.io" className="text-emerald-700 underline font-semibold">dpo@kyp.io</a></div>
+                <div><strong>Email:</strong> <a href="mailto:dpo@kyp.io" className="text-white underline font-semibold">dpo@kyp.io</a></div>
                 <div><strong>Postal Address:</strong> Data Protection Officer, KYP / Cinnte Solutions, 33 Queen St, London, EC4R 1AP, UK</div>
                 <div><strong>Response Timeline:</strong> We respond to all verified statutory requests within 30 calendar days.</div>
               </div>
@@ -325,14 +325,14 @@ export default function PrivacyAndCookiesPage() {
                 Policy Navigation
               </div>
               <nav className="space-y-1.5 text-xs text-slate-600">
-                <a href="#overview" className="block py-1 hover:text-emerald-700 transition-colors">01. Overview & Data Controller</a>
-                <a href="#data-collected" className="block py-1 hover:text-emerald-700 transition-colors">02. Information We Collect</a>
-                <a href="#lawful-basis" className="block py-1 hover:text-emerald-700 transition-colors">03. Lawful Bases for Processing</a>
-                <a href="#security" className="block py-1 hover:text-emerald-700 transition-colors">04. Security & Cryptographic Integrity</a>
-                <a href="#retention" className="block py-1 hover:text-emerald-700 transition-colors">05. Data Retention & Archival</a>
-                <a href="#cookies" className="block py-1 hover:text-emerald-700 transition-colors">06. Cookie Policy & Preferences</a>
-                <a href="#rights" className="block py-1 hover:text-emerald-700 transition-colors">07. Your Statutory Rights</a>
-                <a href="#contact" className="block py-1 hover:text-emerald-700 transition-colors">08. Contact Data Protection Officer</a>
+                <a href="#overview" className="block py-1 hover:text-white transition-colors">01. Overview & Data Controller</a>
+                <a href="#data-collected" className="block py-1 hover:text-white transition-colors">02. Information We Collect</a>
+                <a href="#lawful-basis" className="block py-1 hover:text-white transition-colors">03. Lawful Bases for Processing</a>
+                <a href="#security" className="block py-1 hover:text-white transition-colors">04. Security & Cryptographic Integrity</a>
+                <a href="#retention" className="block py-1 hover:text-white transition-colors">05. Data Retention & Archival</a>
+                <a href="#cookies" className="block py-1 hover:text-white transition-colors">06. Cookie Policy & Preferences</a>
+                <a href="#rights" className="block py-1 hover:text-white transition-colors">07. Your Statutory Rights</a>
+                <a href="#contact" className="block py-1 hover:text-white transition-colors">08. Contact Data Protection Officer</a>
               </nav>
 
               <div className="pt-4 border-t border-slate-200">

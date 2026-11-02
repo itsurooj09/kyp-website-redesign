@@ -19,7 +19,7 @@ export default function HeroMotionGraphicsStack() {
   const [hoveredLayer, setHoveredLayer] = useState<number | null>(null);
   const [activeCycle, setActiveCycle] = useState<number>(0);
 
-  // Auto-cycle through highlighting the 4 layers in a loop (Official Brand Palette: #000000, #66cc00, #c6f5ef, #6fd3c4, #033653)
+  // Auto-cycle through highlighting the 4 layers in a loop (Official Brand Palette: #000000, #66cc00, #c6f5ef, #66cc00, #033653)
   React.useEffect(() => {
     const interval = setInterval(() => {
       setActiveCycle((prev) => (prev + 1) % 4);
@@ -30,7 +30,7 @@ export default function HeroMotionGraphicsStack() {
   return (
     <div className="relative w-full max-w-lg mx-auto lg:max-w-none h-[480px] sm:h-[540px] flex items-center justify-center select-none perspective-[1200px]">
       {/* Background ambient lighting with brand ice cyan and navy */}
-      <div className="absolute inset-0 bg-gradient-to-tr from-[#c6f5ef]/50 via-[#6fd3c4]/20 to-[#033653]/10 rounded-3xl blur-3xl -z-10" />
+      <div className="absolute inset-0 bg-gradient-to-tr from-[#c6f5ef]/50 via-[#66cc00]/20 to-[#033653]/10 rounded-3xl blur-3xl -z-10" />
 
       {/* Vertical Continuous Scanning Laser Beam in Signature KYP Brand Lime (#66cc00) */}
       <motion.div
@@ -65,7 +65,7 @@ export default function HeroMotionGraphicsStack() {
           <div className="p-4 sm:p-5 rounded-2xl bg-white/95 backdrop-blur-xl border-2 border-[#66cc00]/60 shadow-2xl shadow-[#033653]/10 space-y-2.5 transition-all">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <div className="w-7 h-7 rounded-lg bg-[#c6f5ef] text-[#033653] flex items-center justify-center font-bold">
+                <div className="w-7 h-7 rounded-lg bg-[#000000] text-white flex items-center justify-center font-bold">
                   <FileCheck2 className="w-4 h-4 text-[#033653]" />
                 </div>
                 <div>
@@ -77,7 +77,7 @@ export default function HeroMotionGraphicsStack() {
                   </h4>
                 </div>
               </div>
-              <span className="px-2.5 py-0.5 rounded-full bg-[#c6f5ef] text-[#033653] border border-[#6fd3c4]/50 text-[10px] font-mono font-bold flex items-center gap-1">
+              <span className="px-2.5 py-0.5 rounded-full bg-[#000000] text-white border border-[#033653] text-[10px] font-mono font-bold flex items-center gap-1">
                 <CheckCircle2 className="w-3 h-3 text-[#66cc00]" />
                 <span>PASS: SHA-256</span>
               </span>
@@ -113,10 +113,10 @@ export default function HeroMotionGraphicsStack() {
           onMouseEnter={() => setHoveredLayer(3)}
           onMouseLeave={() => setHoveredLayer(null)}
         >
-          <div className="p-4 sm:p-5 rounded-2xl bg-white/90 backdrop-blur-xl border border-[#6fd3c4]/50 shadow-xl shadow-[#033653]/10 space-y-2 transition-all">
+          <div className="p-4 sm:p-5 rounded-2xl bg-white/90 backdrop-blur-xl border border-[#033653] shadow-xl shadow-[#033653]/10 space-y-2 transition-all">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <div className="w-7 h-7 rounded-lg bg-[#c6f5ef] text-[#033653] flex items-center justify-center font-bold">
+                <div className="w-7 h-7 rounded-lg bg-[#000000] text-white flex items-center justify-center font-bold">
                   <Activity className="w-4 h-4 text-[#033653]" />
                 </div>
                 <div>
@@ -128,7 +128,7 @@ export default function HeroMotionGraphicsStack() {
                   </h4>
                 </div>
               </div>
-              <span className="px-2 py-0.5 rounded bg-[#c6f5ef] text-[#033653] text-[10px] font-mono font-bold border border-[#6fd3c4]/50">
+              <span className="px-2 py-0.5 rounded bg-[#000000] text-white text-[10px] font-mono font-bold border border-[#033653]">
                 Zero BRAM Fines
               </span>
             </div>
@@ -141,7 +141,7 @@ export default function HeroMotionGraphicsStack() {
                   className="flex-1 rounded-full transition-all duration-300"
                   style={{
                     height: `${val}%`,
-                    backgroundColor: idx % 3 === 0 ? "#66cc00" : idx % 2 === 0 ? "#6fd3c4" : "#033653",
+                    backgroundColor: idx % 3 === 0 ? "#66cc00" : idx % 2 === 0 ? "#66cc00" : "#033653",
                     opacity: activeCycle === 2 ? 1 : 0.65,
                   }}
                 />
@@ -206,7 +206,7 @@ export default function HeroMotionGraphicsStack() {
           <div className="p-4 rounded-2xl bg-white/75 backdrop-blur-md border border-slate-200 shadow-md space-y-1.5 transition-all">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <div className="w-6 h-6 rounded-md bg-[#c6f5ef] text-[#033653] flex items-center justify-center font-bold">
+                <div className="w-6 h-6 rounded-md bg-[#000000] text-white flex items-center justify-center font-bold">
                   <Globe className="w-3.5 h-3.5" />
                 </div>
                 <span className="text-xs font-bold text-[#000000]">

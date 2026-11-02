@@ -16,10 +16,9 @@ export default function ContactPage() {
       
       {/* HERO */}
       <section className="relative pt-12 pb-16 lg:pt-20 lg:pb-24 border-b border-slate-200 bg-gradient-to-b from-slate-50/80 via-white to-slate-50/40 kyp-grid-pattern">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-emerald-100/30 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-mono text-emerald-800 mb-6 font-bold shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#000000] border border-[#033653] text-xs font-mono text-white mb-6 font-bold shadow-sm">
             <span className="w-4 h-4 inline-flex items-center justify-center">
               <KYPLottie type="heroRadar" className="w-4 h-4" />
             </span>
@@ -44,7 +43,7 @@ export default function ContactPage() {
             {/* Left: Contact Form */}
             <div className="lg:col-span-7 bg-white p-6 sm:p-10 rounded-3xl border border-slate-200 shadow-xl shadow-slate-200/50">
               <div className="mb-8">
-                <span className="text-xs font-mono text-emerald-700 uppercase tracking-widest font-bold">
+                <span className="text-xs font-mono text-white uppercase tracking-widest font-bold">
                   Platform Demonstration Request
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mt-1">
@@ -62,11 +61,11 @@ export default function ContactPage() {
             <div className="lg:col-span-5 space-y-6">
               {/* Location Card */}
               <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 space-y-4 shadow-sm">
-                <div className="w-10 h-10 rounded-xl bg-emerald-100 border border-emerald-200 flex items-center justify-center text-emerald-700">
+                <div className="w-10 h-10 rounded-xl bg-[#000000] border border-emerald-200 flex items-center justify-center text-white">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <div className="text-xs font-mono text-emerald-700 uppercase tracking-wider font-bold">Global Headquarters</div>
+                  <div className="text-xs font-mono text-white uppercase tracking-wider font-bold">Global Headquarters</div>
                   <h3 className="text-lg font-bold text-slate-900 mt-1">London, United Kingdom</h3>
                   <p className="text-xs text-slate-600 mt-1 leading-relaxed">
                     33 Queen St, London, EC4R 1AP, United Kingdom
@@ -89,13 +88,13 @@ export default function ContactPage() {
                   <div className="mt-2 space-y-1.5 text-xs">
                     <div>
                       <span className="text-slate-500">General Inquiries: </span>
-                      <a href="mailto:hello@kyp.io" className="text-emerald-700 font-semibold hover:underline">
+                      <a href="mailto:hello@kyp.io" className="text-white font-semibold hover:underline">
                         hello@kyp.io
                       </a>
                     </div>
                     <div>
                       <span className="text-slate-500">Security & Privacy: </span>
-                      <a href="mailto:security@kyp.io" className="text-emerald-700 font-semibold hover:underline">
+                      <a href="mailto:security@kyp.io" className="text-white font-semibold hover:underline">
                         security@kyp.io
                       </a>
                     </div>
@@ -104,8 +103,8 @@ export default function ContactPage() {
               </div>
 
               {/* Assurance Card */}
-              <div className="p-6 rounded-3xl bg-emerald-50/80 border border-emerald-200 space-y-2 text-xs">
-                <div className="flex items-center gap-2 text-emerald-800 font-bold font-mono">
+              <div className="p-6 rounded-3xl bg-slate-50 border border-slate-200 space-y-2 text-xs">
+                <div className="flex items-center gap-2 text-[#033653] font-bold font-mono">
                   <ShieldCheck className="w-4 h-4" />
                   <span>ISO 27001 Certified Infrastructure</span>
                 </div>

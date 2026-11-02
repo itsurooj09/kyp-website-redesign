@@ -12,7 +12,7 @@
   --kyp-lime: #66cc00;
   --kyp-lime-hover: #55b300;
   --kyp-mint: #c6f5ef;
-  --kyp-teal: #6fd3c4;
+  --kyp-teal: #66cc00;
   --kyp-navy: #033653;
   --kyp-navy-surface: #033653;
 
@@ -59,7 +59,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #6fd3c4;
+  background: #66cc00;
 }
 
 /* Light Theme Card & Glass Surfaces */
@@ -78,14 +78,14 @@ body {
 }
 
 .kyp-glass-card:hover {
-  border-color: #6fd3c4;
+  border-color: #66cc00;
   box-shadow: 0 12px 28px -4px rgba(3, 54, 83, 0.12), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
   transform: translateY(-2px);
 }
 
 /* Gradient text highlights using official brand palette */
 .kyp-gradient-text {
-  background: linear-gradient(135deg, #000000 30%, #033653 70%, #6fd3c4 100%);
+  background: linear-gradient(135deg, #000000 30%, #033653 70%, #66cc00 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -99,31 +99,31 @@ body {
 }
 
 .kyp-teal-text {
-  color: #6fd3c4;
+  color: #66cc00;
 }
 
 .kyp-navy-text {
   color: #033653;
 }
 
-/* Background grid patterns for light theme with brand ambient glows */
+/* Background grid patterns for light theme with brand ambient glows - Larger spacious 80px box grid */
 .kyp-grid-pattern {
-  background-size: 32px 32px;
+  background-size: 80px 80px;
   background-image: 
-    linear-gradient(to right, rgba(3, 54, 83, 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(3, 54, 83, 0.035) 1px, transparent 1px);
+    linear-gradient(to right, rgba(3, 54, 83, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(3, 54, 83, 0.05) 1px, transparent 1px);
 }
 
 .kyp-radial-glow {
-  background: radial-gradient(circle 600px at 50% -100px, rgba(198, 245, 239, 0.4), transparent 70%);
+  background: radial-gradient(circle 600px at 50% -100px, rgba(102, 204, 0, 0.08), transparent 70%);
 }
 
 .kyp-glow-top-left {
-  background: radial-gradient(circle 500px at 0% 0%, rgba(3, 54, 83, 0.08), transparent 70%);
+  background: radial-gradient(circle 500px at 0% 0%, rgba(3, 54, 83, 0.06), transparent 70%);
 }
 
 .kyp-glow-bottom-right {
-  background: radial-gradient(circle 500px at 100% 100%, rgba(102, 204, 0, 0.08), transparent 70%);
+  background: radial-gradient(circle 500px at 100% 100%, rgba(102, 204, 0, 0.06), transparent 70%);
 }
 
 /* Primary Button (SEON Style Dark Pill in Pure Black #000000) */
@@ -169,9 +169,9 @@ body {
 }
 
 .kyp-btn-secondary:hover {
-  border-color: #6fd3c4;
-  background-color: #c6f5ef;
-  color: #033653;
+  border-color: #033653;
+  background-color: #033653;
+  color: #ffffff;
   transform: translateY(-1px);
 }
 
@@ -227,4 +227,27 @@ body {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Continuous High-Performance Orbit Animations */
+@keyframes orbit-spin-cw {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes orbit-spin-ccw {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-360deg); }
+}
+
+.animate-orbit-cw-fast {
+  animation: orbit-spin-cw 7s linear infinite !important;
+}
+
+.animate-orbit-ccw-mid {
+  animation: orbit-spin-ccw 9s linear infinite !important;
+}
+
+.animate-orbit-cw-slow {
+  animation: orbit-spin-cw 12s linear infinite !important;
 }

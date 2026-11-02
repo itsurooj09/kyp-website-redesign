@@ -233,11 +233,11 @@ export default function GraphIntelligence() {
       case "compliant":
         return "#66cc00"; // KYP Lime
       case "review":
-        return "#6fd3c4"; // KYP Teal
+        return "#66cc00"; // KYP Teal
       case "alert":
         return "#ef4444"; // Alert Red
       default:
-        return "#6fd3c4";
+        return "#66cc00";
     }
   };
 
@@ -296,7 +296,7 @@ export default function GraphIntelligence() {
               onClick={() => setActiveFilter("ubo")}
               className={`px-3 py-1.5 rounded-lg transition-all duration-200 font-semibold cursor-pointer ${
                 activeFilter === "ubo"
-                  ? "bg-[#c6f5ef] text-[#033653] font-bold shadow-[0_0_12px_rgba(198,245,239,0.6)]"
+                  ? "bg-[#000000] text-white font-bold shadow-[0_0_12px_rgba(198,245,239,0.6)]"
                   : "text-slate-300 hover:text-white hover:bg-white/5"
               }`}
             >
@@ -307,7 +307,7 @@ export default function GraphIntelligence() {
               onClick={() => setActiveFilter("subsidiary")}
               className={`px-3 py-1.5 rounded-lg transition-all duration-200 font-semibold cursor-pointer ${
                 activeFilter === "subsidiary"
-                  ? "bg-[#6fd3c4] text-[#033653] font-bold shadow-[0_0_12px_rgba(111,211,196,0.6)]"
+                  ? "bg-[#66cc00] text-[#033653] font-bold shadow-[0_0_12px_rgba(111,211,196,0.6)]"
                   : "text-slate-300 hover:text-white hover:bg-white/5"
               }`}
             >
@@ -336,7 +336,7 @@ export default function GraphIntelligence() {
             >
               <ZoomIn className="w-4 h-4" />
             </button>
-            <span className="px-1 text-[11px] text-[#6fd3c4] font-bold">{Math.round(zoomLevel * 100)}%</span>
+            <span className="px-1 text-[11px] text-[#66cc00] font-bold">{Math.round(zoomLevel * 100)}%</span>
             <button
               type="button"
               onClick={() => handleZoom(-0.15)}
@@ -364,14 +364,14 @@ export default function GraphIntelligence() {
           {/* Concentric Radar Background Rings */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-25">
             <div className="w-[520px] h-[520px] rounded-full border border-[#033653]" />
-            <div className="w-[360px] h-[360px] rounded-full border border-[#6fd3c4]/40" />
+            <div className="w-[360px] h-[360px] rounded-full border border-[#033653]" />
             <div className="w-[200px] h-[200px] rounded-full border border-[#66cc00]/30" />
           </div>
 
           {!isMounted ? (
             <div className="h-96 flex flex-col items-center justify-center text-center space-y-3">
               <div className="w-8 h-8 rounded-full border-2 border-[#66cc00] border-t-transparent animate-spin" />
-              <div className="text-xs font-mono text-[#c6f5ef]">Loading Risk Intelligence Graph Canvas...</div>
+              <div className="text-xs font-mono text-white">Loading Risk Intelligence Graph Canvas...</div>
             </div>
           ) : (
             <svg
@@ -403,7 +403,7 @@ export default function GraphIntelligence() {
                         y1={sNode.y}
                         x2={tNode.x}
                         y2={tNode.y}
-                        stroke={isConnectedToSelected ? "#c6f5ef" : isHovered ? "#66cc00" : "#6fd3c4"}
+                        stroke={isConnectedToSelected ? "#c6f5ef" : isHovered ? "#66cc00" : "#66cc00"}
                         strokeWidth={isConnectedToSelected ? 3 : 1.5}
                         strokeOpacity={isMuted ? 0.15 : isConnectedToSelected ? 0.95 : 0.4}
                         strokeDasharray={isConnectedToSelected ? "none" : "4 4"}
@@ -494,7 +494,7 @@ export default function GraphIntelligence() {
                         x={node.x}
                         y={node.y + node.size + 32}
                         textAnchor="middle"
-                        fill={node.status === "alert" ? "#ef4444" : node.status === "review" ? "#6fd3c4" : "#66cc00"}
+                        fill={node.status === "alert" ? "#ef4444" : node.status === "review" ? "#66cc00" : "#66cc00"}
                         fontSize="10"
                         fontWeight="700"
                         fontFamily="monospace"
@@ -515,7 +515,7 @@ export default function GraphIntelligence() {
               <span className="text-slate-300">Compliant</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#6fd3c4]" />
+              <span className="w-2.5 h-2.5 rounded-full bg-[#66cc00]" />
               <span className="text-slate-300">Review</span>
             </div>
             <div className="flex items-center gap-1.5">
@@ -529,7 +529,7 @@ export default function GraphIntelligence() {
         <div className="col-span-12 lg:col-span-4 bg-[#000000] border-t lg:border-t-0 lg:border-l-2 border-[#033653] p-6 sm:p-7 flex flex-col justify-between">
           <div className="space-y-5">
             <div className="flex items-center justify-between border-b border-[#033653] pb-4">
-              <div className="flex items-center gap-2 text-xs font-mono text-[#c6f5ef] uppercase font-bold">
+              <div className="flex items-center gap-2 text-xs font-mono text-white uppercase font-bold">
                 <Info className="w-4 h-4 text-[#66cc00]" />
                 <span>Entity Dossier Inspector</span>
               </div>
@@ -539,7 +539,7 @@ export default function GraphIntelligence() {
                 className={`px-3 py-1 rounded-lg border text-xs font-mono font-bold flex items-center gap-1.5 cursor-pointer ${
                   isEditing
                     ? "bg-[#66cc00] text-[#000000] border-[#66cc00]"
-                    : "bg-[#033653] border-[#6fd3c4]/40 text-[#c6f5ef] hover:border-[#66cc00]"
+                    : "bg-[#033653] border-[#033653] text-white hover:border-[#66cc00]"
                 }`}
               >
                 <Edit3 className="w-3.5 h-3.5" />
@@ -601,7 +601,7 @@ export default function GraphIntelligence() {
                   <select
                     value={editForm.status || selectedNode.status}
                     onChange={(e) => setEditForm({ ...editForm, status: e.target.value as any })}
-                    className="w-full mt-2 bg-[#000000] border border-[#6fd3c4] rounded-lg px-2.5 py-1 text-white text-xs font-mono focus:outline-none"
+                    className="w-full mt-2 bg-[#000000] border border-[#033653] rounded-lg px-2.5 py-1 text-white text-xs font-mono focus:outline-none"
                   >
                     <option value="compliant">Compliant</option>
                     <option value="review">Review</option>
@@ -614,7 +614,7 @@ export default function GraphIntelligence() {
                         selectedNode.status === "compliant"
                           ? "bg-[#66cc00]/20 text-[#66cc00] border border-[#66cc00]/50"
                           : selectedNode.status === "review"
-                          ? "bg-[#6fd3c4]/20 text-[#6fd3c4] border border-[#6fd3c4]/50"
+                          ? "bg-[#66cc00]/10 text-[#66cc00] border border-[#033653]"
                           : "bg-red-500/20 text-[#ef4444] border border-red-500/50"
                       }`}
                     >
@@ -630,7 +630,7 @@ export default function GraphIntelligence() {
               {selectedNode.equity && (
                 <div className="flex justify-between py-1 border-b border-[#033653]/60">
                   <span className="text-slate-400">Declared Equity:</span>
-                  <span className="text-[#c6f5ef] font-bold">{selectedNode.equity}</span>
+                  <span className="text-white font-bold">{selectedNode.equity}</span>
                 </div>
               )}
               {selectedNode.regNumber && (
@@ -647,7 +647,7 @@ export default function GraphIntelligence() {
 
             {/* Contextual Intelligence Note */}
             <div className="p-4 rounded-xl bg-[#033653]/30 border border-[#033653] space-y-2">
-              <div className="text-xs font-mono text-[#6fd3c4] flex items-center gap-1.5 font-bold">
+              <div className="text-xs font-mono text-[#66cc00] flex items-center gap-1.5 font-bold">
                 <AlertTriangle className="w-4 h-4 text-[#66cc00]" />
                 <span>Intelligence Summary &amp; Contagion Context</span>
               </div>
@@ -656,7 +656,7 @@ export default function GraphIntelligence() {
                   rows={3}
                   value={editForm.notes || ""}
                   onChange={(e) => setEditForm({ ...editForm, notes: e.target.value })}
-                  className="w-full bg-[#000000] border border-[#6fd3c4] rounded-lg p-2 text-white text-xs focus:outline-none"
+                  className="w-full bg-[#000000] border border-[#033653] rounded-lg p-2 text-white text-xs focus:outline-none"
                 />
               ) : (
                 <p className="text-xs text-slate-300 leading-relaxed">{selectedNode.notes}</p>
@@ -678,7 +678,7 @@ export default function GraphIntelligence() {
               <button
                 type="button"
                 onClick={() => showToast(`✓ Opening FCA audit dossier for ${selectedNode.name}...`)}
-                className="w-full py-3 px-4 rounded-full bg-[#66cc00] text-[#000000] hover:bg-[#c6f5ef] font-mono font-bold text-xs transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
+                className="w-full py-3 px-4 rounded-full bg-[#66cc00] text-[#000000] hover:bg-[#033653] font-mono font-bold text-xs transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
               >
                 <span>View Full Continuous Audit Log</span>
                 <ArrowUpRight className="w-4 h-4 text-[#000000]" />

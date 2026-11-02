@@ -53,8 +53,8 @@ export default function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="p-8 sm:p-10 rounded-2xl bg-kyp-mint/30 border border-kyp-teal/40 text-center space-y-4 shadow-sm animate-fadeIn">
-        <div className="w-14 h-14 rounded-full bg-white border border-kyp-teal/40 flex items-center justify-center text-kyp-lime mx-auto shadow-sm">
+      <div className="p-8 sm:p-10 rounded-2xl bg-kyp-mint/30 border border-[#033653] text-center space-y-4 shadow-sm animate-fadeIn">
+        <div className="w-14 h-14 rounded-full bg-white border border-[#033653] flex items-center justify-center text-kyp-lime mx-auto shadow-sm">
           <CheckCircle2 className="w-8 h-8 stroke-[2.5]" />
         </div>
         <h3 className="text-xl sm:text-2xl font-bold text-kyp-navy">
@@ -99,7 +99,7 @@ export default function ContactForm() {
             value={formData.name}
             onChange={handleChange}
             placeholder="e.g. Marcus Vance"
-            className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-kyp-teal focus:ring-1 focus:ring-kyp-teal transition-colors"
+            className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-[#033653] focus:ring-1 focus:ring-kyp-teal transition-colors"
           />
         </div>
 
@@ -116,7 +116,7 @@ export default function ContactForm() {
             value={formData.organisation}
             onChange={handleChange}
             placeholder="e.g. Apex Payments Ltd"
-            className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-kyp-teal focus:ring-1 focus:ring-kyp-teal transition-colors"
+            className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-[#033653] focus:ring-1 focus:ring-kyp-teal transition-colors"
           />
         </div>
       </div>
@@ -136,7 +136,7 @@ export default function ContactForm() {
             value={formData.email}
             onChange={handleChange}
             placeholder="e.g. mvance@apexpayments.com"
-            className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-kyp-teal focus:ring-1 focus:ring-kyp-teal transition-colors"
+            className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-[#033653] focus:ring-1 focus:ring-kyp-teal transition-colors"
           />
         </div>
 
@@ -152,7 +152,7 @@ export default function ContactForm() {
             value={formData.phone}
             onChange={handleChange}
             placeholder="e.g. +44 20 7946 0912"
-            className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-kyp-teal focus:ring-1 focus:ring-kyp-teal transition-colors"
+            className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-[#033653] focus:ring-1 focus:ring-kyp-teal transition-colors"
           />
         </div>
       </div>
@@ -170,7 +170,7 @@ export default function ContactForm() {
           value={formData.message}
           onChange={handleChange}
           placeholder="Tell us about your portfolio volume, regulatory environment (e.g. FCA, MGA, Curacao), or key compliance pain points..."
-          className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-kyp-teal focus:ring-1 focus:ring-kyp-teal transition-colors resize-none"
+          className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-[#033653] focus:ring-1 focus:ring-kyp-teal transition-colors resize-none"
         />
       </div>
 

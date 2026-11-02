@@ -10,27 +10,27 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Strict Client Brand Palette (#000000, #66cc00, #c6f5ef, #66cc00, #033653)
         kyp: {
-          // Official Client Brand Palette (#000000, #66cc00, #c6f5ef, #6fd3c4, #033653)
           black: "#000000",
           brandBlack: "#000000",
           white: "#ffffff",
           
-          lime: "#66cc00", // Official KYP Lime Green
+          lime: "#66cc00",
           brandLime: "#66cc00",
           "lime-hover": "#55b300",
           "lime-light": "#eaffd9",
           
-          mint: "#c6f5ef", // Official KYP Ice Cyan / Soft Mint
+          mint: "#c6f5ef",
           brandIce: "#c6f5ef",
           "mint-dark": "#0fa895",
           
-          teal: "#6fd3c4", // Official KYP Turquoise / Teal
-          brandTeal: "#6fd3c4",
+          teal: "#66cc00",
+          brandTeal: "#66cc00",
           "teal-light": "#e8faf7",
           "teal-dark": "#033653",
           
-          navy: "#033653", // Official KYP Deep Navy
+          navy: "#033653",
           brandNavy: "#033653",
           "navy-light": "#084970",
           "navy-dark": "#011f30",
@@ -51,6 +51,56 @@ const config: Config = {
           charcoal: "#f1f5f9",
           surface: "#ffffff",
           "surface-light": "#f8fafc",
+        },
+
+        // Overriding all standard Tailwind color aliases to strictly map to the 5 brand colors
+        emerald: {
+          50: "#c6f5ef",
+          100: "#c6f5ef",
+          200: "#66cc00",
+          300: "#66cc00",
+          400: "#66cc00",
+          500: "#66cc00",
+          600: "#66cc00",
+          700: "#033653",
+          800: "#033653",
+          900: "#000000",
+        },
+        sky: {
+          50: "#c6f5ef",
+          100: "#c6f5ef",
+          200: "#66cc00",
+          300: "#66cc00",
+          400: "#66cc00",
+          500: "#033653",
+          600: "#033653",
+          700: "#033653",
+          800: "#033653",
+          900: "#000000",
+        },
+        blue: {
+          50: "#c6f5ef",
+          100: "#c6f5ef",
+          200: "#66cc00",
+          300: "#66cc00",
+          400: "#66cc00",
+          500: "#033653",
+          600: "#033653",
+          700: "#033653",
+          800: "#033653",
+          900: "#000000",
+        },
+        indigo: {
+          50: "#c6f5ef",
+          100: "#c6f5ef",
+          200: "#66cc00",
+          300: "#66cc00",
+          400: "#66cc00",
+          500: "#033653",
+          600: "#033653",
+          700: "#033653",
+          800: "#033653",
+          900: "#000000",
         },
       },
       fontFamily: {
