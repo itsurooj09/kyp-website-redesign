@@ -339,15 +339,15 @@ export default function HomePage() {
           </div>
 
           {/* Feature 3: Graph Intelligence */}
-          <div className="space-y-6 pt-2">
+          <div className="space-y-6 pt-12 border-t border-slate-200">
             <div className="max-w-3xl">
-              <span className="text-xs font-mono text-emerald-700 uppercase tracking-wider font-bold">
+              <span className="text-xs font-mono text-[#033653] bg-[#c6f5ef] px-3.5 py-1 rounded-full border border-[#6fd3c4]/50 uppercase tracking-wider font-bold">
                 Feature 03 &bull; Visual Contagion Analysis
               </span>
-              <h3 className="text-2xl sm:text-4xl font-bold text-slate-900 tracking-tight mt-1">
+              <h3 className="text-2xl sm:text-4xl font-extrabold text-[#000000] tracking-tight mt-3">
                 Graph Intelligence
               </h3>
-              <p className="text-sm text-slate-600 leading-relaxed mt-2">
+              <p className="text-sm sm:text-base text-slate-600 leading-relaxed mt-2">
                 Understand relationships between businesses, individuals, ownership structures, and connected risks. Unravel circular holdings and exposed beneficial ownership.
               </p>
             </div>
@@ -530,37 +530,42 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SECTION 11 – FINAL CTA */}
-      <section className="py-24 lg:py-32 bg-gradient-to-b from-slate-50 via-emerald-50/20 to-white text-center border-t border-slate-200 relative overflow-hidden">
+      {/* SECTION 11 – FINAL CTA (DEEP BLACK SECTION WITH KYP LIME ACCENT) */}
+      <section className="py-24 lg:py-32 bg-[#000000] text-white text-center border-t-2 border-[#033653] relative overflow-hidden select-none">
+        {/* Ambient radial glows */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[#033653]/40 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-10 right-10 w-80 h-80 bg-[#66cc00]/10 rounded-full blur-3xl pointer-events-none" />
+
         <div className="max-w-4xl mx-auto px-6 lg:px-8 relative z-10 space-y-6">
           <div className="w-16 h-16 mx-auto">
             <KYPLottie type="auditSeal" className="w-full h-full" />
           </div>
 
-          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100 border border-emerald-200 text-xs font-mono text-emerald-800 font-bold">
-            <Sparkles className="w-3.5 h-3.5" />
-            READY TO TRANSFORM YOUR COMPLIANCE OPERATIONS?
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#033653] border border-[#6fd3c4]/40 text-xs font-mono text-[#c6f5ef] font-bold shadow-sm">
+            <Sparkles className="w-3.5 h-3.5 text-[#66cc00]" />
+            <span>READY TO TRANSFORM YOUR COMPLIANCE OPERATIONS?</span>
           </span>
 
-          <h2 className="text-4xl sm:text-6xl font-bold text-slate-900 tracking-tight">
-            See the KYP Platform in Action.
+          <h2 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight">
+            See the KYP Platform <br />
+            <span className="text-[#66cc00]">in Action.</span>
           </h2>
 
-          <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-            Discover how KYP can help you monitor risks, simplify compliance and reduce manual due diligence.
+          <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+            Discover how KYP can help you continuously monitor third-party risk, simplify complex regulatory compliance, and eliminate manual review overhead.
           </p>
 
           <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
             <Link
               href={routes.contact}
-              className="kyp-btn-primary px-8 py-3.5 rounded-full text-sm font-semibold flex items-center gap-2 shadow-md hover:shadow-lg transition-all"
+              className="px-8 py-4 rounded-full bg-[#66cc00] hover:bg-[#55b300] text-[#000000] text-sm font-extrabold flex items-center gap-2 shadow-[0_0_20px_rgba(102,204,0,0.4)] transition-all hover:scale-102"
             >
               <span>Book a Demo</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               href={routes.platform}
-              className="kyp-btn-secondary px-8 py-3.5 rounded-full text-sm font-semibold flex items-center gap-2"
+              className="px-8 py-4 rounded-full bg-[#033653] hover:bg-[#054b73] text-white border border-[#6fd3c4]/40 text-sm font-semibold flex items-center gap-2 transition-all"
             >
               <span>Explore Platform Technology</span>
             </Link>

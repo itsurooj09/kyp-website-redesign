@@ -295,29 +295,34 @@ export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail })
         </div>
       </section>
 
-      {/* SECTION 8 – FINAL CTA */}
-      <section className="py-20 lg:py-24 bg-gradient-to-b from-slate-50 via-kyp-mint/20 to-white text-center border-t border-slate-200 relative overflow-hidden">
+      {/* SECTION 8 – FINAL CTA (DEEP BLACK SECTION WITH KYP LIME ACCENT) */}
+      <section className="py-24 lg:py-32 bg-[#000000] text-white text-center border-t-2 border-[#033653] relative overflow-hidden select-none">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] bg-[#033653]/40 rounded-full blur-3xl pointer-events-none" />
         <div className="max-w-4xl mx-auto px-6 lg:px-8 relative z-10 space-y-6">
           <div className="w-14 h-14 mx-auto">
             <KYPLottie type="auditSeal" className="w-full h-full" />
           </div>
-          <h2 className="text-3xl sm:text-5xl font-bold text-slate-900 tracking-tight">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#033653] border border-[#6fd3c4]/40 text-xs font-mono text-[#c6f5ef] font-bold shadow-sm">
+            <Sparkles className="w-3.5 h-3.5 text-[#66cc00]" />
+            <span>ENTERPRISE RISK &bull; CONTINUOUS SURVEILLANCE</span>
+          </span>
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
             {useCase.cta.headline}
           </h2>
-          <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
             Discover how KYP helps compliance teams monitor risks, eliminate manual review friction, and stay continuously audit-ready.
           </p>
           <div className="pt-4 flex flex-wrap justify-center gap-4">
             <Link
               href={routes.bookDemo}
-              className="kyp-btn-primary px-8 py-3.5 rounded-full text-sm font-semibold flex items-center gap-2 shadow-md hover:shadow-lg transition-all"
+              className="px-8 py-3.5 rounded-full bg-[#66cc00] hover:bg-[#55b300] text-[#000000] text-sm font-extrabold flex items-center gap-2 shadow-[0_0_20px_rgba(102,204,0,0.35)] transition-all hover:scale-102"
             >
               <span>{useCase.cta.buttonText}</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               href={routes.platform}
-              className="kyp-btn-secondary px-8 py-3.5 rounded-full text-sm font-semibold flex items-center gap-2"
+              className="px-8 py-3.5 rounded-full bg-[#033653] hover:bg-[#054b73] text-white border border-[#6fd3c4]/40 text-sm font-semibold flex items-center gap-2 transition-all"
             >
               <span>Explore Platform Capabilities</span>
             </Link>
