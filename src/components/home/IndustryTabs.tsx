@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -158,6 +158,11 @@ const TABS_DATA: IndustryTab[] = [
 
 export default function IndustryTabs() {
   const [activeTabId, setActiveTabId] = useState<string>("igaming");
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const currentTab = TABS_DATA.find((t) => t.id === activeTabId) || TABS_DATA[0];
 
@@ -305,7 +310,14 @@ export default function IndustryTabs() {
                   </div>
 
                   {/* Dynamic Motion Animated Graph Content per Industry */}
-                  {currentTab.id === "igaming" && (
+                  {!isMounted ? (
+                    <div className="h-64 rounded-xl bg-black/60 border border-slate-800 flex flex-col items-center justify-center text-center p-6 space-y-3">
+                      <div className="w-5 h-5 rounded-full border-2 border-kyp-lime border-t-transparent animate-spin" />
+                      <div className="text-xs font-mono text-kyp-mint">Initializing Live Telemetry Protocol...</div>
+                    </div>
+                  ) : (
+                    <>
+                      {currentTab.id === "igaming" && (
                     <div className="space-y-4 text-xs font-mono">
                       {/* Top Metric Header */}
                       <div className="flex items-center justify-between p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/80">
@@ -719,6 +731,8 @@ export default function IndustryTabs() {
                         </div>
                       </div>
                     </div>
+                  )}
+                    </>
                   )}
                 </div>
               </div>

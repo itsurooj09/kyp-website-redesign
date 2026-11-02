@@ -186,6 +186,17 @@ body {
   100% { transform: translateX(0%); }
 }
 
+@keyframes laser-scan {
+  0% { left: 5%; opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { left: 95%; opacity: 0.2; }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 .animate-marquee {
   display: flex;
   width: max-content;

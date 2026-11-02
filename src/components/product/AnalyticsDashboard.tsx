@@ -133,12 +133,17 @@ export default function AnalyticsDashboard() {
   const [hoveredChartIndex, setHoveredChartIndex] = useState<number | null>(null);
   const [events, setEvents] = useState<TelemetryEvent[]>(INITIAL_EVENTS);
   const [activeKpiHover, setActiveKpiHover] = useState<number | null>(null);
+  const [isMounted, setIsMounted] = useState<boolean>(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const currentTier = RISK_TIERS[activeTierIndex];
 
   // Auto-cycling risk simulation: High -> Medium -> Low -> Compliant -> High
   useEffect(() => {
-    if (!isLooping) return;
+    if (!isMounted || !isLooping) return;
     const tierInterval = setInterval(() => {
       setActiveTierIndex((prev) => (prev + 1) % RISK_TIERS.length);
     }, 4500);

@@ -34,6 +34,7 @@ extracted_docs/
 !package.json
 !tsconfig.json
 !package-lock.json
+!vercel.json
 *.js
 !next.config.mjs
 !postcss.config.mjs

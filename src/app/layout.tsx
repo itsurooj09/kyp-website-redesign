@@ -78,6 +78,26 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+      <head>
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+              html, body {
+                margin: 0;
+                padding: 0;
+                background-color: #ffffff;
+                color: #000000;
+                font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+                -webkit-font-smoothing: antialiased;
+              }
+              a {
+                text-decoration: none;
+                color: inherit;
+              }
+            `,
+          }}
+        />
+      </head>
       <body className="bg-white text-slate-900 antialiased selection:bg-emerald-100 selection:text-emerald-900">
         <Header />
         <main className="min-h-screen pt-28">{children}</main>
