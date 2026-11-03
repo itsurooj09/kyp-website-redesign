@@ -95,7 +95,9 @@ export default function ClientPlatformInterface() {
     .join(" ");
 
   // Tabbed company details rows
-  const companyData = {
+  interface CompanyRow { label: string; val: string; isPill?: boolean; isTall?: boolean; isLink?: boolean; isAlert?: boolean; }
+
+  const companyData: Record<string, CompanyRow[]> = {
     key: [
       { label: "Registration Number:", val: "04241161" },
       { label: "Legal Name:", val: "BET365 GROUP LIMITED" },
