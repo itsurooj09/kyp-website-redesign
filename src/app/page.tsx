@@ -4,7 +4,6 @@ import Image from "next/image";
 import { ArrowRight, ShieldCheck, CheckCircle2, AlertTriangle, Sparkles, Network, Activity, FileCheck, ExternalLink, Quote, Database, Cpu, Lock } from "lucide-react";
 import { routes } from "@/lib/routes";
 import { industriesData } from "@/data/industries";
-import { useCasesData } from "@/data/useCases";
 import { platformFeaturesData } from "@/data/platformFeatures";
 import { testimonialsData, trustedPartners, credentials } from "@/data/testimonials";
 import { newsArticlesData } from "@/data/news";
@@ -12,10 +11,8 @@ import { newsArticlesData } from "@/data/news";
 import BrandOrbHeroStage from "@/components/home/BrandOrbHeroStage";
 import PlatformFlow from "@/components/product/PlatformFlow";
 import IndustryTabs from "@/components/home/IndustryTabs";
-import UseCaseCard from "@/components/cards/UseCaseCard";
 import NewsCard from "@/components/cards/NewsCard";
 import AnalyticsDashboard from "@/components/product/AnalyticsDashboard";
-import OnboardingInterface from "@/components/product/OnboardingInterface";
 import ArchitecturalIntelligenceFlow from "@/components/product/ArchitecturalIntelligenceFlow";
 import GraphIntelligence from "@/components/product/GraphIntelligence";
 import { PartnerLogo, CredentialBadge, PartnerCarouselMarquee } from "@/components/home/PartnerLogos";
@@ -32,7 +29,7 @@ export default function HomePage() {
     <div className="w-full bg-white text-slate-900 overflow-hidden">
       
       {/* SECTION 1 – HERO (SIDE-BY-SIDE WITH LAYERED MOTION GRAPHICS) */}
-      <section className="relative pt-10 pb-16 lg:pt-16 lg:pb-28 border-b border-slate-200/80 bg-gradient-to-b from-slate-50/80 via-white to-slate-50/40 kyp-grid-pattern">
+      <section className="relative pt-10 pb-16 lg:pt-16 lg:pb-28  bg-gradient-to-b from-slate-50/80 via-white to-slate-50/40 kyp-grid-pattern">
         {/* Expansive Ambient Radial Lighting in Official Brand Tones */}
         <div className="absolute top-1/4 left-1/4 w-[850px] sm:w-[1050px] h-[550px] bg-[#033653]/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute top-10 right-10 w-[500px] h-[500px] bg-[#66cc00]/10 rounded-full blur-3xl pointer-events-none" />
@@ -108,7 +105,7 @@ export default function HomePage() {
       <ProvenInProduction />
 
       {/* SECTION 3 – THE PROBLEM */}
-      <section className="py-20 lg:py-28 bg-white border-b border-slate-200 relative overflow-hidden">
+      <section className="py-20 lg:py-28 bg-white  relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Narrative */}
@@ -194,14 +191,14 @@ export default function HomePage() {
       <PurposeBuiltSolutions />
 
       {/* SECTION 5 – PLATFORM HIGHLIGHTS (Expansive light layout & animated analytics command center) */}
-      <section className="py-20 lg:py-28 bg-white border-b border-slate-200 relative overflow-hidden">
+      <section className="py-20 lg:py-28 bg-white  relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-16">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl text-center mx-auto space-y-3">
             <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#000000] text-white border border-[#033653] text-xs font-mono font-bold uppercase tracking-wider shadow-sm">
               <span className="w-2 h-2 rounded-full bg-[#66cc00] animate-pulse" />
               <span>PLATFORM ARCHITECTURE &bull; UNIFIED ENGINE</span>
             </span>
-            <h2 className="text-3xl sm:text-5xl font-bold text-slate-900 mt-3 tracking-tight">
+            <h2 className="text-3xl sm:text-5xl font-bold text-slate-900 tracking-tight">
               One Platform. Complete Risk Intelligence.
             </h2>
             <p className="text-sm sm:text-base text-slate-600 mt-3 leading-relaxed">
@@ -209,53 +206,15 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* Feature 1: AI-Powered Onboarding & Live Command Sentinel (Image 2 Interactive Demo) */}
-          <div className="space-y-6 pt-4 border-b border-slate-200 pb-16">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              <div className="lg:col-span-8 space-y-3">
-                <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#000000] text-white border border-[#033653] text-xs font-mono font-bold uppercase tracking-wider shadow-sm">
-                  <span className="w-2 h-2 rounded-full bg-[#66cc00] animate-pulse" />
-                  <span>Feature 01 &bull; Onboarding Acceleration &amp; Live Command</span>
-                </span>
-                <h3 className="text-2xl sm:text-4xl font-extrabold text-[#000000] tracking-tight">
-                  AI-Powered Onboarding &amp; Portfolio Risk Command
-                </h3>
-                <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-3xl">
-                  Check documents, validate information, and resolve issues before submission. Help partners correct blurry or outdated documentation in real time rather than discovering issues after submission. Filter records, investigate high-risk flags, and export 60-second compliance dossiers.
-                </p>
-              </div>
-              <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 justify-end items-start lg:items-end font-mono text-xs">
-                <div className="flex items-center gap-2 text-slate-700 font-semibold">
-                  <CheckCircle2 className="w-4 h-4 text-[#66cc00]" />
-                  <span>Auto-populated questionnaires</span>
-                </div>
-                <div className="flex items-center gap-2 text-slate-700 font-semibold">
-                  <CheckCircle2 className="w-4 h-4 text-[#66cc00]" />
-                  <span>Discrepancy detection engine</span>
-                </div>
-                <Link
-                  href={routes.platformAiOnboarding}
-                  className="kyp-btn-primary px-5 py-2.5 rounded-full text-xs font-semibold flex items-center gap-2 mt-2 shadow-sm"
-                >
-                  <span>Explore AI Onboarding</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
-            </div>
-
-            {/* AI Onboarding Interactive Sentinel with Motion Effects (Image 2) */}
-            <div className="w-full pt-4">
-              <OnboardingInterface />
-            </div>
-          </div>
+          
 
           {/* Feature 2: Continuous Intelligence Pipeline (Filling Red Box from Image 1 with Full Narrative) */}
-          <div className="py-16 border-b border-slate-200 space-y-8">
+          <div className="py-16  space-y-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              <div className="lg:col-span-8 space-y-3">
+              <div className="lg:col-span-12 text-center max-w-3xl mx-auto space-y-3">
                 <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#000000] text-white border border-[#033653] text-xs font-mono font-bold uppercase tracking-wider shadow-sm">
                   <span className="w-2 h-2 rounded-full bg-[#66cc00] animate-pulse" />
-                  <span>Feature 02 &bull; Multi-Stream Risk Pipeline</span>
+                  <span>Multi-Stream Risk Pipeline</span>
                 </span>
                 <h3 className="text-2xl sm:text-4xl font-extrabold text-[#000000] tracking-tight">
                   Continuous Intelligence Pipeline
@@ -281,9 +240,9 @@ export default function HomePage() {
 
           {/* Feature 3: Graph Intelligence */}
           <div className="space-y-6 pt-12 border-t border-slate-200">
-            <div className="max-w-3xl">
+            <div className="max-w-3xl text-center mx-auto space-y-3">
               <span className="text-xs font-mono bg-[#000000] text-white px-3.5 py-1 rounded-full border border-[#033653] uppercase tracking-wider font-bold">
-                Feature 03 &bull; Visual Contagion Analysis
+                Visual Contagion Analysis
               </span>
               <h3 className="text-2xl sm:text-4xl font-extrabold text-[#000000] tracking-tight mt-3">
                 Graph Intelligence
@@ -297,44 +256,23 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SECTION 6 – USE CASES */}
-      <section className="py-20 lg:py-28 bg-slate-50 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="max-w-3xl mb-14">
-            <span className="text-xs font-mono text-white uppercase tracking-widest font-bold">
-              Application Matrix
-            </span>
-            <h2 className="text-3xl sm:text-5xl font-bold text-slate-900 mt-2 tracking-tight">
-              From Onboarding to Continuous Risk Intelligence.
-            </h2>
-            <p className="text-sm sm:text-base text-slate-600 mt-3 leading-relaxed">
-              Explore how KYP addresses complex regulatory demands across every stage of the third-party risk lifecycle.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {useCasesData.slice(0, 9).map((uc) => (
-              <UseCaseCard key={uc.slug} useCase={uc} />
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
       {/* PROCESSING SPEED SLAS & LIVE WORKFLOW DEMO */}
       <WorkflowSLADemo />
 
       {/* SECTION 7 – ANIMATED PLATFORM FLOW (Detailed Pipeline Section) */}
-      <section className="py-20 lg:py-28 bg-white border-b border-slate-200">
+      <section className="py-20 lg:py-28 bg-white ">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <PlatformFlow />
         </div>
       </section>
 
       {/* SECTION 8 – PLATFORM BENEFITS */}
-      <section className="py-20 lg:py-28 bg-slate-50 border-b border-slate-200">
+      <section className="py-20 lg:py-28 bg-slate-50 ">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-3xl mb-14">
-            <span className="text-xs font-mono text-white uppercase tracking-widest font-bold">
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#000000] text-white border border-[#033653] text-xs font-mono font-bold uppercase tracking-wider">
               Enterprise Outcomes
             </span>
             <h2 className="text-3xl sm:text-5xl font-bold text-slate-900 mt-2 tracking-tight">
@@ -344,7 +282,7 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="p-6 rounded-2xl bg-white border border-slate-200 space-y-3 shadow-sm hover:shadow-md transition-all">
-              <div className="text-2xl font-mono font-bold text-white">60 Seconds</div>
+              <div className="text-2xl font-mono font-bold text-[#033653]">60 Seconds</div>
               <h3 className="text-lg font-bold text-slate-900">Full Audit Reports in Seconds</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
                 Replace weeks of manual screenshot gathering and file compiling with instant, tamper-evident audit dossiers ready for regulators.
@@ -368,7 +306,7 @@ export default function HomePage() {
             </div>
 
             <div className="p-6 rounded-2xl bg-white border border-slate-200 space-y-3 shadow-sm hover:shadow-md transition-all">
-              <div className="text-2xl font-mono font-bold text-white">WebCompli™</div>
+              <div className="text-2xl font-mono font-bold text-[#033653]">WebCompli™</div>
               <h3 className="text-lg font-bold text-slate-900">Zero Card Scheme Non-Compliance</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
                 Automated website crawler detecting Mastercard BRAM &amp; Visa VIRP issues before card schemes issue non-compliance fines.
@@ -384,7 +322,7 @@ export default function HomePage() {
             </div>
 
             <div className="p-6 rounded-2xl bg-white border border-slate-200 space-y-3 shadow-sm hover:shadow-md transition-all">
-              <div className="text-2xl font-mono font-bold text-white">Early Warning</div>
+              <div className="text-2xl font-mono font-bold text-[#033653]">Early Warning</div>
               <h3 className="text-lg font-bold text-slate-900">Behavioural &amp; Financial Signals</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
                 Surface emerging risk signals, management turnover, and volumetric anomalies before they escalate into financial write-offs.
@@ -395,10 +333,10 @@ export default function HomePage() {
       </section>
 
       {/* SECTION 9 – TESTIMONIALS */}
-      <section className="py-20 lg:py-28 bg-white border-b border-slate-200">
+      <section className="py-20 lg:py-28 bg-white ">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-3xl mb-14 text-center mx-auto">
-            <span className="text-xs font-mono text-white uppercase tracking-widest font-bold">
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#000000] text-white border border-[#033653] text-xs font-mono font-bold uppercase tracking-wider">
               Industry Testimonials
             </span>
             <h2 className="text-3xl sm:text-5xl font-bold text-slate-900 mt-2 tracking-tight">
@@ -443,9 +381,9 @@ export default function HomePage() {
       </section>
 
       {/* SECTION 10 – LATEST NEWS */}
-      <section className="py-20 lg:py-28 bg-slate-50 border-b border-slate-200">
+      <section className="py-20 lg:py-28 bg-slate-50 ">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4 text-center sm:text-left">
             <div>
               <span className="text-xs font-mono bg-[#000000] text-white px-3.5 py-1 rounded-full border border-[#033653] uppercase tracking-widest font-bold">
                 Intelligence Dispatch

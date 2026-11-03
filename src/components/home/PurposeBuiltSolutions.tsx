@@ -78,29 +78,29 @@ export default function PurposeBuiltSolutions() {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
 
   return (
-    <section className="py-20 lg:py-28 bg-white border-b border-slate-200 relative overflow-hidden">
+    <section className="py-20 lg:py-28 bg-white  relative overflow-hidden">
       {/* Spacious 80px background tech grid with subtle ambient depth */}
       <div className="absolute inset-0 kyp-grid-pattern opacity-60 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-12 relative z-10">
         {/* Top Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <div className="max-w-2xl space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#000000] text-white border border-[#033653] text-xs font-mono font-bold uppercase tracking-wider shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-[#66cc00] animate-pulse" />
-              <span>OPERATING SOLUTIONS &bull; PURPOSE-BUILT</span>
-            </div>
-            <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#000000] font-heading">
-              Connect the work that shapes your financial outcomes.
-            </h2>
+        <div className="text-center max-w-3xl mx-auto space-y-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#000000] text-white border border-[#033653] text-xs font-mono font-bold uppercase tracking-wider shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-[#66cc00] animate-pulse" />
+            <span>OPERATING SOLUTIONS &bull; PURPOSE-BUILT</span>
           </div>
-          <Link
-            href={routes.onboarding}
-            className="inline-flex items-center gap-2 text-xs font-bold text-[#033653] hover:text-[#66cc00] transition-colors shrink-0 group font-mono"
-          >
-            <span>Explore All Solutions</span>
-            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-          </Link>
+          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#000000] font-heading">
+            Connect the work that shapes your financial outcomes.
+          </h2>
+          <div className="pt-2">
+            <Link
+              href={routes.onboarding}
+              className="inline-flex items-center gap-2 text-xs font-bold text-[#033653] hover:text-[#66cc00] transition-colors shrink-0 group font-mono"
+            >
+              <span>Explore All Solutions</span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
         </div>
 
         {/* 6-Card Grid (3, 3) - Default White, Transforms to Luxury Dark on Hover */}

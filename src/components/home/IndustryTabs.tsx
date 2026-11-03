@@ -167,13 +167,13 @@ export default function IndustryTabs() {
   const currentTab = TABS_DATA.find((t) => t.id === activeTabId) || TABS_DATA[0];
 
   return (
-    <section className="py-20 lg:py-28 bg-slate-50/80 border-b border-slate-200/80 relative overflow-hidden">
+    <section className="py-20 lg:py-28 bg-slate-50/80  relative overflow-hidden">
       {/* Background grid accent */}
       <div className="absolute inset-0 kyp-grid-pattern opacity-60 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 space-y-12">
         {/* Header Section matching Image 1 */}
-        <div className="max-w-3xl space-y-3">
+        <div className="max-w-3xl space-y-3 text-center mx-auto">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#000000] text-white border border-[#033653] text-xs font-mono font-bold uppercase tracking-wider shadow-sm">
             <span className="w-2 h-2 rounded-full bg-[#66cc00] animate-pulse" />
             <span>INDUSTRY COVERAGE &bull; TAILORED PROTOCOLS</span>
@@ -189,7 +189,7 @@ export default function IndustryTabs() {
         </div>
 
         {/* Tab Selector Bar */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none border-b border-slate-200">
+        <div className="flex items-center justify-center gap-2 overflow-x-auto pb-2 scrollbar-none">
           {TABS_DATA.map((tab) => {
             const isActive = tab.id === activeTabId;
             return (

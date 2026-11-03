@@ -80,7 +80,7 @@ export default function RiskIntelligenceGraphShowcase() {
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 space-y-12">
         {/* Header */}
-        <div className="max-w-3xl space-y-4">
+        <div className="max-w-3xl space-y-4 text-center mx-auto">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#033653] border border-[#033653] text-xs font-mono text-white font-bold shadow-sm">
             <Sparkles className="w-3.5 h-3.5 text-[#66cc00]" />
             <span>THE RISK INTELLIGENCE GRAPH™</span>

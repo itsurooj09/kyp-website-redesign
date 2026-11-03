@@ -20,7 +20,7 @@ export default function NewsPage() {
     <div className="w-full bg-white text-slate-900 relative overflow-hidden">
       
       {/* HERO */}
-      <section className="relative pt-12 pb-16 lg:pt-20 lg:pb-24 border-b border-slate-200 bg-gradient-to-b from-slate-50/80 via-white to-slate-50/40 kyp-grid-pattern">
+      <section className="relative pt-12 pb-16 lg:pt-20 lg:pb-24  bg-gradient-to-b from-slate-50/80 via-white to-slate-50/40 kyp-grid-pattern">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 text-center">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#000000] border border-[#033653] text-xs font-mono text-white mb-6 font-bold shadow-xs">
             <span className="w-4 h-4 inline-flex items-center justify-center">
@@ -40,9 +40,9 @@ export default function NewsPage() {
       </section>
 
       {/* FEATURED STORIES */}
-      <section className="py-16 lg:py-20 bg-slate-50 border-b border-slate-200">
+      <section className="py-16 lg:py-20 bg-slate-50 ">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="mb-10">
+          <div className="mb-10 text-center max-w-2xl mx-auto">
             <span className="text-xs font-mono bg-[#000000] text-white px-3.5 py-1 rounded-full border border-[#033653] uppercase tracking-widest font-bold">
               Top Announcements
             </span>
@@ -60,9 +60,9 @@ export default function NewsPage() {
       </section>
 
       {/* ALL ARTICLES GRID */}
-      <section className="py-16 lg:py-24 bg-white border-b border-slate-200">
+      <section className="py-16 lg:py-24 bg-white ">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="mb-10">
+          <div className="mb-10 text-center max-w-2xl mx-auto">
             <span className="text-xs font-mono bg-[#000000] text-white px-3.5 py-1 rounded-full border border-[#033653] uppercase tracking-widest font-bold">
               Archive &amp; Industry Releases
             </span>

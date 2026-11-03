@@ -441,7 +441,7 @@ export default function PlatformFlow() {
               <span className="px-3 py-1 rounded bg-slate-900 text-white font-mono font-bold text-xs">
                 Stage {currentStage.step} &bull; {currentStage.title}
               </span>
-              <span className="text-xs font-mono text-white font-bold">
+              <span className="text-xs font-mono text-[#033653] font-bold">
                 {currentStage.action}
               </span>
             </div>
@@ -488,7 +488,7 @@ export default function PlatformFlow() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <div className="p-4 rounded-xl bg-white border border-slate-200 hover:border-emerald-500/60 shadow-sm transition-all space-y-2">
           <div className="flex items-center justify-between">
-            <span className="text-[10px] font-mono text-white font-bold uppercase">CLIENT FEATURE 01</span>
+            <span className="text-[10px] font-mono text-[#033653] bg-slate-100 px-2 py-0.5 rounded font-bold uppercase">Telemetry Analysis</span>
             <TrendingUp className="w-4 h-4 text-kyp-lime" />
           </div>
           <h4 className="text-base font-bold text-slate-900">Volumetric Monitoring</h4>
@@ -499,7 +499,7 @@ export default function PlatformFlow() {
 
         <div className="p-4 rounded-xl bg-white border border-slate-200 hover:border-emerald-500/60 shadow-sm transition-all space-y-2">
           <div className="flex items-center justify-between">
-            <span className="text-[10px] font-mono text-white font-bold uppercase">CLIENT FEATURE 02</span>
+            <span className="text-[10px] font-mono text-[#033653] bg-slate-100 px-2 py-0.5 rounded font-bold uppercase">Compliance Crawler</span>
             <Globe className="w-4 h-4 text-[#66cc00]" />
           </div>
           <h4 className="text-base font-bold text-slate-900">Webcompli™</h4>
@@ -510,7 +510,7 @@ export default function PlatformFlow() {
 
         <div className="p-4 rounded-xl bg-white border border-slate-200 hover:border-emerald-500/60 shadow-sm transition-all space-y-2">
           <div className="flex items-center justify-between">
-            <span className="text-[10px] font-mono text-white font-bold uppercase">CLIENT FEATURE 03</span>
+            <span className="text-[10px] font-mono text-[#033653] bg-slate-100 px-2 py-0.5 rounded font-bold uppercase">Registry Sync</span>
             <Building2 className="w-4 h-4 text-kyp-mint" />
           </div>
           <h4 className="text-base font-bold text-slate-900">Corporate Structure Changes</h4>
@@ -521,7 +521,7 @@ export default function PlatformFlow() {
 
         <div className="p-4 rounded-xl bg-white border border-slate-200 hover:border-emerald-500/60 shadow-sm transition-all space-y-2">
           <div className="flex items-center justify-between">
-            <span className="text-[10px] font-mono text-white font-bold uppercase">CLIENT FEATURE 04</span>
+            <span className="text-[10px] font-mono text-[#033653] bg-slate-100 px-2 py-0.5 rounded font-bold uppercase">Behavioural Signals</span>
             <AlertTriangle className="w-4 h-4 text-kyp-lime" />
           </div>
           <h4 className="text-base font-bold text-slate-900">Merchant Behavioural Shifts</h4>

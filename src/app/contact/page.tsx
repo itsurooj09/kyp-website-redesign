@@ -15,7 +15,7 @@ export default function ContactPage() {
     <div className="w-full bg-white text-slate-900 relative overflow-hidden">
       
       {/* HERO */}
-      <section className="relative pt-12 pb-16 lg:pt-20 lg:pb-24 border-b border-slate-200 bg-gradient-to-b from-slate-50/80 via-white to-slate-50/40 kyp-grid-pattern">
+      <section className="relative pt-12 pb-16 lg:pt-20 lg:pb-24  bg-gradient-to-b from-slate-50/80 via-white to-slate-50/40 kyp-grid-pattern">
 
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 text-center">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#000000] border border-[#033653] text-xs font-mono text-white mb-6 font-bold shadow-sm">
@@ -36,14 +36,14 @@ export default function ContactPage() {
       </section>
 
       {/* FORM & CONTACT DETAILS SPLIT */}
-      <section className="py-16 lg:py-24 bg-slate-50 border-b border-slate-200">
+      <section className="py-16 lg:py-24 bg-slate-50 ">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             
             {/* Left: Contact Form */}
             <div className="lg:col-span-7 bg-white p-6 sm:p-10 rounded-3xl border border-slate-200 shadow-xl shadow-slate-200/50">
               <div className="mb-8">
-                <span className="text-xs font-mono text-white uppercase tracking-widest font-bold">
+                <span className="text-xs font-mono text-[#033653] uppercase tracking-widest font-bold">
                   Platform Demonstration Request
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mt-1">
@@ -65,7 +65,7 @@ export default function ContactPage() {
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <div className="text-xs font-mono text-white uppercase tracking-wider font-bold">Global Headquarters</div>
+                  <div className="text-xs font-mono text-[#033653] uppercase tracking-wider font-bold">Global Headquarters</div>
                   <h3 className="text-lg font-bold text-slate-900 mt-1">London, United Kingdom</h3>
                   <p className="text-xs text-slate-600 mt-1 leading-relaxed">
                     33 Queen St, London, EC4R 1AP, United Kingdom
@@ -88,13 +88,13 @@ export default function ContactPage() {
                   <div className="mt-2 space-y-1.5 text-xs">
                     <div>
                       <span className="text-slate-500">General Inquiries: </span>
-                      <a href="mailto:hello@kyp.io" className="text-white font-semibold hover:underline">
+                      <a href="mailto:hello@kyp.io" className="text-[#033653] font-semibold hover:underline">
                         hello@kyp.io
                       </a>
                     </div>
                     <div>
                       <span className="text-slate-500">Security & Privacy: </span>
-                      <a href="mailto:security@kyp.io" className="text-white font-semibold hover:underline">
+                      <a href="mailto:security@kyp.io" className="text-[#033653] font-semibold hover:underline">
                         security@kyp.io
                       </a>
                     </div>

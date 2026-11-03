@@ -48,7 +48,7 @@ export default function CareersPage() {
     <div className="w-full bg-white text-slate-900 relative overflow-hidden">
       
       {/* HERO */}
-      <section className="relative pt-12 pb-20 lg:pt-20 lg:pb-28 border-b border-slate-200 bg-gradient-to-b from-slate-50/80 via-white to-slate-50/40 kyp-grid-pattern">
+      <section className="relative pt-12 pb-20 lg:pt-20 lg:pb-28  bg-gradient-to-b from-slate-50/80 via-white to-slate-50/40 kyp-grid-pattern">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 text-center">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#000000] border border-[#033653] text-xs font-mono text-white mb-6 font-bold shadow-xs">
             <Sparkles className="w-3.5 h-3.5 text-[#66cc00]" />
@@ -85,7 +85,7 @@ export default function CareersPage() {
       </section>
 
       {/* CULTURE & BENEFITS */}
-      <section className="py-20 lg:py-28 bg-slate-50 border-b border-slate-200">
+      <section className="py-20 lg:py-28 bg-slate-50 ">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6 space-y-6">
@@ -133,7 +133,7 @@ export default function CareersPage() {
       </section>
 
       {/* CORE COMPANY VALUES - 6 VALUES STRICTLY IN 3, 3 WITH DARK BLACK HOVER */}
-      <section className="py-20 lg:py-28 bg-white border-b border-slate-200">
+      <section className="py-20 lg:py-28 bg-white ">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-3xl mb-14">
             <span className="text-xs font-mono bg-[#000000] text-white px-3.5 py-1 rounded-full border border-[#033653] uppercase tracking-widest font-bold">
@@ -168,7 +168,7 @@ export default function CareersPage() {
       </section>
 
       {/* OPEN POSITIONS */}
-      <section className="py-20 lg:py-28 bg-slate-50 border-b border-slate-200">
+      <section className="py-20 lg:py-28 bg-slate-50 ">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center space-y-8">
           <div>
             <span className="text-xs font-mono bg-[#000000] text-white px-3.5 py-1 rounded-full border border-[#033653] uppercase tracking-widest font-bold">

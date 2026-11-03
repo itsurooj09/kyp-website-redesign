@@ -40,7 +40,7 @@ export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail })
     <div className="w-full bg-white text-slate-900 relative overflow-hidden">
       
       {/* SECTION 1 – HERO (EXPANSIVE AMBIENT GLOW & MOTION GRAPHICS) */}
-      <section className="relative pt-12 pb-20 lg:pt-20 lg:pb-28 border-b border-slate-200 bg-gradient-to-b from-slate-50/80 via-white to-slate-50/40 kyp-grid-pattern">
+      <section className="relative pt-12 pb-20 lg:pt-20 lg:pb-28  bg-gradient-to-b from-slate-50/80 via-white to-slate-50/40 kyp-grid-pattern">
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[850px] sm:w-[1050px] h-[550px] bg-[#033653]/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute top-10 right-10 w-96 h-96 bg-[#66cc00]/10 rounded-full blur-3xl pointer-events-none" />
         
@@ -124,9 +124,9 @@ export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail })
       </section>
 
       {/* SECTION 2 – THE PROBLEM */}
-      <section className="py-20 lg:py-28 bg-slate-50 border-b border-slate-200">
+      <section className="py-20 lg:py-28 bg-slate-50 ">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="max-w-3xl mb-12">
+          <div className="max-w-3xl mb-12 text-center mx-auto">
             <span className="text-xs font-mono bg-[#000000] text-white px-3 py-1 rounded-full border border-[#033653] uppercase tracking-widest font-bold">
               The Operational Challenge
             </span>
@@ -167,9 +167,9 @@ export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail })
       </section>
 
       {/* SECTION 3 – THE KYP SOLUTION */}
-      <section className="py-20 lg:py-28 bg-white border-b border-slate-200">
+      <section className="py-20 lg:py-28 bg-white ">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="max-w-3xl mb-12">
+          <div className="max-w-3xl mb-12 text-center mx-auto">
             <span className="text-xs font-mono bg-[#000000] text-white px-3 py-1 rounded-full border border-[#033653] uppercase tracking-widest font-bold">
               The KYP Capability
             </span>
@@ -208,7 +208,7 @@ export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail })
       </section>
 
       {/* SECTION 4 – HOW IT WORKS: 6 STEPS BALANCED IN 3, 3 (WITH DARK BLACK HOVER & MOTION) */}
-      <section id="how-it-works" className="py-20 lg:py-28 bg-slate-50 border-b border-slate-200">
+      <section id="how-it-works" className="py-20 lg:py-28 bg-slate-50 ">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-3xl mb-14 text-center mx-auto space-y-3">
             <span className="text-xs font-mono bg-[#000000] text-white px-3.5 py-1 rounded-full border border-[#033653] uppercase tracking-widest font-bold">
@@ -269,9 +269,9 @@ export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail })
       </section>
 
       {/* SECTION 5 – FEATURE MATRIX: 6 CARDS STRICTLY IN 3, 3 WITH DARK BLACK HOVER & ANIMATION */}
-      <section className="py-20 lg:py-28 bg-white border-b border-slate-200">
+      <section className="py-20 lg:py-28 bg-white ">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="max-w-3xl mb-14 space-y-2">
+          <div className="max-w-3xl mb-14 space-y-2 text-center mx-auto">
             <span className="text-xs font-mono bg-[#000000] text-white px-3.5 py-1 rounded-full border border-[#033653] uppercase tracking-widest font-bold">
               Feature Matrix
             </span>
@@ -318,9 +318,9 @@ export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail })
       </section>
 
       {/* SECTION 6 – PLATFORM INTERFACE DEMO */}
-      <section className="py-20 lg:py-28 bg-slate-50 border-b border-slate-200">
+      <section className="py-20 lg:py-28 bg-slate-50 ">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="max-w-3xl mb-12 space-y-2">
+          <div className="max-w-3xl mb-12 space-y-2 text-center mx-auto">
             <span className="text-xs font-mono bg-[#000000] text-white px-3.5 py-1 rounded-full border border-[#033653] uppercase tracking-widest font-bold">
               Audit &amp; Decision Trail
             </span>
@@ -337,9 +337,9 @@ export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail })
       </section>
 
       {/* SECTION 7 – BUSINESS BENEFITS (WITH DARK BLACK HOVER) */}
-      <section className="py-20 lg:py-28 bg-white border-b border-slate-200">
+      <section className="py-20 lg:py-28 bg-white ">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="max-w-3xl mb-12 space-y-2">
+          <div className="max-w-3xl mb-12 space-y-2 text-center mx-auto">
             <span className="text-xs font-mono bg-[#000000] text-white px-3.5 py-1 rounded-full border border-[#033653] uppercase tracking-widest font-bold">
               Measurable Impact
             </span>

@@ -15,11 +15,11 @@ export default function ProvenInProduction() {
   }, []);
 
   return (
-    <section className="py-20 lg:py-28 bg-white border-b border-slate-200 relative overflow-hidden">
+    <section className="py-20 lg:py-28 bg-white  relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-12">
         
         {/* Section Header */}
-        <div className="max-w-3xl space-y-3">
+        <div className="max-w-3xl space-y-3 text-center mx-auto">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#000000] text-white border border-[#033653] text-xs font-mono font-bold uppercase tracking-wider shadow-sm">
             <span className="w-2 h-2 rounded-full bg-[#66cc00] animate-pulse" />
             <span>PROVEN IN PRODUCTION &bull; HIGH-VOLUME RELIABILITY</span>

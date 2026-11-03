@@ -5,11 +5,9 @@ import { ArrowRight, Sparkles, CheckCircle2, ShieldCheck, Database, Activity, Fi
 import { routes } from "@/lib/routes";
 import { platformFeaturesData } from "@/data/platformFeatures";
 
-import GraphIntelligence from "@/components/product/GraphIntelligence";
 import ArchitecturalIntelligenceFlow from "@/components/product/ArchitecturalIntelligenceFlow";
 import AnalyticsDashboard from "@/components/product/AnalyticsDashboard";
 import ClientPlatformInterface from "@/components/product/ClientPlatformInterface";
-import OnboardingInterface from "@/components/product/OnboardingInterface";
 import AuditInterface from "@/components/product/AuditInterface";
 import KYPLottie from "@/components/lottie/KYPLottie";
 import RiskIntelligenceGraphShowcase from "@/components/home/RiskIntelligenceGraphShowcase";
@@ -25,7 +23,7 @@ export default function PlatformPage() {
     <div className="w-full bg-white text-slate-900 relative overflow-hidden">
       
       {/* SECTION 1 – PLATFORM HERO (EXPANSIVE AMBIENT GLOW & CENTERED ARCHITECTURE) */}
-      <section className="relative pt-12 pb-20 lg:pt-20 lg:pb-28 border-b border-slate-200 bg-gradient-to-b from-slate-50/80 via-white to-slate-50/40 kyp-grid-pattern">
+      <section className="relative pt-12 pb-20 lg:pt-20 lg:pb-28  bg-gradient-to-b from-slate-50/80 via-white to-slate-50/40 kyp-grid-pattern">
 
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 text-center">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#000000] border border-[#033653] text-xs font-mono text-white mb-6 font-bold shadow-xs">
@@ -69,10 +67,10 @@ export default function PlatformPage() {
               <ArrowRight className="w-4 h-4" />
             </Link>
             <a
-              href="#graph-intelligence"
+              href="#overview"
               className="px-8 py-3.5 rounded-full bg-white border border-[#033653] text-[#033653] hover:bg-slate-50 text-sm font-semibold flex items-center gap-2 transition-all"
             >
-              <span>Explore Graph Intelligence</span>
+              <span>Explore Platform Overview</span>
             </a>
           </div>
 
@@ -84,7 +82,7 @@ export default function PlatformPage() {
       </section>
 
       {/* SECTION 2 – ECOSYSTEM OVERVIEW (CENTERED HEADER & BALANCED 5 PILLARS) */}
-      <section id="overview" className="py-20 lg:py-28 bg-slate-50 border-b border-slate-200">
+      <section id="overview" className="py-20 lg:py-28 bg-slate-50 ">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-14">
           <div className="max-w-4xl mx-auto text-center space-y-3">
             <span className="text-xs font-mono bg-[#000000] text-white px-3.5 py-1 rounded-full border border-[#033653] uppercase tracking-widest font-bold">
@@ -153,51 +151,15 @@ export default function PlatformPage() {
         </div>
       </section>
 
-      {/* SECTION 3 – AI-POWERED ONBOARDING (CENTERED HEADER & FULL VISUAL) */}
-      <section id="ai-onboarding" className="py-20 lg:py-28 bg-white border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-14">
-          <div className="max-w-4xl mx-auto text-center space-y-4">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#000000] border border-[#033653] text-xs font-mono text-white font-bold">
-              <span className="w-2 h-2 rounded-full bg-[#66cc00] animate-pulse" />
-              <span>SECTION 01 &bull; AI-POWERED ONBOARDING</span>
-            </div>
-            
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-[#000000] tracking-tight">
-              Onboard 10&times; Faster. Resolve Document Issues Before Submission.
-            </h2>
-            
-            <p className="text-lg text-[#033653] font-bold">
-              Get the information you need from the start.
-            </p>
-            
-            <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-3xl mx-auto">
-              KYP uses AI to check documents as business partners complete their onboarding questionnaires, helping them resolve issues before submission and reducing the back-and-forth your team needs to manage.
-            </p>
-
-            {/* Centered Workflow Steps */}
-            <div className="pt-2 flex flex-wrap items-center justify-center gap-3 font-mono text-xs">
-              {["Collect", "Check", "Resolve", "Submit"].map((step, idx) => (
-                <div key={idx} className="flex items-center gap-3">
-                  <span className="px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-[#033653] font-bold shadow-xs">
-                    0{idx + 1}. {step}
-                  </span>
-                  {idx < 3 && <ArrowRight className="w-3.5 h-3.5 text-[#66cc00]" />}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <OnboardingInterface />
-        </div>
-      </section>
+      
 
       {/* SECTION 4 – DATA & INTEGRATIONS (CENTERED HEADER & PIPELINE) */}
-      <section id="data-integrations" className="py-20 lg:py-28 bg-slate-50 border-b border-slate-200">
+      <section id="data-integrations" className="py-20 lg:py-28 bg-slate-50 ">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-14">
           <div className="max-w-4xl mx-auto text-center space-y-4">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#000000] border border-[#033653] text-xs font-mono text-white font-bold">
               <span className="w-2 h-2 rounded-full bg-[#66cc00] animate-pulse" />
-              <span>SECTION 02 &bull; DATA &amp; INTEGRATIONS</span>
+              <span>DATA &amp; INTEGRATIONS</span>
             </div>
 
             <h2 className="text-3xl sm:text-5xl font-extrabold text-[#000000] tracking-tight">
@@ -217,7 +179,7 @@ export default function PlatformPage() {
               {["Connect", "Cross-reference", "Assess", "Monitor"].map((step, idx) => (
                 <div key={idx} className="flex items-center gap-3">
                   <span className="px-4 py-1.5 rounded-full bg-white border border-slate-200 text-[#033653] font-bold shadow-xs">
-                    0{idx + 1}. {step}
+                    {step}
                   </span>
                   {idx < 3 && <ArrowRight className="w-3.5 h-3.5 text-[#66cc00]" />}
                 </div>
@@ -233,34 +195,15 @@ export default function PlatformPage() {
       {/* SECTION 5 – GRAPH INTELLIGENCE & 3D ORBITAL SHOWCASE */}
       <RiskIntelligenceGraphShowcase />
 
-      <section id="graph-intelligence" className="py-20 lg:py-28 bg-white border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-14">
-          <div className="max-w-4xl mx-auto text-center space-y-4">
-            <span className="text-xs font-mono bg-[#000000] text-white px-3.5 py-1 rounded-full border border-[#033653] uppercase tracking-widest font-bold">
-              Interactive Network &bull; Entity Resolution &amp; Contagion
-            </span>
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-[#000000] tracking-tight">
-              See the Connections Behind the Risks.
-            </h2>
-            <p className="text-lg text-[#033653] font-bold">
-              Understand relationships. Uncover hidden exposure. Make better-informed decisions.
-            </p>
-            <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-3xl mx-auto">
-              KYP Graph Intelligence maps entity relationships in real time, connecting parent companies, beneficial owners (UBOs), directors, subsidiaries, and merchants to uncover hidden contagion risks.
-            </p>
-          </div>
-
-          <GraphIntelligence />
-        </div>
-      </section>
+      
 
       {/* SECTION 6 – CONTINUOUS MONITORING & ALERTS (CENTERED) */}
-      <section id="monitoring-alerts" className="py-20 lg:py-28 bg-slate-50 border-b border-slate-200">
+      <section id="monitoring-alerts" className="py-20 lg:py-28 bg-slate-50 ">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-14">
           <div className="max-w-4xl mx-auto text-center space-y-4">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#000000] border border-[#033653] text-xs font-mono text-white font-bold">
               <span className="w-2 h-2 rounded-full bg-[#66cc00] animate-pulse" />
-              <span>SECTION 04 &bull; CONTINUOUS MONITORING &amp; ALERTS</span>
+              <span>CONTINUOUS MONITORING &amp; ALERTS</span>
             </div>
 
             <h2 className="text-3xl sm:text-5xl font-extrabold text-[#000000] tracking-tight">
@@ -280,7 +223,7 @@ export default function PlatformPage() {
               {["Monitor", "Alert", "Investigate", "Act"].map((step, idx) => (
                 <div key={idx} className="flex items-center gap-3">
                   <span className="px-4 py-1.5 rounded-full bg-white border border-slate-200 text-[#033653] font-bold shadow-xs">
-                    0{idx + 1}. {step}
+                    {step}
                   </span>
                   {idx < 3 && <ArrowRight className="w-3.5 h-3.5 text-[#66cc00]" />}
                 </div>
@@ -293,12 +236,12 @@ export default function PlatformPage() {
       </section>
 
       {/* SECTION 7 – EVIDENCE & DECISIONS (CENTERED) */}
-      <section id="evidence-decisions" className="py-20 lg:py-28 bg-white border-b border-slate-200">
+      <section id="evidence-decisions" className="py-20 lg:py-28 bg-white ">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-14">
           <div className="max-w-4xl mx-auto text-center space-y-4">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#000000] border border-[#033653] text-xs font-mono text-white font-bold">
               <span className="w-2 h-2 rounded-full bg-[#66cc00] animate-pulse" />
-              <span>SECTION 05 &bull; INVESTIGATIONS &amp; AUDIT REPORTING</span>
+              <span>INVESTIGATIONS &amp; AUDIT REPORTING</span>
             </div>
 
             <h2 className="text-3xl sm:text-5xl font-extrabold text-[#000000] tracking-tight">
@@ -318,7 +261,7 @@ export default function PlatformPage() {
               {["Investigate", "Decide", "Record", "Report"].map((step, idx) => (
                 <div key={idx} className="flex items-center gap-3">
                   <span className="px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-[#033653] font-bold shadow-xs">
-                    0{idx + 1}. {step}
+                    {step}
                   </span>
                   {idx < 3 && <ArrowRight className="w-3.5 h-3.5 text-[#66cc00]" />}
                 </div>

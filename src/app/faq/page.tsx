@@ -16,7 +16,7 @@ export default function FAQPage() {
     <div className="w-full bg-white text-slate-900 relative overflow-hidden">
       
       {/* HERO */}
-      <section className="relative pt-12 pb-16 lg:pt-20 lg:pb-24 border-b border-slate-200 bg-gradient-to-b from-slate-50/80 via-white to-slate-50/40 kyp-grid-pattern">
+      <section className="relative pt-12 pb-16 lg:pt-20 lg:pb-24  bg-gradient-to-b from-slate-50/80 via-white to-slate-50/40 kyp-grid-pattern">
 
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 text-center">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#000000] border border-[#033653] text-xs font-mono text-white mb-6 font-bold shadow-xs">
@@ -35,7 +35,7 @@ export default function FAQPage() {
       </section>
 
       {/* FAQ INTERACTIVE ACCORDION SECTION */}
-      <section className="py-16 lg:py-24 bg-slate-50 border-b border-slate-200">
+      <section className="py-16 lg:py-24 bg-slate-50 ">
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
           <FAQAccordion />
         </div>
