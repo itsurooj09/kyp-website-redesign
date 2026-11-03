@@ -51,3 +51,4 @@ next-env.d.ts
 extracted_frames/
 
 .vercel
+.env*
