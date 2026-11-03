@@ -13,6 +13,8 @@ import PlatformFlow from "@/components/product/PlatformFlow";
 import IndustryTabs from "@/components/home/IndustryTabs";
 import NewsCard from "@/components/cards/NewsCard";
 import AnalyticsDashboard from "@/components/product/AnalyticsDashboard";
+import ArchitecturalIntelligenceFlow from "@/components/product/ArchitecturalIntelligenceFlow";
+import GraphIntelligence from "@/components/product/GraphIntelligence";
 import { PartnerLogo, CredentialBadge, PartnerCarouselMarquee } from "@/components/home/PartnerLogos";
 import KYPLottie from "@/components/lottie/KYPLottie";
 import PurposeBuiltSolutions from "@/components/home/PurposeBuiltSolutions";
@@ -187,6 +189,34 @@ export default function HomePage() {
 
       {/* PURPOSE-BUILT OPERATING SOLUTIONS CARDS (Horizontal Suite from Recording 2026-11-02 153808) */}
       <PurposeBuiltSolutions />
+      {/* PLATFORM HIGHLIGHTS - ARCHITECTURAL FLOW & GRAPH INTELLIGENCE */}
+      <section className="py-20 lg:py-28 bg-white relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-16">
+          <div className="max-w-3xl text-center mx-auto space-y-3">
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#000000] text-white border border-[#033653] text-xs font-mono font-bold uppercase tracking-wider shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-[#66cc00] animate-pulse" />
+              <span>PLATFORM ARCHITECTURE &bull; UNIFIED ENGINE</span>
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-bold text-slate-900 tracking-tight">
+              One Platform. Complete Risk Intelligence.
+            </h2>
+            <p className="text-sm sm:text-base text-slate-600 mt-3 leading-relaxed">
+              KYP brings merchant onboarding, due diligence, continuous monitoring, and audit reporting together in one unified command center.
+            </p>
+          </div>
+
+          {/* Architectural Intelligence Flow (Without redundant header & without inner divider lines) */}
+          <div className="w-full">
+            <ArchitecturalIntelligenceFlow />
+          </div>
+
+          {/* Graph Intelligence Visualizer */}
+          <div className="w-full pt-4">
+            <GraphIntelligence />
+          </div>
+        </div>
+      </section>
+
 
       
 

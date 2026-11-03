@@ -131,7 +131,7 @@ export default function ArchitecturalIntelligenceFlow() {
 
       {/* TOP HEADER & TABS MATCHING USER IMAGE 4 */}
       <div className="relative z-10 space-y-6">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800/80 pb-6">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4  pb-6">
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#000000] border border-slate-700 text-xs font-mono text-white font-bold mb-2">
               <span className="w-2 h-2 rounded-full bg-[#66cc00] animate-pulse" />
@@ -347,7 +347,7 @@ export default function ArchitecturalIntelligenceFlow() {
       </div>
 
       {/* BOTTOM NARRATIVE & METRICS BAR (IMAGE 4 SUB-HEADING) */}
-      <div className="mt-8 pt-6 border-t border-slate-800/90 flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <div className="mt-8 pt-6  flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div className="max-w-2xl space-y-1">
           <div className="text-xs font-mono text-[#66cc00] font-bold flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#66cc00] animate-pulse" />
