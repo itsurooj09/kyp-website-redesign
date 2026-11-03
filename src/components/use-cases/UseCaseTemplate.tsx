@@ -124,7 +124,7 @@ export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail })
       </section>
 
       {/* SECTION 2 – THE PROBLEM */}
-      <section className="py-20 lg:py-28 bg-slate-50 ">
+      <section className="py-20 lg:py-24 bg-slate-50 ">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-3xl mb-12 text-center mx-auto">
             <span className="text-xs font-mono bg-[#000000] text-white px-3 py-1 rounded-full border border-[#033653] uppercase tracking-widest font-bold">
@@ -167,7 +167,7 @@ export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail })
       </section>
 
       {/* SECTION 3 – THE KYP SOLUTION */}
-      <section className="py-20 lg:py-28 bg-white ">
+      <section className="py-20 lg:py-24 bg-white ">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-3xl mb-12 text-center mx-auto">
             <span className="text-xs font-mono bg-[#000000] text-white px-3 py-1 rounded-full border border-[#033653] uppercase tracking-widest font-bold">
@@ -208,7 +208,7 @@ export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail })
       </section>
 
       {/* SECTION 4 – HOW IT WORKS: 6 STEPS BALANCED IN 3, 3 (WITH DARK BLACK HOVER & MOTION) */}
-      <section id="how-it-works" className="py-20 lg:py-28 bg-slate-50 ">
+      <section id="how-it-works" className="py-20 lg:py-24 bg-slate-50 ">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-3xl mb-14 text-center mx-auto space-y-3">
             <span className="text-xs font-mono bg-[#000000] text-white px-3.5 py-1 rounded-full border border-[#033653] uppercase tracking-widest font-bold">
@@ -269,7 +269,7 @@ export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail })
       </section>
 
       {/* SECTION 5 – FEATURE MATRIX: 6 CARDS STRICTLY IN 3, 3 WITH DARK BLACK HOVER & ANIMATION */}
-      <section className="py-20 lg:py-28 bg-white ">
+      <section className="py-20 lg:py-24 bg-white ">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-3xl mb-14 space-y-2 text-center mx-auto">
             <span className="text-xs font-mono bg-[#000000] text-white px-3.5 py-1 rounded-full border border-[#033653] uppercase tracking-widest font-bold">
@@ -318,7 +318,7 @@ export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail })
       </section>
 
       {/* SECTION 6 – PLATFORM INTERFACE DEMO */}
-      <section className="py-20 lg:py-28 bg-slate-50 ">
+      <section className="py-20 lg:py-24 bg-slate-50 ">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-3xl mb-12 space-y-2 text-center mx-auto">
             <span className="text-xs font-mono bg-[#000000] text-white px-3.5 py-1 rounded-full border border-[#033653] uppercase tracking-widest font-bold">
@@ -336,8 +336,28 @@ export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail })
         </div>
       </section>
 
+      {/* GRAPH INTELLIGENCE & ENTITY RESOLUTION */}
+      <section className="py-20 lg:py-24 bg-white relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-12">
+          <div className="max-w-3xl mb-12 space-y-3 text-center mx-auto">
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#000000] text-white border border-[#033653] text-xs font-mono font-bold uppercase tracking-wider shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-[#66cc00] animate-pulse" />
+              <span>Entity Resolution &bull; Graph Intelligence</span>
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#000000] tracking-tight">
+              Interactive Network &amp; Contagion Analysis
+            </h2>
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+              Inspect multi-tier corporate hierarchies, beneficial owners (UBOs), directors, and subsidiary contagion pathways in real-time.
+            </p>
+          </div>
+
+          <GraphIntelligence />
+        </div>
+      </section>
+
       {/* SECTION 7 – BUSINESS BENEFITS (WITH DARK BLACK HOVER) */}
-      <section className="py-20 lg:py-28 bg-white ">
+      <section className="py-20 lg:py-24 bg-white ">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-3xl mb-12 space-y-2 text-center mx-auto">
             <span className="text-xs font-mono bg-[#000000] text-white px-3.5 py-1 rounded-full border border-[#033653] uppercase tracking-widest font-bold">
