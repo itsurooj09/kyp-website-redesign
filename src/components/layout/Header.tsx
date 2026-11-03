@@ -141,20 +141,14 @@ export default function Header() {
               })}
             </nav>
 
-            {/* Right Action: Contact + Book a Demo */}
-            <div className="hidden lg:flex items-center gap-4">
+            {/* Right Action: Book a Demo */}
+            <div className="hidden lg:flex items-center">
               <Link
                 href={routes.contact}
-                className="text-sm font-semibold text-slate-700 hover:text-[#033653] transition-colors"
-              >
-                Contact
-              </Link>
-              <Link
-                href={routes.contact}
-                className="bg-[#66cc00] hover:bg-[#55b300] text-[#000000] px-5 py-2.5 rounded-full text-xs font-extrabold shadow-sm hover:shadow-md transition-all flex items-center gap-2 group"
+                className="bg-[#66cc00] hover:bg-[#55b300] text-[#000000] px-7 py-3 rounded-full text-sm font-extrabold shadow-sm hover:shadow-md transition-all flex items-center gap-2 group"
               >
                 <span>Book a Demo</span>
-                <ArrowRight className="w-3.5 h-3.5 text-[#000000] group-hover:translate-x-0.5 transition-transform" />
+                <ArrowRight className="w-4 h-4 text-[#000000] group-hover:translate-x-0.5 transition-transform" />
               </Link>
             </div>
 

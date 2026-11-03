@@ -14,7 +14,6 @@ import IndustryTabs from "@/components/home/IndustryTabs";
 import NewsCard from "@/components/cards/NewsCard";
 import AnalyticsDashboard from "@/components/product/AnalyticsDashboard";
 import ArchitecturalIntelligenceFlow from "@/components/product/ArchitecturalIntelligenceFlow";
-import GraphIntelligence from "@/components/product/GraphIntelligence";
 import { PartnerLogo, CredentialBadge, PartnerCarouselMarquee } from "@/components/home/PartnerLogos";
 import KYPLottie from "@/components/lottie/KYPLottie";
 import PurposeBuiltSolutions from "@/components/home/PurposeBuiltSolutions";
@@ -29,7 +28,7 @@ export default function HomePage() {
     <div className="w-full bg-white text-slate-900 overflow-hidden">
       
       {/* SECTION 1 – HERO (SIDE-BY-SIDE WITH LAYERED MOTION GRAPHICS) */}
-      <section className="relative pt-10 pb-16 lg:pt-16 lg:pb-28  bg-gradient-to-b from-slate-50/80 via-white to-slate-50/40 kyp-grid-pattern">
+      <section className="relative pt-12 pb-20 lg:pt-16 lg:pb-24  bg-gradient-to-b from-slate-50/80 via-white to-slate-50/40 kyp-grid-pattern">
         {/* Expansive Ambient Radial Lighting in Official Brand Tones */}
         <div className="absolute top-1/4 left-1/4 w-[850px] sm:w-[1050px] h-[550px] bg-[#033653]/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute top-10 right-10 w-[500px] h-[500px] bg-[#66cc00]/10 rounded-full blur-3xl pointer-events-none" />
@@ -46,8 +45,9 @@ export default function HomePage() {
               </div>
 
               {/* Main Headline */}
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-[80px] font-extrabold tracking-tight text-[#000000] leading-[1.04] font-heading">
-                Know Your Portfolio. <br />
+              <h1 className="text-4xl sm:text-5xl lg:text-[54px] xl:text-[62px] font-extrabold tracking-tight text-[#000000] leading-[1.08] font-heading">
+                Know Your <br />
+                Portfolio. <br />
                 <span className="bg-gradient-to-r from-[#66cc00] via-[#48a000] to-[#00875a] bg-clip-text text-transparent inline-block pb-1">
                   Uncover Hidden Risks.
                 </span>
@@ -105,7 +105,7 @@ export default function HomePage() {
       <ProvenInProduction />
 
       {/* SECTION 3 – THE PROBLEM */}
-      <section className="py-20 lg:py-28 bg-white  relative overflow-hidden">
+      <section className="py-20 lg:py-24 bg-white  relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Narrative */}
@@ -190,7 +190,7 @@ export default function HomePage() {
       {/* PURPOSE-BUILT OPERATING SOLUTIONS CARDS (Horizontal Suite from Recording 2026-11-02 153808) */}
       <PurposeBuiltSolutions />
       {/* PLATFORM HIGHLIGHTS - ARCHITECTURAL FLOW & GRAPH INTELLIGENCE */}
-      <section className="py-20 lg:py-28 bg-white relative overflow-hidden">
+      <section className="py-20 lg:py-24 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-16">
           <div className="max-w-3xl text-center mx-auto space-y-3">
             <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#000000] text-white border border-[#033653] text-xs font-mono font-bold uppercase tracking-wider shadow-sm">
@@ -210,10 +210,7 @@ export default function HomePage() {
             <ArchitecturalIntelligenceFlow />
           </div>
 
-          {/* Graph Intelligence Visualizer */}
-          <div className="w-full pt-4">
-            <GraphIntelligence />
-          </div>
+          
         </div>
       </section>
 
@@ -226,14 +223,14 @@ export default function HomePage() {
       <WorkflowSLADemo />
 
       {/* SECTION 7 – ANIMATED PLATFORM FLOW (Detailed Pipeline Section) */}
-      <section className="py-20 lg:py-28 bg-white ">
+      <section className="py-20 lg:py-24 bg-white ">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <PlatformFlow />
         </div>
       </section>
 
       {/* SECTION 8 – PLATFORM BENEFITS */}
-      <section className="py-20 lg:py-28 bg-slate-50 ">
+      <section className="py-20 lg:py-24 bg-slate-50 ">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-3xl mb-14">
             <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#000000] text-white border border-[#033653] text-xs font-mono font-bold uppercase tracking-wider">
@@ -297,7 +294,7 @@ export default function HomePage() {
       </section>
 
       {/* SECTION 9 – TESTIMONIALS */}
-      <section className="py-20 lg:py-28 bg-white ">
+      <section className="py-20 lg:py-24 bg-white ">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-3xl mb-14 text-center mx-auto">
             <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#000000] text-white border border-[#033653] text-xs font-mono font-bold uppercase tracking-wider">
@@ -345,7 +342,7 @@ export default function HomePage() {
       </section>
 
       {/* SECTION 10 – LATEST NEWS */}
-      <section className="py-20 lg:py-28 bg-slate-50 ">
+      <section className="py-20 lg:py-24 bg-slate-50 ">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4 text-center sm:text-left">
             <div>

@@ -80,7 +80,7 @@ export default function WorkflowSLADemo() {
   const isFinalStep = activeStepIndex === WORKFLOW_STEPS.length - 1;
 
   return (
-    <section className="py-20 lg:py-28 bg-white  relative overflow-hidden">
+    <section className="py-20 lg:py-24 bg-white  relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column: Narrative & SLA Value Proposition */}

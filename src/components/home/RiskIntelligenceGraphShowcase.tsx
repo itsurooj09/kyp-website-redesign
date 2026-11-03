@@ -73,7 +73,7 @@ export default function RiskIntelligenceGraphShowcase() {
   const currentRight = RIGHT_PILLS[activeRightIndex];
 
   return (
-    <section className="py-20 lg:py-28 bg-[#000000] text-white border-y-2 border-[#033653] relative overflow-hidden select-none">
+    <section className="py-20 lg:py-24 bg-[#000000] text-white border-y-2 border-[#033653] relative overflow-hidden select-none">
       {/* Background ambient radial glows */}
       <div className="absolute top-1/4 left-1/4 w-[550px] h-[550px] bg-[#033653]/35 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/4 w-[550px] h-[550px] bg-[#66cc00]/10 rounded-full blur-3xl pointer-events-none" />

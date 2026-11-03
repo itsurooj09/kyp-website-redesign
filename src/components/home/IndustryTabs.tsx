@@ -167,7 +167,7 @@ export default function IndustryTabs() {
   const currentTab = TABS_DATA.find((t) => t.id === activeTabId) || TABS_DATA[0];
 
   return (
-    <section className="py-20 lg:py-28 bg-slate-50/80  relative overflow-hidden">
+    <section className="py-20 lg:py-24 bg-slate-50/80  relative overflow-hidden">
       {/* Background grid accent */}
       <div className="absolute inset-0 kyp-grid-pattern opacity-60 pointer-events-none" />
 

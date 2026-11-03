@@ -78,7 +78,7 @@ export default function PurposeBuiltSolutions() {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
 
   return (
-    <section className="py-20 lg:py-28 bg-white  relative overflow-hidden">
+    <section className="py-20 lg:py-24 bg-white  relative overflow-hidden">
       {/* Spacious 80px background tech grid with subtle ambient depth */}
       <div className="absolute inset-0 kyp-grid-pattern opacity-60 pointer-events-none" />
 
