@@ -46,9 +46,9 @@ export default function HomePage() {
               </div>
 
               {/* Main Headline */}
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#000000] leading-[1.08] font-heading">
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-[80px] font-extrabold tracking-tight text-[#000000] leading-[1.04] font-heading">
                 Know Your Portfolio. <br />
-                <span className="text-[#033653]">
+                <span className="bg-gradient-to-r from-[#66cc00] via-[#48a000] to-[#00875a] bg-clip-text text-transparent inline-block pb-1">
                   Uncover Hidden Risks.
                 </span>
               </h1>
