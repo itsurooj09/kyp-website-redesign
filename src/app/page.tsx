@@ -13,8 +13,6 @@ import PlatformFlow from "@/components/product/PlatformFlow";
 import IndustryTabs from "@/components/home/IndustryTabs";
 import NewsCard from "@/components/cards/NewsCard";
 import AnalyticsDashboard from "@/components/product/AnalyticsDashboard";
-import ArchitecturalIntelligenceFlow from "@/components/product/ArchitecturalIntelligenceFlow";
-import GraphIntelligence from "@/components/product/GraphIntelligence";
 import { PartnerLogo, CredentialBadge, PartnerCarouselMarquee } from "@/components/home/PartnerLogos";
 import KYPLottie from "@/components/lottie/KYPLottie";
 import PurposeBuiltSolutions from "@/components/home/PurposeBuiltSolutions";
@@ -190,71 +188,7 @@ export default function HomePage() {
       {/* PURPOSE-BUILT OPERATING SOLUTIONS CARDS (Horizontal Suite from Recording 2026-11-02 153808) */}
       <PurposeBuiltSolutions />
 
-      {/* SECTION 5 – PLATFORM HIGHLIGHTS (Expansive light layout & animated analytics command center) */}
-      <section className="py-20 lg:py-28 bg-white  relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-16">
-          <div className="max-w-3xl text-center mx-auto space-y-3">
-            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#000000] text-white border border-[#033653] text-xs font-mono font-bold uppercase tracking-wider shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-[#66cc00] animate-pulse" />
-              <span>PLATFORM ARCHITECTURE &bull; UNIFIED ENGINE</span>
-            </span>
-            <h2 className="text-3xl sm:text-5xl font-bold text-slate-900 tracking-tight">
-              One Platform. Complete Risk Intelligence.
-            </h2>
-            <p className="text-sm sm:text-base text-slate-600 mt-3 leading-relaxed">
-              KYP brings merchant onboarding, due diligence, continuous monitoring, and audit reporting together in one unified command center.
-            </p>
-          </div>
-
-          
-
-          {/* Feature 2: Continuous Intelligence Pipeline (Filling Red Box from Image 1 with Full Narrative) */}
-          <div className="py-16  space-y-8">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              <div className="lg:col-span-12 text-center max-w-3xl mx-auto space-y-3">
-                <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#000000] text-white border border-[#033653] text-xs font-mono font-bold uppercase tracking-wider shadow-sm">
-                  <span className="w-2 h-2 rounded-full bg-[#66cc00] animate-pulse" />
-                  <span>Multi-Stream Risk Pipeline</span>
-                </span>
-                <h3 className="text-2xl sm:text-4xl font-extrabold text-[#000000] tracking-tight">
-                  Continuous Intelligence Pipeline
-                </h3>
-                <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-3xl">
-                  Synthesize multi-source telemetry feeds into automated risk scoring, real-time policy rules, and sub-second compliance decisions across your entire merchant ecosystem.
-                </p>
-              </div>
-              <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 justify-end items-start lg:items-end font-mono text-xs">
-                <div className="flex items-center gap-2 text-slate-700 font-semibold">
-                  <CheckCircle2 className="w-4 h-4 text-[#66cc00]" />
-                  <span>9-Stream Telemetry Ingestion</span>
-                </div>
-                <div className="flex items-center gap-2 text-slate-700 font-semibold">
-                  <CheckCircle2 className="w-4 h-4 text-[#66cc00]" />
-                  <span>Sub-30s SLA Decisioning</span>
-                </div>
-              </div>
-            </div>
-
-            <ArchitecturalIntelligenceFlow />
-          </div>
-
-          {/* Feature 3: Graph Intelligence */}
-          <div className="space-y-6 pt-12 border-t border-slate-200">
-            <div className="max-w-3xl text-center mx-auto space-y-3">
-              <span className="text-xs font-mono bg-[#000000] text-white px-3.5 py-1 rounded-full border border-[#033653] uppercase tracking-wider font-bold">
-                Visual Contagion Analysis
-              </span>
-              <h3 className="text-2xl sm:text-4xl font-extrabold text-[#000000] tracking-tight mt-3">
-                Graph Intelligence
-              </h3>
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed mt-2">
-                Understand relationships between businesses, individuals, ownership structures, and connected risks. Unravel circular holdings and exposed beneficial ownership.
-              </p>
-            </div>
-            <GraphIntelligence />
-          </div>
-        </div>
-      </section>
+      
 
       
 
@@ -370,7 +304,7 @@ export default function HomePage() {
                   </p>
                 </div>
 
-                <div className="pt-3 border-t border-slate-200">
+                <div className="pt-3 ">
                   <div className="text-xs font-bold text-slate-900">{item.author}</div>
                   <div className="text-[11px] text-slate-500">{item.role} &bull; {item.company}</div>
                 </div>
