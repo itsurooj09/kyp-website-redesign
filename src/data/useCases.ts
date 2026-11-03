@@ -1222,6 +1222,11 @@ export const useCasesData: UseCaseDetail[] = [
         description: "Comprehensive risk reports backed by supporting regulatory sources and visitor telemetry data.",
         icon: "FileCheck",
       },
+      {
+        title: "Prohibited Market Alerting",
+        description: "Automated notification triggers whenever incoming merchant traffic spikes from blacklisted jurisdictions.",
+        icon: "AlertCircle",
+      },
     ],
     benefits: [
       {

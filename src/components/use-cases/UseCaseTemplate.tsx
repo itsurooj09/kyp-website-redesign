@@ -141,9 +141,7 @@ export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail })
           <div className={`grid gap-6 ${
             useCase.problem.points.length <= 2
               ? "grid-cols-1 md:grid-cols-2 max-w-4xl mx-auto"
-              : useCase.problem.points.length === 4
-              ? "grid-cols-1 md:grid-cols-2"
-              : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+              : "grid-cols-1 md:grid-cols-2 max-w-5xl mx-auto"
           }`}>
             {useCase.problem.points.map((pt, idx) => (
               <motion.div
@@ -283,8 +281,8 @@ export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail })
             </p>
           </div>
 
-          {/* 6 Cards strictly in 3, 3 Layout (Row 1: 3 cards, Row 2: 3 cards) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Balanced 2, 2 Grid Layout */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {useCase.features.map((feat, idx) => (
               <motion.div
                 key={idx}
@@ -373,9 +371,7 @@ export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail })
           <div className={`grid gap-6 ${
             useCase.benefits.length <= 2
               ? "grid-cols-1 md:grid-cols-2 max-w-4xl mx-auto"
-              : useCase.benefits.length === 4
-              ? "grid-cols-1 md:grid-cols-2"
-              : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+              : "grid-cols-1 md:grid-cols-2 max-w-5xl mx-auto"
           }`}>
             {useCase.benefits.map((b, idx) => (
               <motion.div
