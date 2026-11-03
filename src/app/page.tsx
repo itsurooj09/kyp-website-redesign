@@ -45,10 +45,10 @@ export default function HomePage() {
               </div>
 
               {/* Main Headline */}
-              <h1 className="text-4xl sm:text-5xl lg:text-[54px] xl:text-[62px] font-extrabold tracking-tight text-[#000000] leading-[1.08] font-heading">
+              <h1 className="text-4xl sm:text-5xl lg:text-[46px] xl:text-[52px] font-extrabold tracking-tight text-[#000000] leading-[1.08] font-heading">
                 Know Your <br />
                 Portfolio. <br />
-                <span className="bg-gradient-to-r from-[#66cc00] via-[#48a000] to-[#00875a] bg-clip-text text-transparent inline-block pb-1">
+                <span className="bg-gradient-to-r from-[#66cc00] via-[#48a000] to-[#00875a] bg-clip-text text-transparent sm:whitespace-nowrap inline-block pb-1">
                   Uncover Hidden Risks.
                 </span>
               </h1>

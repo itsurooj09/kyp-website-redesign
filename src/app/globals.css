@@ -108,7 +108,10 @@ body {
 
 /* Background grid patterns for light theme with brand ambient glows - Larger spacious 80px box grid */
 .kyp-grid-pattern {
-  /* Background grid lines removed per user request */
+  background-size: 80px 80px;
+  background-image: 
+    linear-gradient(to right, rgba(3, 54, 83, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(3, 54, 83, 0.05) 1px, transparent 1px);
 }
 
 .kyp-radial-glow {

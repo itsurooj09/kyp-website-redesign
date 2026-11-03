@@ -336,25 +336,27 @@ export default function UseCaseTemplate({ useCase }: { useCase: UseCaseDetail })
         </div>
       </section>
 
-      {/* GRAPH INTELLIGENCE & ENTITY RESOLUTION */}
-      <section className="py-20 lg:py-24 bg-white relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-12">
-          <div className="max-w-3xl mb-12 space-y-3 text-center mx-auto">
-            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#000000] text-white border border-[#033653] text-xs font-mono font-bold uppercase tracking-wider shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-[#66cc00] animate-pulse" />
-              <span>Entity Resolution &bull; Graph Intelligence</span>
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#000000] tracking-tight">
-              Interactive Network &amp; Contagion Analysis
-            </h2>
-            <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
-              Inspect multi-tier corporate hierarchies, beneficial owners (UBOs), directors, and subsidiary contagion pathways in real-time.
-            </p>
-          </div>
+      {/* GRAPH INTELLIGENCE & ENTITY RESOLUTION - Shown selectively on relevant deep-dive pages */}
+      {["anti-money-laundering", "enhanced-compliance", "portfolio-issuing-monitoring"].includes(useCase.slug) && (
+        <section className="py-20 lg:py-24 bg-white relative overflow-hidden">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-12">
+            <div className="max-w-3xl mb-12 space-y-3 text-center mx-auto">
+              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#000000] text-white border border-[#033653] text-xs font-mono font-bold uppercase tracking-wider shadow-sm">
+                <span className="w-2 h-2 rounded-full bg-[#66cc00] animate-pulse" />
+                <span>Entity Resolution &bull; Graph Intelligence</span>
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#000000] tracking-tight">
+                Interactive Network &amp; Contagion Analysis
+              </h2>
+              <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+                Inspect multi-tier corporate hierarchies, beneficial owners (UBOs), directors, and subsidiary contagion pathways in real-time.
+              </p>
+            </div>
 
-          <GraphIntelligence />
-        </div>
-      </section>
+            <GraphIntelligence />
+          </div>
+        </section>
+      )}
 
       {/* SECTION 7 – BUSINESS BENEFITS (WITH DARK BLACK HOVER) */}
       <section className="py-20 lg:py-24 bg-white ">
